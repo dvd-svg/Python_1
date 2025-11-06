@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diccionaris</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Diccionaris</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Familiaritzar-te amb l'<strong>estructura de dades del diccionari</strong> i les seves característiques principals</li>
+          <li>Ser capaç d'utilitzar un diccionari amb <strong>diferents tipus de claus i valors</strong> segons les necessitats</li>
+          <li>Saber <strong>recórrer el contingut</strong> d'un diccionari mitjançant les seves claus i valors</li>
+          <li>Poder identificar i aplicar <strong>casos d'ús típics</strong> on els diccionaris són especialment útils</li>
+        </ul>
+      </section>
+      <section id="diccionaris-introduccio">
+        <h2>Diccionaris</h2>
+        <p>Les llistes poden ser útils en moltes situacions, però estan limitades pel fet que els elements s'accedeixen mitjançant índexs; 0, 1, 2, i així successivament. Si vols trobar algun element en una llista, hauràs de conèixer el seu índex o, en el pitjor dels casos, recórrer tota la llista.</p>
+        <p>Una altra <strong>estructura de dades central</strong> en Python és el <strong>diccionari</strong>. En un diccionari, els elements s'indexen per claus. Cada clau assigna a un valor. Els valors emmagatzemats en el diccionari es poden accedir i canviar utilitzant la clau.</p>
+      </section>
+
+      <section id="usar-diccionari">
+        <h2>Utilitzar un diccionari</h2>
+        <p>L'exemple següent et mostra com funciona l'estructura de dades del diccionari. Aquí tens un diccionari simple del finès a l'anglès:</p>
+        <pre><code class="language-python">el_meu_diccionari = {}
+
+el_meu_diccionari["mico"] = "monkey"
+el_meu_diccionari["plàtan"] = "banana"
+el_meu_diccionari["clavicèmbal"] = "harpsichord"
+
+print(len(el_meu_diccionari))
+print(el_meu_diccionari)
+print(el_meu_diccionari["mico"])</code></pre>
+        <pre class="output">
+3
+{'mico': 'monkey', 'plàtan': 'banana', 'clavicèmbal': 'harpsichord'}
+monkey</pre
+        >
+        <p>La notació <code class="inline">{}</code> crea un diccionari buit, al qual ara podem afegir contingut. S'afegeixen tres parells clau-valor: <code class="inline">"mico"</code> assigna a <code class="inline">"monkey"</code>, <code class="inline">"plàtan"</code> assigna a <code class="inline">"banana"</code>, i <code class="inline">"clavicèmbal"</code> assigna a <code class="inline">"harpsichord"</code>. Finalment, s'imprimeix el nombre de parells clau-valor en el diccionari, juntament amb tot el diccionari, i el valor assignat a la clau <code class="inline">"mico"</code>.</p>
+        <p>Després de definir el diccionari també podríem utilitzar-lo amb entrada de l'usuari:</p>
+        <pre><code class="language-python">paraula = input("Si us plau, escriu una paraula: ")
+if paraula in el_meu_diccionari:
+    print("Traducció: ", el_meu_diccionari[paraula])
+else:
+    print("Paraula no trobada")</code></pre>
+        <p>Observa l'ús de l'operador <code class="inline">in</code> anterior. Quan s'utilitza en una variable de tipus diccionari, comprova si el primer operand es troba entre les claus emmagatzemades en el diccionari. Donades diferents entrades, aquest programa podria imprimir el següent:</p>
+        <pre class="output">
+Si us plau, escriu una paraula: mico
+Traducció: monkey</pre
+        >
+        <pre class="output">
+Si us plau, escriu una paraula: mussol
+Paraula no trobada</pre
+        >
+      </section>
+
+      <section id="que-es-pot-emmagatzemar">
+        <h2>Què es pot emmagatzemar en un diccionari?</h2>
+        <p>El tipus de dades es diu diccionari, però no ha de contenir només cadenes de text. Per exemple, en el diccionari següent les claus són cadenes de text, però els valors són enters:</p>
+        <pre><code class="language-python">resultats = {}
+resultats["Maria"] = 4
+resultats["Anna"] = 5
+resultats["Lluís"] = 2</code></pre>
+        <p>Aquí les claus són enters i els valors són llistes:</p>
+        <pre><code class="language-python">llistes = {}
+llistes[5] = [1, 2, 3]
+llistes[42] = [5, 4, 5, 4, 5]
+llistes[100] = [5, 2, 3]</code></pre>
+      </section>
+
+      <section id="com-funcionen-claus-i-valors">
+        <h2>Com funcionen les claus i els valors</h2>
+        <p>Cada clau pot aparèixer només una vegada en el diccionari. Si afegiu una entrada utilitzant una clau que ja existeix en el diccionari, el valor original assignat a aquesta clau es reemplaça amb el nou valor:</p>
+        <pre><code class="language-python">el_meu_diccionari["gran"] = "big"
+el_meu_diccionari["gran"] = "large"
+print(el_meu_diccionari["gran"])</code></pre>
+        <pre class="output">large</pre>
+        <p>Totes les claus en un diccionari han de ser <strong>immutables</strong>. Per tant, una llista no es pot utilitzar com a clau, perquè es pot canviar. Per exemple, executar el codi següent causa un error:</p>
+        <pre><code class="language-python">el_meu_diccionari[[1, 2, 3]] = 5</code></pre>
+        <pre class="output">TypeError: unhashable type: 'list'</pre>
+      </section>
+
+      <section id="taula-hash">
+        <h2>Taula hash</h2>
+        <p>Observa la paraula 'unhashable' en el missatge d'error anterior. Això és una referència al funcionament intern del tipus de dades diccionari. Python emmagatzema el contingut d'un diccionari en una <strong>taula hash</strong>. Cada clau es redueix a un <strong>valor hash</strong>, que determina on s'emmagatzema la clau en la memòria de l'ordinador. El missatge d'error anterior indica que una llista no es pot processar en un valor hash, per tant no es pot utilitzar com a clau en un diccionari.</p>
+        <p>Els cursos d'Estructures de Dades i Algorismes exploraran més les taules hash.</p>
+        <p>A diferència de les claus, els valors emmagatzemats en un diccionari poden canviar, de manera que qualsevol tipus de dades és acceptable com a valor. Un valor també pot ser assignat a més d'una clau en el mateix diccionari.</p>
+      </section>
+
+      <section id="exercici-deu-vegades">
+        <div class="exercici">
+          <h3>Exercici: Deu vegades</h3>
+          <p>Escriu una funció anomenada <code class="inline">deu_vegades(índex_inici: int, índex_fi: int)</code>, que crea i retorna un nou diccionari. Les claus del diccionari han de ser els números entre <code class="inline">índex_inici</code> i <code class="inline">índex_fi</code> inclosos.</p>
+          <p>El valor assignat a cada clau ha de ser la clau multiplicada per deu.</p>
+          <p>Per exemple:</p>
+          <pre><code class="language-python">d = deu_vegades(3, 6)
+print(d)</code></pre>
+          <pre class="output">{3: 30, 4: 40, 5: 50, 6: 60}</pre>
+        </div>
+      </section>
+
+      <section id="exercici-factorials">
+        <div class="exercici">
+          <h3>Exercici: Factorials</h3>
+          <p>Escriu una funció anomenada <code class="inline">factorials(n: int)</code>, que retorna els factorials dels números 1 a n en un diccionari. El número és la clau, i el factorial d'aquest número és el valor assignat.</p>
+          <p>Un recordatori: el factorial del número n s'escriu n! i es calcula multiplicant el número per cada enter més petit que ell mateix. Per exemple, el factorial de 4 és 4 * 3 * 2 * 1 = 24.</p>
+          <p>Un exemple del funcionament de la funció:</p>
+          <pre><code class="language-python">k = factorials(5)
+print(k[1])
+print(k[3])
+print(k[5])</code></pre>
+          <pre class="output">
+1
+6
+120</pre
+          >
+        </div>
+      </section>
+
+      <section id="recórrer-diccionari">
+        <h2>Recórrer un diccionari</h2>
+        <p>El conegut bucle <code class="inline">for element in col·lecció</code> també es pot utilitzar per recórrer un diccionari. Quan s'utilitza directament en el diccionari, el bucle passa per les claus emmagatzemades en el diccionari, una per una. En l'exemple següent, es mostren totes les claus i valors emmagatzemats en el diccionari:</p>
+        <pre><code class="language-python">el_meu_diccionari = {}
+
+el_meu_diccionari["mico"] = "monkey"
+el_meu_diccionari["plàtan"] = "banana"
+el_meu_diccionari["clavicèmbal"] = "harpsichord"
+
+for clau in el_meu_diccionari:
+    print("clau:", clau)
+    print("valor:", el_meu_diccionari[clau])</code></pre>
+        <pre class="output">
+clau: mico
+valor: monkey
+clau: plàtan
+valor: banana
+clau: clavicèmbal
+valor: harpsichord</pre
+        >
+        <p>A vegades necessites recórrer tot el contingut d'un diccionari. El mètode <code class="inline">items</code> retorna totes les claus i valors emmagatzemats en el diccionari, un parell a la vegada:</p>
+        <pre><code class="language-python">for clau, valor in el_meu_diccionari.items():
+    print("clau:", clau)
+    print("valor:", valor)</code></pre>
+      </section>
+
+      <section id="usos-avançats-diccionaris">
+        <h2>Alguns usos més avançats dels diccionaris</h2>
+        <p>Fem una ullada a una llista de paraules:</p>
+        <pre><code class="language-python">llista_paraules = [
+  "plàtan", "llet", "cervesa", "formatge", "iogurt", "suc", "salsitxa",
+  "tomàquet", "cogombre", "mantega", "margarina", "formatge", "salsitxa",
+  "cervesa", "iogurt", "iogurt", "mantega", "cervesa", "xocolata"
+]</code></pre>
+        <p>Voldríem analitzar aquesta llista de paraules de diferents maneres. Per exemple, voldríem saber quantes vegades apareix cada paraula en la llista.</p>
+        <p>Un diccionari pot ser una eina útil per gestionar aquest tipus d'informació. En l'exemple següent, recorrem els elements de la llista un per un. Utilitzant les paraules de la llista com a claus en un nou diccionari, el valor assignat a cada clau és el nombre de vegades que la paraula ha aparegut:</p>
+        <pre><code class="language-python">def recomptes(la_meva_llista):
+    paraules = {}
+    for paraula in la_meva_llista:
+        # si la paraula encara no està en el diccionari, inicialitza el valor a zero
+        if paraula not in paraules:
+            paraules[paraula] = 0
+        # incrementa el valor
+        paraules[paraula] += 1
+    return paraules
+
+# crida la funció
+print(recomptes(llista_paraules))</code></pre>
+        <pre class="output">{'plàtan': 1, 'llet': 1, 'cervesa': 3, 'formatge': 2, 'iogurt': 3, 'suc': 1, 'salsitxa': 2, 'tomàquet': 1, 'cogombre': 1, 'mantega': 2, 'margarina': 1, 'xocolata': 1}</pre>
+        <p>I si volguéssim categoritzar les paraules basant-nos en la lletra inicial de cada paraula? Una manera d'aconseguir-ho seria utilitzar diccionaris:</p>
+        <pre><code class="language-python">def categoritzar_per_inicial(la_meva_llista):
+    grups = {}
+    for paraula in la_meva_llista:
+        inicial = paraula[0]
+        # inicialitza una nova llista quan es troba la lletra per primera vegada
+        if inicial not in grups:
+            grups[inicial] = []
+        # afegeix la paraula a la llista apropiada
+        grups[inicial].append(paraula)
+    return grups
+
+grups = categoritzar_per_inicial(llista_paraules)
+
+for clau, valor in grups.items():
+    print(f"paraules que comencen amb {clau}:")
+    for paraula in valor:
+        print(paraula)</code></pre>
+        <pre class="output">
+paraules que comencen amb p:
+plàtan
+paraules que comencen amb l:
+llet
+paraules que comencen amb c:
+cervesa
+cogombre
+cervesa
+cervesa
+paraules que comencen amb f:
+formatge
+formatge
+paraules que comencen amb i:
+iogurt
+iogurt
+iogurt
+paraules que comencen amb s:
+suc
+salsitxa
+salsitxa
+paraules que comencen amb t:
+tomàquet
+paraules que comencen amb m:
+mantega
+margarina
+mantega
+paraules que comencen amb x:
+xocolata</pre
+        >
+      </section>
+
+      <section id="exercici-histograma">
+        <div class="exercici">
+          <h3>Exercici: Histograma</h3>
+          <p>Escriu una funció anomenada <code class="inline">histograma</code>, que pren una cadena de text com a argument. La funció ha d'imprimir un histograma que representi el nombre de vegades que apareix cada lletra en la cadena. Cada aparició d'una lletra ha de ser representada per un asterisc en la línia específica per a aquesta lletra.</p>
+          <p>Per exemple, la crida a la funció <code class="inline">histograma("abba")</code> hauria d'imprimir</p>
+          <pre class="output">
+a **
+b **</pre
+          >
+          <p>mentre que <code class="inline">histograma("estadísticament")</code> hauria d'imprimir</p>
+          <pre class="output">
+e **
+s **
+t ***
+a **
+d *
+i **
+c *
+m*
+n*</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-agenda-telefonica-1">
+        <div class="exercici">
+          <h3>Exercici: Agenda telefònica, versió 1</h3>
+          <p>Escriu una aplicació d'agenda telefònica. Ha de funcionar de la següent manera:</p>
+          <pre class="output">
+comanda (1 cercar, 2 afegir, 3 sortir): 2
+nom: pere
+número: 040-5466745
+ok!
+comanda (1 cercar, 2 afegir, 3 sortir): 2
+nom: anna
+número: 045-1212344
+ok!
+comanda (1 cercar, 2 afegir, 3 sortir): 1
+nom: pere
+040-5466745
+comanda (1 cercar, 2 afegir, 3 sortir): 1
+nom: maria
+no s'ha trobat el número
+comanda (1 cercar, 2 afegir, 3 sortir): 2
+nom: pere
+número: 09-22223333
+ok!
+comanda (1 cercar, 2 afegir, 3 sortir): 1
+nom: pere
+09-22223333
+comanda (1 cercar, 2 afegir, 3 sortir): 3
+sortint...</pre
+          >
+          <p>Com pots veure a dalt, cada nom pot estar vinculat a un sol número. Si s'afegeix una nova entrada amb el mateix nom, el número vinculat a l'entrada antiga es reemplaça amb el nou número.</p>
+        </div>
+      </section>
+
+      <section id="exercici-agenda-telefonica-2">
+        <div class="exercici">
+          <h3>Exercici: Agenda telefònica, versió 2</h3>
+          <p>Escriu una versió millorada de l'aplicació d'agenda telefònica. Ara cada entrada ha d'acomodar múltiples números de telèfon. L'aplicació ha de funcionar exactament igual que abans, però aquest cop s'han d'imprimir tots els números vinculats a un nom.</p>
+          <pre class="output">
+comanda (1 cercar, 2 afegir, 3 sortir): 2
+nom: pere
+número: 040-5466745
+ok!
+comanda (1 cercar, 2 afegir, 3 sortir): 2
+nom: anna
+número: 045-1212344
+ok!
+comanda (1 cercar, 2 afegir, 3 sortir): 1
+nom: pere
+040-5466745
+comanda (1 cercar, 2 afegir, 3 sortir): 1
+nom: maria
+no s'ha trobat el número
+comanda (1 cercar, 2 afegir, 3 sortir): 2
+nom: pere
+número: 09-22223333
+ok!
+comanda (1 cercar, 2 afegir, 3 sortir): 1
+nom: pere
+040-5466745
+09-22223333
+comanda (1 cercar, 2 afegir, 3 sortir): 3
+sortint...</pre
+          >
+        </div>
+      </section>
+
+      <section id="eliminar-claus-i-valors">
+        <h2>Eliminar claus i valors d'un diccionari</h2>
+        <p>És naturalment possible també eliminar parells clau-valor del diccionari. Hi ha dues maneres d'aconseguir-ho. La primera és la comanda <code class="inline">del</code>:</p>
+        <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
+del personal["David"]
+print(personal)</code></pre>
+        <pre class="output">{'Alan': 'professor', 'Anna': 'catedràtica'}</pre>
+        <p>Si intentes utilitzar la comanda <code class="inline">del</code> per eliminar una clau que no existeix en el diccionari, hi haurà un error:</p>
+        <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
+del personal["Pau"]</code></pre>
+        <pre class="output">
+>>> del personal["Pau"]
+Traceback (most recent call last):
+  File "", line 1, in 
+KeyError: 'Pau'</pre
+        >
+        <p>Així que, abans d'eliminar una clau hauries de comprovar si està present en el diccionari:</p>
+        <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
+if "Pau" in personal:
+  del personal["Pau"]
+  print("Eliminat")
+else:
+  print("Aquesta persona no és membre del personal")</code></pre>
+        <p>L'altra manera d'eliminar entrades en un diccionari és el mètode <code class="inline">pop</code>:</p>
+        <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
+eliminat = personal.pop("David")
+print(personal)
+print(eliminat, "eliminat")</code></pre>
+        <pre class="output">
+{'Alan': 'professor', 'Anna': 'catedràtica'}
+professor eliminat</pre
+        >
+        <p>Com pots veure a dalt, <code class="inline">pop</code> també retorna el valor de l'entrada eliminada.</p>
+        <p>Per defecte, <code class="inline">pop</code> també causarà un error si intentes eliminar una clau que no està present en el diccionari. És possible evitar això donant al mètode un segon argument, que conté un valor de retorn per defecte. Aquest valor es retorna en cas que la clau no es trobi en el diccionari. El valor especial de Python <code class="inline">None</code> funcionarà aquí:</p>
+        <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
+eliminat = personal.pop("Pau", None)
+if eliminat == None:
+  print("Aquesta persona no és membre del personal")
+else:
+  print(eliminat, "eliminat")</code></pre>
+        <pre class="output">Aquesta persona no és membre del personal</pre>
+        <p><strong>Nota:</strong> si necessites eliminar el contingut de tot el diccionari, i intentes fer-ho amb un bucle for, així:</p>
+        <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
+for clau in personal:
+  del personal[clau]</code></pre>
+        <p>rebràs un missatge d'error:</p>
+        <pre class="output">RuntimeError: dictionary changed size during iteration</pre>
+        <p>Quan es recorre una col·lecció amb un bucle for, el contingut no pot canviar mentre el bucle està en progrés.</p>
+        <p>Per sort, hi ha un mètode de diccionari per a aquest propòsit:</p>
+        <pre><code class="language-python">personal.clear()</code></pre>
+      </section>
+
+      <section id="exercici-invertir-diccionari">
+        <div class="exercici">
+          <h3>Exercici: Invertir un diccionari</h3>
+          <p>Escriu una funció anomenada <code class="inline">invertir(diccionari: dict)</code>, que pren un diccionari com a argument. El diccionari s'ha d'invertir in situ de manera que els valors es converteixin en claus i les claus es converteixin en valors.</p>
+          <p>Un exemple del seu ús:</p>
+          <pre><code class="language-python">s = {1: "primer", 2: "segon", 3: "tercer", 4: "quart"}
+invertir(s)
+print(s)</code></pre>
+          <pre class="output">{"primer": 1, "segon": 2, "tercer": 3, "quart": 4}</pre>
+          <p><strong>Nota:</strong> els principis respecte a les llistes coberts aquí també s'apliquen als diccionaris passats com a arguments.</p>
+        </div>
+      </section>
+
+      <section id="exercici-nombres-escrits">
+        <div class="exercici">
+          <h3>Exercici: Nombres escrits amb lletres</h3>
+          <p>Escriu una funció anomenada <code class="inline">diccionari_nombres()</code>, que retorna un nou diccionari. El diccionari ha de tenir els números del 0 al 99 com a claus. El valor assignat a cada clau ha de ser el número escrit amb paraules. Fes una ullada a l'exemple següent:</p>
+          <pre><code class="language-python">nombres = diccionari_nombres()
+print(nombres[2])
+print(nombres[11])
+print(nombres[45])
+print(nombres[99])
+print(nombres[0])</code></pre>
+          <pre class="output">
+dos
+onze
+quaranta-cinc
+noranta-nou
+zero</pre
+          >
+          <p><strong>Nota:</strong> No formulis cada número escrit a mà. Descobreix com pots utilitzar bucles i diccionaris en la teva solució.</p>
+        </div>
+      </section>
+
+      <section id="diccionaris-dades-estructurades">
+        <h2>Utilitzar diccionaris per a dades estructurades</h2>
+        <p>Els diccionaris són molt útils per estructurar dades. El codi següent crearà un diccionari que conté algunes dades personals:</p>
+        <pre><code class="language-python">persona = {"nom": "Pere Python", "alçada": 154, "pes": 61, "edat": 44}</code></pre>
+        <p>Això vol dir que tenim aquí una persona anomenada Pere Python, amb alçada 154, pes 61 i edat 44. La mateixa informació podria igualment ser emmagatzemada en variables:</p>
+        <pre><code class="language-python">nom = "Pere Python"
+alçada = 154
+pes = 61
+edat = 44</code></pre>
+        <p>L'avantatge d'un diccionari és que és una col·lecció. Recull dades relacionades sota una variable, de manera que és fàcil accedir als diferents components. Aquest mateix avantatge l'ofereix una llista:</p>
+        <pre><code class="language-python">persona = ["Pere Python", 153, 61, 44]</code></pre>
+        <p>Amb llistes, el programador haurà de recordar què s'emmagatzema en cada índex de la llista. No hi ha res que indiqui que <code class="inline">persona[2]</code> conté el pes i <code class="inline">persona[3]</code> l'edat de la persona. En utilitzar un diccionari s'evita aquest problema, ja que cada dada s'accedeix a través d'una clau amb nom.</p>
+        <p>Suposant que hem definit múltiples persones utilitzant el mateix format, podem accedir a les seves dades de la següent manera:</p>
+        <pre><code class="language-python">persona1 = {"nom": "Pere Python", "alçada": 154, "pes": 61, "edat": 44}
+persona2 = {"nom": "Anna Python", "alçada": 174, "pes": 103, "edat": 31}
+persona3 = {"nom": "Pau Python", "alçada": 191, "pes": 71, "edat": 14}
+
+persones = [persona1, persona2, persona3]
+
+for persona in persones:
+    print(persona["nom"])
+
+alçada_combinada = 0
+for persona in persones:
+    alçada_combinada += persona["alçada"]
+
+print("L'alçada mitjana és", alçada_combinada / len(persones))</code></pre>
+        <pre class="output">
+Pere Python
+Anna Python
+Pau Python
+L'alçada mitjana és 173.0</pre
+        >
+      </section>
+
+      <section id="exercici-base-dades-pelicules">
+        <div class="exercici">
+          <h3>Exercici: Base de dades de pel·lícules</h3>
+          <p>Escriu una funció anomenada <code class="inline">afegir_pelicula(base_dades: list, nom: str, director: str, any: int, durada: int)</code>, que afegeix un nou objecte de pel·lícula a una base de dades de pel·lícules.</p>
+          <p>La base de dades és una llista, i cada objecte de pel·lícula en la llista és un diccionari. El diccionari ha de contenir les claus següents.</p>
+          <ul>
+            <li><code class="inline">nom</code></li>
+            <li><code class="inline">director</code></li>
+            <li><code class="inline">any</code></li>
+            <li><code class="inline">durada</code></li>
+          </ul>
+          <p>Els valors assignats a aquestes claus es donen com a arguments a la funció.</p>
+          <p>Un exemple del seu ús:</p>
+          <pre><code class="language-python">base_dades = []
+afegir_pelicula(base_dades, "Allò que el vent s'endugué amb Python", "Víctor Pything", 2017, 116)
+afegir_pelicula(base_dades, "Pítons en un avió", "Renat Pytholin", 2001, 94)
+print(base_dades)</code></pre>
+          <pre class="output">[{"nom": "Allò que el vent s'endugué amb Python", "director": "Víctor Pything", "any": 2017, "durada": 116}, {"nom": "Pítons en un avió", "director": "Renat Pytholin", "any": 2001, "durada": 94}]</pre>
+        </div>
+      </section>
+
+      <section id="exercici-trobar-pelicules">
+        <div class="exercici">
+          <h3>Exercici: Trobar pel·lícules</h3>
+          <p>Escriu una funció anomenada <code class="inline">trobar_pelicules(base_dades: list, terme_cerca: str)</code>, que processa la base de dades de pel·lícules creada en l'exercici anterior. La funció ha de formular una nova llista, que contingui només les pel·lícules el títol de les quals inclou la paraula cercada. Les majúscules i minúscules són irrellevants aquí. Una cerca per 'ana' hauria de retornar una llista que contingui tant 'Anaconda' com 'Gestió'.</p>
+          <p>Un exemple del seu ús:</p>
+          <pre><code class="language-python">base_dades = [{"nom": "Allò que el vent s'endugué amb Python", "director": "Víctor Pything", "any": 2017, "durada": 116},
+{"nom": "Pítons en un avió", "director": "Renat Pytholin", "any": 2001, "durada": 94},
+{"nom": "L'alba dels programadors morts", "director": "M. Nit Python", "any": 2011, "durada": 101}]
+
+les_meves_pelicules = trobar_pelicules(base_dades, "python")
+print(les_meves_pelicules)</code></pre>
+          <pre class="output">[{"nom": "Allò que el vent s'endugué amb Python", "director": "Víctor Pything", "any": 2017, "durada": 116}, {"nom": "Pítons en un avió", "director": "Renat Pytholin", "any": 2001, "durada": 94}]</pre>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Diccionari</strong>: estructura de dades que emmagatzema elements com a parells clau-valor.</li>
+          <li><strong>Clau</strong>: identificador únic i immutable per accedir a un valor en el diccionari.</li>
+          <li><strong>Valor</strong>: dada emmagatzemada associada a una clau, pot ser de qualsevol tipus.</li>
+          <li><strong>Parell clau-valor</strong>: unitat bàsica d'emmagatzematge en un diccionari.</li>
+          <li><strong>Mètode</strong><code class="inline">items()</code>: retorna totes les claus i valors del diccionari per recórrer-lo.</li>
+          <li><strong>Estructuració de dades</strong>: ús de diccionaris per organitzar informació complexa de manera lògica.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="5_2_References.html">
+              <span class="tornar">←</span>
+              <h3>5.2 Referències</h3>
+            </a>
+          </li>
+          <li>
+            <a href="5_4_Tuples.html">
+              <h3>5.4 Tuples</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

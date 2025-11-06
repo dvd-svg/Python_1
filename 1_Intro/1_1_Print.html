@@ -14,24 +14,24 @@
     <div class="fons"></div>
     <main>
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
-      <section>
+      <section id="hola-mon-introduccio">
         <h1>Introducció a la programació: Hola món</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Aprendre a escriure i executar el teu primer programa en Python.</li>
-          <li>Fer servir la instrucció <strong>print</strong> per mostrar <strong>sortida</strong> per pantalla.</li>
+          <li>Fer servir la instrucció <code class="inline">print()</code> per mostrar <strong>sortida</strong> per pantalla.</li>
           <li>Utilitzar la programació per fer operacions <strong>aritmètiques senzilles</strong>.</li>
         </ul>
-        <p>Un programa informàtic està format per una sèrie de <strong>comandaments</strong>; cada comandament indica a l'ordinador que faci una acció. Aquests comandaments s'executen un darrere l'altre. Poden servir per fer càlculs, comparar valors, canviar el comportament del programa, mostrar missatges o demanar <strong>entrada de dades</strong> a l'usuari.</p>
-        <p>Comencem familiaritzant-nos amb la instrucció <strong>print</strong>, que s'utilitza per mostrar text a la pantalla. En aquest context, “imprimir” vol dir que el programa mostrarà un text o resultat per pantalla.</p>
+        <p>Un <strong>programa</strong> informàtic està format per una sèrie de <strong>comandaments</strong>; cada comandament indica a l'ordinador que faci una acció. Aquests comandaments s'executen un darrere l'altre. Poden servir per fer càlculs, comparar valors, canviar el comportament del programa, mostrar missatges o demanar <strong>entrada de dades</strong> a l'usuari.</p>
+        <p>Comencem familiaritzant-nos amb la funció <code class="inline">print()</code>, que s'utilitza per mostrar text a la pantalla. En aquest context, "imprimir" vol dir que el programa mostrarà un text o resultat per pantalla.</p>
       </section>
 
-      <section>
+      <section id="hola-mon-imprimir-text">
         <h2>Imprimir text</h2>
-        <p>El programa següent mostrarà la línia “Hola món!” per pantalla:</p>
+        <p>El programa següent mostrarà la línia "Hola món!" per pantalla:</p>
         <pre><code class="language-python">print("Hola món!")</code></pre>
         <pre class="output">Hola món!</pre>
-        <p>Si vols imprimir text, cal que el text estigui entre cometes (dobles " o simples '). Si no hi poses cometes, Python intentarà interpretar el contingut com a codi i es produirà un error.</p>
+        <p>Si vols imprimir text, cal que el text estigui entre <code class="inline">"</code> o <code class="inline">'</code>. Si no hi poses cometes, Python intentarà interpretar el contingut com a codi i es produirà un error.</p>
         <p>Per exemple, si escrivim això sense cometes:</p>
         <pre><code class="language-python">print(Hola!)</code></pre>
         <p>Python donarà un missatge d'error com aquest:</p>
@@ -41,23 +41,19 @@ File "", line 1
               ^
 SyntaxError: invalid syntax
         </pre>
-        <p>
-          En resum, per imprimir text cal utilitzar cometes perquè Python reconegui una
-          <strong>cadena de text</strong>.
-        </p>
+        <p>En resum, per imprimir text cal utilitzar cometes perquè Python reconegui una <strong>cadena de text</strong>.</p>
 
-        <!-- Exercici relacionat -->
         <div class="exercici">
-          <h3>Emoticon</h3>
+          <h3>Exercici 1: Emoticon</h3>
           <p>Escriu un programa que imprimeixi un emoticon: <strong>:-)</strong></p>
           <pre class="output">:-)</pre>
         </div>
       </section>
 
-      <section>
+      <section id="hola-mon-exemples-practica">
         <h2>Exemples i pràctica bàsica</h2>
         <h3>Exemple: imprimir diverses línies</h3>
-        <p>Pots escriure diverses instruccions <strong>print</strong> seguides; s'executaran en ordre i cada una mostrarà la seva línia per pantalla. Per exemple:</p>
+        <p>Pots escriure diverses instruccions <code class="inline">print()</code> seguides; s'executaran en ordre i cada una mostrarà la seva línia per pantalla. Per exemple:</p>
         <pre><code class="language-python">print("Benvinguts al curs d'Introducció a la Programació!")
 print("Primer practicarem amb la instrucció print.")
 print("Aquest programa imprimeix tres línies de text a la pantalla.")</code></pre>
@@ -67,9 +63,8 @@ Primer practicarem amb la instrucció print.
 Aquest programa imprimeix tres línies de text a la pantalla.
         </pre>
 
-        <!-- Exercicis relacionats -->
         <div class="exercici">
-          <h3>Corregir el codi: Els set germans de Can Coll</h3>
+          <h3>Exercici 2: Corregir el codi - Els set germans de Can Coll</h3>
           <p>El programa següent hauria d'imprimir els noms dels set germans de Can Coll en ordre alfabètic, però ara mateix no ho fa. Corregeix-lo perquè els noms surtin en l'ordre correcte.</p>
           <pre><code class="language-python">print("Marc")
 print("Pau")
@@ -81,7 +76,7 @@ print("Dídac")</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Remant pel riu</h3>
+          <h3>Exercici 3: Remant pel riu</h3>
           <p>Escriu un programa que imprimeixi exactament les línies següents, amb la mateixa puntuació i salts de línia.</p>
           <pre class="output">
 Rem, rem, rem el bot,
@@ -92,67 +87,65 @@ La vida és un somni dolç.
         </div>
       </section>
 
-      <section>
-        <h2>Operacions aritmètiques amb <strong>print</strong></h2>
-        <p>També pots posar operacions aritmètiques dins d'un <strong>print</strong>. Python calcula el resultat i el mostra. Observa que les operacions no van entre cometes:</p>
+      <section id="hola-mon-operacions-aritmetiques">
+        <h2>Operacions aritmètiques amb <code class="inline">print()</code></h2>
+        <p>També pots posar operacions aritmètiques dins d'un <code class="inline">print()</code>. Python calcula el resultat i el mostra. Observa que les operacions no van entre cometes:</p>
         <pre><code class="language-python">print(2 + 5)
 print(3 * 3)
 print(2 + 2 * 10)</code></pre>
         <pre class="output">
 7
 9
-22
-        </pre>
-        <p>
-          Si poses la mateixa expressió entre cometes, Python la tractarà com una
-          <strong>cadena de text</strong> i imprimirà l'expressió tal qual:
-        </p>
+22</pre
+        >
+        <p>Si poses la mateixa expressió entre cometes, Python la tractarà com una <strong>cadena de text</strong> i imprimirà l'expressió tal qual:</p>
         <pre><code class="language-python">print(2 + 2 * 10)
 print("2 + 2 * 10")</code></pre>
         <pre class="output">
 22
-2 + 2 * 10
-        </pre>
-        <p>Recorda: sense cometes és un càlcul (números), amb cometes és una cadena de text (text literal).</p>
+2 + 2 * 10</pre
+        >
+        <p>Recorda: sense cometes és un càlcul (<strong>números</strong>), amb cometes és una <strong>cadena de text</strong> (text literal).</p>
 
-        <!-- Exercici relacionat -->
         <div class="exercici">
-          <h3>Minuts en un any</h3>
+          <h3>Exercici 4: Minuts en un any</h3>
           <p>Escriu un programa que imprimeixi el nombre de minuts que hi ha en un any. Utilitza una expressió aritmètica en Python per fer el càlcul.</p>
           <pre class="output">
 minuts en un any:
-525600
-          </pre>
+525600</pre
+          >
         </div>
       </section>
 
-      <section>
+      <section id="hola-mon-comentaris">
         <h2>Comentaris en el codi</h2>
-        <p>Qualsevol línia que comenci amb el símbol <strong>#</strong> és un <strong>comentari</strong>. Els comentaris són notes per explicar el codi, que Python ignora durant l'execució.</p>
+        <p>Qualsevol línia que comenci amb el símbol <code class="inline">#</code> és un <strong>comentari</strong>. Els comentaris són notes per explicar el codi, que Python ignora durant l'execució.</p>
         <pre><code class="language-python">print("Hores en un any:")
 # hi ha 365 dies en un any i 24 hores en cada dia
 print(365*24)</code></pre>
         <pre class="output">
 Hores en un any:
-8760
-        </pre>
+8760</pre
+        >
         <p>També es poden afegir comentaris curts al final d'una línia:</p>
         <pre><code class="language-python">print("Hores en un any:")
 print(365*24) # 365 dies, 24 hores cada dia</code></pre>
 
-        <!-- Exercici relacionat -->
         <div class="exercici">
-          <h3>Imprimir una línia de codi</h3>
+          <h3>Exercici 5: Imprimir una línia de codi</h3>
           <p>Fins ara has utilitzat cometes dobles per imprimir cadenes. Python també accepta cometes simples. Escriu un programa que imprimeixi exactament aquest text (incloent cometes i parèntesis):</p>
           <pre class="output">print("Hola a tothom!")</pre>
         </div>
       </section>
 
-      <section>
+      <section id="hola-mon-conceptes-clau">
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Sortida</strong>: informació que el programa mostra a la pantalla (normalment amb <strong>print</strong>).</li>
-          <li><strong>Funció print()</strong>: mostra informació o resultats per pantalla.</li>
+          <li><strong>Sortida</strong>: informació que el programa mostra a la pantalla (normalment amb <code class="inline">print()</code>).</li>
+          <li>
+            <strong>Funció <code class="inline">print()</code></strong
+            >: mostra informació o resultats per pantalla.
+          </li>
           <li><strong>Cadena de text</strong>: seqüència de caràcters tancada entre cometes.</li>
         </ul>
       </section>

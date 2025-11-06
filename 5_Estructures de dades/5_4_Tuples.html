@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuples</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Tuples</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Familiaritzar-se amb el tipus de dades <strong>tuple</strong></li>
+          <li>Ser capaç de crear <strong>tuples</strong> a partir de diversos tipus de valors</li>
+          <li>Conèixer la <strong>diferència</strong> entre una tuple i una llista</li>
+          <li>Poder nomenar alguns <strong>usos típics</strong> per a les tuples</li>
+        </ul>
+      </section>
+      <section id="tuples-introduccio">
+        <h2>Les tuples</h2>
+        <p>Una <strong>tuple</strong> és una estructura de dades que, en molts aspectes, és similar a una llista. Les diferències més importants entre les dues són:</p>
+        <p>Les tuples s'encapsulen entre parèntesis <code class="inline">()</code>, mentre que les llistes s'encapsulen entre claudàtors <code class="inline">[]</code></p>
+        <p>Les tuples són <strong>immutables</strong>, mentre que el contingut d'una llista pot canviar</p>
+        <p>El següent fragment de codi crea una tuple que conté les coordenades d'un punt:</p>
+        <pre><code class="language-python">punt = (10, 20)</code></pre>
+      </section>
+
+      <section id="accedir-elements-tuple">
+        <h2>Accedir als elements d'una tupla</h2>
+        <p>Els elements emmagatzemats en una tuple s'accedeixen per índex, igual que els elements emmagatzemats en una llista:</p>
+        <pre><code class="language-python">punt = (10, 20)
+print("coordenada x:", punt[0])
+print("coordenada y:", punt[1])</code></pre>
+        <pre class="output">
+coordenada x: 10
+coordenada y: 20</pre
+        >
+      </section>
+
+      <section id="immutabilitat-tuples">
+        <h2>Immutabilitat de les tuples</h2>
+        <p>Els valors emmagatzemats en una tuple no es poden canviar després que la tuple ha estat definida. El següent no funcionarà:</p>
+        <pre><code class="language-python">punt = (10, 20)
+punt[0] = 15</code></pre>
+        <pre class="output">TypeError: 'tuple' object does not support item assignment</pre>
+      </section>
+
+      <section id="exercici-crear-tuple">
+        <div class="exercici">
+          <h3>Exercici: Crear una tupla</h3>
+          <p>Escriu una funció anomenada <code class="inline">crear_tuple(x: int, y: int, z: int)</code>, que rep tres enters com a arguments, i crea i retorna una tuple basada en els següents criteris:</p>
+          <p>El primer element de la tuple és el més petit dels arguments</p>
+          <p>El segon element de la tuple és el més gran dels arguments</p>
+          <p>El tercer element de la tuple és la suma dels arguments</p>
+          <p>Exemple d'ús:</p>
+          <pre><code class="language-python">if __name__ == "__main__":
+    print(crear_tuple(5, 3, -1))</code></pre>
+          <pre class="output">(-1, 5, 7)</pre>
+        </div>
+      </section>
+
+      <section id="exercici-persona-mes-vella">
+        <div class="exercici">
+          <h3>Exercici: La persona més vella</h3>
+          <p>Escriu una funció anomenada <code class="inline">persona_mes_vella(persones: llista)</code>, que rep una llista de tuples com a argument. En cada tuple, el primer element és el nom d'una persona, i el segon element és el seu any de naixement. La funció ha de trobar la persona més vella de la llista i retornar el seu nom.</p>
+          <p>Exemple de la funció en acció:</p>
+          <pre><code class="language-python">p1 = ("Adam", 1977)
+p2 = ("El·lena", 1985)
+p3 = ("Maria", 1953)
+p4 = ("Ernest", 1997)
+persones = [p1, p2, p3, p4]
+
+print(persona_mes_vella(persones))</code></pre>
+          <pre class="output">Maria</pre>
+        </div>
+      </section>
+
+      <section id="exercici-persones-mes-grans">
+        <div class="exercici">
+          <h3>Exercici: Persones més grans</h3>
+          <p>En aquest exercici tractem tuples iguals a les descrites en l'exercici anterior.</p>
+          <p>Escriu una funció anomenada <code class="inline">persones_mes_grans(persones: llista, any: int)</code>, que selecciona totes aquelles persones de la llista que van néixer abans de l'any donat com a argument. La funció ha de retornar els noms d'aquestes persones en una nova llista.</p>
+          <p>Exemple d'ús:</p>
+          <pre><code class="language-python">p1 = ("Adam", 1977)
+p2 = ("El·lena", 1985)
+p3 = ("Maria", 1953)
+p4 = ("Ernest", 1997)
+persones = [p1, p2, p3, p4]
+
+mes_grands = persones_mes_grans(persones, 1979)
+print(mes_grands)</code></pre>
+          <pre class="output">['Adam', 'Maria']</pre>
+        </div>
+      </section>
+
+      <section id="propòsit-tuples">
+        <h2>Quin és el propòsit d'una tupla?</h2>
+        <p>Les tuples són ideals quan hi ha un conjunt de valors que estan connectats d'alguna manera. Per exemple, quan cal gestionar les coordenades x i y d'un punt, una tupla és una elecció natural, perquè les coordenades sempre consistiran en dos valors:</p>
+        <pre><code class="language-python">punt = (10, 20)</code></pre>
+        <p>Tècnicament, és possible també utilitzar una llista per emmagatzemar-ho:</p>
+        <pre><code class="language-python">punt = [10, 20]</code></pre>
+        <p>Una llista és una col·lecció d'elements consecutius en un ordre determinat. La mida d'una llista també pot canviar. Quan emmagatzemem les coordenades d'un punt, volem emmagatzemar específicament les coordenades x i y, no una llista arbitrària que contingui aquests valors.</p>
+      </section>
+
+      <section id="tuples-com-claus">
+        <h2>Tuples com a claus en diccionaris</h2>
+        <p>Com que les tuples són immutables, a diferència de les llistes, es poden utilitzar com a claus en un diccionari. El següent fragment de codi crea un diccionari, on les claus són punts de coordenades:</p>
+        <pre><code class="language-python">punts = {}
+punts[(3, 5)] = "mico"
+punts[(5, 0)] = "plàtan"
+punts[(1, 2)] = "clavicèmbal"
+print(punts[(3, 5)])</code></pre>
+        <pre class="output">mico</pre>
+        <p>Intentar una definició similar de diccionari utilitzant llistes no funcionaria:</p>
+        <pre><code class="language-python">punts = {}
+punts[[3, 5]] = "mico"
+punts[[5, 0]] = "plàtan"
+punts[[1, 2]] = "clavicèmbal"
+print(punts[[3, 5]])</code></pre>
+        <pre class="output">TypeError: unhashable type: 'list'</pre>
+      </section>
+
+      <section id="tuples-sense-parentesis">
+        <h2>Tuples sense parèntesis</h2>
+        <p>Els parèntesis no són estrictament necessaris quan es defineixen tuples. Les dues assignacions de variables següents són idèntiques en els seus resultats:</p>
+        <pre><code class="language-python">nombres = (1, 2, 3)
+nombres = 1, 2, 3</code></pre>
+        <p>Això vol dir que també podem retornar fàcilment múltiples valors utilitzant tuples. Vegem l'exemple següent:</p>
+        <pre><code class="language-python">def minmax(meva_llista):
+  return min(meva_llista), max(meva_llista)
+
+meva_llista = [33, 5, 21, 7, 88, 312, 5]
+
+valor_min, valor_max = minmax(meva_llista)
+print(f"L'element més petit és {valor_min} i l'element més gran és {valor_max}")</code></pre>
+        <pre class="output">L'element més petit és 5 i l'element més gran és 312</pre>
+        <p>Aquesta funció retorna dos valors en una tupla. El valor de retorn s'assigna a dues variables alhora:</p>
+        <pre><code class="language-python">valor_min, valor_max = minmax(meva_llista)</code></pre>
+        <p>Utilitzar parèntesis pot fer que la notació sigui més clara. A la part esquerra de la sentència d'assignació també tenim una tupla, que conté dos noms de variables. Els valors continguts dins la tuple retornada per la funció s'assignen a aquestes dues variables.</p>
+        <pre><code class="language-python">(valor_min, valor_max) = minmax(meva_llista)</code></pre>
+      </section>
+
+      <section id="tuples-metode-items">
+        <h2>Tuples amb el mètode items</h2>
+        <p>Potser recordes el mètode de diccionari <code class="inline">items</code> en la secció anterior. El vam utilitzar per accedir a totes les claus i valors emmagatzemats en un diccionari:</p>
+        <pre><code class="language-python">meu_diccionari = {}
+
+meu_diccionari["mico"] = "monkey"
+meu_diccionari["plàtan"] = "banana"
+meu_diccionari["clavicèmbal"] = "harpsichord"
+
+for clau, valor in meu_diccionari.items():
+    print("clau:", clau)
+    print("valor:", valor)</code></pre>
+        <p>Les tuples també treballen aquí. El mètode <code class="inline">meu_diccionari.items()</code> retorna cada parell clau-valor com una tupla, on el primer element és la clau i el segon element és el valor.</p>
+      </section>
+
+      <section id="intercanviar-valors">
+        <h2>Intercanviar valors amb tuples</h2>
+        <p>Un altre ús comú per a les tuples és intercanviar els valors de dues variables:</p>
+        <pre><code class="language-python">nombre1, nombre2 = nombre2, nombre1</code></pre>
+        <p>La sentència d'assignació anterior intercanvia els valors emmagatzemats en les variables <code class="inline">nombre1</code> i <code class="inline">nombre2</code>. El resultat és idèntic al que s'aconsegueix amb el següent fragment de codi, utilitzant una variable auxiliar:</p>
+        <pre><code class="language-python">variable_auxiliar = nombre1
+nombre1 = nombre2
+nombre2 = variable_auxiliar</code></pre>
+      </section>
+
+      <section id="exercici-base-dades-estudiants">
+        <div class="exercici">
+          <h3>Exercici: Base de dades d'estudiants</h3>
+          <h3>Part 1: Afegir estudiants</h3>
+          <p>Primer escriu una funció anomenada <code class="inline">afegir_estudiant</code>, que afegeix un nou estudiant a la base de dades. També escriu una versió preliminar de la funció <code class="inline">imprimir_estudiant</code>, que imprimeix la informació d'un sol estudiant.</p>
+          <p>Aquestes funcions s'utilitzen així:</p>
+          <pre><code class="language-python">estudiants = {}
+afegir_estudiant(estudiants, "Pere")
+afegir_estudiant(estudiants, "Elisabet")
+imprimir_estudiant(estudiants, "Pere")
+imprimir_estudiant(estudiants, "Elisabet")
+imprimir_estudiant(estudiants, "Joan")</code></pre>
+          <p>El teu programa ara hauria d'imprimir:</p>
+          <pre class="output">
+Pere:
+ cap curs completat
+Elisabet:
+ cap curs completat
+Joan: no hi ha aquesta persona a la base de dades</pre
+          >
+
+          <h3>Part 2: Afegir cursos completats</h3>
+          <p>Escriu una funció anomenada <code class="inline">afegir_curs</code>, que afegeix un curs completat a la informació d'un estudiant específic a la base de dades. Les dades del curs són una tupla que consisteix en el nom del curs i la nota:</p>
+          <pre><code class="language-python">estudiants = {}
+afegir_estudiant(estudiants, "Pere")
+afegir_curs(estudiants, "Pere", ("Introducció a la Programació", 3))
+afegir_curs(estudiants, "Pere", ("Curs Avançat de Programació", 2))
+imprimir_estudiant(estudiants, "Pere")</code></pre>
+          <p>Quan s'han afegit alguns cursos, la informació impresa canvia:</p>
+          <pre class="output">
+Pere:
+ 2 cursos completats:
+  Introducció a la Programació 3
+  Curs Avançat de Programació 2
+ nota mitjana 2.5</pre
+          >
+
+          <h3>Part 3: Repetir cursos</h3>
+          <p>Els cursos amb nota 0 s'han d'ignorar quan s'afegeix informació del curs. Addicionalment, si el curs ja està a la base de dades en la informació d'aquest estudiant específic, la nota registrada a la base de dades mai ha de baixar si el curs es repeteix.</p>
+          <pre><code class="language-python">estudiants = {}
+afegir_estudiant(estudiants, "Pere")
+afegir_curs(estudiants, "Pere", ("Introducció a la Programació", 3))
+afegir_curs(estudiants, "Pere", ("Curs Avançat de Programació", 2))
+afegir_curs(estudiants, "Pere", ("Estructures de Dades i Algorismes", 0))
+afegir_curs(estudiants, "Pere", ("Introducció a la Programació", 2))
+imprimir_estudiant(estudiants, "Pere")</code></pre>
+          <pre class="output">
+Pere:
+ 2 cursos completats:
+  Introducció a la Programació 3
+  Curs Avançat de Programació 2
+ nota mitjana 2.5</pre
+          >
+          <h3>Part 4: Resum de la base de dades</h3>
+          <p>Escriu una funció anomenada <code class="inline">resum</code>, que imprimeix un resum basat en tota la informació emmagatzemada a la base de dades.</p>
+          <pre><code class="language-python">estudiants = {}
+afegir_estudiant(estudiants, "Pere")
+afegir_estudiant(estudiants, "Elisabet")
+afegir_curs(estudiants, "Pere", ("Estructures de Dades i Algorismes", 1))
+afegir_curs(estudiants, "Pere", ("Introducció a la Programació", 1))
+afegir_curs(estudiants, "Pere", ("Curs Avançat de Programació", 1))
+afegir_curs(estudiants, "Elisabet", ("Introducció a la Programació", 5))
+afegir_curs(estudiants, "Elisabet", ("Introducció a la Informàtica", 4))
+resum(estudiants)</code></pre>
+          <p>Això hauria d'imprimir:</p>
+          <pre class="output">
+estudiants 2
+més cursos completats 3 Pere
+millor nota mitjana 4.5 Elisabet</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-quadrat-lletres">
+        <div class="exercici">
+          <h3>Exercici: Un quadrat de lletres</h3>
+          <p>Aquest exercici final d'aquesta part és una tasca de resolució de problemes relativament exigent. Es pot resoldre de moltes maneres diferents. Tot i que aquesta secció actual del material cobreix les tuples, les tuples no són necessàriament la millor manera de resoldre-ho.</p>
+          <p>Escriu un programa que imprimeixi un quadrat de lletres com s'especifica en els exemples següents. Pots assumir que hi haurà com a màxim 26 capes.</p>
+          <pre class="output">
+Capes: 3
+
+CCCCC
+CBBBC
+CBABC
+CBBBC
+CCCCC</pre
+          >
+          <pre class="output">
+Capes: 4
+
+DDDDDDD
+DCCCCCD
+DCBBBCD
+DCBABCD
+DCBBBCD
+DCCCCCD
+DDDDDDD</pre
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Tuple</strong>: estructura de dades <strong>immutable</strong> similar a una llista.</li>
+          <li><strong>Parèntesis</strong>: s'utilitzen per definir tuples <code class="inline">()</code>.</li>
+          <li><strong>Tuples sense parèntesis</strong>: la definició sense parèntesis és vàlida i equivalent.</li>
+          <li><strong>Retorn múltiple</strong>: les tuples permeten retornar diversos valors des d'una funció.</li>
+          <li><strong>Desempaquetament</strong>: assignació de valors de tuple a múltiples variables.</li>
+          <li><strong>Intercanvi de valors</strong>: tècnica elegant per intercanviar variables amb tuples.</li>
+          <li><strong>Col·leccions relacionades</strong>: ús ideal per agrupar valors conceptualment units.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="5_3_Dictionary.html">
+              <span class="tornar">←</span>
+              <h3>Capitol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de tema</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
