@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucles amb condicionals</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Bucles amb condicionals</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li><strong>Crear</strong> bucles <code class="inline">while</code> amb una <strong>condició</strong>.</li>
+          <li>Entendre els <strong>rols de la inicialització</strong>, la <strong>formulació de la condició</strong> i l’<strong>actualització de variables</strong> dins d’un bucle.</li>
+          <li><strong>Crear bucles</strong> amb <strong>tipus de condicions diferents</strong>.</li>
+        </ul>
+      </section>
+      <section id="introduccio">
+        <h2>Condicions i bucles <code class="inline">while</code></h2>
+        <p>En la secció anterior vam aprendre a utilitzar el bucle <code class="inline">while True</code> per repetir seccions de codi. En aquesta construcció, la condició del bucle és <strong>True</strong>, així que la condició es compleix cada vegada. Calia sortir explícitament del bucle per evitar un bucle infinit. Per exemple:</p>
+
+        <pre><code class="language-python"># Imprimir números fins que la variable a sigui igual a 5
+a = 1
+while True:
+    print(a)
+    a += 1
+    if a == 5:
+        break
+</code></pre>
+
+        <pre class="output">
+1
+2
+3
+4
+</pre
+        >
+
+        <p>Per descomptat, la condició no sempre ha de ser <strong>True</strong>, sinó que pot ser qualsevol <strong>expressió booleana</strong>. L’estructura general d’una sentència <code class="inline">while</code> és la següent:</p>
+
+        <pre><code class="language-python">while &lt;condició&gt;:
+    &lt;bloc&gt;
+</code></pre>
+
+        <p>La idea és que l’execució va comprovant si la condició és certa i, si ho és, executa el codi dins del bloc una vegada rere l’altra. Si la condició en algun moment és falsa, l’execució del programa continua des de la línia següent al bloc <code class="inline">while</code>.</p>
+      </section>
+      <img src="../public/condicional.png" alt="Diagrama de flus d'estructura condicional" />
+      <section id="exemple-condicio">
+        <p>En el següent bucle, tenim la condició <code class="inline">numero &lt; 10</code>. El bloc dins del bucle s’executa només si la variable <strong>numero</strong> és menor que 10.</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+
+while numero &lt; 10:
+    print(numero)
+    numero += 1
+
+print("Execució finalitzada.")
+</code></pre>
+
+        <pre class="output">
+Escriu un número: 4
+4
+5
+6
+7
+8
+9
+Execució finalitzada.
+</pre
+        >
+
+        <p>En aquesta estructura, la <strong>condició</strong> es comprova sempre abans que s’executi el bloc del bucle. Pot passar que el bloc no s’executi mai, com en aquest cas:</p>
+
+        <pre class="output">
+Escriu un número: 12
+Execució finalitzada.
+</pre
+        >
+
+        <p>El número 12 no és menor que 10, així que el programa no imprimeix cap número.</p>
+      </section>
+
+      <section id="inicialitzacio-condicio-actualitzacio">
+        <h2>Inicialització, condició i actualització</h2>
+        <p>Per crear un bucle, sovint cal incloure tres passos diferents: <strong>inicialització</strong>, <strong>condició</strong> i <strong>actualització</strong> de les variables d’iteració.</p>
+        <p>La <strong>inicialització</strong> fa referència a establir el valor inicial de les variables utilitzades dins la condició del bucle. La <strong>condició</strong> defineix durant quant de temps s’executarà el bucle. Finalment, a cada repetició del bucle, les variables implicades s’<strong>actualitzen</strong>, de manera que cada iteració acosta el bucle a la seva conclusió.</p>
+        <img src="../public/Inicialitzacio.png" alt="inicialització, condició i actualització de variable en un bucle" />
+        <p>Si qualsevol d’aquests tres components falta, el bucle probablement no funcionarà correctament. Un error típic és oblidar el pas d’actualització:</p>
+
+        <pre><code class="language-python">numero = 1
+
+while numero &lt; 10:
+    print(numero)
+
+print("Execució finalitzada.")
+</code></pre>
+
+        <p>Aquí, el valor de la variable <strong>numero</strong> mai canvia. El programa queda atrapat en un <strong>bucle infinit</strong>, repetint el mateix codi una vegada i una altra fins que l’usuari atura l’execució, per exemple prement Control + C:</p>
+
+        <pre class="output">
+1
+1
+1
+1
+1
+(continua ad infinitum…)
+</pre
+        >
+      </section>
+
+      <section id="exercici-numeros-parells">
+        <div class="exercici" id="exercici-imprimir-numeros">
+          <h3>Exercici: Imprimir números</h3>
+          <p>Escriu un programa que imprimeixi tots els <strong>números parells</strong> entre 2 i 30 utilitzant un bucle. Imprimeix cada número en una línia separada.</p>
+
+          <pre class="output">
+2
+4
+6
+8
+etc...
+</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-compte-enrere">
+        <div class="exercici" id="exercici-corregir-compte-enrere">
+          <h3>Exercici: Corregeix el codi — Compte enrere</h3>
+          <p>El programa següent té alguns errors de sintaxi:</p>
+
+          <pre><code class="language-python">print("Preparat?")
+numero = int(input("Escriu un número: "))
+while numero = 0:
+print(numero)
+print("Ja!")
+</code></pre>
+
+          <p>Corregeix-lo perquè imprimeixi el següent:</p>
+
+          <pre class="output">
+Preparat?
+Escriu un número: 5
+5
+4
+3
+2
+1
+Ja!
+</pre
+          >
+
+          <p><strong>Pista:</strong> No utilitzis un bucle <code class="inline">while True</code> en aquest exercici!</p>
+        </div>
+      </section>
+
+      <section id="condicions-bucles">
+        <h2>Escriure condicions</h2>
+        <p>Qualsevol <strong>expressió booleana</strong> o combinació d’aquestes és una condició vàlida dins un bucle. Per exemple, el programa següent imprimeix cada tercer número, però només mentre el número sigui menor que 100 i <strong>no divisible per 5</strong>:</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+
+while numero &lt; 100 and numero % 5 != 0:
+    print(numero)
+    numero += 3
+</code></pre>
+
+        <pre class="output">
+Escriu un número: 28
+28
+31
+34
+37
+</pre
+        >
+
+        <pre class="output">
+Escriu un número: 96
+96
+99
+</pre
+        >
+
+        <p>Quan l’entrada és 28, el bucle acaba amb el número 37, perquè el següent seria 40, que és divisible per 5. Quan l’entrada és 96, acaba amb el 99, ja que el següent, 102, no és menor que 100.</p>
+
+        <p>Sempre has d’assegurar-te que el bucle <strong>acabarà algun dia</strong>. El següent programa pot acabar o no, segons l’entrada:</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+
+while numero != 10:
+    print(numero)
+    numero += 2
+</code></pre>
+
+        <pre class="output">
+Escriu un número: 4
+4
+6
+8
+</pre
+        >
+
+        <p>En qualsevol altre cas, el bucle s’executa indefinidament, ja que la variable mai arribarà a ser igual a 10.</p>
+      </section>
+
+      <section id="exercici-numeros">
+        <div class="exercici" id="exercici-numeros-entre">
+          <h3>Exercici: Números</h3>
+          <p>Escriu un programa que demani un número a l’usuari i després imprimeixi tots els <strong>enters majors que zero</strong> però menors que el número introduït.</p>
+
+          <pre class="output">
+Límit superior: 5
+1
+2
+3
+4
+</pre
+          >
+
+          <p><strong>Pista:</strong> No utilitzis <code class="inline">True</code> com a condició del bucle!</p>
+        </div>
+      </section>
+
+      <section id="consells-depuracio">
+        <h2>Consells de depuració</h2>
+        <p>Imagina que estàs escrivint un programa una mica més complex, com el del següent exercici sobre potències de dos. Els primers intents podrien semblar-se a això:</p>
+
+        <pre><code class="language-python">limit = int(input("Límit superior:"))
+numero = 1
+while numero == limit:
+   # més codi
+</code></pre>
+
+        <p>Aquest codi probablement no funcionarà com esperes a la primera. Potser hauràs de provar-lo moltes vegades abans que funcioni correctament.</p>
+
+        <p>Per fer proves més ràpides, pots "codificar" directament el valor de l’entrada:</p>
+
+        <pre><code class="language-python"># provem amb un valor fix
+limit = 8 # int(input("Límit superior"))
+numero = 1
+while numero == limit:
+   # més codi
+</code></pre>
+
+        <p>La <strong>depuració</strong> amb instruccions <code class="inline">print</code> s’ha mencionat diverses vegades en la part anterior del curs. Els programes que se’t demanarà escriure seran cada cop més complexos a mesura que avancis, i la quantitat de <strong>depuracions</strong> que hauràs de fer també augmentarà en conseqüència. Les causes més comunes dels <strong>errors</strong> solen estar en les <strong>condicions que finalitzen els bucles</strong>: poden funcionar correctament amb algunes entrades però fallar amb d’altres, i no sempre és evident el motiu.</p>
+
+        <p>Per això, és el moment d’incorporar de manera habitual el ús d’instruccions <code class="inline">print</code> per <strong>depurar</strong> dins de la teva pràctica de programació, si encara no ho has fet. Pots trobar instruccions detallades sobre la depuració en la <strong>primera</strong> i la <strong>quarta secció</strong> de la part anterior del curs.</p>
+
+        <p>A més de les instruccions <code class="inline">print</code>, hi ha moltes altres eines que es poden utilitzar per <strong>depurar</strong>. Una d’aquestes és l’eina de visualització del lloc web <strong>Python Tutor</strong>. Aquesta eina et permet executar el teu codi línia per línia i mostra els valors emmagatzemats a les variables en cada pas.</p>
+
+        <p>El codi lleugerament erroni de l’exemple de depuració de la secció anterior es visualitza amb Python Tutor a la següent imatge:</p>
+
+        <img src="../public/Depuracio.png" alt="interficie d'un aplicatiu per a depurar" />
+
+        <p>La <strong>fletxa vermella</strong> assenyala el punt on es troba l’execució del programa en aquell moment. L’eina mostra què s’ha imprès fins ara i també quin valor té cada variable en cada pas. L’execució avança línia a línia quan prems <strong>Next</strong>.</p>
+
+        <p>Tot el que cal fer per utilitzar l’eina de visualització és copiar el teu codi i enganxar-lo a la finestra de codi de l’eina. Tingues en compte que l’eina té algunes limitacions respecte a la versió de Python utilitzada en aquest curs. Si et trobes amb <strong>missatges d’error críptics</strong>, potser és millor provar algun altre mètode de depuració.</p>
+
+        <p>Els programadors amb més experiència rarament són grans usuaris d’aquesta eina de visualització, però per a un principiant pot ser una <strong>ajuda molt valuosa</strong>. La programació, com a disciplina, té poc marge per a l’atzar o la sort. És essencial que el programador entengui <strong>quins valors genera el seu codi</strong> en cada moment de l’execució. Si els valors emmagatzemats a les variables no són els esperats, és molt probable que hi hagi un error en el programa.</p>
+
+        <p>Tant l’eina de <strong>visualització</strong> com les instruccions <code class="inline">print</code> per <strong>depurar</strong> són dues maneres excel·lents perquè un programador vegi amb els seus propis ulls que el seu programa fa exactament allò que s’esperava.</p>
+      </section>
+
+      <section id="exercici-potecies-de-dos">
+        <div class="exercici" id="exercici-potencies-de-dos">
+          <h3>Exercici: Potències de dos</h3>
+          <p>Escriu un programa que demani un <strong>límit superior</strong> i imprimeixi números de manera que cada número sigui el doble de l’anterior, començant per 1. L’execució acaba quan el següent número superaria el límit.</p>
+          <p>L'execució del programa finalitza quan el següent nombre a imprimir seria major que el límit establert per l'usuari. No s'han d'imprimir nombres majors que el límit.</p>
+
+          <pre class="output">
+Límit superior: 8
+1
+2
+4
+8
+</pre
+          >
+
+          <pre class="output">
+Límit superior: 20
+1
+2
+4
+8
+16
+</pre
+          >
+
+          <pre class="output">
+Límit superior: 100
+1
+2
+4
+8
+16
+32
+64
+</pre
+          >
+
+          <p><strong>Pista:</strong> No utilitzis <code class="inline">True</code> com a condició del bucle!</p>
+          <p><strong>Què són les potències de dos?</strong> La primera potència de dos és el nombre 1. La següent és 1 per 2, que és 2. La següent és 2 per 2, que és 4. La següent és 4 per 2, que és 8, i així successivament. Cada potència de la seqüència es multiplica per dos per produir la següent.</p>
+        </div>
+      </section>
+
+      <section id="exercici-potencies-base-n">
+        <div class="exercici" id="exercici-potencies-base">
+          <h3>Exercici: Potències de base n</h3>
+          <p>Modifica el programa anterior perquè l’usuari també introdueixi la <strong>base</strong> que es multiplica cada vegada (en l’exercici anterior la base era sempre 2).</p>
+
+          <pre class="output">
+Límit superior: 27
+Base: 3
+1
+3
+9
+27
+</pre
+          >
+
+          <pre class="output">
+Límit superior: 1234567
+Base: 10
+1
+10
+100
+1000
+10000
+100000
+1000000
+</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-suma-consecutius-v1">
+        <div class="exercici" id="exercici-suma-v1">
+          <h3>Exercici: La suma de números consecutius, versió 1</h3>
+          <p>Escriu un programa que demani un <strong>límit</strong> a l’usuari i calculi la suma dels números consecutius (1 + 2 + 3 + …) fins que la suma sigui com a mínim igual al límit.</p>
+
+          <pre class="output">
+Límit: 2
+3
+</pre
+          >
+
+          <pre class="output">
+Límit: 10
+10
+</pre
+          >
+
+          <pre class="output">
+Límit: 18
+21
+</pre
+          >
+        </div>
+      </section>
+
+      <section id="construir-cadenes">
+        <h2>Construir cadenes de text</h2>
+        <p>Ja vam aprendre que és possible "construir" <strong>cadenes de text</strong> a partir d’altres més curtes utilitzant l’operador <code class="inline">+</code>. Per exemple:</p>
+
+        <pre><code class="language-python">paraules = "orgull"
+paraules = paraules + ", prejudici"
+paraules = paraules + " i python"
+
+print(paraules)
+</code></pre>
+
+        <pre class="output">
+orgull, prejudici i python
+</pre
+        >
+
+        <p>L’operador <code class="inline">+=</code> permet escriure-ho de manera més compacta:</p>
+
+        <pre><code class="language-python">paraules = "orgull"
+paraules += ", prejudici"
+paraules += " i python"
+
+print(paraules)
+</code></pre>
+
+        <p>Això també funciona amb <strong>f-strings</strong>, si vols incloure valors de variables dins la cadena:</p>
+
+        <pre><code class="language-python">curs = "Introducció a la Programació"
+nota = 4
+
+veredicte = "Has obtingut "
+veredicte += f"la nota {nota} "
+veredicte += f"al curs {curs}"
+
+print(veredicte)
+</code></pre>
+
+        <pre class="output">
+Has obtingut la nota 4 al curs Introducció a la Programació
+</pre
+        >
+
+        <p>En l’exercici anterior has calculat la suma de números consecutius afegint un nou valor dins un bucle. El mateix concepte s’aplica a les <strong>cadenes</strong>: pots anar afegint parts noves dins un bucle. Aquesta tècnica serà útil en el següent exercici.</p>
+      </section>
+
+      <section id="exercici-suma-consecutius-v2">
+        <div class="exercici" id="exercici-suma-v2">
+          <h3>Exercici: La suma de números consecutius, versió 2</h3>
+          <p>Escriu una nova versió del programa anterior que, a més del resultat, mostri també el càlcul realitzat.</p>
+
+          <pre class="output">
+Límit: 2
+La suma consecutiva: 1 + 2 = 3
+</pre
+          >
+
+          <pre class="output">
+Límit: 10
+La suma consecutiva: 1 + 2 + 3 + 4 = 10
+</pre
+          >
+
+          <pre class="output">
+Límit: 18
+La suma consecutiva: 1 + 2 + 3 + 4 + 5 + 6 = 21
+</pre
+          >
+
+          <p>Pots suposar que el número introduït per l’usuari és sempre igual o superior a 2.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Depuració</strong>: procés de <strong>detectar</strong> i <strong>corregir errors</strong> en un programa.</li>
+          <li><strong>Inicialització</strong>: establir el <strong>valor inicial</strong> de les variables que controlen el bucle abans de començar la seva execució.</li>
+          <li><strong>Condició</strong>: expressió lògica que es <strong>comprova abans de cada iteració</strong> per decidir si el bucle continua o s’atura.</li>
+          <li><strong>Actualització</strong>: modificar les <strong>variables de control</strong> dins del bucle per acostar-se a la condició de sortida i evitar bucles infinits.</li>
+          <li><strong>Condicions de sortida</strong>: elements que determinen <strong>quan acaba un bucle</strong>; poden ser una font freqüent d’errors.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="index.html">
+              <span class="tornar">←</span>
+              <h3>Tornar als capítols</h3>
+            </a>
+          </li>
+          <li>
+            <a href="3_2_String.html
+            ">
+              <h3>3.2 Treballar amb cadenes</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iteracions definides</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Iteracions Definides</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Diferenciar la <strong>iteració definida</strong> de la <strong>iteració indefinida</strong></li>
+          <li>Comprendre el funcionament d'un <strong>bucle for</strong> en Python</li>
+          <li>Utilitzar un <strong>bucle for</strong> per iterar a través de <strong>llistes</strong> i <strong>cadenes de text</strong></li>
+        </ul>
+      </section>
+      <section id="bucle-for-lists">
+        <h2>El bucle for amb llistes</h2>
+        <p>Pots utilitzar un bucle <code class="inline">while</code> per recórrer els elements d'una llista, igual que vam fer servir bucles <code class="inline">while</code> per recórrer cadenes de text. El següent programa imprimeix els elements de la llista, cadascun en una línia separada:</p>
+
+        <pre><code class="language-python">la_meva_llista = [3, 2, 4, 5, 2]
+
+index = 0
+while index < len(la_meva_llista):
+    print(la_meva_llista[index])
+    index += 1</code></pre>
+
+        <pre class="output">
+3
+2
+4
+5
+2</pre
+        >
+
+        <p>Això òbviament funciona, però és una manera bastant complicada de recórrer una llista, ja que has d'utilitzar una variable auxiliar <code class="inline">index</code> per recordar en quin element de la llista ets. Afortunadament, Python ofereix una manera més intuïtiva de recórrer llistes, cadenes i altres estructures similars.</p>
+
+        <h3>El bucle for</h3>
+        <p>Quan vols recórrer una col·lecció preparada d'elements, el bucle <code class="inline">for</code> de Python ho farà per tu. Per exemple, el bucle pot recórrer tots els elements d'una llista des del primer fins a l'últim.</p>
+
+        <p>Quan s'utilitza un bucle <code class="inline">while</code>, el programa no "sap" prèviament quantes iteracions farà el bucle. Es repetirà fins que la condició es faci falsa, o es surti del bucle d'alguna altra manera. És per això que es classifica com a <strong>iteració indefinida</strong>. Amb un bucle <code class="inline">for</code>, el nombre d'iteracions es determina quan es configura el bucle, i per tant es classifica com a <strong>iteració definida</strong>.</p>
+
+        <p>La idea és que el bucle <code class="inline">for</code> agafa els elements de la col·lecció un per un i realitza les mateixes accions sobre cadascun. El programador no ha de preocupar-se de quin element s'està processant en cada moment. La sintaxi del bucle <code class="inline">for</code> és la següent:</p>
+
+        <pre><code class="language-python">for &lt;variable&gt; in &lt;col·lecció&gt;:
+    &lt;bloc&gt;</code></pre>
+
+        <p>El bucle <code class="inline">for</code> agafa un element de la col·lecció, l'assigna a la variable, processa el bloc de codi i passa a l'element següent. Quan tots els elements de la col·lecció s'han processat, l'execució del programa continua des de la línia després del bucle.</p>
+        <img src="../public/flux_bucle.png" alt="diagrama de flux d'un bucle" />
+        <h3>Iterar a través d'una llista</h3>
+        <p>El programa següent imprimeix tots els elements d'una llista utilitzant un bucle <code class="inline">for</code>:</p>
+
+        <pre><code class="language-python">la_meva_llista = [3, 2, 4, 5, 2]
+
+for element in la_meva_llista:
+    print(element)</code></pre>
+
+        <pre class="output">
+3
+2
+4
+5
+2</pre
+        >
+
+        <p>En comparació amb l'exemple del principi d'aquesta secció, l'estructura és molt més fàcil d'entendre. Un bucle <code class="inline">for</code> fa que el recorregut a través d'una col·lecció d'elements sigui molt senzill.</p>
+
+        <p>El mateix principi s'aplica als caràcters d'una cadena:</p>
+
+        <pre><code class="language-python">nom = input("Si us plau, escriu el teu nom: ")
+
+for caracter in nom:
+    print(caracter)</code></pre>
+
+        <pre class="output">
+Si us plau, escriu el teu nom: Anna
+A
+n
+n
+a</pre
+        >
+
+        <div class="exercici">
+          <h3>Exercici: Estelat</h3>
+          <p>Escriu un programa que demani a l'usuari que introdueixi una cadena de text. El programa després imprimeix cada caràcter introduït en una línia separada. Després de cada caràcter hi ha d'haver un estel (*) imprès en la seva pròpia línia.</p>
+          <p>Així és com hauria de funcionar:</p>
+          <pre class="output">
+Si us plau, introdueix una cadena: Python
+P
+*
+y
+*
+t
+*
+h
+*
+o
+*
+n
+*</pre
+          >
+        </div>
+      </section>
+
+      <section id="funcio-range">
+        <h2>La funció range</h2>
+        <p>Sovint saps quantes vols repetir una determinada part del codi. Podries, per exemple, desitjar recórrer tots els nombres entre l'1 i el 100. La funció <code class="inline">range</code> connectada a un bucle <code class="inline">for</code> farà això per tu.</p>
+
+        <p>Hi ha algunes maneres diferents de cridar la funció <code class="inline">range</code>. La manera més senzilla és donar a la funció només un argument, que significa el punt final del rang. El punt final en si mateix està exclòs, igual que amb les retallades de cadenes. En altres paraules, la crida a la funció <code class="inline">range(n)</code> proporciona un bucle amb un rang de 0 a n-1:</p>
+
+        <pre><code class="language-python">for i in range(5):
+    print(i)</code></pre>
+
+        <pre class="output">
+0
+1
+2
+3
+4</pre
+        >
+
+        <p>Amb dos arguments, la funció retornarà un rang entre els dos nombres. La funció <code class="inline">range(a,b)</code> proporciona un rang que comença des d'a i acaba a b-1:</p>
+
+        <pre><code class="language-python">for i in range(3, 7):
+    print(i)</code></pre>
+
+        <pre class="output">
+3
+4
+5
+6</pre
+        >
+
+        <p>Finalment, amb un tercer argument també pots especificar la mida del pas que fa el rang entre cada valor. La crida a la funció <code class="inline">range(a, b, c)</code> proporciona un rang que comença des d'a, acaba a b-1, i canvia per c amb cada pas:</p>
+
+        <pre><code class="language-python">for i in range(1, 9, 2):
+    print(i)</code></pre>
+
+        <pre class="output">
+1
+3
+5
+7</pre
+        >
+
+        <p>Un pas també pot ser negatiu. Llavors el rang estarà en ordre invers. Fixa't que els dos primers arguments també estan intercanviats aquí:</p>
+
+        <pre><code class="language-python">for i in range(6, 2, -1):
+    print(i)</code></pre>
+
+        <pre class="output">
+6
+5
+4
+3</pre
+        >
+
+        <div class="exercici">
+          <h3>Exercici: De negatiu a positiu</h3>
+          <p>Escriu un programa que demani a l'usuari un enter positiu N. El programa després imprimeix tots els nombres entre -N i N inclosos, però omet el nombre 0. Cada nombre hauria d'estar imprès en una línia separada.</p>
+          <p>Un exemple de comportament esperat:</p>
+          <pre class="output">
+Si us plau, introdueix un enter positiu: 4
+-4
+-3
+-2
+-1
+1
+2
+3
+4</pre
+          >
+        </div>
+      </section>
+
+      <section id="range-a-llista">
+        <h2>D'un rang a una llista</h2>
+        <p>La funció <code class="inline">range</code> retorna un objecte de rang, que en molts aspectes es comporta com una llista, però en realitat no ho és. Si intentes imprimir el valor que retorna la funció, només veuràs una descripció d'un objecte de rang:</p>
+
+        <pre><code class="language-python">nombres = range(2, 7)
+print(nombres)</code></pre>
+
+        <pre class="output">range(2, 7)</pre>
+
+        <p>La funció <code class="inline">list</code> convertirà un rang en una llista. La llista contindrà tots els valors que estan en el rang. El curs avançat de programació, que segueix aquest, il·luminarà més aquest tema.</p>
+
+        <pre><code class="language-python">nombres = list(range(2, 7))
+print(nombres)</code></pre>
+
+        <pre class="output">[2, 3, 4, 5, 6]</pre>
+      </section>
+      <section id="exercicis-funcions">
+        <div class="exercici">
+          <h3>Exercici: Llista d'estels</h3>
+          <p>Escriu una funció anomenada <code class="inline">llista_d_estels</code>, que pren una llista d'enters com a argument. La funció ha d'imprimir línies de caràcters d'estel. Els nombres a la llista especifiquen quants estels ha de contenir cada línia.</p>
+          <p>Per exemple, amb la crida a la funció <code class="inline">llista_d_estels([3, 7, 1, 1, 2])</code> s'hauria d'imprimir:</p>
+          <pre class="output">
+***
+*******
+*
+*
+**</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Anagrams</h3>
+          <p>Escriu una funció anomenada <code class="inline">anagrams</code>, que pren dues cadenes com a arguments. La funció retorna <code class="inline">True</code> si les cadenes són anagrames l'una de l'altra. Dues paraules són anagrames si contenen exactament els mateixos caràcters.</p>
+          <p>Alguns exemples de com hauria de funcionar la funció:</p>
+          <pre><code class="language-python">print(anagrams("tame", "meta")) # True
+print(anagrams("tame", "mate")) # True
+print(anagrams("tame", "team")) # True
+print(anagrams("tabby", "batty")) # False
+print(anagrams("python", "java")) # False</code></pre>
+          <p><strong>Pista:</strong> la funció <code class="inline">sorted</code> es pot utilitzar també en cadenes.</p>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Palíndroms</h3>
+          <p>Escriu una funció anomenada <code class="inline">palindroms</code>, que pren un argument de cadena i retorna <code class="inline">True</code> si la cadena és un palíndrom. Els palíndroms són paraules que s'escriuen exactament igual cap endavant i cap enrere.</p>
+          <p>Escriu també un programa principal que demani a l'usuari que escrigui paraules fins que escriguin un palíndrom:</p>
+          <pre class="output">
+Si us plau, introdueix un palíndrom: python
+això no era un palíndrom
+Si us plau, introdueix un palíndrom: java
+això no era un palíndrom
+Si us plau, introdueix un palíndrom: oddoreven
+això no era un palíndrom
+Si us plau, introdueix un palíndrom: neveroddoreven
+neveroddoreven és un palíndrom!</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: La suma dels nombres positius</h3>
+          <p>Escriu una funció anomenada <code class="inline">suma_dels_positius</code>, que pren una llista d'enters com a argument. La funció retorna la suma dels valors positius a la llista.</p>
+          <pre><code class="language-python">la_meva_llista = [1, -2, 3, -4, 5]
+resultat = suma_dels_positius(la_meva_llista)
+print("El resultat és", resultat)</code></pre>
+          <pre class="output">El resultat és 9</pre>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Nombres parells</h3>
+          <p>Escriu una funció anomenada <code class="inline">nombres_parells</code>, que pren una llista d'enters com a argument. La funció retorna una nova llista que conté els nombres parells de la llista original.</p>
+          <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5]
+nova_llista = nombres_parells(la_meva_llista)
+print("original", la_meva_llista)
+print("nova", nova_llista)</code></pre>
+          <pre class="output">
+original [1, 2, 3, 4, 5]
+nova [2, 4]</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: La suma de llistes</h3>
+          <p>Escriu una funció anomenada <code class="inline">suma_llistes</code> que pren dues llistes d'enters com a arguments. La funció retorna una nova llista que conté les sumes dels elements en cada índex de les dues llistes originals. Pots assumir que ambdues llistes tenen el mateix nombre d'elements.</p>
+          <p>Un exemple de la funció en acció:</p>
+          <pre><code class="language-python">a = [1, 2, 3]
+b = [7, 8, 9]
+print(suma_llistes(a, b)) # [8, 10, 12]</code></pre>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Nombres diferents</h3>
+          <p>Escriu una funció anomenada <code class="inline">nombres_diferents</code>, que pren una llista d'enters com a argument. La funció retorna una nova llista que conté els nombres de la llista original en ordre de magnitud, i de manera que cada nombre diferent està present només una vegada.</p>
+          <pre><code class="language-python">la_meva_llista = [3, 2, 2, 1, 3, 3, 1]
+print(nombres_diferents(la_meva_llista)) # [1, 2, 3]</code></pre>
+        </div>
+      </section>
+
+      <section id="trobar-millor-pitjor">
+        <h2>Trobar el millor o el pitjor element en una llista</h2>
+        <p>Una tasca de programació molt comuna és trobar el millor o el pitjor element en una llista, segons alguns criteris. Una solució simple és utilitzar una variable auxiliar per "recordar" quin dels elements processats fins ara era el més adequat. Aquesta <strong>elecció temporal millor</strong> es compara després amb cada element al seu torn, i al final de la iteració la variable conté el millor de tots.</p>
+
+        <p>Un esborrany aproximat que encara no compila del tot:</p>
+
+        <pre><code class="language-python">millor = valor_inicial # El valor inicial depèn de la situació
+for element in la_meva_llista:
+    if element > millor:
+        millor = element
+
+# Ara tenim el millor descobrit!</code></pre>
+
+        <p>Els detalls del codi final del programa depenen del tipus dels elements a la llista, i també dels criteris per triar el millor (o pitjor) element. A vegades pots necessitar més d'una variable auxiliar.</p>
+
+        <p>Practiquem una mica aquest mètode.</p>
+
+        <div class="exercici">
+          <h3>Exercici: La longitud de la més llarga a la llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">longitud_de_la_mes_llarga</code>, que pren una llista de cadenes com a argument. La funció retorna la longitud de la cadena més llarga.</p>
+          <pre><code class="language-python">la_meva_llista = ["first", "second", "fourth", "eleventh"]
+
+resultat = longitud_de_la_mes_llarga(la_meva_llista)
+print(resultat)
+
+la_meva_llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+resultat = longitud_de_la_mes_llarga(la_meva_llista)
+print(resultat)</code></pre>
+          <pre class="output">
+8
+7</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: La més curta a la llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">mes_curta</code>, que pren una llista de cadenes com a argument. La funció retorna qualsevol de les cadenes que sigui la més curta. Si més d'una és igual de curta, la funció pot retornar qualsevol de les cadenes més curtes. Pots assumir que no hi haurà cadenes buides a la llista.</p>
+          <pre><code class="language-python">la_meva_llista = ["first", "second", "fourth", "eleventh"]
+
+resultat = mes_curta(la_meva_llista)
+print(resultat)
+
+la_meva_llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+resultat = mes_curta(la_meva_llista)
+print(resultat)</code></pre>
+          <pre class="output">
+first
+tim</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Totes les més llargues de la llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">totes_les_mes_llargues</code>, que pren una llista de cadenes com a argument. La funció ha de retornar una nova llista que contingui la cadena més llarga de la llista original. Si més d'una és igual de llarga, la funció ha de retornar totes les cadenes més llargues.</p>
+          <p>L'ordre de les cadenes a la llista retornada ha de ser el mateix que a l'original.</p>
+          <pre><code class="language-python">la_meva_llista = ["first", "second", "fourth", "eleventh"]
+
+resultat = totes_les_mes_llargues(la_meva_llista)
+print(resultat) # ['eleventh']
+
+la_meva_llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+resultat = totes_les_mes_llargues(la_meva_llista)
+print(resultat) # ['dorothy', 'richard']</code></pre>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li>
+            <strong>Bucle <code class="inline">for</code></strong
+            >: Estructura de control per iterar sobre elements d'una col·lecció (llistes, cadenes). És una <strong>iteració definida</strong> on el nombre d'iteracions es determina a l'inici.
+          </li>
+          <li><strong>Iteració sobre llistes</strong>: El bucle <code class="inline">for element in llista:</code> permet recórrer tots els elements sense necessitat de variables auxiliars d'índex.</li>
+          <li><strong>Iteració sobre cadenes</strong>: Els bucles <code class="inline">for</code> també poden recórrer caràcters d'una cadena un per un.</li>
+          <li>
+            <strong>Conversió range a llista</strong>: La funció <code class="inline">list()</code> converteix un objecte <code>range</code>
+            en una llista amb tots els valors del rang.
+          </li>
+          <li><strong>Algorisme de cerca del millor/pitjor</strong>: Patró que utilitza una variable temporal per trobar l'element òptim en una llista comparant cada element iterativament.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="4_3_Lists.html">
+              <span class="tornar">←</span>
+              <h3>4.3 Llistes</h3>
+            </a>
+          </li>
+          <li>
+            <a href="4_5_Print_Format.html">
+              <h3>4.5 Format del Print</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

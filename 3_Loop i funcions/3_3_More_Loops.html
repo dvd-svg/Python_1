@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Més bucles</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Més bucles</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Utilitzar la comanda <code class="inline">break</code> per sortir de bucles</li>
+          <li>Controlar el flux dels bucles amb la comanda <code class="inline">continue</code></li>
+          <li>Crear i entendre bucles niats (bucles dins de bucles)</li>
+          <li>Utilitzar variables d'ajuda per controlar la iteració dels bucles</li>
+          <li>Implementar algorismes complexos amb múltiples bucles</li>
+        </ul>
+      </section>
+      <section id="comanda-break">
+        <h2>La comanda <code class="inline">break</code></h2>
+
+        <p>Ja has vist abans la comanda <code class="inline">break</code>. Es pot utilitzar per aturar immediatament l’execució d’un <strong>bucle</strong>. Un exemple típic d’on s’utilitza és una situació en què el programa demana a l’usuari una <strong>entrada</strong>, i l’execució només s’acaba quan es rep una entrada específica.</p>
+
+        <p>La mateixa funcionalitat es pot aconseguir sense la comanda <strong>break</strong>, utilitzant una <strong>condició adequada</strong>. Els dos programes següents demanen a l’usuari que introdueixi números i calculen la <strong>suma</strong> dels números fins que l’usuari escriu <code class="inline">-1</code>.</p>
+
+        <h3>1a versió amb la comanda break</h3>
+
+        <pre><code class="language-python">suma = 0
+
+while True:
+    numero = int(input("Escriu un número, -1 per sortir: "))
+    if numero == -1:
+        break
+    suma += numero
+
+print(f"La suma és {suma}")</code></pre>
+
+        <h3>2a versió sense la comanda break</h3>
+
+        <pre><code class="language-python">suma = 0
+numero = 0
+
+while numero != -1:
+    numero = int(input("Escriu un número, -1 per sortir: "))
+    if numero != -1:
+        suma += numero
+
+print(f"La suma és {suma}")</code></pre>
+
+        <p>Ambdós programes té les mateixes sortides donades les mateixes entrades.</p>
+
+        <pre class="output">
+Escriu un número, -1 per sortir: 2
+Escriu un número, -1 per sortir: 4
+Escriu un número, -1 per sortir: 5
+Escriu un número, -1 per sortir: 3
+Escriu un número, -1 per sortir: -1
+La suma és 14</pre
+        >
+
+        <p>Així doncs, els dos programes són pràcticament <strong>idèntics funcionalment</strong>. Tot i això, el primer mètode sovint és més fàcil, ja que la condició <code class="inline">numero == -1</code> només apareix una vegada, i la variable <code class="inline">numero</code> no s’ha d’inicialitzar fora del bucle.</p>
+
+        <p>La comanda <strong>break</strong> i una condició adequada també es poden utilitzar conjuntament en un <strong>bucle while</strong>. Per exemple, el següent bucle es repeteix mentre la suma dels números sigui com a màxim 100, però també s’atura si l’usuari escriu el número <code class="inline">-1</code>.</p>
+
+        <pre><code class="language-python">suma = 0
+
+while suma <= 100:
+    numero = int(input("Escriu un número, -1 per sortir: "))
+    if numero == -1:
+        break
+    suma += numero
+
+print(f"La suma és {suma}")</code></pre>
+
+        <pre class="output">
+Escriu un número, -1 per sortir: 15
+Escriu un número, -1 per sortir: 8
+Escriu un número, -1 per sortir: 21
+Escriu un número, -1 per sortir: -1
+La suma és 44</pre
+        >
+
+        <pre class="output">
+Escriu un número, -1 per sortir: 15
+Escriu un número, -1 per sortir: 8
+Escriu un número, -1 per sortir: 21
+Escriu un número, -1 per sortir: 45
+Escriu un número, -1 per sortir: 17
+La suma és 106</pre
+        >
+
+        <p>En el primer exemple, el bucle s’atura perquè l’usuari escriu el número <code class="inline">-1</code>. En el segon exemple, s’atura perquè la <strong>suma</strong> dels números supera 100.</p>
+
+        <p>Com sempre en programació, hi ha moltes maneres d’arribar a la mateixa funcionalitat. El següent programa és <strong>funcionalment idèntic</strong> a l’anterior:</p>
+
+        <pre><code class="language-python">suma = 0
+
+while True:
+    numero = int(input("Escriu un número, -1 per sortir: "))
+    if numero == -1:
+        break
+    suma += numero
+    if suma > 100:
+        break
+
+print(f"La suma és {suma}")</code></pre>
+      </section>
+
+      <section id="comanda-continue">
+        <h2>La comanda <code class="inline">continue</code></h2>
+
+        <p>Una altra manera de modificar com s’executa un <strong>bucle</strong> és amb la comanda <strong>continue</strong>. Aquesta fa que l’execució del bucle <strong>salti directament a l’inici</strong>, on es comprova la condició del bucle. Després, l’execució continua normalment comprovant la condició.</p>
+        <img src="../public/break_continue.png" alt="diagrama de flux comandes break i continue" />
+        <p>Per exemple, el següent programa suma números introduïts per l’usuari, però només inclou aquells que són <strong>menors que 10</strong>. Si el número és 10 o més gran, l’execució salta a l’inici del bucle i el número no s’afegeix a la suma.</p>
+
+        <pre><code class="language-python">suma = 0
+
+while True:
+    numero = int(input("Escriu un número, -1 per sortir: "))
+    if numero == -1:
+        break
+    if numero >= 10:
+        continue
+    suma += numero
+
+print(f"La suma és {suma}")</code></pre>
+
+        <pre class="output">
+Escriu un número, -1 per sortir: 4
+Escriu un número, -1 per sortir: 7
+Escriu un número, -1 per sortir: 99
+Escriu un número, -1 per sortir: 5
+Escriu un número, -1 per sortir: -1
+La suma és 16</pre
+        >
+      </section>
+
+      <section id="bucles-niats">
+        <h2>Bucles niats</h2>
+
+        <p>Igual que les <strong>estructures condicionals</strong> <code class="inline">if</code>, els <strong>bucles</strong> també poden estar <strong>inclosos dins d’altres bucles</strong>. Per exemple, el següent programa utilitza un bucle per demanar a l’usuari que introdueixi números. Després utilitza un altre bucle dins del primer per fer un <strong>comptatge enrere</strong> des del número donat fins a 1:</p>
+
+        <pre><code class="language-python">while True:
+    numero = int(input("Escriu un número: "))
+    if numero == -1:
+        break
+    while numero > 0:
+        print(numero)
+        numero -= 1</code></pre>
+
+        <pre class="output">
+Escriu un número: 4
+4
+3
+2
+1
+Escriu un número: 3
+3
+2
+1
+Escriu un número: 6
+6
+5
+4
+3
+2
+1
+Escriu un número: -1</pre
+        >
+
+        <p>Quan hi ha <strong>bucles immersos</strong>, les comandes <code class="inline">break</code> i <code class="inline">continue</code> només afecten el bucle més intern al qual pertanyen. L’exemple anterior també es podria escriure així:</p>
+
+        <pre><code class="language-python">while True:
+    numero = int(input("Escriu un número: "))
+    if numero == -1:
+        break
+    while True:
+        if numero <= 0:
+            break
+        print(numero)
+        numero -= 1</code></pre>
+
+        <p>Aquí, la segona comanda <strong>break</strong> només atura el bucle intern, que s’utilitza per imprimir els números.</p>
+      </section>
+
+      <section id="variables-ajuda-bucles">
+        <h2>Variables d’ajuda amb bucles</h2>
+
+        <p>Ja hem utilitzat <strong>variables d’ajuda</strong> que s’incrementen o decrementen a cada iteració d’un bucle. El següent programa imprimeix tots els <strong>números parells</strong> superiors a zero fins a arribar a un <strong>límit</strong> establert per l’usuari:</p>
+
+        <pre><code class="language-python">limit = int(input("Escriu un número: "))
+i = 0
+while i < limit:
+    print(i)
+    i += 2</code></pre>
+
+        <pre class="output">
+Escriu un número: 8
+0
+2
+4
+6</pre
+        >
+
+        <p>La variable d’ajuda <code class="inline">i</code> s’inicialitza a <strong>0</strong> abans del bucle i augmenta de dos en dos a cada iteració.</p>
+
+        <p>Quan s’utilitzen <strong>bucles immersos</strong>, de vegades cal una variable d’ajuda separada per al bucle intern. El programa següent imprimeix una <strong>“piràmide de números”</strong> basada en un número donat per l’usuari:</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+while numero > 0:
+    i = 0
+    while i < numero:
+        print(f"{i} ", end="")
+        i += 1
+    print()
+    numero -= 1</code></pre>
+
+        <pre class="output">
+Escriu un número: 5
+0 1 2 3 4
+0 1 2 3
+0 1 2
+0 1
+0</pre
+        >
+
+        <p>En aquest programa, el bucle extern utilitza la variable <strong>numero</strong>, que disminueix en 1 a cada iteració fins a arribar a 0. La variable d’ajuda <strong>i</strong> s’inicialitza a 0 just abans d’entrar al bucle intern, cada vegada que es repeteix el bucle extern.</p>
+
+        <p>El bucle intern utilitza la variable <strong>i</strong>, que augmenta en 1 a cada iteració. El bucle intern es repeteix fins que <code class="inline">i</code> és igual a <code class="inline">numero</code> i imprimeix cada valor d’<code class="inline">i</code> en la mateixa línia, separats per un espai. Quan el bucle intern acaba, la comanda <code class="inline">print()</code> del bucle extern crea una nova línia.</p>
+
+        <p>A mesura que el valor de <strong>numero</strong> disminueix, la quantitat de repeticions del bucle intern també ho fa. Cada línia de números és més curta que l’anterior, i així s’obté la forma de <strong>piràmide</strong>.</p>
+      </section>
+
+      <section id="exercici-multiplicacio">
+        <div class="exercici" id="multiplicacio">
+          <h3>Exercici: Multiplicació</h3>
+          <p>Escriu un programa que demani a l’usuari un <strong>número enter positiu</strong>. El programa ha d’imprimir una llista d’operacions de <strong>multiplicació</strong> fins que ambdós operands arribin al número introduït per l’usuari.</p>
+
+          <pre class="output">
+Escriu un número: 2
+1 x 1 = 1
+1 x 2 = 2
+2 x 1 = 2
+2 x 2 = 4</pre
+          >
+
+          <pre class="output">
+Escriu un número: 3
+1 x 1 = 1
+1 x 2 = 2
+1 x 3 = 3
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-primera-lletra">
+        <div class="exercici" id="primera-lletra">
+          <h3>Exercici: Primeres lletres de les paraules</h3>
+          <p>Escriu un programa que demani a l’usuari que introdueixi una <strong>frase</strong>. El programa ha d’imprimir la <strong>primera lletra</strong> de cada paraula de la frase, cada lletra en una línia separada.</p>
+
+          <pre class="output">
+Escriu una frase: Humpty Dumpty assegut a una paret
+H
+D
+a
+a
+u
+p</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-factorial">
+        <div class="exercici" id="factorial">
+          <h3>Exercici: Factorial</h3>
+          <p>Escriu un programa que demani a l’usuari que introdueixi un <strong>número enter</strong>. Si l’usuari introdueix un número igual o inferior a 0, l’execució s’acaba. En cas contrari, el programa ha d’imprimir el <strong>factorial</strong> del número.</p>
+
+          <p>El factorial d’un número consisteix a multiplicar el número per tots els <strong>enters positius</strong> menors que ell mateix. En altres paraules, és el producte de tots els enters positius menors o iguals al número. Per exemple, el factorial de 5 és <code class="inline">1 * 2 * 3 * 4 * 5 = 120</code>.</p>
+
+          <h3>Exemples de sortida</h3>
+          <pre class="output">
+Escriu un número: 3
+El factorial del número 3 és 6
+Escriu un número: 4
+El factorial del número 4 és 24
+Escriu un número: -1
+Gràcies i adéu!</pre
+          >
+
+          <pre class="output">
+Escriu un número: 1
+El factorial del número 1 és 1
+Escriu un número: 0
+Gràcies i adéu!</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-invertir-parelles">
+        <div class="exercici" id="invertir-parelles">
+          <h3>Exercici: Invertir les parelles</h3>
+          <p>Escriu un programa que demani a l’usuari que introdueixi un número. El programa ha d’imprimir tots els <strong>números enters positius</strong> des de 1 fins al número donat. Tanmateix, l’ordre dels números ha de canviar de manera que <strong>cada parella s’inverteixi</strong>. És a dir, el 2 apareix abans que el 1, el 4 abans que el 3, etc.</p>
+
+          <h3>Exemples de sortida</h3>
+          <pre class="output">
+Escriu un número: 5
+2
+1
+4
+3
+5</pre
+          >
+
+          <pre class="output">
+Escriu un número: 6
+2
+1
+4
+3
+6
+5</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-torns">
+        <div class="exercici" id="torns">
+          <h3>Exercici: Tornar-se</h3>
+          <p>Escriu un programa que demani a l’usuari que introdueixi un número. El programa ha d’imprimir els <strong>enters positius</strong> entre 1 i el número introduït, alternant entre els dos extrems del rang.</p>
+
+          <h3>Exemples de sortida</h3>
+          <pre class="output">
+Escriu un número: 5
+1
+5
+2
+4
+3</pre
+          >
+
+          <pre class="output">
+Escriu un número: 6
+1
+6
+2
+5
+3
+4</pre
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Break</strong>: comanda per sortir immediatament d'un bucle.</li>
+          <li><strong>Continue</strong>: comanda per saltar a la següent iteració del bucle.</li>
+          <li><strong>Bucles niats</strong>: bucles situats dins d'altres bucles.</li>
+          <li><strong>Variables d'ajuda</strong>: variables que controlen la iteració dels bucles.</li>
+          <li><strong>Bucle infinit controlat</strong>: <code class="inline">while True</code> amb condició de sortida.</li>
+          <li><strong>Condicions múltiples de sortida</strong>: diferents maneres d'aturar un bucle.</li>
+          <li><strong>Àmbit de break/continue</strong>: només afecten el bucle més intern.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="3_2_String.html">
+              <span class="tornar">←</span>
+              <h3>3.2 Treballar amb cadenes</h3>
+            </a>
+          </li>
+          <li>
+            <a href="3_4_Funcions.html">
+              <h3>3.4 Funcions</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Més condicionals</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="introduccio">
+        <h1>Més condicionals</h1>
+
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Aprendre a crear múltiples branques dins d'una <strong>sentència condicional</strong>.</li>
+          <li>Entendre la funció de les instruccions <strong>if</strong>, <strong>elif</strong> i <strong>else</strong> dins d'una condició.</li>
+          <li>Utilitzar l'operació <strong>%</strong> en expressions booleanes.</li>
+        </ul>
+
+        <p>Vegem un programa que demana a l’usuari que introdueixi un número, i després mostra diferents missatges segons si el número és negatiu, positiu o igual a zero:</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+
+if numero &lt; 0:
+    print("El número és negatiu")
+
+if numero &gt;= 0:
+    print("El número és positiu o zero")</code></pre>
+
+        <p>Això sembla una mica repetitiu. Només volem executar un dels blocs <strong>if</strong>, ja que el número sempre serà o bé menor que zero, o bé zero o més gran. És a dir, o bé <code class="inline">numero &lt; 0</code> o bé <code class="inline">numero &gt;= 0</code> serà cert, però mai tots dos alhora.</p>
+
+        <p>En comptes de crear una altra sentència condicional independent, podem afegir una <strong>branca alternativa</strong> dins de la mateixa estructura. Això s’aconsegueix amb la instrucció <strong>else</strong>.</p>
+
+        <p>El mateix exemple reescrit:</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+
+if numero &lt; 0:
+    print("El número és negatiu")
+else:
+    print("El número és positiu o zero")</code></pre>
+
+        <p>Quan fem servir una construcció <strong>if-else</strong>, s’executa una i només una de les branques. Tingues en compte que no pot existir una branca <strong>else</strong> sense una <strong>if</strong> anterior.</p>
+        <img src="../public/condicional.png" alt="diagrama de flux d'una estructura condicional" />
+      </section>
+
+      <section id="operador-modul">
+        <h2>Comprovar si un número és parell o senar</h2>
+
+        <p>El següent exemple comprova si un número donat per l’usuari és <strong>parell</strong> o <strong>senar</strong>. Es pot comprovar la paritat amb l’operador <strong>%</strong>, que retorna el <strong>residu</strong> d’una divisió sencera. Si en dividir per dos el residu és zero, el número és parell. En cas contrari, és senar.</p>
+
+        <pre><code class="language-python">numero = int(input("Escriu un número: "))
+
+if numero % 2 == 0:
+    print("El número és parell")
+else:
+    print("El número és senar")</code></pre>
+
+        <pre class="output">
+Escriu un número: 5
+El número és senar</pre
+        >
+      </section>
+
+      <section id="comparacio-text">
+        <h2>Comparació de cadenes de text</h2>
+
+        <p>Un altre exemple amb <strong>comparació de textos</strong>:</p>
+
+        <pre><code class="language-python">contrasenya_correcta = "gatet"
+contrasenya = input("Escriu la contrasenya: ")
+
+if contrasenya == contrasenya_correcta:
+    print("Benvingut/da")
+else:
+    print("Accés denegat")</code></pre>
+
+        <h3>Exemple de sortida</h3>
+        <pre class="output">
+Escriu la contrasenya: gatet
+Benvingut/da</pre
+        >
+
+        <pre class="output">
+Escriu la contrasenya: mico
+Accés denegat</pre
+        >
+      </section>
+
+      <section id="exercici-edat">
+        <div class="exercici">
+          <h3>Exercici: Majoria d’edat</h3>
+          <p>Escriu un programa que demani a l’usuari la seva edat. El programa ha d’imprimir un missatge indicant si la persona és <strong>major d’edat</strong> o no, utilitzant 18 com a edat de referència.</p>
+
+          <pre class="output">
+Quina edat tens? 12
+No ets major d’edat!</pre
+          >
+
+          <pre class="output">
+Quina edat tens? 32
+Ets major d’edat!</pre
+          >
+        </div>
+      </section>
+
+      <section id="elif">
+        <h2>Branques alternatives amb elif</h2>
+
+        <p>Sovint hi ha més de dues opcions que el programa ha de contemplar. Per exemple, el resultat d’un <strong>partit de futbol</strong> pot tenir tres opcions: victòria local, victòria visitant o empat.</p>
+
+        <p>Podem afegir una branca <strong>elif</strong> (abreviació de <strong>else if</strong>) per introduir condicions alternatives. La branca <strong>elif</strong> només s’executa si cap de les anteriors ha estat certa.</p>
+
+        <img src="../public/elif.png" alt="Diagrama de flux de dos condicionals aniuats" />
+
+        <p>Vegem un programa que determina el guanyador d'un partit:</p>
+
+        <pre><code class="language-python">gols_casa = int(input("Gols de l’equip local: "))
+gols_visitant = int(input("Gols de l’equip visitant: "))
+
+if gols_casa &gt; gols_visitant:
+    print("L’equip local ha guanyat!")
+elif gols_visitant &gt; gols_casa:
+    print("L’equip visitant ha guanyat!")
+else:
+    print("Hi ha hagut empat!")</code></pre>
+
+        <pre class="output">
+Gols de l’equip local: 4
+Gols de l’equip visitant: 2
+L’equip local ha guanyat!</pre
+        >
+
+        <pre class="output">
+Gols de l’equip local: 0
+Gols de l’equip visitant: 6
+L’equip visitant ha guanyat!</pre
+        >
+
+        <pre class="output">
+Gols de l’equip local: 3
+Gols de l’equip visitant: 3
+Hi ha hagut empat!</pre
+        >
+
+        <p>No hi ha límit en el nombre de branques <strong>elif</strong> dins d’una estructura condicional, i la branca <strong>else</strong> és opcional.</p>
+      </section>
+
+      <section id="exemple-calendari">
+        <h2>Exemple amb diverses branques elif</h2>
+
+        <pre><code class="language-python">print("Calendari de festes")
+data = input("Quina data és avui? ")
+
+if data == "26 des":
+    print("És Sant Esteve")
+elif data == "31 des":
+    print("És Cap d’Any (vigília)")
+elif data == "1 gen":
+    print("És Any Nou")
+
+print("Gràcies i adéu.")</code></pre>
+
+        <pre class="output">
+Calendari de festes
+Quina data és avui? 31 des
+És Cap d’Any (vigília)
+Gràcies i adéu.</pre
+        >
+
+        <p>En aquest exemple no hi ha branca <strong>else</strong>. Si l’usuari introdueix una data que no coincideix amb cap de les condicions, no s’executarà cap missatge especial.</p>
+
+        <pre class="output">
+Calendari de festes
+Quina data és avui? 25 des
+Gràcies i adéu.</pre
+        >
+      </section>
+
+      <section id="exercici-major">
+        <div class="exercici">
+          <h3>Exercici: Més gran o igual</h3>
+          <p>Escriu un programa que demani dos números enters. El programa ha d’imprimir quin dels dos és més gran. Si són iguals, ha d’imprimir un missatge diferent.</p>
+
+          <pre class="output">
+Escriu el primer número: 5
+Escriu un altre número: 3
+El número més gran és: 5</pre
+          >
+
+          <pre class="output">
+Escriu el primer número: 5
+Escriu un altre número: 8
+El número més gran és: 8</pre
+          >
+
+          <pre class="output">
+Escriu el primer número: 5
+Escriu un altre número: 5
+Els números són iguals!</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-gran">
+        <div class="exercici">
+          <h3>Exercici: El més vell</h3>
+          <p>Escriu un programa que demani els <strong>noms</strong> i <strong>edats</strong> de dues persones. El programa ha d’imprimir el nom de la persona més vella.</p>
+
+          <pre class="output">
+Persona 1:
+Nom: Alan
+Edat: 26
+Persona 2:
+Nom: Ada
+Edat: 27
+La persona més gran és Ada</pre
+          >
+
+          <pre class="output">
+Persona 1:
+Nom: Biel
+Edat: 1
+Persona 2:
+Nom: Jana
+Edat: 1
+Biel i Jana tenen la mateixa edat</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-alfabet">
+        <div class="exercici">
+          <h3>Exercici: Última alfabèticament</h3>
+          <p>Els <strong>operadors de comparació</strong> de Python també es poden utilitzar amb <strong>cadenes de text</strong>. Una cadena <code class="inline">a</code> és més petita que <code class="inline">b</code> si va abans alfabèticament. Tingues en compte que la comparació és fiable només si:</p>
+          <ul>
+            <li>Les paraules comparades tenen el mateix tipus de lletra (totes en minúscules o majúscules).</li>
+            <li>Només s’utilitza l’alfabet llatí de la <strong>a</strong> a la <strong>z</strong>.</li>
+          </ul>
+
+          <p>Escriu un programa que demani a l’usuari dues paraules i imprimeixi quina de les dues va <strong>última alfabèticament</strong>.</p>
+          <p>Pots assumir que totes les paraules s’introduiran en minúscules.</p>
+
+          <pre class="output">
+Escriu la 1a paraula: cotxe
+Escriu la 2a paraula: patinet
+patinet va última alfabèticament.</pre
+          >
+
+          <pre class="output">
+Escriu la 1a paraula: zorro
+Escriu la 2a paraula: batman
+zorro va última alfabèticament.</pre
+          >
+
+          <pre class="output">
+Escriu la 1a paraula: python
+Escriu la 2a paraula: python
+Has escrit la mateixa paraula dues vegades.</pre
+          >
+        </div>
+      </section>
+
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>if</strong>: condició que comprova si una expressió és certa per executar un bloc de codi.</li>
+          <li><strong>else</strong>: branca alternativa que s’executa si la condició de l’if és falsa.</li>
+          <li><strong>elif</strong>: permet afegir condicions alternatives dins d’una mateixa estructura condicional.</li>
+          <li><strong>Operador mòdul (%)</strong>: retorna el residu d’una divisió sencera, útil per comprovar paritat.</li>
+          <li><strong>Comparació de cadenes</strong>: permet determinar l’ordre alfabètic entre textos.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="2_1_Terminologia.html">
+              <span class="tornar">←</span>
+              <h3>2.1 Terminologia</h3>
+            </a>
+          </li>
+          <li>
+            <a href="2_3_Combinanr_Condicions.html">
+              <h3>2.3 Combinar condicions</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

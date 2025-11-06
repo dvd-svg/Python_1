@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucle simples</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <h1>Bucles simples</h1>
+      <section id="objectius-aprenentatge">
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Sabràs què significa un <strong>bucle</strong> en programació</li>
+          <li>Seràs capaç d'utilitzar un <strong>while True</strong> en els teus programes</li>
+          <li>Aprendràs a utilitzar la comanda <strong>break</strong> per sortir d'un bucle</li>
+        </ul>
+      </section>
+
+      <section id="introduccio-bucles">
+        <p>
+          Ja hem cobert les <strong>estructures condicionals</strong> amb cert detall. Una altra tècnica central en programació és la <strong>repetició</strong>, o <strong>iteració</strong>. Aquestes juntes formen les <strong>estructures de control fonamentals</strong> que tot programador ha de dominar. Es diuen estructures de control perquè permeten <strong>controlar quines línies de codi s'executen i quan</strong>. Mentre les estructures condicionals permeten escollir entre seccions de codi, les estructures d'iteració permeten <strong>repetir seccions de codi</strong>. Sovint s'anomenen
+          <strong>bucles</strong> perquè permeten al programa "torna enrere" a una línia que ja s'ha executat abans. L'execució d'una repetició d'un bucle també s'anomena <strong>iteració del bucle</strong>.
+        </p>
+
+        <p>Aquesta secció introdueix un <strong>bucle while</strong> senzill. La seva estructura és similar a les <strong>sentències condicionals</strong> que ja hem vist. A la següent part aprofundirem en exemples més sofisticats.</p>
+      </section>
+
+      <section id="exemple-bucle-senzill">
+        <h2>Exemple de bucle senzill</h2>
+        <p>Vegem un programa que demana a l'usuari que introdueixi un número i després imprimeix el quadrat del número. Això continua fins que l'usuari introdueix -1.</p>
+        <pre><code class="language-python">while True:
+    numero = int(input("Introdueix un número, -1 per sortir: "))
+
+    if numero == -1:
+        break
+
+    print(numero ** 2)
+
+print("Gràcies i adéu!")</code></pre>
+
+        <p>Executant el programa podria semblar així:</p>
+        <pre class="output">
+Introdueix un número, -1 per sortir: 2
+4
+Introdueix un número, -1 per sortir: 4
+16
+Introdueix un número, -1 per sortir: 10
+100
+Introdueix un número, -1 per sortir: -1
+Gràcies i adéu!</pre
+        >
+
+        <p>Com es pot veure, el programa demana diversos números gràcies a la instrucció <strong>while</strong>. Quan l'usuari escriu -1, s'executa la comanda <strong>break</strong>, que surt del bucle i continua l'execució des de la primera línia després del bloc <strong>while</strong>.</p>
+      </section>
+
+      <section id="bucle-infinit">
+        <h2>Bucle infinit</h2>
+        <p>Amb els bucles, és crucial que sempre hi hagi una manera de <strong>sortir del bucle</strong> en algun moment, si no la repetició podria continuar indefinidament. Per il·lustrar-ho, modifiquem una mica l'exemple anterior:</p>
+        <pre><code class="language-python">numero = int(input("Introdueix un número, -1 per sortir: "))
+while True:
+    if numero == -1:
+        break
+
+    print(numero ** 2)
+
+print("Gràcies i adéu!")</code></pre>
+
+        <p>En aquesta versió, el programa demana a l'usuari un número fora del bucle. Si l'usuari introdueix qualsevol altre número que no sigui -1, el bucle <strong>mai no s'acaba</strong>, creant un bucle infinit:</p>
+        <pre class="output">
+Introdueix un número, -1 per sortir: 2
+4
+4
+4
+4
+4
+4
+4
+4
+(continua indefinidament...)</pre
+        >
+      </section>
+
+      <section id="exemple-pin">
+        <h2>Exemple amb PIN</h2>
+        <p>El següent programa permet a l'usuari continuar només si introdueix el PIN correcte 1234:</p>
+        <pre><code class="language-python">while True:
+    codi = input("Introdueix el teu PIN: ")
+    if codi == "1234":
+        break
+    print("Incorrecte...torna-ho a provar")
+
+print("PIN correcte!")</code></pre>
+
+        <p>Exemple d'execució:</p>
+        <pre class="output">
+Introdueix el teu PIN: 0000
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 9999
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 1234
+PIN correcte!</pre
+        >
+      </section>
+
+      <section id="exercicis">
+        <div class="exercici" id="exercici-1">
+          <h3>Exercici: Continuem?</h3>
+          <p>Crea un programa que imprimeixi el missatge <code class="inline">"hola"</code> i després pregunti <code class="inline">"Continuem?"</code> fins que l'usuari introdueixi <code class="inline">"no"</code>. Aleshores el programa ha d'imprimir <code class="inline">"d'acord"</code> i finalitzar.</p>
+          <pre class="output">
+hola
+Continuem? sí
+hola
+Continuem? oui
+hola
+Continuem? jawohl
+hola
+Continuem? no
+d'acord</pre
+          >
+        </div>
+
+        <div class="exercici" id="exercici-validacio-entrada">
+          <h3>Exercici: Validació de l'entrada</h3>
+          <p>Escriu un programa que demani a l'usuari números enters.</p>
+          <ul>
+            <li>Si el número és menor que zero, imprimeix <code class="inline">"Número invàlid"</code>.</li>
+            <li>Si el número és major que zero, imprimeix l'arrel quadrada del número utilitzant la funció <code class="inline">sqrt</code> de Python.</li>
+            <li>En qualsevol dels casos, després demana un altre número.</li>
+            <li>Si l'usuari introdueix el número zero, el programa ha d'aturar-se i sortir del bucle.</li>
+          </ul>
+          <p>Recorda importar la funció <code class="inline">sqrt</code> al principi del programa:</p>
+          <pre><code class="language-python">from math import sqrt
+
+print(sqrt(9))</code></pre>
+          <p>Exemple de sortida esperada:</p>
+          <pre class="output">3.0</pre>
+
+          <p>Exemple d'execució completa:</p>
+          <pre class="output">
+Introdueix un número: 16
+4.0
+Introdueix un número: 4
+2.0
+Introdueix un número: -3
+Número invàlid
+Introdueix un número: 1
+1.0
+Introdueix un número: 0
+Sortint...</pre
+          >
+        </div>
+
+        <div class="exercici" id="exercici-compte-enrere">
+          <h3>Exercici: Corregir el codi – Compte enrere</h3>
+          <p>Aquest programa hauria d'imprimir un compte enrere. El codi actual és el següent:</p>
+          <pre><code class="language-python">numero = 5
+print("Compte enrere!")
+while True:
+  print(numero)
+  numero = numero - 1
+  if numero &gt; 0:
+    break
+
+print("Ara!")</code></pre>
+          <p>El programa hauria de mostrar la següent sortida:</p>
+          <pre class="output">
+Compte enrere!
+5
+4
+3
+2
+1
+Ara!</pre
+          >
+          <p>Observa que el codi actual no funciona correctament i cal corregir-lo.</p>
+        </div>
+
+        <div class="exercici" id="exercici-4">
+          <h3>Exercici: Repetir contrasenya</h3>
+          <p>Escriu un programa que demani a l'usuari una <code class="inline">contrasenya</code> i després li demani de nou que la introdueixi. Si escriu alguna cosa diferent, el programa ha de continuar preguntant fins que l'usuari escrigui la mateixa contrasenya correcta.</p>
+          <pre class="output">
+Exemple:
+Contrasenya: secret
+Repeteix contrasenya: secrèt
+No coincideixen!
+Repeteix contrasenya: no-recordo
+No coincideixen!
+Repeteix contrasenya: secret
+Compte d'usuari creat!</pre
+          >
+        </div>
+      </section>
+
+      <section id="bucles-i-variables-auxiliars">
+        <h2>Bucles i variables auxiliars</h2>
+        <p>Fem l'exemple de comprovació de PIN una mica més realista. Aquesta versió dóna a l'usuari només tres intents per introduir el PIN.</p>
+        <p>El programa utilitza dues <strong>variables auxiliars</strong>. La variable <code class="inline">intents</code> fa un seguiment del nombre de vegades que l'usuari ha escrit un PIN. La variable <code class="inline">exit</code> s'estableix a <code class="inline">True</code> o <code class="inline">False</code> segons si l'usuari aconsegueix iniciar sessió correctament.</p>
+        <pre><code class="language-python">intents = 0
+
+while True:
+    codi = input("Introdueix el teu PIN: ")
+    intents += 1
+
+    if codi == "1234":
+        exit = True
+        break
+
+    if intents == 3:
+        exit = False
+        break
+
+    # això s'imprimeix si el codi és incorrecte I encara queden intents
+    print("Incorrecte...torna-ho a provar")
+
+if exit:
+    print("PIN correcte!")
+else:
+    print("Massa intents...")</code></pre>
+
+        <p>Exemple d'execució amb èxit abans dels tres intents:</p>
+        <pre class="output">
+Introdueix el teu PIN: 0000
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 1234
+PIN correcte!</pre
+        >
+
+        <p>Exemple d'execució amb tres intents fallits:</p>
+        <pre class="output">
+Introdueix el teu PIN: 0000
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 9999
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 4321
+Massa intents...</pre
+        >
+
+        <p>El bucle s'interromp quan l'usuari introdueix el PIN correcte o quan s'arriben a tres intents. La sentència <strong>if</strong> després del bucle comprova el valor de la variable <code class="inline">exit</code> i imprimeix un missatge adequat.</p>
+      </section>
+
+      <section id="depuracio-bucles">
+        <h2>Depuració amb sentències <code class="inline">print</code> dins de bucles</h2>
+        <p>Afegir bucles als programes també afegeix possibles fonts d'errors. És important dominar l'ús de <strong>sentències de depuració</strong> com vam veure a la primera secció d'aquesta part.</p>
+        <p>Vegem un programa gairebé idèntic a l'exemple anterior, però amb una diferència crucial:</p>
+        <pre><code class="language-python">intents = 0
+
+while True:
+    codi = input("Introdueix el teu PIN: ")
+    intents += 1
+
+    if intents == 3:
+        exit = False
+        break
+
+    if codi == "1234":
+        exit = True
+        break
+
+    print("Incorrecte...torna-ho a provar")
+
+if exit:
+    print("PIN correcte!")
+else:
+    print("Massa intents...")</code></pre>
+
+        <p>Aquesta versió actua de manera inesperada quan l'usuari introdueix el PIN correcte en el tercer intent:</p>
+        <pre class="output">
+Introdueix el teu PIN: 0000
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 9999
+Incorrecte...torna-ho a provar
+Introdueix el teu PIN: 1234
+Massa intents...</pre
+        >
+
+        <p>Per trobar la causa, podem afegir <strong>prints estratègics</strong> dins del bucle:</p>
+        <pre><code class="language-python">while True:
+    print("inici del bloc while:")
+    codi = input("Introdueix el teu PIN: ")
+    intents += 1
+
+    print("intents:", intents)
+    print("condicio1:", intents == 3)
+    if intents == 3:
+        exit = False
+        break
+
+    print("codi:", codi)
+    print("condicio2:", codi == "1234")
+    if codi == "1234":
+        exit = True
+        break
+
+    print("Incorrecte...torna-ho a provar")</code></pre>
+
+        <p>Sortida d'exemple amb aquests prints de depuració:</p>
+        <pre class="output">
+inici del bloc while:
+Introdueix el teu PIN: 2233
+intents: 1
+condicio1: False
+codi: 2233
+condicio2: False
+Incorrecte...torna-ho a provar
+inici del bloc while:
+Introdueix el teu PIN: 4545
+intents: 2
+condicio1: False
+codi: 4545
+condicio2: False
+Incorrecte...torna-ho a provar
+inici del bloc while:
+Introdueix el teu PIN: 1234
+intents: 3
+condicio1: True
+Massa intents...</pre
+        >
+
+        <p>Observem que en la tercera iteració, la condició del primer <strong>if</strong> és True i el bucle s'interromp abans d'arribar al segon <strong>if</strong> que comprova si el codi és correcte.</p>
+        <p>L'ordre de les condicions dins del bucle és una causa comuna d'errors. Les sentències <strong>print</strong> de depuració són sovint la manera més senzilla de detectar aquest tipus de problemes.</p>
+        <pre><code class="language-python">while True:
+    # ...
+
+    # aquest bloc s'executa massa aviat
+    if intents == 3:
+        exit = False
+        break
+
+    # la tercera iteració mai arriba a aquesta línia
+    if codi == "1234":
+        exit = True
+        break</code></pre>
+        <p>L'ordre de les <strong>sentències condicionals</strong> o de les diferents branques dins d'una condició és una causa comuna d'errors, especialment dins de bucles. Les <strong>sentències de depuració</strong> amb <code class="inline">print</code> sovint són la manera més senzilla de descobrir per què es produeix un error.</p>
+      </section>
+
+      <section>
+        <div class="exercici" id="exercici-pin-intents">
+          <h3>Exercici: PIN i nombre d'intents</h3>
+          <p>Escriu un programa que demani a l'usuari un <strong>PIN</strong> fins que introdueixi el correcte, que és <code class="inline">4321</code>. Després, imprimeix el nombre de vegades que l'usuari ha provat codis diferents.</p>
+          <pre class="output">
+Exemple d'execució:
+PIN: 3245
+Incorrecte
+PIN: 1234
+Incorrecte
+PIN: 0000
+Incorrecte
+PIN: 4321
+Correcte! Has necessitat 4 intents</pre
+          >
+          <p>Si l'usuari encerta al primer intent:</p>
+          <pre class="output">
+PIN: 4321
+Correcte! Només has necessitat un únic intent!</pre
+          >
+        </div>
+
+        <div class="exercici" id="exercici-any-traspas">
+          <h3>Exercici: Proper any de traspàs</h3>
+          <p>Escriu un programa que demani un any i imprimeixi el següent <strong>any de traspàs</strong>.</p>
+          <pre class="output">
+Any: 2023
+El proper any de traspàs després de 2023 és 2024</pre
+          >
+          <p>Si l'usuari introdueix un any que ja és de traspàs:</p>
+          <pre class="output">
+Any: 2024
+El proper any de traspàs després de 2024 és 2028</pre
+          >
+        </div>
+      </section>
+
+      <section id="concatenacio-cadenes">
+        <h2>Concatenació de cadenes amb l'operador +</h2>
+        <p>L'exemple anterior de comprovació de PIN utilitzava una <strong>variable auxiliar</strong> <code class="inline">intents</code> per fer un seguiment de quantes vegades l'usuari havia intentat introduir un codi:</p>
+        <pre><code class="language-python">intents = 0
+
+while True:
+    codi = input("Introdueix el teu PIN: ")
+    intents += 1
+    # ...</code></pre>
+        <p>La variable es defineix a zero fora del bucle, i cada iteració incrementa el seu valor en una unitat.</p>
+        <p>Una idea similar d'incrementació funciona amb <strong>variables de tipus cadena de text</strong> també. El programa podria, per exemple, fer un seguiment de tots els codis PIN que l'usuari ha escrit:</p>
+        <pre><code class="language-python">codis = ""
+intents = 0
+
+while True:
+    codi = input("Introdueix el teu PIN: ")
+    intents += 1
+    codis += codi + ", "
+    # ...</code></pre>
+        <p>La variable auxiliar s'inicialitza com una cadena buida, és a dir, una cadena sense caràcters:</p>
+        <pre><code class="language-python">codis = ""</code></pre>
+        <p>A cada iteració, la cadena es fa més llarga, ja que s'afegeix el codi que l'usuari ha introduït, juntament amb una coma:</p>
+        <pre><code class="language-python">codi = input("Introdueix el teu PIN: ")
+codis += codi + ", "</code></pre>
+        <p>Si l'usuari introdueix els codis <code class="inline">1111</code>, <code class="inline">2222</code> i <code class="inline">1234</code>, al final de l'execució del programa el valor de <code class="inline">codis</code> seria:</p>
+        <pre class="output">1111, 2222, 1234,</pre>
+      </section>
+      <section>
+        <div class="exercici" id="exercici-historia">
+          <h3>Exercici: Història</h3>
+          <p><strong>Part 1:</strong> Escriu un programa que segueixi demanant a l'usuari paraules. Si l'usuari escriu <code class="inline">end</code>, el programa ha d'imprimir la història formada per totes les paraules i acabar.</p>
+          <pre class="output">
+Exemple d'execució:
+Introdueix una paraula: Hi
+Introdueix una paraula: havia
+Introdueix una paraula: una
+Introdueix una paraula: vegada
+Introdueix una paraula: una
+Introdueix una paraula: nena
+Introdueix una paraula: end
+Hi havia una vegada una nena</pre
+          >
+
+          <p><strong>Part 2:</strong> Canvia el programa perquè el bucle també s'acabi si l'usuari escriu la mateixa paraula dues vegades consecutives.</p>
+          <pre class="output">
+Exemple d'execució:
+Introdueix una paraula: Era
+Introdueix una paraula: una
+Introdueix una paraula: nit
+Introdueix una paraula: fosca
+Introdueix una paraula: i
+Introdueix una paraula: tempestuosa
+Introdueix una paraula: nit
+Introdueix una paraula: nit
+Era una nit fosca i tempestuosa</pre
+          >
+        </div>
+
+        <div class="exercici" id="exercici-treballar-numeros">
+          <h3>Exercici: Treballant amb números</h3>
+          <p><strong>Pre-tasca:</strong> Escriu un programa que demani a l'usuari nombres enters. El programa ha de seguir demanant números fins que l'usuari introdueixi zero.</p>
+          <pre class="output">
+Exemple d'execució:
+Introdueix nombres enters. Escriu 0 per acabar.
+Nombre: 5
+Nombre: 22
+Nombre: 9
+Nombre: -2
+Nombre: 0</pre
+          >
+
+          <p>
+            <strong>Part 1: Comptatge</strong><br />
+            Després de llegir els números, el programa ha d'imprimir quants números s'han introduït. El zero final no s'ha de comptar. Necessitaràs una nova variable per fer el seguiment dels números introduïts.
+          </p>
+          <pre class="output">
+... el programa demana nombres
+Nombres introduïts: 4</pre
+          >
+
+          <p>
+            <strong>Part 2: Suma</strong><br />
+            El programa també ha d'imprimir la suma de tots els nombres introduïts. El zero final no s'ha d'incloure en el càlcul.
+          </p>
+          <pre class="output">
+... el programa demana nombres
+Nombres introduïts: 4
+La suma dels nombres és 34</pre
+          >
+
+          <p>
+            <strong>Part 3: Mitjana</strong><br />
+            El programa ha d'imprimir també la <strong>mitjana</strong> dels nombres. El zero final no s'ha d'incloure en el càlcul. Es pot assumir que l'usuari escriurà almenys un número vàlid diferent de zero.
+          </p>
+          <pre class="output">
+... el programa demana nombres
+Nombres introduïts: 4
+La suma dels nombres és 34
+La mitjana dels nombres és 8.5</pre
+          >
+
+          <p>
+            <strong>Part 4: Positius i negatius</strong><br />
+            El programa ha d'imprimir estadístiques sobre quants nombres són positius i quants són negatius. El zero final no s'ha d'incloure en el càlcul.
+          </p>
+          <pre class="output">
+... el programa demana nombres
+Nombres introduïts: 4
+La suma dels nombres és 34
+La mitjana dels nombres és 8.5
+Nombres positius: 3
+Nombres negatius: 1</pre
+          >
+        </div>
+      </section>
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Bucle</strong>: Permet repetir un bloc de codi diverses vegades.</li>
+          <li><strong>Iteració</strong>: Cada execució individual d'un bucle.</li>
+          <li><strong>while True</strong>: Bucle que continua indefinidament fins que es troba un <strong>break</strong>.</li>
+          <li><strong>break</strong>: Comanda que finalitza immediatament un bucle.</li>
+          <li><strong>Variable auxiliar</strong>: Variable usada per controlar l'execució d'un bucle o registrar informació com intents o èxit.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="2_3_Combinanr_Condicions.html">
+              <span class="tornar">←</span>
+              <h3>Combinar condicions</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

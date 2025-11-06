@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminologia en programació</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="introduccio">
+        <h1>Terminologia en programació</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Familiaritzar-se amb la <strong>terminologia essencial</strong> en programació.</li>
+          <li>Entendre la diferència entre una <strong>sentència</strong> i una <strong>expressió</strong>.</li>
+          <li>Aprendre a determinar el <strong>tipus de dada</strong> d’una expressió avaluada.</li>
+          <li>Dominar mètodes de <strong>depuració</strong> per trobar errors en el codi.</li>
+        </ul>
+        <p>En la primera part d’aquest curs no vam parar gaire atenció a la terminologia, així que ara veurem alguns dels conceptes centrals de la programació.</p>
+      </section>
+
+      <section id="sentencia">
+        <h2>Sentència</h2>
+        <p>Una <strong>sentència</strong> és una part del programa que executa alguna cosa. Sovint, però no sempre, fa referència a una única ordre.</p>
+        <p>Per exemple, <code class="inline">print("Hola!")</code> és una sentència que imprimeix una línia de text. De la mateixa manera, <code class="inline">numero = 2</code> és una sentència que assigna un valor a una variable.</p>
+        <p>Una sentència també pot ser més complexa i contenir altres sentències. L’exemple següent ocupa tres línies:</p>
+        <pre><code class="language-python">if nom == "Anna":
+    print("Hola!")
+    numero = 2</code></pre>
+        <p>En aquest cas hi ha dues sentències (una de <strong>print</strong> i una d’<strong>assignació</strong>) dins d’una <strong>sentència condicional</strong>.</p>
+      </section>
+
+      <section id="bloc">
+        <h2>Bloc</h2>
+        <p>Un <strong>bloc</strong> és un grup de sentències consecutives que es troben al mateix nivell dins de l’estructura del programa. Per exemple, el bloc d’una sentència condicional conté aquelles sentències que només s’executen si la condició és certa.</p>
+        <pre><code class="language-python">if edat > 17:
+    # inici del bloc condicional
+    print("Ets major d'edat!")
+    edat = edat + 1
+    print("Ara tens un any més...")
+    # final del bloc condicional
+
+print("Això pertany a un altre bloc")</code></pre>
+        <p>En Python, els blocs s’expressen mitjançant <strong>sagnats</strong> (indentació). Totes les línies d’un mateix bloc han de tenir el mateix nombre d’espais al principi.</p>
+        <p><strong>Atenció:</strong> el bloc principal d’un programa Python ha d’estar sempre alineat a l’esquerra del fitxer, sense cap espai inicial:</p>
+        <pre><code class="language-python"># aquest programa no funcionarà perquè no està alineat a l'esquerra
+  print("hola món")
+  print("aquest programa no és gaire bo...")</code></pre>
+      </section>
+
+      <section id="expressio">
+        <h2>Expressió</h2>
+        <p>Una <strong>expressió</strong> és una part del codi que produeix un valor d’un determinat tipus de dada. Quan el programa s’executa, l’expressió s’avalua i adquireix un valor que es pot utilitzar dins del programa.</p>
+
+        <table>
+          <tr>
+            <th>Expressió</th>
+            <th>Valor</th>
+            <th>Tipus</th>
+            <th>Tipus de dada Python</th>
+          </tr>
+          <tr>
+            <td><code class="inline">2 + 4 + 3</code></td>
+            <td>9</td>
+            <td>enter</td>
+            <td><code class="inline">int</code></td>
+          </tr>
+          <tr>
+            <td><code class="inline">"abc" + "de"</code></td>
+            <td>"abcde"</td>
+            <td>cadena de text</td>
+            <td><code class="inline">str</code></td>
+          </tr>
+          <tr>
+            <td><code class="inline">11 / 2</code></td>
+            <td>5.5</td>
+            <td>nombre amb decimals</td>
+            <td><code class="inline">float</code></td>
+          </tr>
+          <tr>
+            <td><code class="inline">2 * 5 > 9</code></td>
+            <td>True</td>
+            <td>valor booleà</td>
+            <td><code class="inline">bool</code></td>
+          </tr>
+        </table>
+
+        <p>Totes les expressions tenen un <strong>tipus</strong>, així que poden assignar-se a variables:</p>
+        <pre><code class="language-python">x = 1 + 2</code></pre>
+        <p>Les expressions simples es poden combinar per formar expressions més complexes:</p>
+        <pre><code class="language-python">y = 3 * x + x**2</code></pre>
+      </section>
+
+      <section id="funcio">
+        <h2>Funció</h2>
+        <p>Una <strong>funció</strong> executa una determinada funcionalitat. Pot rebre un o més <strong>arguments</strong>, que són dades que la funció processa. Els arguments també s’anomenen <strong>paràmetres</strong>. Tot i que hi ha una diferència tècnica entre ambdós termes, sovint s’utilitzen de manera intercanviable.</p>
+        <p>Una funció s’executa quan és <strong>cridada</strong> al codi:</p>
+        <pre><code class="language-python">print("això és un argument")</code></pre>
+        <p>Una altra funció que ja has utilitzat sovint és <code class="inline">input</code>, que demana a l’usuari una entrada:</p>
+        <pre><code class="language-python">nom = input("Escriu el teu nom: ")</code></pre>
+        <p>En aquest cas, la funció <strong>retorna un valor</strong>: una cadena de text amb el que l’usuari ha escrit. Normalment aquest valor es desa en una variable per poder-lo utilitzar més endavant.</p>
+      </section>
+
+      <section id="tipus-de-dada">
+        <h2>Tipus de dada</h2>
+        <p>El <strong>tipus de dada</strong> descriu les característiques d’un valor dins del programa. En l’exemple següent, la variable <code class="inline">nom</code> és una cadena de text (<code class="inline">str</code>), i la variable <code class="inline">resultat</code> és un enter (<code class="inline">int</code>):</p>
+        <pre><code class="language-python">nom = "Anna"
+resultat = 100</code></pre>
+        <p>Pots usar la funció <code class="inline">type</code> per saber quin tipus de dada té una expressió:</p>
+        <pre><code class="language-python">print(type("Anna"))
+print(type(100))</code></pre>
+        <pre class="output">
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</pre
+        >
+      </section>
+
+      <section id="sintaxi">
+        <h2>Sintaxi</h2>
+        <p>Igual que passa amb les llengües naturals, la <strong>sintaxi</strong> d’un llenguatge de programació determina com s’ha d’escriure el codi. Cada llenguatge té les seves pròpies regles.</p>
+        <p>La sintaxi de Python estableix, entre altres coses, que la primera línia d’una <strong>sentència if</strong> ha d’acabar amb dos punts i el seu bloc ha d’estar sagnat:</p>
+        <pre><code class="language-python">if nom == "Anna":
+    print("Hola!")</code></pre>
+        <p>Si no es segueixen les regles de sintaxi, es produirà un error:</p>
+        <pre><code class="language-python">if nom == "Anna"
+    print("Hola!")</code></pre>
+        <pre class="output">
+  File "prova.py", line 1
+    if nom == "Anna"
+                    ^
+SyntaxError: invalid syntax</pre
+        >
+      </section>
+
+      <section id="depuracio">
+        <h2>Depuració</h2>
+        <p>Quan la sintaxi és correcta però el programa no funciona com s’esperava, vol dir que hi ha un <strong>error lògic</strong>, o <strong>bug</strong>. Els errors poden aparèixer de diferents maneres. Alguns produeixen un <strong>error d’execució</strong>:</p>
+        <pre><code class="language-python">x = 10
+y = 0
+resultat = x / y
+
+print(f"{x} dividit per {y} és {resultat}")</code></pre>
+        <pre class="output">ZeroDivisionError: integer division or modulo by zero on line 3</pre>
+        <p>Aquest error és de tipus <strong>matemàtic</strong>: no es pot dividir per zero, i el programa s’atura. Altres vegades, l’error es detecta perquè el resultat no és el correcte.</p>
+        <p>Trobar l’origen dels errors s’anomena <strong>depurar</strong> (debugging). És una habilitat essencial en programació. Un mètode molt útil és afegir <strong>sentències print</strong> per comprovar què està fent el programa.</p>
+        <p>Vegem un exemple amb un programa que calcula el salari diari:</p>
+        <pre><code class="language-python">sou_horari = float(input("Sou per hora: "))
+hores = int(input("Hores treballades: "))
+dia = input("Dia de la setmana: ")
+
+sou_diari = sou_horari * hores
+if dia == "diumenge":
+    sou_diari * 2
+
+print(f"Sou diari: {sou_diari} euros")</code></pre>
+        <p>El programa no funciona del tot bé. Executar les proves mostra el següent:</p>
+
+        <pre class="output">Amb l'entrada 20.0, 6, Diumenge el salari correcte 240.0 no es troba a la sortida, Salari diari: 120.0 euros</pre>
+
+        <p>Quan es depuren exercicis en aquest curs, el primer pas acostuma a ser comprovar com es comporta el programa amb les <strong>dades d’entrada</strong> especificades en la prova que ha fallat. Efectivament, el resultat no és el que s’esperava:</p>
+
+        <pre class="output">Salari diari: 120.0 euros</pre>
+
+        <p>Depurar normalment significa <strong>executar el programa diverses vegades</strong>. Pot ser útil “codificar manualment” (<strong>hard-codejar</strong>) temporalment les dades d’entrada problemàtiques, en lloc de demanar-les a l’usuari cada vegada. En aquest cas, codificar-ho manualment podria semblar així:</p>
+
+        <pre><code class="language-python"># salari_per_hora = float(input("Salari per hora: "))
+# hores = int(input("Hores treballades: "))
+# dia = input("Dia de la setmana: ")
+salari_per_hora = 20.0
+hores = 6
+dia = "Diumenge"
+
+salari_diari = salari_per_hora * hores
+if dia == "diumenge":
+    salari_diari * 2
+
+print(f"Salari diari: {salari_diari} euros")</code></pre>
+
+        <p>El següent pas podria ser afegir <strong>ordres de depuració amb print</strong>. La part problemàtica del codi és la que tracta els diumenges, així que afegirem comandes <code class="inline">print</code> abans i després de la línia que hauria de duplicar el salari diari:</p>
+
+        <pre><code class="language-python"># ...
+
+salari_diari = salari_per_hora * hores
+if dia == "diumenge":
+    print("salari abans:", salari_diari)
+    salari_diari * 2
+    print("salari després de duplicar:", salari_diari)
+
+print(f"Salari diari: {salari_diari} euros")</code></pre>
+
+        <p>Executant el codi ara no revela res — les declaracions de depuració <code class="inline">print</code> no s’imprimeixen. Sembla que el contingut del bloc <code class="inline">if</code> no s’executa, així que hi ha d’haver un problema amb la <strong>condició</strong>. Provem d’imprimir el valor de l’expressió booleana:</p>
+
+        <pre><code class="language-python"># ...
+
+salari_diari = salari_per_hora * hores
+print("condició:", dia == "diumenge")
+if dia == "diumenge":
+    print("salari abans:", salari_diari)
+    salari_diari * 2
+    print("salari després de duplicar:", salari_diari)
+
+print(f"Salari diari: {salari_diari} euros")</code></pre>
+
+        <p>De fet, el valor és <strong>False</strong>, així que el contingut del bloc <code class="inline">if</code> no s’executa:</p>
+
+        <pre class="output">
+condició:  False
+Salari diari: 120.0 euros</pre
+        >
+
+        <p>El problema, doncs, es troba dins la <strong>condició</strong> de la sentència <code class="inline">if</code>. Com en tantes situacions en programació, la <strong>majúscula o minúscula de les lletres</strong> també importa en les comparacions. Fixa’t que el "diumenge" de l’expressió booleana no està en majúscula, però l’entrada sí. Corregim-ho (tant en la comanda <code class="inline">print</code> com en la condició):</p>
+
+        <pre><code class="language-python"># ...
+
+salari_diari = salari_per_hora * hores
+print("condició:", dia == "Diumenge")
+if dia == "Diumenge":
+    print("salari abans:", salari_diari)
+    salari_diari * 2
+    print("salari després de duplicar:", salari_diari)
+
+print(f"Salari diari: {salari_diari} euros")</code></pre>
+
+        <p>Executar això imprimeix el següent:</p>
+
+        <pre class="output">
+condició: True
+salari abans: 120
+salari després de duplicar: 120
+Salari diari: 120.0 euros</pre
+        >
+
+        <p>Sembla que el valor emmagatzemat a <code class="inline">salari_diari</code> és correcte al principi: <code class="inline">salari_per_hora = 20.0</code> i <code class="inline">hores = 6</code>, i <code class="inline">20.0 * 6 = 120.0</code>. No obstant això, la comanda que hauria de duplicar la xifra no ho fa, així que hi ha un problema amb aquesta instrucció. I efectivament, la comanda</p>
+
+        <pre><code class="language-python">salari_diari * 2</code></pre>
+
+        <p>duplica el valor, però <strong>no desa el nou valor enlloc</strong>. Canviem-ho perquè també emmagatzemi el resultat:</p>
+
+        <pre><code class="language-python">salari_diari *= 2</code></pre>
+
+        <p>Executar el programa de nou mostra que ara la sortida final és correcta:</p>
+        <pre class="output">
+condició: True
+salari abans: 120
+salari després de duplicar: 240
+Salari diari: 240.0 euros</pre
+        >
+
+        <p>Quan el programa està corregit, recorda <strong>eliminar totes les ordres de depuració</strong> i qualsevol altre codi afegit per depurar.</p>
+
+        <p>Aquest exemple era força senzill, i en un programa tan curt es podria trobar l’error simplement llegint el codi amb atenció. Tot i això, utilitzar <strong>print de depuració</strong> és sovint una manera ràpida de fer-se una idea d’on pot estar el problema. Les comandes <code class="inline">print</code> permeten descobrir quines parts del programa funcionen correctament, de manera que els esforços per trobar errors es poden concentrar en les seccions de codi més sospitoses.</p>
+
+        <p>Els <strong>print de depuració</strong> són només una de les moltes eines per depurar programes. Tornarem a parlar d’aquest tema més endavant al curs. De moment, acostuma’t a utilitzar-los per buscar errors en el teu codi. Els professionals de la programació no poden treballar sense fer-los servir, així que és una eina molt útil també per als principiants.</p>
+      </section>
+
+      <div class="exercici" id="exercici-fixar-sintaxi">
+        <h3>Exercici: Corregeix la sintaxi</h3>
+        <p>El següent programa conté diversos errors de <strong>sintaxi</strong>. Corregeix-los perquè funcioni correctament:</p>
+        <pre><code class="language-python">  numero = input("Escriu un nombre: ")
+  if numero>100
+    print("El nombre és més gran que cent")
+    numero - 100
+    print("Ara el seu valor ha disminuït en cent)
+     print("El seu valor ara és"+ numero)
+ print(numero + " deu ser el meu nombre de la sort!")
+ print("Que tinguis un bon dia!)</code></pre>
+        <p><strong>Pista:</strong> revisa els sagnats, les cometes i els dos punts.</p>
+        <pre class="output">
+Escriu un nombre: 13
+13 deu ser el meu nombre de la sort!
+Que tinguis un bon dia!</pre
+        >
+        <pre class="output">
+Escriu un nombre: 101
+El nombre és més gran que cent
+Ara el seu valor ha disminuït en cent
+El seu valor ara és 1
+1 deu ser el meu nombre de la sort!
+Que tinguis un bon dia!</pre
+        >
+      </div>
+
+      <div class="exercici" id="exercici-num-caracters">
+        <h3>Exercici: Nombre de caràcters</h3>
+        <p>La funció <code class="inline">len</code> serveix per saber la <strong>longitud</strong> d’una cadena de text. Retorna el nombre de caràcters.</p>
+        <pre><code class="language-python">paraula = "abcd"
+print(len(paraula))
+
+print(len("hola tu"))
+
+paraula2 = "comestas"
+longitud = len(paraula2)
+print(longitud)
+
+cadena_buida = ""
+longitud = len(cadena_buida)
+print(longitud)</code></pre>
+        <pre class="output">
+4
+7
+8
+0</pre
+        >
+        <p>Escriu un programa que demani una paraula a l’usuari i mostri el nombre de lletres si n’hi ha més d’una.</p>
+        <pre class="output">
+Escriu una paraula: hola
+Hi ha 4 lletres a la paraula hola
+Gràcies!</pre
+        >
+        <pre class="output">
+Escriu una paraula: b
+Gràcies!</pre
+        >
+      </div>
+
+      <div class="exercici" id="exercici-typecasting">
+        <h3>Exercici: Conversió de tipus</h3>
+        <p>En programació sovint cal canviar el <strong>tipus de dada</strong> d’un valor. Per exemple, un número decimal pot convertir-se en enter amb la funció <code class="inline">int</code>:</p>
+        <pre><code class="language-python">temperatura = float(input("Escriu una temperatura: "))
+
+print("La temperatura és", temperatura)
+print("...i arrodonida cap avall és", int(temperatura))</code></pre>
+        <pre class="output">
+Escriu una temperatura: 5.15
+La temperatura és 5.15
+...i arrodonida cap avall és 5</pre
+        >
+        <p>Fixa’t que <strong>sempre arrodoneix cap avall</strong>, no segons les regles matemàtiques.</p>
+        <p>Escriu un programa que demani un número decimal i mostri la <strong>part entera</strong> i la <strong>part decimal</strong> per separat, fent servir <code class="inline">int</code>.</p>
+        <pre class="output">
+Escriu un nombre: 1.34
+Part entera: 1
+Part decimal: 0.34</pre
+        >
+      </div>
+
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Sentència</strong>: instrucció que executa una acció dins del programa.</li>
+          <li><strong>Bloc</strong>: grup de sentències amb el mateix nivell de sagnat.</li>
+          <li><strong>Expressió</strong>: fragment de codi que produeix un valor.</li>
+          <li><strong>Funció</strong>: conjunt de sentències que realitzen una tasca i poden retornar un valor.</li>
+          <li><strong>Tipus de dada</strong>: categoria que descriu el tipus de valor (enter, cadena, booleà, etc.).</li>
+          <li><strong>Sintaxi</strong>: conjunt de regles que defineixen com s’ha d’escriure el codi.</li>
+          <li><strong>Depuració</strong>: procés de detectar i corregir errors en el codi.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="index.html">
+              <span class="tornar">←</span>
+              <h3>Tornar als capítols</h3>
+            </a>
+          </li>
+          <li>
+            <a href="2_2_Condicionals.html">
+              <h3>2.2 Més condionals</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

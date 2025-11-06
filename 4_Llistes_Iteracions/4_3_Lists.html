@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Llistes</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Llistes</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Sabràs què són les <strong>llistes</strong> en Python</li>
+          <li>Podràs <strong>accedir</strong> a un element específic d'una llista</li>
+          <li>Sabràs <strong>afegir</strong> elements a una llista i <strong>eliminar-los</strong></li>
+          <li>Estaràs familiaritzat amb les <strong>funcions i mètodes predefinits</strong> de les llistes</li>
+        </ul>
+      </section>
+      <section id="introduccio">
+        <h2>Llistes en Python</h2>
+        <p>Fins ara, als nostres programes hem emmagatzemat dades amb <strong>variables</strong>, on cada dada tenia normalment la seva pròpia variable amb nom. Això, òbviament, té algunes <strong>limitacions</strong>, ja que pot resultar feixuc definir variables separades per a tot quan hi ha moltes dades a gestionar.</p>
+        <p>Una <strong>llista en Python</strong> és una col·lecció de valors que s’accedeixen a través d’un únic nom de variable. El contingut de la llista s’escriu dins de <strong>claudàtors</strong>. Els valors continguts en una llista s’anomenen <strong>ítems</strong> o, de vegades, <strong>elements</strong>.</p>
+        <p>La següent ordre crea una nova llista buida:</p>
+        <pre><code class="language-python">la_meva_llista = []</code></pre>
+        <p>En canvi, aquesta ordre crea una llista amb cinc elements:</p>
+        <pre><code class="language-python">la_meva_llista = [7, 2, 2, 5, 2]</code></pre>
+      </section>
+
+      <section id="accedir-elements">
+        <h2>Accedir als elements d’una llista</h2>
+        <p>Els elements d’una llista es <strong>indexen</strong> exactament de la mateixa manera que els caràcters d’una <strong>cadena de text</strong>. Els índexs comencen des de <strong>zero</strong>, i l’últim índex és la longitud de la llista menys 1.</p>
+        <img src="../public/llista.png" alt="Estructura d'una llista" />
+        <p>Un únic element d’una llista es pot accedir igual que un únic caràcter d’una cadena de text, amb claudàtors:</p>
+        <pre><code class="language-python">la_meva_llista = [7, 2, 2, 5, 2]
+
+print(la_meva_llista[0])
+print(la_meva_llista[1])
+print(la_meva_llista[3])
+
+print("La suma dels dos primers elements:", la_meva_llista[0] + la_meva_llista[1])</code></pre>
+        <pre class="output">
+7
+2
+5
+La suma dels dos primers elements: 9</pre
+        >
+        <p>També es pot imprimir tot el contingut de la llista de cop:</p>
+        <pre><code class="language-python">la_meva_llista = [7, 2, 2, 5, 2]
+print(la_meva_llista)</code></pre>
+        <pre class="output">[7, 2, 2, 5, 2]</pre>
+      </section>
+
+      <section id="modificar-llista">
+        <h2>Modificar el contingut d’una llista</h2>
+        <p>A diferència de les cadenes de text, les <strong>llistes són mutables</strong>, cosa que significa que el seu contingut pot canviar. Pots assignar un nou valor a un element dins d’una llista, igual que pots assignar un nou valor a una variable:</p>
+        <pre><code class="language-python">la_meva_llista = [7, 2, 2, 5, 2]
+print(la_meva_llista)
+la_meva_llista[1] = 3
+print(la_meva_llista)</code></pre>
+        <pre class="output">
+[7, 2, 2, 5, 2]
+[7, 3, 2, 5, 2]</pre
+        >
+        <p>La funció <code class="inline">len</code> et dona el nombre d’elements d’una llista:</p>
+        <pre><code class="language-python">la_meva_llista = [7, 2, 2, 5, 2]
+print(len(la_meva_llista))</code></pre>
+        <pre class="output">5</pre>
+        <div class="exercici" id="exercici-canviar-valor">
+          <h3>Exercici: Canviar el valor d’un element</h3>
+          <p>Escriu un programa que inicialitzi una llista amb els valors <code class="inline">[1, 2, 3, 4, 5]</code>. Després, el programa hauria de demanar a l’usuari un índex i un nou valor, substituir el valor en aquest índex i imprimir la llista de nou. Això s’hauria de repetir fins que l’usuari introdueixi <code class="inline">-1</code> com a índex. Pots suposar que tots els índexs introduïts seran vàlids.</p>
+          <pre class="output">
+Índex: 0
+Nou valor: 10
+[10, 2, 3, 4, 5]
+Índex: 2
+Nou valor: 250
+[10, 2, 250, 4, 5]
+Índex: 4
+Nou valor: -45
+[10, 2, 250, 4, -45]
+Índex: -1</pre
+          >
+        </div>
+      </section>
+
+      <section id="afegir-elements">
+        <h2>Afegir elements a una llista</h2>
+        <p>El mètode <code class="inline">append</code> afegeix elements al final d’una llista. Funciona així:</p>
+        <pre><code class="language-python">nombres = []
+nombres.append(5)
+nombres.append(10)
+nombres.append(3)
+print(nombres)</code></pre>
+        <pre class="output">[5, 10, 3]</pre>
+        <p>El següent exemple fa servir dues llistes diferents:</p>
+        <pre><code class="language-python">nombres = []
+talles_sabates = []
+
+nombres.append(5)
+nombres.append(10)
+nombres.append(3)
+
+talles_sabates.append(37)
+talles_sabates.append(44)
+talles_sabates.append(40)
+talles_sabates.append(28)
+
+print("Nombres:")
+print(nombres)
+
+print("Talles de sabates:")
+print(talles_sabates)</code></pre>
+        <pre class="output">
+Nombres:
+[5, 10, 3]
+Talles de sabates:
+[37, 44, 40, 28]</pre
+        >
+        <div class="exercici" id="exercici-afegir-llista">
+          <h3>Exercici: Afegir elements a una llista</h3>
+          <p>Escriu un programa que primer demani a l’usuari quants elements vol afegir. Després, el programa hauria de demanar tants valors com s’hagi indicat, un per un, i afegir-los a una llista en l’ordre introduït. Finalment, imprimeix la llista completa.</p>
+          <pre class="output">
+Quants elements vols afegir: 3
+Element 1: 10
+Element 2: 250
+Element 3: 34
+[10, 250, 34]</pre
+          >
+        </div>
+      </section>
+
+      <section id="inserir-eliminar">
+        <h2>Afegir i eliminar en posicions específiques</h2>
+        <p>Per inserir un element en una posició específica, pots usar el mètode <strong>insert</strong>, que afegeix un element a l’índex especificat. Els elements existents amb índex igual o superior es desplacen una posició a la dreta.</p>
+        <img src="../public/list_insert.png" alt="inserció de valors en una llista" />
+        <pre><code class="language-python">nombres = [1, 2, 3, 4, 5, 6]
+nombres.insert(0, 10)
+print(nombres)
+nombres.insert(2, 20)
+print(nombres)</code></pre>
+        <pre class="output">
+[10, 1, 2, 3, 4, 5, 6]
+[10, 1, 20, 2, 3, 4, 5, 6]</pre
+        >
+        <h2>Eliminar elements d'una llista</h2>
+        <p>Per eliminar elements d’una llista, hi ha dues maneres:</p>
+        <ul>
+          <li>Si coneixes l’índex, utilitza el mètode <code class="inline">pop</code>.</li>
+          <li>Si coneixes el valor, utilitza el mètode <code class="inline">remove</code>.</li>
+        </ul>
+        <p>El mètode <code class="inline">pop</code> pren <strong>l'índex</strong> de l'element que voleu eliminar com a argument. El programa següent elimina elements als <strong>índexs 2 i 3</strong> de la llista. Observeu com canvien <strong>els índexs</strong> dels elements restants quan n'elimineu un.</p>
+        <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5, 6]
+
+la_meva_llista.pop(2)
+print(la_meva_llista)
+la_meva_llista.pop(3)
+print(la_meva_llista)</code></pre>
+        <pre class="output">
+[1, 2, 4, 5, 6]
+[1, 2, 4, 6]</pre
+        >
+        <p>El mètode <code class="inline">pop</code> també retorna l’element eliminat:</p>
+        <pre><code class="language-python">la_meva_llista = [4, 2, 7, 2, 5]
+nombre = la_meva_llista.pop(2)
+print(nombre)
+print(la_meva_llista)</code></pre>
+        <pre class="output">
+7
+[4, 2, 2, 5]</pre
+        >
+        <p>El mètode <code class="inline">remove</code> elimina el primer element amb el valor especificat:</p>
+        <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5, 6]
+la_meva_llista.remove(2)
+print(la_meva_llista)
+la_meva_llista.remove(5)
+print(la_meva_llista)</code></pre>
+        <pre class="output">
+[1, 3, 4, 5, 6]
+[1, 3, 4, 6]</pre
+        >
+        <p>Aquest mètode elimina la <strong>primera ocurrència</strong> del valor a la llista, de manera similar a com la funció de cadena <code class="inline">find</code> retorna la <strong>primera ocurrència</strong> d'una subcadena:</p>
+        <pre><code class="language-python">la_meva_llista = [1, 2, 1, 2]
+la_meva_llista.remove(1)
+print(la_meva_llista)
+la_meva_llista.remove(1)
+print(la_meva_llista)</code></pre>
+        <pre class="output">
+[2, 1, 2]
+[2, 2]</pre
+        >
+      </section>
+
+      <section id="exercici-add-remove">
+        <div class="exercici">
+          <h3>Exercici: Afegir i eliminar</h3>
+          <p>Escriu un programa que demani a l’usuari si vol <strong>afegir</strong> o <strong>eliminar</strong> elements. Segons la tria, el programa ha d’afegir o eliminar un element del final d’una llista. El primer element afegit ha de ser <code class="inline">1</code>, i cada nou element ha de ser un més gran que l’últim. La llista s’ha d’imprimir al començament i després de cada operació.</p>
+          <pre class="output">
+La llista és []
+(a)fegir, (e)liminar o (s)ortir: a
+La llista és [1]
+(a)fegir, (e)liminar o (s)ortir: a
+La llista és [1, 2]
+(a)fegir, (e)liminar o (s)ortir: e
+La llista és [1]
+(a)fegir, (e)liminar o (s)ortir: s
+Adéu!</pre
+          >
+          <p>Podeu assumir que, si la llista està <strong>buida</strong>, no hi haurà cap intent d'eliminar elements.</p>
+        </div>
+      </section>
+      <section id="comprovar-element-llista">
+        <p>Si l’element especificat no és a la llista, la funció <code class="inline">remove</code> provoca un <strong>error</strong>. Igual que amb les cadenes de text, podem comprovar la presència d’un element amb l’operador <strong>in</strong>:</p>
+
+        <pre><code class="language-python">meva_llista = [1, 3, 4]
+
+if 1 in meva_llista:
+    print("La llista conté l'element 1")
+
+if 2 in meva_llista:
+    print("La llista conté l'element 2")</code></pre>
+
+        <pre class="output">La llista conté l'element 1</pre>
+
+        <div class="exercici" id="exercici-mateixa-paraula-dues-vegades">
+          <h3>Exercici: Mateixa paraula dues vegades</h3>
+          <p>Escriu un programa que demani a l’usuari <strong>paraules</strong>. Si l’usuari escriu una paraula que ja havia escrit abans, el programa ha d’imprimir el <strong>nombre de paraules diferents</strong> escrites i acabar la seva execució.</p>
+
+          <pre class="output">
+Paraula: un
+Paraula: cop
+Paraula: hi
+Paraula: havia
+Paraula: cop
+Has escrit 4 paraules diferents</pre
+          >
+        </div>
+      </section>
+
+      <section id="ordenar-llistes">
+        <h2>Ordenar llistes</h2>
+
+        <p>Els elements d’una llista es poden ordenar de <strong>menor a major</strong> amb el mètode <code class="inline">sort</code>.</p>
+
+        <pre><code class="language-python">meva_llista = [2, 5, 1, 2, 4]
+meva_llista.sort()
+print(meva_llista)</code></pre>
+
+        <pre class="output">[1, 2, 2, 4, 5]</pre>
+
+        <p>Observa com aquest mètode <strong>modifica la llista original</strong>. De vegades no volem canviar l’ordre original, així que podem fer servir la funció <code class="inline">sorted</code>, que <strong>retorna una nova llista ordenada</strong>:</p>
+
+        <pre><code class="language-python">meva_llista = [2, 5, 1, 2, 4]
+print(sorted(meva_llista))</code></pre>
+
+        <pre class="output">[1, 2, 2, 4, 5]</pre>
+
+        <p>Recorda la diferència entre les dues: <code class="inline">sort</code> canvia l’ordre de la llista original, mentre que <code class="inline">sorted</code> crea una <strong>còpia ordenada</strong>. Amb <code class="inline">sorted</code> podem mantenir l’ordre original:</p>
+
+        <pre><code class="language-python">original = [2, 5, 1, 2, 4]
+en_ordre = sorted(original)
+print(original)
+print(en_ordre)</code></pre>
+
+        <pre class="output">[2, 5, 1, 2, 4]</pre>
+        <pre class="output">[1, 2, 2, 4, 5]</pre>
+
+        <div class="exercici" id="exercici-llista-doble">
+          <h3>Exercici: Llista doble</h3>
+          <p>Escriu un programa que demani a l’usuari <strong>valors</strong> i els afegeixi a una <strong>llista</strong>. Després de cada afegit, la llista s’ha d’imprimir de dues maneres:</p>
+          <ul>
+            <li>En l’ordre en què s’han afegit els elements</li>
+            <li>Ordenada de menor a major</li>
+          </ul>
+
+          <p>El programa ha d’acabar quan l’usuari escrigui <code class="inline">0</code>.</p>
+
+          <pre class="output">
+Nou element: 3
+La llista ara és: [3]
+La llista en ordre: [3]</pre
+          >
+          <pre class="output">
+Nou element: 1
+La llista ara és: [3, 1]
+La llista en ordre: [1, 3]</pre
+          >
+          <pre class="output">
+Nou element: 9
+La llista ara és: [3, 1, 9]
+La llista en ordre: [1, 3, 9]</pre
+          >
+          <pre class="output">
+Nou element: 5
+La llista ara és: [3, 1, 9, 5]
+La llista en ordre: [1, 3, 5, 9]</pre
+          >
+          <pre class="output">
+Nou element: 0
+Adéu!</pre
+          >
+        </div>
+      </section>
+
+      <section id="maxim-minim-suma">
+        <h2>Màxim, mínim i suma</h2>
+
+        <p>Les funcions <code class="inline">max</code> i <code class="inline">min</code> retornen respectivament l’<strong>element més gran</strong> i el més petit d’una llista. La funció <code class="inline">sum</code> retorna la <strong>suma</strong> de tots els elements.</p>
+
+        <pre><code class="language-python">meva_llista = [5, 2, 3, 1, 4]
+
+mes_gran = max(meva_llista)
+mes_petit = min(meva_llista)
+suma_llista = sum(meva_llista)
+
+print("Més petit:", mes_petit)
+print("Més gran:", mes_gran)
+print("Suma:", suma_llista)</code></pre>
+
+        <pre class="output">
+Més petit: 1
+Més gran: 5
+Suma: 15</pre
+        >
+      </section>
+
+      <section id="metodes-vs-funcions">
+        <h2>Mètodes vs funcions</h2>
+
+        <p>Hi ha dues maneres diferents de treballar amb llistes a Python, cosa que pot resultar confusa. Sovint faràs servir <strong>mètodes de llista</strong>, com ara <code class="inline">append</code> o <code class="inline">sort</code>. Aquests es fan servir amb l’<strong>operador punt (.)</strong> sobre la variable de la llista:</p>
+
+        <pre><code class="language-python">meva_llista = []
+
+# crides a mètodes
+meva_llista.append(3)
+meva_llista.append(1)
+meva_llista.append(7)
+meva_llista.append(2)
+
+# una altra crida a un mètode
+meva_llista.sort()</code></pre>
+
+        <p>Algunes funcions, en canvi, <strong>accepten una llista com a argument</strong>. Ja hem vist que <code class="inline">max</code>, <code class="inline">min</code>, <code class="inline">len</code> i <code class="inline">sorted</code> en són exemples:</p>
+
+        <pre><code class="language-python">meva_llista = [3, 2, 7, 1]
+
+# crides a funcions amb la llista com a argument
+mes_gran = max(meva_llista)
+mes_petit = min(meva_llista)
+longitud = len(meva_llista)
+
+print("Més petit:", mes_petit)
+print("Més gran:", mes_gran)
+print("Longitud de la llista:", longitud)
+
+# una altra crida a una funció
+# la llista és un argument i la funció retorna una còpia ordenada
+en_ordre = sorted(meva_llista)
+print(en_ordre)</code></pre>
+
+        <pre class="output">
+Més petit: 1
+Més gran: 7
+Longitud de la llista: 4
+[1, 2, 3, 7]</pre
+        >
+      </section>
+
+      <section id="llista-com-argument-retorn">
+        <h2>Una llista com a argument o valor de retorn</h2>
+        <p>Igual que les funcions integrades anteriors, les nostres pròpies funcions també poden rebre una llista com a argument i produir una llista com a valor de retorn. La següent funció calcula el valor central en una llista ordenada, també anomenat valor <strong>mediana</strong>:</p>
+
+        <pre><code class="language-python">def mediana(la_meva_llista: list):
+    ordenada = sorted(la_meva_llista)
+    centre_llista = len(ordenada) // 2
+    return ordenada[centre_llista]</code></pre>
+
+        <p>La funció crea una versió ordenada de la llista donada com a argument i retorna l'element que es troba exactament al mig. Fixa't en l'operador de <strong>divisió entera</strong> // utilitzat aquí. L'índex d'una llista ha de ser sempre un enter.</p>
+
+        <p>La funció funciona així:</p>
+
+        <pre><code class="language-python">mides_sabates = [45, 44, 36, 39, 40]
+print("La mediana de les mides de sabata és", mediana(mides_sabates))
+
+edats = [1, 56, 34, 22, 5, 77, 5]
+print("La mediana de les edats és", mediana(edats))</code></pre>
+
+        <pre class="output">
+La mediana de les mides de sabata és 40
+La mediana de les edats és 22</pre
+        >
+
+        <p>Una funció també pot retornar una llista. La següent funció demana a l'usuari que introdueixi enters i retorna l'entrada com una llista:</p>
+
+        <pre><code class="language-python">def introduir_nombres():
+    nombres = []
+    while True:
+        entrada_usuari = input("Si us plau, introdueix un enter, deixa buit per sortir: ")
+        if len(entrada_usuari) == 0:
+            break
+        nombres.append(int(entrada_usuari))
+    return nombres</code></pre>
+
+        <p>La funció fa servir una variable auxiliar <code class="inline">nombres</code>, que és una llista. Tots els nombres introduïts per l'usuari s'afegeixen a la llista. Quan es surt del bucle, la funció retorna la llista amb la sentència <code class="inline">return nombres</code>.</p>
+
+        <p>Cridar la funció així:</p>
+
+        <pre><code class="language-python">nombres = introduir_nombres()
+
+print("El nombre més gran és", max(nombres))
+print("La mediana dels nombres és", mediana(nombres))</code></pre>
+
+        <p>podria mostrar això, per exemple:</p>
+
+        <pre class="output">
+Si us plau, introdueix un enter, deixa buit per sortir: 5
+Si us plau, introdueix un enter, deixa buit per sortir: -22
+Si us plau, introdueix un enter, deixa buit per sortir: 4
+Si us plau, introdueix un enter, deixa buit per sortir: 35
+Si us plau, introdueix un enter, deixa buit per sortir: 1
+Si us plau, introdueix un enter, deixa buit per sortir:
+El nombre més gran és 35
+La mediana dels nombres és 4</pre
+        >
+
+        <p>Aquest petit exemple demostra un dels usos més importants de les funcions: poden ajudar-te a dividir el teu codi en parts més petites, fàcilment comprensibles i lògiques.</p>
+
+        <p>Per descomptat, la mateixa funcionalitat es podria aconseguir sense escriure cap de les nostres pròpies funcions:</p>
+
+        <pre><code class="language-python">nombres = []
+while True:
+    entrada_usuari = input("Si us plau, introdueix un enter, deixa buit per sortir: ")
+    if len(entrada_usuari) == 0:
+        break
+    nombres.append(int(entrada_usuari))
+
+ordenada = sorted(nombres)
+centre_llista = len(ordenada) // 2
+mediana = ordenada[centre_llista]
+
+print("El nombre més gran és", max(nombres))
+print("La mediana dels nombres és", mediana)</code></pre>
+
+        <p>En aquesta versió, seguir la <strong>lògica de programació</strong> és més difícil, ja que ja no està clar quines ordres formen part de quina funcionalitat. El codi compleix els mateixos propòsits - llegir l'entrada, calcular el valor mitjà, etc. - però l'estructura és menys clara.</p>
+
+        <p>Organitzar el teu codi en funcions separades millorarà la <strong>legibilitat</strong> del teu programa, però també farà més fàcil manejar conjunts lògics. Això al seu torn t'ajuda a verificar que el programa funciona com s'espera, ja que cada funció es pot provar per separat.</p>
+
+        <p>Un altre ús important de les funcions és fer que el codi sigui <strong>reutilitzable</strong>. Si necessites aconseguir alguna funcionalitat múltiples vegades en el teu programa, és una bona idea crear la teva pròpia funció i anomenar-la adequadament:</p>
+
+        <pre><code class="language-python">print("Mides de sabata:")
+mides_sabata = introduir_nombres()
+
+print("Pesos:")
+pesos = introduir_nombres()
+
+print("Alçades:")
+alçades = introduir_nombres()</code></pre>
+
+        <div class="exercici">
+          <h3>Exercici: La longitud d'una llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">longitud</code> que rep una llista com a argument i retorna la longitud de la llista.</p>
+          <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5]
+resultat = longitud(la_meva_llista)
+print("La longitud és", resultat)
+
+# la llista donada com a argument no necessita estar emmagatzemada en cap variable
+resultat = longitud([1, 1, 1, 1])
+print("La longitud és", resultat)</code></pre>
+          <pre class="output">
+La longitud és 5
+La longitud és 4</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Mitjana aritmètica</h3>
+          <p>Escriu una funció anomenada <code class="inline">mitjana</code>, que rep una llista d'enters com a argument. La funció retorna la <strong>mitjana aritmètica</strong> dels valors de la llista.</p>
+          <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5]
+resultat = mitjana(la_meva_llista)
+print("el valor mitjà és", resultat)</code></pre>
+          <pre class="output">el valor mitjà és 3.0</pre>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: El rang d'una llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">rang_de_llista</code>, que rep una llista d'enters com a argument. La funció retorna la diferència entre el valor més petit i el més gran de la llista.</p>
+          <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5]
+resultat = rang_de_llista(la_meva_llista)
+print("El rang de la llista és", resultat)</code></pre>
+          <pre class="output">El rang de la llista és 4</pre>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Llista</strong>: col·lecció de valors sota un únic nom amb elements accessibles per índex.</li>
+          <li><strong>Indexació</strong>: accés als elements mitjançant índexs que comencen des de zero.</li>
+          <li><strong>Mutabilitat</strong>: les llistes poden modificar-se després de la creació.</li>
+          <li><strong>Mètodes de llista</strong>: operacions com <code class="inline">append</code>, <code class="inline">insert</code>, <code class="inline">pop</code> i <code class="inline">remove</code>.</li>
+          <li><strong>Ordenació</strong>: <code class="inline">sort</code> modifica la llista original, <code class="inline">sorted</code> retorna una còpia ordenada.</li>
+          <li><strong>Funcions amb llistes</strong>: <code class="inline">len</code>, <code class="inline">max</code>, <code class="inline">min</code> i <code class="inline">sum</code> operen sobre llistes.</li>
+          <li><strong>Llistes com a arguments</strong>: les funcions poden rebre llistes com a paràmetres.</li>
+          <li><strong>Llistes com a valors de retorn</strong>: les funcions poden retornar llistes com a resultat.</li>
+          <li><strong>Mediana</strong>: valor central d'una llista ordenada.</li>
+          <li><strong>Divisió entera</strong>: operador <code class="inline">//</code> per a càlculs d'índexs.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="4_2_More_Funcions.html">
+              <span class="tornar">←</span>
+              <h3>4.2 Més funcions</h3>
+            </a>
+          </li>
+          <li>
+            <a href="4_4_Defined_Iterations.html">
+              <h3>4.4 Iteracions Definides</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

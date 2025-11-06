@@ -1,0 +1,154 @@
+Objectiu: Generar un fitxer HTML complet, llest per integrar en un curs, a partir d’un capítol original. El resultat ha de ser fidel al contingut original, traduït al català, sense resumir ni retallar informació, amb objectius d’aprenentatge i exercicis ben estructurats. El resultat me l'has de donar dins d'un bloc de codi
+
+1️⃣ Instruccions generals
+
+Traduir i localitzar TOT el contingut al català amb un to clar, natural i proper per a alumnat de secundària.
+
+No resumir ni sintetitzar el material original. Mantingues tots els exemples, explicacions i detalls.
+
+Substitueix noms i referències culturals alienes per exemples catalans o universals (p. ex., “Paul Python” → “Pau Python”).
+
+No afegeixis explicacions, comentaris o línies en el document HTML o fora.
+
+Ressalta els conceptes clau amb <strong> dins de tot el text (excepte en codi o sortides de consola). Fes-ho al llarg de tot l'arxiu!.
+
+2️⃣ Estructura HTML obligatòria
+
+El fitxer ha de ser complet i funcional.
+
+No incloure comentaris HTML.
+
+Base de l’estructura:
+
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Títol del capítol breu i sintètic]</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png">
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      [contingut del capítol aquí]
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="[anterior_capítol.html]">
+              <span class="tornar">←</span>
+              <h3>[Títol del capítol anterior]</h3>
+            </a>
+          </li>
+          <li>
+            <a href="[següent_capítol.html]">
+              <h3>[Títol del següent capítol]</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
+
+3️⃣ Contingut i seccions
+
+Cada secció dins <main> ha de tenir una id descriptiva, minúscula i amb guions (id="nom-seccio").
+
+Exemple d’estructura:
+
+<main>
+  <section id="introduccio">...</section>
+  <section id="imprimir-text">...</section>
+  <section id="operacions">...</section>
+  ...
+</main>
+
+Mantingues tot el contingut i estructura original traduït, sense eliminar exemples ni explicacions.
+
+Els objectius d’aprenentatge han d’anar al principi del capítol dins de:
+
+<h2>Objectius d'aprenentatge</h2>
+<ul class="objectius">
+  <li>Objectiu 1</li>
+  <li>Objectiu 2</li>
+</ul>
+
+4️⃣ Títols i elements HTML
+
+<h1> → títol principal del capítol.
+
+<h2> → títols de seccions teòriques o subtemes.
+
+<h3> → títols d’exercicis o subtítols.
+
+<p> → text explicatiu.
+
+<pre><code class="language-python">...</code></pre> → codi Python.
+
+<pre class="output">...</pre> → sortida esperada. → Si en un lloc hi ha varios exemples d'interacció amb un programa s'han de fer varies sortides diferents, no totes dins de la mateixa
+
+<code class="inline">...</code> → codi dins de paràgrafs.
+
+Totes les variables i noms dins del codi han d’estar traduïts al català.
+
+5️⃣ Exercicis
+
+Cada exercici ha d’aparèixer immediatament després del fragment de text que el motiva.
+
+Cada exercici té un <div class="exercici"> amb id diferent.
+
+No incloure codi de resposta ni suggerir que l’usuari escrigui dins la pàgina.
+
+Estructura dels exercicis:
+
+<div class="exercici">
+  <h3>Exercici: [Títol]</h3>
+  [Contingut de l'exercici seguint l'estructura original]
+</div>
+
+
+El codi dins de l’enunciat ha de portar <code class="inline">...</code>.
+
+Mantingues salts de línia, espais i format exactes en sortides de codi.
+
+Els exercicis que demanen corregir codi mostren només el codi erroni, mai la solució.
+
+Pistes i advertències poden ressaltar-se amb <strong>Pista</strong>.
+
+6️⃣ Conceptes clau (final del capítol)
+<section id="conceptes-clau">
+  <h2>Conceptes clau</h2>
+  <ul>
+    <li><strong>[nom del concepte]</strong>: [breu explicació]</li>
+  </ul>
+</section>
+
+
+En els conceptes clau inclou només continguts essencials treballats en el capítol.
+
+Ressalta les paraules clau amb <strong>.
+
+7️⃣ Terminologia i coherència
+
+Utilitza sempre termes en català coherent: entrada de dades, sortida, variable, condició, bucle, funció, llista, diccionari, cadena de text, número, etc.
+
+Evita anglicismes.
+
+Ressalta conceptes clau amb <strong>.
+
+8️⃣ Format de sortida final
+
+La resposta ha de contenir únicament el codi HTML complet.
+
+No afegir estils, explicacions, comentaris ni línies fora del document HTML.
+
+No cal demanar confirmació: aplica criteri pedagògic i genera el contingut completament formatat.
+
+Un cop enteses les instruccions digues "ok" i et passo el contingut del capítol

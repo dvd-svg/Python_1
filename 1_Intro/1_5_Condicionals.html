@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Condicionals</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="introduccio">
+        <h1>Condicionals</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Aprendre a utilitzar un <strong>condicional</strong> simple en programació.</li>
+          <li>Comprendre què és un <strong>valor Booleà</strong>.</li>
+          <li>Expressar condicions utilitzant <strong>operadors de comparació</strong>.</li>
+        </ul>
+        <p>Fins ara, cada programa que hem escrit s'ha executat línia per línia en ordre. Sovint és útil crear seccions del programa que només s'executin en determinades situacions.</p>
+        <p>Per exemple, el següent codi comprova si l'usuari és major d'edat:</p>
+        <pre><code class="language-python">edat = int(input("Quants anys tens? "))
+
+if edat > 17:
+    print("Ets major d'edat!")
+    print("Aquí tens una còpia del GTA6 per a tu.")
+
+print("Següent client, si us plau!")</code></pre>
+        <p>Si l'usuari té més de 17 anys, el programa mostrarà:</p>
+        <pre class="output">
+Quants anys tens? 18
+Ets major d'edat!
+Aquí tens una còpia del GTA6 per a tu.
+Següent client, si us plau!</pre
+        >
+        <p>Si l'usuari té 17 anys o menys, només es mostrarà:</p>
+        <pre class="output">
+Quants anys tens? 16
+Següent client, si us plau!</pre
+        >
+        <p>Aquests exemples ens mostren que el valor introduït determina quines parts del programa s'executen. El programa conté una <strong>sentència condicional</strong> amb un bloc de codi que només s'executa si la <strong>condició</strong> és certa.</p>
+        <img src="../public/condicional.png" alt="diagrama de flux d'un condicional" />
+      </section>
+
+      <section id="estructura-if">
+        <h2>Estructura d'un if</h2>
+        <p>En una sentència condicional, la paraula clau <code class="inline">if</code> va seguida d'una <strong>condició</strong>, com una comparació de dos valors. El bloc de codi que segueix només s'executa si la condició és certa.</p>
+        <p>Cal posar dos punts després de la capçalera <code class="inline">if</code>. Si s'ometen, es produeix un error:</p>
+        <pre><code class="language-python">edat = 10
+
+# sense dos punts al final de la línia següent
+if edat > 17
+    print("Ets major d'edat.")</code></pre>
+        <pre class="output">
+File "programa.py", line 3
+  if edat > 17
+            ^
+SyntaxError: sintaxi invàlida</pre
+        >
+      </section>
+
+      <section id="operadors-comparacio">
+        <h2>Operadors de comparació</h2>
+        <p>Sovint les condicions comparen dos valors. A continuació es mostren els operadors més comuns:</p>
+        <ul>
+          <li><strong>==</strong>: Igual a (<code class="inline">a == b</code>)</li>
+          <li><strong>!=</strong>: Diferent de (<code class="inline">a != b</code>)</li>
+          <li><strong>></strong>: Major que (<code class="inline">a > b</code>)</li>
+          <li><strong>>=</strong>: Major o igual que (<code class="inline">a >= b</code>)</li>
+          <li><strong><</strong>: Menor que (<code class="inline">a < b</code>)</li>
+          <li><strong><=</strong>: Menor o igual que (<code class="inline">a <= b</code>)</li>
+        </ul>
+        <p>Exemple d'un programa que mostra missatges diferents segons si un número és positiu, negatiu o zero:</p>
+        <pre><code class="language-python">numero = int(input("Introdueix un número: "))
+
+if numero < 0:
+    print("El número és negatiu.")
+
+if numero > 0:
+    print("El número és positiu.")
+
+if numero == 0:
+    print("El número és zero.")</code></pre>
+        <p>Sortides esperades amb diferents entrades:</p>
+        <pre class="output">
+Introdueix un número: 15
+El número és positiu.</pre
+        >
+        <pre class="output">
+Introdueix un número: -18
+El número és negatiu.</pre
+        >
+        <pre class="output">
+Introdueix un número: 0
+El número és zero.</pre
+        >
+      </section>
+
+      <section id="indentacio">
+        <h2>Indentació</h2>
+        <p>Python reconeix que un bloc de codi forma part d'una condicional si cada línia del bloc té la mateixa <strong>indentació</strong>. Cada línia ha de començar amb la mateixa quantitat d'espais.</p>
+        <pre><code class="language-python">contrasenya = input("Introdueix una contrasenya: ")
+
+if contrasenya == "gatet":
+    print("Coneixies la contrasenya!")
+    print("Has de ser l'usuari previst...")
+    print("...o un hacker molt hàbil.")
+
+print("El programa ha finalitzat. Gràcies i adéu!")</code></pre>
+        <p>Pots utilitzar la tecla <strong>Tab</strong> per afegir espais o l'editor sovint farà la indentació automàtica després dels dos punts.</p>
+      </section>
+
+      <section id="exercici-orwell">
+        <div class="exercici">
+          <h3>Exercici: Orwell</h3>
+          <p>Escriu un programa que demani un número enter a l'usuari. El programa ha de mostrar "Orwell" si el número és exactament 1984 i, en cas contrari, no ha de mostrar res.</p>
+          <pre class="output">Introdueix un número: 2020</pre>
+          <pre class="output">
+Introdueix un número: 1984
+Orwell</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-valor-absolute">
+        <div class="exercici">
+          <h3>Exercici: Valor absolut</h3>
+          <p>Escriu un programa que demani un número enter. Si és menor que zero, ha de mostrar el número multiplicat per -1. Si no, ha de mostrar-lo tal qual.</p>
+          <pre class="output">
+Introdueix un número: -7
+El valor absolut d'aquest número és 7</pre
+          >
+          <pre class="output">
+Introdueix un número: 1
+El valor absolut d'aquest número és 1</pre
+          >
+          <pre class="output">
+Introdueix un número: -99
+El valor absolut d'aquest número és 99</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-sopa">
+        <div class="exercici">
+          <h3>Exercici: Sopa si o sopa no</h3>
+          <p>Escriu un programa que demani el nom de l'usuari. Si el nom és diferent de "Jerry", el programa pregunta el nombre de racions i mostra el cost total (una ració costa 5,90 €). Si el nom és "Jerry", no mostra res més.</p>
+          <pre class="output">
+Introdueix el teu nom: Kramer
+Quantes racions de sopa? 2
+El cost total és 11.8
+Següent, si us plau!</pre
+          >
+          <pre class="output">
+Introdueix el teu nom: Jerry
+Següent, si us plau!</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-ordre-magnitud">
+        <div class="exercici">
+          <h3>Exercici: Ordre de magnitud</h3>
+          <p>Escriu un programa que demani un número enter i mostri la seva magnitud segons els exemples:</p>
+          <pre class="output">
+Introdueix un número: 950
+Aquest número és menor que 1000
+Gràcies!</pre
+          >
+          <pre class="output">
+Introdueix un número: 59
+Aquest número és menor que 1000
+Aquest número és menor que 100
+Gràcies!</pre
+          >
+          <pre class="output">
+Introdueix un número: 2
+Aquest número és menor que 1000
+Aquest número és menor que 100
+Aquest número és menor que 10
+Gràcies!</pre
+          >
+          <pre class="output">
+Introdueix un número: 1123
+Gràcies!</pre
+          >
+        </div>
+      </section>
+
+      <section id="valors-booleans">
+        <h2>Valors Booleans i expressions Booleans</h2>
+        <p>Qualsevol condició dins d'una sentència condicional produeix un <strong>valor de veritat</strong>, és a dir, <strong>True</strong> o <strong>False</strong>. Per exemple, <code class="inline">a < 5</code> és True si <code class="inline">a</code> és menor que 5 i False si és igual o més gran.</p>
+        <p>Aquests valors es diuen <strong>Booleans</strong> i en Python es gestionen amb el tipus <code class="inline">bool</code>. Les variables <code class="inline">bool</code> només poden tenir <strong>True</strong> o <strong>False</strong>, sembre els escriurem amb la primera lletra en majúscula.</p>
+        <p>Qualsevol codi que generi un valor Booleà és una <strong>expressió Booleana</strong>. Per exemple, la condició dins d'una sentència condicional és sempre una expressió Booleana.</p>
+        <pre><code class="language-python">a = 3
+condicio = a < 5
+print(condicio)
+if condicio:
+    print("a és menor que 5")</code></pre>
+        <pre class="output">
+True
+a és menor que 5</pre
+        >
+        <p>Les paraules clau de Python <strong>True</strong> i <strong>False</strong> també es poden utilitzar directament. En l'exemple següent, l'ordre <code class="inline">print</code> s'executa cada vegada, perquè el valor de la condició és <strong>True</strong>:</p>
+        <pre><code class="language-python">condicio = True
+if condicio:
+    print("Això es mostra sempre.")</code></pre>
+        <pre class="output">Això es mostra sempre.</pre>
+        <p>Un programa com aquest no és gaire útil, però més endavant durant el curs veureu exemples de variables booleanes que resultaran molt pràctiques.</p>
+      </section>
+
+      <section id="exercici-calculadora">
+        <div class="exercici">
+          <h3>Exercici: Calculadora</h3>
+          <p>Escriu un programa que demani dos números i una operació. Si l'operació és sumar, multiplicar o restar, el programa calcula i mostra el resultat. Si és qualsevol altra cosa, no mostra res.</p>
+          <pre class="output">
+Número 1: 10
+Número 2: 17
+Operació: sumar
+
+10 + 17 = 27</pre
+          >
+          <pre class="output">
+Número 1: 4
+Número 2: 6
+Operació: multiplicar
+
+4 * 6 = 24</pre
+          >
+          <pre class="output">
+Número 1: 4
+Número 2: 6
+Operació: restar
+
+4 - 6 = -2</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-temperatures">
+        <div class="exercici">
+          <h3>Exercici: Temperatures</h3>
+          <p>Escriu un programa que demani una temperatura en Fahrenheit i la mostri en Celsius. Si la temperatura convertida és menor que 0 °C, també ha de mostrar "Brr! Fa fred aquí!".</p>
+          <pre class="output">
+Introdueix una temperatura (F): 101
+101 graus Fahrenheit equivalen a 38.333333333333336 graus Celsius</pre
+          >
+          <pre class="output">
+Introdueix una temperatura (F): 21
+21 graus Fahrenheit equivalen a -6.111111111111111 graus Celsius
+Brr! Fa fred aquí!</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-sou-diari">
+        <div class="exercici">
+          <h3>Exercici: Sou diari</h3>
+          <p>Escriu un programa que demani el sou per hora, les hores treballades i el dia de la setmana. Mostra el sou total diari; serà el sou per hora multiplicat per les hores, excepte els diumenges que el sou per hora es duplica.</p>
+          <pre class="output">
+Sou per hora: 8.5
+Hores treballades: 3
+Dia de la setmana: Dilluns
+Sou diari: 25.5 euros</pre
+          >
+          <pre class="output">
+Sou per hora: 12.5
+Hores treballades: 10
+Dia de la setmana: Diumenge
+Sou diari: 250.0 euros</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-bonus-fidelitat">
+        <div class="exercici">
+          <h3>Exercici: Bonus de fidelitat</h3>
+          <p>El programa calcula el bonus de final d'any d'un client segons els punts de la targeta amb les següents normes:</p>
+          <ul>
+            <li>Menys de 100 punts: bonus del 10%</li>
+            <li>Altres casos: bonus del 15%</li>
+          </ul>
+          <pre class="output">
+Quants punts hi ha en la teva targeta? 55
+El teu bonus és de 10%
+Ara tens 60.5 punts
+          </pre>
+          <p>Hi ha un error que fa que amb alguns valors no funcioni gaire be.</p>
+          <pre class="output">
+Quants punts hi ha en la teva targeta? 95
+El teu bonus és de 10%
+El teu bonus és de 15%
+Ara tens 120.175 punts
+          </pre>
+          <p>Arregla el programa perquè hi hagi sempre o bé un 10% o bé un 15% de bonificació, però mai ambdós alhora.</p>
+          <pre><code class="language-python"># Arregla el programa
+punts = int(input("Quants punts hi ha en la teva targeta? "))
+if punts < 100:
+    punts *= 1.1
+    print("El teu bonus és de 10 %")
+
+if punts >= 100:
+    punts *= 1.15
+    print("El teu bonus és de 15 %")
+
+print("Ara tens", punts, "punts")</code></pre>
+        </div>
+      </section>
+
+      <section id="exercici-que-posar-demana">
+        <div class="exercici">
+          <h3>Exercici: Què posar demà</h3>
+          <p>Escriu un programa que demani la previsió meteorològica i suggereixi roba adequada segons la temperatura i si plou. La suggerència hauria de canviar si la temperatura (en graus Cèlsius) supera els 20, 10 i 5 graus o si plou</p>
+          <pre class="output">
+Quina és la previsió del temps per demà?
+Temperatura: 21
+Plourà (sí/no): no
+Posa't texans i samarreta</pre
+          >
+          <pre class="output">
+Quina és la previsió del temps per demà?
+Temperatura: 11
+Plourà (sí/no): no
+Posa't texans i samarreta
+Et recomano un jersei també</pre
+          >
+          <pre class="output">
+Quina és la previsió del temps per demà?
+Temperatura: 7
+Plourà (sí/no): no
+Posa't texans i samarreta
+Et recomano un jersei també
+Porta't una jaqueta</pre
+          >
+          <pre class="output">
+Quina és la previsió del temps per demà?
+Temperatura: 3
+Plourà (sí/no): sí
+Posa't texans i samarreta
+Et recomano un jersei també
+Porta't una jaqueta
+Millor un abric calent
+Crec que et caldran guants
+No t'oblidis del paraigua!</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-equacio-quadratica">
+        <div class="exercici">
+          <h3>Exercici: Resolució d'equació quadràtica</h3>
+          <p>En el mòdul <code class="inline">math</code> de Python hi ha la funció <code class="inline">sqrt</code> que permet calcular l'arrel quadrada d'un nombre, la podem utilitzar així:</p>
+          <pre><code class="language-python">from math import sqrt
+
+print(sqrt(9))</code></pre>
+          <pre class="output">3.0</pre>
+          <p>Tornarem al concepte de <strong>mòdul</strong> i la sentència <strong>import</strong> més endavant. Per ara, n'hi ha prou amb entendre que la línia <code class="inline">from math import sqrt</code> ens permet utilitzar la funció <strong>sqrt</strong> al nostre programa. Escriu un programa per resoldre una equació de segon grau de la forma <strong>ax²+bx+c</strong>. El programa demana els valors a, b i c. Després hauria d'utilitzar la fórmula quadràtica per resoldre l'equació.</p>
+          <p>La fórmula quadràtica expressada amb la funció sqrt de Python és la següent: <code class="inline">x = (-b ± sqrt(b²-4ac))/(2a)</code>. Pots assumir que l'equació sempre tindrà dues arrels reals, de manera que la fórmula anterior sempre funcionarà. Un exemple de com hauria de funcionar és:</p>
+          <pre class="output">
+Valor de a: 1
+Valor de b: 2
+Valor de c: -8
+
+Les arrels són 2.0 i -4.0</pre
+          >
+        </div>
+      </section>
+
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Sentència condicional</strong>: Executa un bloc de codi només si la <strong>condició</strong> és certa.</li>
+          <li><strong>Condició</strong>: Expressió que retorna un <strong>valor Booleà</strong> (<strong>True</strong> o <strong>False</strong>).</li>
+          <li><strong>Operadors de comparació</strong>: <code class="inline">==, !=, >, >=, <, <=</code>, s'utilitzen per comparar valors.</li>
+          <li><strong>Indentació</strong>: Espais al principi de cada línia per indicar blocs de codi dins d'una condició.</li>
+          <li><strong>Valor Booleà</strong>: Representa la veritat d'una condició, True o False.</li>
+          <li><strong>Expressió Booleana</strong>: Qualsevol codi que produeix un valor Booleà.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="1_4_Aritmetica.html">
+              <span class="tornar">←</span>
+              <h3>1.4 Operacions aritmètiques</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

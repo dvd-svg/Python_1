@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Més funcions</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Més funcions</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Ampliar coneixements sobre arguments i paràmetres de funcions</li>
+          <li>Retornar valors des de funcions i utilitzar-los al codi</li>
+          <li>Afegir anotacions de tipus per paràmetres i valors de retorn</li>
+        </ul>
+      </section>
+      <section id="repas-funcions">
+        <h2>Repàs de les funcions en Python</h2>
+        <p>Les <strong>funcions</strong> es defineixen amb la paraula clau <code class="inline">def</code>:</p>
+        <pre><code class="language-python">def missatge():
+    print("Aquest missatge ha estat portat per una funció")</code></pre>
+        <p>Aquesta funció es pot cridar dins del teu programa així:</p>
+        <pre><code class="language-python">missatge()</code></pre>
+        <p>El teu programa imprimirá:</p>
+        <pre class="output">Aquest missatge ha estat portat per una funció</pre>
+      </section>
+
+      <section id="parametres-i-arguments">
+        <h2>Els paràmetres i arguments d'una funció</h2>
+        <p>Una <strong>funció</strong> pot rebre un o més <strong>arguments</strong>. Quan la funció és cridada, aquests arguments s’assignen a variables definides dins de la funció. Aquestes variables s’anomenen <strong>paràmetres</strong>, i es llisten entre parèntesis després del nom de la funció.</p>
+        <p>En el següent codi, la funció <code class="inline">saluda</code> té un paràmetre, mentre que la funció <code class="inline">suma</code> en té dos.</p>
+        <pre><code class="language-python">def saluda(nom):
+    print("Hola,", nom)
+
+def suma(a, b):
+    print("La suma dels arguments és", a + b)
+
+saluda("Anna")
+suma(2, 3)</code></pre>
+        <pre class="output">
+Hola, Anna
+La suma dels arguments és 5</pre
+        >
+      </section>
+
+      <section id="parametres-vs-arguments">
+        <h2>Paràmetres vs arguments</h2>
+        <p>La terminologia sobre dades passades a funcions pot ser confusa. Alguns textos utilitzen els termes <strong>formals</strong> i <strong>reals</strong> per parlar de paràmetres i arguments. La documentació oficial de Python només utilitza els termes <strong>argument</strong> i <strong>paràmetre</strong>, i seguirem aquesta convenció.</p>
+        <p>Quan s’executa la crida <code class="inline">saluda("Anna")</code>, el valor de l’argument <code class="inline">"Anna"</code> s’assigna al paràmetre <code class="inline">nom</code>. Això vol dir que, durant l’execució, <code class="inline">nom = "Anna"</code>. Si cridem la funció amb un altre argument, el valor serà diferent.</p>
+        <p>Aquesta terminologia pot semblar sobrera, però en informàtica és important ser <strong>precís</strong>. Utilitzar una terminologia ben definida ajuda a evitar confusions.</p>
+      </section>
+
+      <section id="errors-en-tests">
+        <div class="exercici" id="exercici-linea">
+          <h3>Exercici: Línia</h3>
+          <p>Escriu una funció anomenada <code class="inline">linia</code> que rebi dos arguments: un <strong>enter</strong> i una <strong>cadena de text</strong>. La funció ha d’imprimir una línia amb la longitud especificada pel primer argument. El caràcter emprat ha de ser el primer de la cadena passada com a segon argument. Si la cadena és buida, s’han d’utilitzar asteriscs.</p>
+          <p>Exemple de funcionament:</p>
+          <pre><code class="language-python">linia(7, "%")
+linia(10, "LOL")
+linia(3, "")</code></pre>
+          <pre class="output">
+%%%%%%%
+LLLLLLLLLL
+***</pre
+          >
+        </div>
+      </section>
+
+      <section id="funcions-dins-funcions">
+        <h2>Funcions dins d’altres funcions</h2>
+        <p>Pots <strong>cridar una funció dins d’una altra</strong>. De fet, ja ho hem fet quan hem utilitzat <code class="inline">print</code> dins de les nostres pròpies funcions.</p>
+        <pre><code class="language-python">def saluda(nom):
+    print("Hola,", nom)
+
+def saluda_moltes_vegades(nom, vegades):
+    while vegades > 0:
+        saluda(nom)
+        vegades -= 1
+
+saluda_moltes_vegades("Anna", 3)</code></pre>
+        <pre class="output">
+Hola, Anna
+Hola, Anna
+Hola, Anna</pre
+        >
+
+        <div class="exercici" id="exercici-caixa-coixinets">
+          <h3>Exercici: Caixa de coixinets</h3>
+          <p>Escriu una funció anomenada <code class="inline">caixa_de_coixinets</code> que imprimeixi un <strong>rectangle</strong> de caràcters <code class="inline">#</code>. La funció rebrà un argument que indica l’altura. L’amplada serà sempre de 10 caràcters. Utilitza la funció de l'exercici anterior <code class="inline">linia</code> per dibuixar les línies.</p>
+          <pre><code class="language-python">caixa_de_coixinets(5)
+print()
+caixa_de_coixinets(2)</code></pre>
+          <pre class="output">
+##########
+##########
+##########
+##########
+##########
+
+##########
+##########</pre
+          >
+        </div>
+      </section>
+      <section id="quadrat-de-coixinets">
+        <div class="exercici" id="exercici-quadrat-de-coixinets">
+          <h3>Exercici: Un quadrat de coixinets</h3>
+          <p>Escriu una funció anomenada <code class="inline">quadrat_de_coixinets</code>, que dibuixi un <strong>quadrat</strong> de caràcters coixinet (<strong>#</strong>). La funció rep un únic argument, que determina la <strong>longitud del costat</strong> del quadrat.</p>
+          <p>La funció ha de cridar la funció <code class="inline">linia</code> de l’exercici anterior per a la impressió. Copia la teva solució de l’exercici anterior per sobre del codi d’aquest exercici. No modifiquis res de la funció <code class="inline">linia</code>.</p>
+          <p><strong>Exemples:</strong></p>
+          <pre><code class="language-python">quadrat_de_coixinets(5)
+print()
+quadrat_de_coixinets(3)</code></pre>
+          <pre class="output">
+#####
+#####
+#####
+#####
+#####</pre
+          >
+          <pre class="output">
+###
+###
+###</pre
+          >
+        </div>
+      </section>
+
+      <section id="quadrat-general">
+        <div class="exercici" id="exercici-quadrat">
+          <h3>Exercici: Un quadrat</h3>
+          <p>Escriu una funció anomenada <code class="inline">quadrat</code>, que imprimeixi un <strong>quadrat</strong> de caràcters i que rebi dos arguments. El primer paràmetre especifica la <strong>longitud del costat</strong> del quadrat. El segon paràmetre especifica el <strong>caràcter</strong> utilitzat per dibuixar-lo.</p>
+          <p>La funció ha de cridar la funció <code class="inline">linia</code> de l’exercici anterior per fer la impressió. Copia la teva solució de l’exercici anterior per sobre del codi d’aquest exercici. No modifiquis res de la funció <code class="inline">linia</code>.</p>
+          <p><strong>Exemples:</strong></p>
+          <pre><code class="language-python">quadrat(5, "*")
+print()
+quadrat(3, "o")</code></pre>
+          <pre class="output">
+*****
+*****
+*****
+*****
+*****</pre
+          >
+          <pre class="output">
+ooo
+ooo
+ooo</pre
+          >
+        </div>
+      </section>
+
+      <section id="triangle">
+        <div class="exercici" id="exercici-triangle">
+          <h3>Exercici: Un triangle</h3>
+          <p>Escriu una funció anomenada <code class="inline">triangle</code>, que dibuixi un <strong>triangle</strong> de caràcters coixinet (<strong>#</strong>) i que rebi un únic argument. El triangle ha de ser tan <strong>alt</strong> com ample, segons el valor de l’argument.</p>
+          <p>La funció ha de cridar la funció <code class="inline">linia</code> de l’exercici anterior per fer la impressió. Copia la teva solució de l’exercici anterior per sobre del codi d’aquest exercici. No modifiquis res de la funció <code class="inline">linia</code>.</p>
+          <p><strong>Exemples:</strong></p>
+          <pre><code class="language-python">triangle(6)
+print()
+triangle(3)</code></pre>
+          <pre class="output">
+#
+##
+###
+####
+#####
+######</pre
+          >
+          <pre class="output">
+#
+##
+###</pre
+          >
+        </div>
+      </section>
+
+      <section id="figura">
+        <div class="exercici" id="exercici-figura">
+          <h3>Exercici: Una figura</h3>
+          <p>Escriu una funció anomenada <code class="inline">figura</code>, que rebi quatre arguments. Els dos primers paràmetres especifiquen un <strong>triangle</strong> (com a l’exercici anterior) i el <strong>caràcter</strong> utilitzat per dibuixar-lo. El primer paràmetre també especifica l’<strong>amplada</strong> d’un <strong>rectangle</strong>, mentre que el tercer paràmetre n’especifica l’<strong>alçada</strong>. El quart paràmetre especifica el <strong>caràcter d’emplenament</strong> del rectangle. La funció ha d’imprimir primer el triangle i després el rectangle a sota.</p>
+          <p>La funció ha de cridar la funció <code class="inline">linia</code> de l’exercici anterior per fer la impressió. Copia la teva solució de l’exercici anterior per sobre del codi d’aquest exercici. No modifiquis res de la funció <code class="inline">linia</code>.</p>
+          <p><strong>Exemples:</strong></p>
+          <pre><code class="language-python">figura(5, "X", 3, "*")
+print()
+figura(2, "o", 4, "+")
+print()
+figura(3, ".", 0, ",")</code></pre>
+          <pre class="output">
+X
+XX
+XXX
+XXXX
+XXXXX
+*****
+*****
+*****</pre
+          >
+          <pre class="output">
+o
+oo
+++
+++
+++
+++</pre
+          >
+          <pre class="output">
+.
+..
+...</pre
+          >
+          <p><strong>Pista</strong>: No intentis resoldre tot l’exercici d’una sola vegada. Un bon primer pas és assegurar-te que pots imprimir el triangle correctament. Després pots intentar afegir-hi el rectangle.</p>
+          <p>Aquesta és una de les habilitats més importants d’un programador: <strong>centrar-se en petites parts concretes del problema</strong>. Resol i comprova solucions parcials, i utilitza-les per construir la solució completa.</p>
+        </div>
+      </section>
+
+      <section id="avet">
+        <div class="exercici" id="exercici-avet">
+          <h3>Exercici: Un avet</h3>
+          <p>Escriu una funció anomenada <code class="inline">avet</code>, que rebi un únic argument. La funció ha d’imprimir el text <strong>"un avet!"</strong> i després dibuixar un <strong>avet</strong> la mida del qual es determina pel valor de l’argument.</p>
+          <p><strong>Exemples:</strong></p>
+          <pre><code class="language-python">avet(3)</code></pre>
+          <pre class="output">
+un avet!
+  *
+ ***
+*****
+  *</pre
+          >
+          <pre><code class="language-python">avet(5)</code></pre>
+          <pre class="output">
+un avet!
+    *
+   ***
+  *****
+ *******
+*********
+    *</pre
+          >
+          <p><strong>Nota</strong>: a l’esquerra de l’avet hi ha d’haver exactament l’espaiat correcte. Si la forma de l’avet és correcta però el marge esquerre no toca el costat esquerre de la finestra del terminal, els tests no acceptaran la solució.</p>
+        </div>
+      </section>
+      <section id="valor-de-retorn-duna-funcio">
+        <h2>El valor de retorn d’una funció</h2>
+
+        <p>Les funcions també poden <strong>retornar valors</strong>. Per exemple, la funció incorporada de Python <code class="inline">input</code> retorna una <strong>cadena de text</strong> que l’usuari ha escrit. El valor retornat per una funció es pot <strong>desar en una variable</strong>:</p>
+
+        <pre><code class="language-python">paraula = input("Escriu una paraula: ")</code></pre>
+
+        <p>Quan volem obtenir un <strong>nombre enter</strong> introduït per l’usuari, cal convertir l’entrada a un enter. La funció que fem servir per això és <code class="inline">int</code>, i també <strong>retorna un valor</strong>:</p>
+
+        <pre><code class="language-python">nombre = int(input("Escriu un nombre enter: "))</code></pre>
+
+        <p>La funció <code class="inline">int</code> pren la <strong>cadena de text</strong> retornada per <code class="inline">input</code> com a argument, i retorna un <strong>valor de tipus enter</strong>, si pot convertir la cadena en un número.</p>
+      </section>
+
+      <section id="instruccio-return">
+        <h2>La instrucció return</h2>
+
+        <p>Les funcions que definim nosaltres també poden <strong>retornar valors</strong>. Per fer-ho, cal utilitzar la instrucció <code class="inline">return</code>. Per exemple, la següent funció <code class="inline">la_meva_suma</code> retorna la suma dels seus paràmetres:</p>
+
+        <pre><code class="language-python">def la_meva_suma(a, b):
+    return a + b
+
+resultat = la_meva_suma(2, 3)
+
+print("Suma:", resultat)</code></pre>
+
+        <pre class="output">Suma: 5</pre>
+
+        <p>Un altre exemple de valor de retorn és aquesta funció que demana el nom de l’usuari i retorna la <strong>cadena de text</strong> que l’usuari escriu:</p>
+
+        <pre><code class="language-python">def demana_nom():
+    nom = input("Com et dius? ")
+    return nom
+
+nom = demana_nom()
+print("Hola,", nom)</code></pre>
+
+        <pre class="output">
+Com et dius? Anna
+Hola, Anna</pre
+        >
+
+        <p>La instrucció <code class="inline">return</code> fa que l’execució de la funció s’aturi <strong>immediatament</strong>. El següent és un mètode útil per crear una funció de comparació:</p>
+
+        <pre><code class="language-python">def mes_petit(a, b):
+    if a &lt; b:
+        return a
+    return b
+
+print(mes_petit(3, 7))
+print(mes_petit(5, 2))</code></pre>
+
+        <p>La idea és que si <code class="inline">a</code> és més petit que <code class="inline">b</code>, la funció retorna <strong>a</strong> i surt immediatament. Si no, continua a la línia següent i retorna <strong>b</strong>. Una funció <strong>mai pot executar dues instruccions return</strong> en una sola crida.</p>
+
+        <pre class="output">
+3
+2</pre
+        >
+
+        <p>També pots utilitzar <code class="inline">return</code> encara que la funció <strong>no retorni cap valor</strong>. En aquest cas, serveix per <strong>aturar l’execució</strong> de la funció:</p>
+
+        <pre><code class="language-python">def saluda(nom):
+    if nom == "":
+        print("???")
+        return
+    print("Hola,", nom)
+
+saluda("Emilia")
+saluda("")
+saluda("Marc")</code></pre>
+
+        <p>Si l’argument (que s’emmagatzema a la variable <code class="inline">nom</code>) és una cadena buida, la funció imprimeix <strong>???</strong> i surt.</p>
+
+        <pre class="output">
+Hola, Emilia
+???
+Hola, Marc</pre
+        >
+      </section>
+
+      <section id="us-de-valors-de-retorn">
+        <h2>Ús dels valors retornats per funcions</h2>
+
+        <p>Ja sabem que els <strong>valors de retorn</strong> d’una funció es poden <strong>desar en variables</strong>:</p>
+
+        <pre><code class="language-python">def la_meva_suma(a, b):
+    return a + b
+
+resultat = la_meva_suma(4, 6)
+print("La suma és", resultat)</code></pre>
+
+        <pre class="output">La suma és 10</pre>
+
+        <p>El valor retornat per una funció és un <strong>valor com qualsevol altre</strong>. No cal desar-lo en una variable per utilitzar-lo com a argument d’una altra funció:</p>
+
+        <pre><code class="language-python">print("La suma és", la_meva_suma(4, 6))</code></pre>
+
+        <p>El valor retornat per una funció pot ser també l’<strong>argument d’una altra funció</strong>:</p>
+
+        <pre><code class="language-python">def la_meva_suma(a, b):
+    return a + b
+
+def diferencia(a, b):
+    return a - b
+
+resultat = diferencia(la_meva_suma(5, 2), la_meva_suma(2, 3))
+print("El resultat és", resultat)</code></pre>
+
+        <pre class="output">El resultat és 2</pre>
+
+        <p>En aquest cas, primer s’executen les crides internes <code class="inline">la_meva_suma(5, 2)</code> i <code class="inline">la_meva_suma(2, 3)</code>. Els valors retornats (7 i 5) s’utilitzen com a arguments de la funció externa <code class="inline">diferencia(7, 5)</code>, que retorna el valor 2. Aquest es desa a la variable <code class="inline">resultat</code> i s’imprimeix.</p>
+
+        <p>En resum, els <strong>valors retornats per funcions</strong> funcionen exactament igual que qualsevol altre valor a Python. Es poden <strong>imprimir, desar en variables, utilitzar en expressions</strong> i fer-los servir com a <strong>arguments en altres crides</strong>.</p>
+      </section>
+
+      <section id="diferencia-entre-return-i-print">
+        <h2>La diferència entre return i print</h2>
+
+        <p>De vegades la diferència entre que una funció <strong>retorni un valor</strong> i que tingui una <strong>instrucció print</strong> pot ser confusa. Vegem dues maneres diferents d’implementar una funció que calcula quin dels dos valors és més gran:</p>
+
+        <pre><code class="language-python">def maxim1(a, b):
+    if a &gt; b:
+        return a
+    else:
+        return b
+
+def maxim2(a, b):
+    if a &gt; b:
+        print(a)
+    else:
+        print(b)
+
+resultat = maxim1(3, 5)
+print(resultat)
+
+maxim2(7, 2)</code></pre>
+
+        <pre class="output">
+5
+7</pre
+        >
+
+        <p>Ambdues versions semblen funcionar correctament, ja que imprimeixen el valor màxim. No obstant això, hi ha una <strong>diferència fonamental</strong> entre elles. La primera, <code class="inline">maxim1</code>, no imprimeix res per si sola, sinó que <strong>retorna</strong> el valor més gran. Si executem la línia següent:</p>
+
+        <pre><code class="language-python">maxim1(3, 5)</code></pre>
+
+        <p>no sembla que passi res, ja que el valor retornat s’ha d’<strong>utilitzar</strong> d’alguna manera, per exemple, desant-lo en una variable i imprimint-lo:</p>
+
+        <pre><code class="language-python">resultat = maxim1(3, 5)
+print(resultat)</code></pre>
+
+        <p>La segona versió, <code class="inline">maxim2</code>, utilitza <code class="inline">print</code> dins la funció per mostrar el valor més gran. Si volem veure el valor, n’hi ha prou amb cridar la funció:</p>
+
+        <pre><code class="language-python">maxim2(7, 5)</code></pre>
+
+        <p>El desavantatge d’aquesta funció és que el <strong>valor calculat no queda disponible</strong> per ser utilitzat més endavant en el programa. Per això, les funcions que <strong>retornen valors</strong> acostumen a ser l’opció més recomanable.</p>
+      </section>
+
+      <section>
+        <div class="exercici" id="exercici-maxim">
+          <h3>Exercici: El número més gran</h3>
+          <p>Escriu una funció anomenada <code class="inline">nombre_mes_gran</code> que rebi tres arguments i retorni el més gran d’ells.</p>
+          <pre><code class="language-python">print(nombre_mes_gran(3, 4, 1)) # 4
+print(nombre_mes_gran(99, -4, 7)) # 99
+print(nombre_mes_gran(0, 0, 0)) # 0</code></pre>
+        </div>
+      </section>
+
+      <section id="comparar-caracters">
+        <div class="exercici" id="exercici-caracters-iguals">
+          <h3>Exercici: Caràcters iguals</h3>
+          <p>Escriu una funció anomenada <code class="inline">caracters_iguals</code> que rebi una <strong>cadena</strong> i dos <strong>enters</strong> com a arguments. La funció ha de retornar <code class="inline">True</code> si els caràcters en les posicions indicades són iguals. En cas contrari, o si algun índex està fora del rang, retorna <code class="inline">False</code>.</p>
+          <pre><code class="language-python">print(caracters_iguals("programador", 6, 7)) # True
+print(caracters_iguals("programador", 0, 4)) # False
+print(caracters_iguals("programador", 0, 12)) # False</code></pre>
+        </div>
+      </section>
+
+      <section id="primera-segona-ultima">
+        <div class="exercici" id="exercici-paraules">
+          <h3>Exercici: Primera, segona i última paraula</h3>
+          <p>Escriu tres funcions: <code class="inline">primera_paraula</code>, <code class="inline">segona_paraula</code> i <code class="inline">ultima_paraula</code>. Cadascuna rebrà una <strong>cadena de text</strong> i retornarà respectivament la primera, segona o última paraula.</p>
+          <pre><code class="language-python">frase = "era una nit fosca i tempestuosa python"
+print(primera_paraula(frase)) # era
+print(segona_paraula(frase)) # una
+print(ultima_paraula(frase)) # python</code></pre>
+          <pre class="output">
+era
+una
+python</pre
+          >
+        </div>
+      </section>
+
+      <section>
+        <h2>El tipus dels arguments</h2>
+
+        <p>Un petit repàs dels tipus de dades que hem vist fins ara:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tipus</th>
+              <th>Tipus de dada en Python</th>
+              <th>Exemple</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>enter</td>
+              <td><code>int</code></td>
+              <td><code>23</code></td>
+            </tr>
+            <tr>
+              <td>número decimal</td>
+              <td><code>float</code></td>
+              <td><code>-0.45</code></td>
+            </tr>
+            <tr>
+              <td>cadena de text</td>
+              <td><code>str</code></td>
+              <td><code>"Peter Python"</code></td>
+            </tr>
+            <tr>
+              <td>valor booleà</td>
+              <td><code>bool</code></td>
+              <td><code>True</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Quan cridem una funció, només funcionarà correctament si els arguments que li passem són del tipus adequat. Vegem un exemple:</p>
+
+        <pre><code class="language-python">def imprimeix_varios_cops(missatge, cops):
+    while cops &gt; 0:
+        print(missatge)
+        cops -= 1
+</code></pre>
+
+        <p>La funció funciona com s’espera si la cridem així:</p>
+
+        <pre><code class="language-python">imprimeix_varios_cops("Hola a tothom", 5)</code></pre>
+
+        <pre class="output">
+Hola a tothom
+Hola a tothom
+Hola a tothom
+Hola a tothom
+Hola a tothom
+</pre
+        >
+
+        <p>Tanmateix, si li passem un argument del tipus incorrecte, la funció no funcionarà:</p>
+
+        <pre><code class="language-python">imprimeix_varios_cops("Hola a tothom", "Emily")</code></pre>
+
+        <pre class="output">TypeError: '&gt;' not supported between instances of 'str' and 'int'</pre>
+
+        <p>El problema aquí és que el segon paràmetre, <code class="inline">cops</code>, es compara amb un enter (<code class="inline">0</code>) a la línia 2 de la definició de la funció. L’argument passat és <code class="inline">"Emily"</code>, que és una cadena de text (<code class="inline">str</code>), no un enter (<code class="inline">int</code>). Les cadenes i els enters no es poden comparar tan fàcilment, i per això es produeix un error.</p>
+
+        <p>Per evitar problemes com aquest, podem afegir <strong>anotacions de tipus</strong> a la definició de la funció. Les anotacions indiquen quin tipus d’argument s’espera:</p>
+
+        <pre><code class="language-python">def imprimeix_varios_cops(missatge: str, cops: int):
+    while cops &gt; 0:
+        print(missatge)
+        cops -= 1
+</code></pre>
+
+        <p>Això indica a qui faci servir la funció que <code class="inline">missatge</code> hauria de ser una cadena de text i <code class="inline">times</code> hauria de ser un enter.</p>
+
+        <p>De la mateixa manera, també podem indicar quin tipus de valor retorna una funció:</p>
+
+        <pre><code class="language-python">def ask_for_name() -&gt; str:
+    name = input("Com et dius? ")
+    return name
+</code></pre>
+
+        <p>Això indica que la funció hauria de retornar una cadena de text.</p>
+
+        <aside><strong>Nota:</strong> Les anotacions de tipus només són <em>pistes</em> sobre el tipus dels arguments o del valor retornat. No són una garantia ni una protecció contra errors de tipus. Si una funció rep o retorna un valor del tipus incorrecte, s’executarà igualment, però pot no funcionar correctament.</aside>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Return</strong>: instrucció que retorna un valor d'una funció</li>
+          <li><strong>Valor de retorn</strong>: resultat que una funció torna al ser cridada</li>
+          <li><strong>Diferència return vs print</strong>: return torna un valor, print mostra per pantalla</li>
+          <li><strong>Anotacions de tipus</strong>: indicar el tipus esperat dels paràmetres i retorn</li>
+          <li><strong>Reutilització de funcions</strong>: usar funcions existents per construir noves</li>
+          <li><strong>Abstracció</strong>: ocultar detalls complexos darrere d'interfícies simples</li>
+          <li><strong>Descomposició de problemes</strong>: dividir problemes complexos en parts més petites</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="4_1_Visual_Studio.html">
+              <span class="tornar">←</span>
+              <h3>4.1 L'IDE Visual Studio</h3>
+            </a>
+          </li>
+          <li>
+            <a href="4_3_Lists.html">
+              <h3>4.3 Llistes</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

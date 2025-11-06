@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combinació de condicions</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="introduccio">
+        <h1>Combinació de condicions</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Saber utilitzar els operadors <strong>and</strong>, <strong>or</strong> i <strong>not</strong> en condicions.</li>
+          <li>Ser capaç d’escriure <strong>condicionals niats</strong>.</li>
+        </ul>
+      </section>
+
+      <section id="operadors-logics">
+        <h2>Operadors lògics</h2>
+        <p>Pots combinar condicions amb els <strong>operadors lògics</strong> <strong>and</strong> i <strong>or</strong>. L’operador <strong>and</strong> especifica que totes les condicions donades han de ser certes al mateix temps. L’operador <strong>or</strong> indica que almenys una de les condicions ha de ser certa.</p>
+
+        <p>Per exemple, la condició <code class="inline">nombre >= 5 and nombre <= 8</code> determina que <strong>nombre</strong> ha de ser com a mínim 5 i com a màxim 8, és a dir, ha d’estar <strong>entre 5 i 8</strong>.</p>
+
+        <pre><code class="language-python">nombre = int(input("Introdueix un nombre: "))
+if nombre >= 5 and nombre <= 8:
+    print("El nombre està entre 5 i 8")</code></pre>
+
+        <p>Mentrestant, la condició <code class="inline">nombre < 5 or nombre > 8</code> determina que el <strong>nombre</strong> ha de ser menor que 5 o major que 8. És a dir, no ha d’estar dins del rang de 5 a 8.</p>
+
+        <pre><code class="language-python">nombre = int(input("Introdueix un nombre: "))
+if nombre < 5 or nombre > 8:
+    print("El nombre no està dins del rang de 5 a 8")</code></pre>
+
+        <p>La següent <strong>taula de veritat</strong> mostra el comportament d’aquests operadors en diferents situacions:</p>
+
+        <table>
+          <tr>
+            <th>a</th>
+            <th>b</th>
+            <th>a and b</th>
+            <th>a or b</th>
+          </tr>
+          <tr>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+          </tr>
+          <tr>
+            <td>True</td>
+            <td>False</td>
+            <td>False</td>
+            <td>True</td>
+          </tr>
+          <tr>
+            <td>False</td>
+            <td>True</td>
+            <td>False</td>
+            <td>True</td>
+          </tr>
+          <tr>
+            <td>True</td>
+            <td>True</td>
+            <td>True</td>
+            <td>True</td>
+          </tr>
+        </table>
+
+        <p>A vegades cal saber si alguna cosa <strong>no és certa</strong>. L’operador <strong>not</strong> nega una condició:</p>
+
+        <table>
+          <tr>
+            <th>a</th>
+            <th>not a</th>
+          </tr>
+          <tr>
+            <td>True</td>
+            <td>False</td>
+          </tr>
+          <tr>
+            <td>False</td>
+            <td>True</td>
+          </tr>
+        </table>
+
+        <p>L’exemple anterior amb el rang exclòs de 5 a 8 també es podria programar així:</p>
+
+        <pre><code class="language-python">nombre = int(input("Introdueix un nombre: "))
+if not (nombre >= 5 and nombre <= 8):
+    print("El nombre no està dins del rang de 5 a 8")</code></pre>
+
+        <p>En programació, els operadors lògics també s’anomenen sovint <strong>operadors booleans</strong>.</p>
+      </section>
+
+      <section id="condicions-simplificades">
+        <h2>Condicions combinades simplificades</h2>
+        <p>La condició <code class="inline">x >= a and x <= b</code> és una forma molt comuna de comprovar si un nombre <strong>x</strong> està dins del rang d’<strong>a</strong> a <strong>b</strong>. Una expressió amb aquesta estructura funciona de la mateixa manera en la majoria de llenguatges de programació.</p>
+
+        <p>Python permet una <strong>notació simplificada</strong> per combinar condicions: <code class="inline">a <= x <= b</code> aconsegueix el mateix resultat que la versió més llarga amb <strong>and</strong>. Aquesta forma més curta pot ser més familiar des de les matemàtiques, però no és molt utilitzada en Python, ja que pocs altres llenguatges de programació tenen aquesta abreviació.</p>
+      </section>
+
+      <section id="combinacio-condicions">
+        <h2>Combinació i enllaç de condicions</h2>
+        <p>El següent programa demana a l’usuari que introdueixi quatre nombres. Després calcula quin dels quatre és el més gran, amb l’ajuda d’algunes condicions:</p>
+
+        <pre><code class="language-python">n1 = int(input("Nombre 1: "))
+n2 = int(input("Nombre 2: "))
+n3 = int(input("Nombre 3: "))
+n4 = int(input("Nombre 4: "))
+
+if n1 > n2 and n1 > n3 and n1 > n4:
+    mes_gran = n1
+elif n2 > n3 and n2 > n4:
+    mes_gran = n2
+elif n3 > n4:
+    mes_gran = n3
+else:
+    mes_gran = n4
+
+print(f"{mes_gran} és el més gran dels nombres.")</code></pre>
+
+        <pre class="output">
+Nombre 1: 2
+Nombre 2: 4
+Nombre 3: 1
+Nombre 4: 1
+4 és el més gran dels nombres.</pre
+        >
+
+        <p>En l’exemple anterior, la primera condició <code class="inline">n1 > n2 and n1 > n3 and n1 > n4</code> només és certa si totes tres condicions dins d’ella són certes.</p>
+      </section>
+
+      <div class="exercici" id="edat">
+        <h3>Exercici: Comprovació d’edat</h3>
+        <p>Escriu un programa que demani l’edat de l’usuari. Si l’edat no és plausible (és a dir, menor de 5 o un valor que no pugui ser una edat humana real), el programa ha d’imprimir un comentari.</p>
+
+        <p>Observa els exemples de comportament esperat:</p>
+
+        <pre class="output">
+Quina edat tens? 13
+D’acord, tens 13 anys.</pre
+        >
+
+        <pre class="output">
+Quina edat tens? 2
+Sospito que encara no saps escriure...</pre
+        >
+
+        <pre class="output">
+Quina edat tens? -4
+Això deu ser un error.</pre
+        >
+      </div>
+
+      <div class="exercici" id="nebots">
+        <h3>Exercici: Nebots</h3>
+        <p>Escriu un programa que demani el nom de l’usuari. Si el nom és <strong>Juanito</strong>, <strong>Jaimito</strong> o <strong>Jorgito</strong>, el programa ha de reconèixer l’usuari com un dels <strong>nebots del Pato Donald</strong>.</p>
+        <p>De manera similar, si el nom és <strong>Morty</strong> o <strong>Ferdie</strong>, el programa ha de reconèixer l’usuari com un dels <strong>nebots de Mickey Mouse</strong>.</p>
+
+        <pre class="output">
+Introdueix el teu nom: Morty
+Crec que ets un dels nebots de Mickey Mouse.</pre
+        >
+
+        <pre class="output">
+Introdueix el teu nom: Jaimito
+Crec que ets un dels nebots del Pato Donald.</pre
+        >
+
+        <pre class="output">
+Introdueix el teu nom: Pere
+No ets nebot de cap personatge que conegui.</pre
+        >
+      </div>
+
+      <div class="exercici" id="notes-i-punts">
+        <h3>Exercici: Notes i punts</h3>
+        <p>La taula següent mostra les <strong>franges de qualificacions</strong> d’un curs universitari. Escriu un programa que demani la quantitat de punts obtinguts i imprimeixi la qualificació segons la taula.</p>
+
+        <table>
+          <tr>
+            <th>Punts</th>
+            <th>Nota</th>
+          </tr>
+          <tr>
+            <td>&lt; 0</td>
+            <td>impossible!</td>
+          </tr>
+          <tr>
+            <td>0–49</td>
+            <td>suspes</td>
+          </tr>
+          <tr>
+            <td>50–59</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>60–69</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>70–79</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>80–89</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>90–100</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>&gt; 100</td>
+            <td>impossible!</td>
+          </tr>
+        </table>
+
+        <pre class="output">
+Quants punts [0-100]: 37
+Nota: suspes</pre
+        >
+
+        <pre class="output">
+Quants punts [0-100]: 76
+Nota: 3</pre
+        >
+
+        <pre class="output">
+Quants punts [0-100]: -3
+Nota: impossible!</pre
+        >
+      </div>
+
+      <div class="exercici" id="fizzbuzz">
+        <h3>Exercici: FizzBuzz</h3>
+        <p>Escriu un programa que demani a l’usuari un nombre enter. Si el nombre és divisible per tres, el programa ha d’imprimir <strong>Fizz</strong>. Si és divisible per cinc, ha d’imprimir <strong>Buzz</strong>. Si és divisible per tots dos, ha d’imprimir <strong>FizzBuzz</strong>.</p>
+
+        <pre class="output">
+Nombre: 9
+Fizz</pre
+        >
+
+        <pre class="output">
+Nombre: 7
+</pre
+        >
+
+        <pre class="output">
+Nombre: 20
+Buzz</pre
+        >
+
+        <pre class="output">
+Nombre: 45
+FizzBuzz</pre
+        >
+      </div>
+
+      <section id="condicionals-niats">
+        <h2>Condicionals niats</h2>
+        <p>Les sentències condicionals també es poden <strong>niar</strong> dins d’altres sentències condicionals. Per exemple, el següent programa comprova si un nombre és positiu i després si és parell o senar:</p>
+
+        <pre><code class="language-python">nombre = int(input("Introdueix un nombre: "))
+
+if nombre > 0:
+    if nombre % 2 == 0:
+        print("El nombre és parell")
+    else:
+        print("El nombre és senar")
+else:
+    print("El nombre és negatiu o zero")</code></pre>
+
+        <pre class="output">
+Introdueix un nombre: 3
+El nombre és senar</pre
+        >
+
+        <pre class="output">
+Introdueix un nombre: 18
+El nombre és parell</pre
+        >
+
+        <pre class="output">
+Introdueix un nombre: -4
+El nombre és negatiu o zero</pre
+        >
+
+        <p>Amb les condicions niades és crucial que les <strong>sagnies</strong> siguin correctes. Les sagnies determinen quines branques estan vinculades entre si. Una branca <strong>if</strong> i una branca <strong>else</strong> amb la mateixa quantitat d’espais pertanyen a la mateixa estructura condicional.</p>
+
+        <p>El mateix resultat sovint es pot aconseguir utilitzant condicions niades o bé condicions combinades amb operadors lògics. L’exemple següent és funcionalment equivalent a l’anterior:</p>
+
+        <pre><code class="language-python">nombre = int(input("Introdueix un nombre: "))
+
+if nombre > 0 and nombre % 2 == 0:
+    print("El nombre és parell")
+elif nombre > 0 and nombre % 2 != 0:
+    print("El nombre és senar")
+else:
+    print("El nombre és negatiu o zero")</code></pre>
+
+        <p>Cap dels dos enfocaments és millor per se, però en diferents situacions un pot semblar més lògic que l’altre. En aquest exemple, la majoria de gent troba més intuïtiu l’ús de condicions niades.</p>
+      </section>
+
+      <div class="exercici" id="any-de-traspas">
+        <h3>Exercici: Any de traspàs</h3>
+        <p>Generalment, qualsevol any divisible per quatre és un <strong>any de traspàs</strong>. No obstant això, si l’any és també divisible per 100, només serà de traspàs si també és divisible per 400.</p>
+
+        <p>Escriu un programa que demani un any i imprimeixi si és o no un any de traspàs.</p>
+
+        <pre class="output">
+Introdueix un any: 2011
+Aquest any no és de traspàs.</pre
+        >
+
+        <pre class="output">
+Introdueix un any: 2020
+Aquest any és de traspàs.</pre
+        >
+
+        <pre class="output">
+Introdueix un any: 1800
+Aquest any no és de traspàs.</pre
+        >
+      </div>
+
+      <div class="exercici" id="lletra-mitjana">
+        <h3>Exercici: Lletra alfabèticament del mig</h3>
+        <p>Escriu un programa que demani a l’usuari tres lletres. El programa ha d’imprimir quina de les tres seria la del <strong>mig en ordre alfabètic</strong>.</p>
+        <p>Pots suposar que totes les lletres seran o bé majúscules o bé minúscules.</p>
+
+        <pre class="output">
+1a lletra: x
+2a lletra: c
+3a lletra: p
+La lletra del mig és p</pre
+        >
+
+        <pre class="output">
+1a lletra: C
+2a lletra: B
+3a lletra: A
+La lletra del mig és B</pre
+        >
+      </div>
+
+      <div class="exercici" id="impost-donacions">
+        <h3>Exercici: Calculadora d’impost de donacions</h3>
+        <p>Segons l’Administració Tributària, un <strong>donatiu</strong> és una transferència de béns sense compensació. Si el valor total dels donatius rebuts del mateix donant en un període de 3 anys és de 5.000 € o més, cal pagar <strong>impost de donacions</strong>.</p>
+
+        <p>Quan la donació prové d’un familiar proper, l’import a pagar es determina amb la taula següent:</p>
+
+        <table>
+          <tr>
+            <th>Valor del donatiu (€)</th>
+            <th>Impost mínim (€)</th>
+            <th>Percentatge sobre l’excés (%)</th>
+          </tr>
+          <tr>
+            <td>5 000 — 25 000</td>
+            <td>100</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>25 000 — 55 000</td>
+            <td>1 700</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>55 000 — 200 000</td>
+            <td>4 700</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>200 000 — 1 000 000</td>
+            <td>22 100</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>1 000 000 —</td>
+            <td>142 100</td>
+            <td>17</td>
+          </tr>
+        </table>
+
+        <p>Per exemple, per un donatiu de 6 000 €, el beneficiari paga un impost de 180 € (<code class="inline">100 + (6 000 - 5 000) * 0.08</code>). De manera similar, per un donatiu de 75 000 €, paga 7 100 € (<code class="inline">4 700 + (75 000 - 55 000) * 0.12</code>).</p>
+
+        <p>Escriu un programa que calculi l'import correcte de l'impost per a una donació. Fes una ullada als exemples següents per veure què s'espera. Fixa't en l'absència de separadors de milers en els valors d'entrada - pots assumir que no hi haurà espais ni altres separadors de milers en els números de l'entrada, ja que encara no hem tractat com gestionar-ho.</p>
+
+        <pre class="output">
+Valor del donatiu: 3500
+No hi ha impost!</pre
+        >
+
+        <pre class="output">
+Valor del donatiu: 5000
+Import de l’impost: 100€.0</pre
+        >
+        <pre class="output">
+El nombre és 27500
+Import de l’impost: 1950.0€.
+</pre
+        >
+      </div>
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Condició</strong>: expressió que pot ser certa o falsa.</li>
+          <li><strong>if</strong>: estructura que executa un bloc de codi si la condició és certa.</li>
+          <li><strong>else</strong>: part alternativa que s’executa si la condició no es compleix.</li>
+          <li><strong>elif</strong>: permet comprovar més d’una condició.</li>
+          <li><strong>and / or / not</strong>: operadors lògics per combinar o negar condicions.</li>
+          <li><strong>if niat</strong>: condicions dins d’altres condicions.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="2_2_Condicionals.html">
+              <span class="tornar">←</span>
+              <h3>2.2 Més condicionals</h3>
+            </a>
+          </li>
+          <li>
+            <a href="2_4_Loop.html">
+              <h3>2.4 Bucles simples</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

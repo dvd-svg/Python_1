@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Funcions</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Escriure i cridar les teves pròpies funcions</li>
+          <li>Entendre què són els arguments i els paràmetres d'una funció</li>
+          <li>Definir paràmetres a les teves pròpies funcions</li>
+        </ul>
+      </section>
+      <section id="definicio-de-funcio">
+        <h2>Definició d’una funció</h2>
+        <p>Ja hem fet servir funcions com <strong>len</strong>, <strong>print</strong> i <strong>input</strong> en els nostres programes. Aquestes són funcions <strong>incorporades a Python</strong>, i per tant sempre estan disponibles, sense importar en quin entorn programem. Tot i així, també és possible <strong>definir les teves pròpies funcions</strong>.</p>
+
+        <p>Abans que una funció es pugui utilitzar, s’ha de definir. Qualsevol definició de funció comença amb la paraula clau <code class="inline">def</code>, abreviatura de <em>define</em>. Tot seguit ve el <strong>nom de la funció</strong>, seguit de <strong>parèntesis</strong> i dels <strong>dos punts</strong>. Això s’anomena la <strong>capçalera de la funció</strong>. A continuació, i amb <strong>sagnat</strong> (com en els blocs <code class="inline">while</code> o <code class="inline">if</code>), ve el <strong>cos de la funció</strong>.</p>
+
+        <p>Per exemple, el codi següent defineix la funció <code class="inline">missatge</code>:</p>
+
+        <pre><code class="language-python">def missatge():
+    print("Aquesta és la meva pròpia funció!")</code></pre>
+
+        <p>Si s’executa el programa anterior, sembla que no passi res. Això és perquè el codi dins del cos de la funció només s’executa quan la funció és <strong>cridada</strong>.</p>
+
+        <p>Cridar una funció és tan senzill com mencionar-ne el nom en el codi. Si afegim una crida a la funció al final del programa anterior, així:</p>
+
+        <pre><code class="language-python">def missatge():
+    print("Aquesta és la meva pròpia funció!")
+
+missatge()</code></pre>
+
+        <p>El resultat és:</p>
+
+        <pre class="output">Aquesta és la meva pròpia funció!</pre>
+
+        <p>Quan una funció ha estat definida, es pot cridar <strong>múltiples vegades</strong>:</p>
+
+        <pre><code class="language-python">def missatge():
+    print("Aquesta és la meva pròpia funció!")
+
+missatge()
+missatge()
+missatge()</code></pre>
+
+        <pre class="output">
+Aquesta és la meva pròpia funció!
+Aquesta és la meva pròpia funció!
+Aquesta és la meva pròpia funció!</pre
+        >
+      </section>
+
+      <section id="provar-funcions">
+        <h2>Provar les teves pròpies funcions</h2>
+        <p><strong>Nota:</strong> a partir d’ara, la majoria dels exercicis d’aquest curs et demanaran que escriguis les teves pròpies funcions.</p>
+
+        <p>Quan un programa només conté funcions, executar-lo pot semblar que no té cap efecte. El codi següent no imprimeix res, tot i que hi ha una ordre <code class="inline">print</code>:</p>
+
+        <pre><code class="language-python">def saluda():
+    print("Hola!")</code></pre>
+
+        <p>El motiu és que el codi dins del cos de la funció <code class="inline">saluda</code> només s’executa quan la funció és cridada.</p>
+
+        <p>El “programa principal” situat sota la funció ha de contenir les crides adequades perquè el programa es pugui provar. De fet, Python tracta tot el codi que no és dins d’una definició de funció com a part del <strong>programa principal</strong>, que s’executa quan el fitxer s’executa o s’avalua. Així que afegim una crida a la funció:</p>
+
+        <pre><code class="language-python">def saluda():
+    print("Hola!")
+
+# Tot el codi fora de les funcions forma part del programa principal
+# Cridem la funció:
+saluda()</code></pre>
+
+        <div class="exercici" id="set-germans">
+          <h3>Exercici: Funció - Els set germans de Can Coll</h3>
+          <p>Escriu una funció anomenada <code class="inline">set_germans</code>. Quan la funció sigui cridada, ha d’imprimir els noms dels <strong>set germans</strong> en <strong>ordre alfabètic</strong>, com en l’exemple següent. Consulta l’exercici amb el mateix nom al capítol 1 per a més detalls.</p>
+
+          <p><strong>Sortida esperada:</strong></p>
+
+          <pre class="output">
+Albert
+Biel
+Carla
+Dídac
+Júlia
+Pau</pre
+          >
+        </div>
+      </section>
+
+      <section id="arguments-funcio">
+        <h2>Arguments i paràmetres d’una funció</h2>
+        <p>Les funcions sovint prenen un o més <strong>arguments</strong>, que poden influir en què fa la funció. Per exemple, les funcions incorporades <code class="inline">print</code> i <code class="inline">input</code> prenen com a argument el <strong>text</strong> que s’ha de mostrar:</p>
+
+        <pre><code class="language-python">print("Hola!")                         # argument és la cadena "Hola!"
+nom = input("Com et dius? ")            # argument és la cadena "Com et dius? "
+print(nom)                              # argument és el valor de la variable nom</code></pre>
+
+        <p>Els termes <strong>argument</strong> i <strong>paràmetre</strong> sovint s’utilitzen per referir-se al mateix concepte. La diferència és que <strong>argument</strong> s’utilitza per al valor passat a la funció quan és cridada, mentre que dins de la funció aquests valors s’assignen a variables anomenades <strong>paràmetres</strong>.</p>
+
+        <p>Així doncs, quan es defineix la funció, parlem de <strong>paràmetres</strong>; quan la cridem, parlem d’<strong>arguments</strong>.</p>
+
+        <p>Per exemple, definim una funció amb un <strong>paràmetre</strong>:</p>
+
+        <pre><code class="language-python">def hola(destinatari):
+    print("Hola", destinatari)</code></pre>
+
+        <p>Cridem-la dues vegades:</p>
+
+        <pre><code class="language-python">hola("Emma")
+hola("món!")</code></pre>
+
+        <pre class="output">
+Hola Emma
+Hola món!</pre
+        >
+
+        <p>A la primera línia, a la capçalera de la funció, hem definit que la funció pren un <strong>argument</strong> i l’assigna al <strong>paràmetre</strong> <code class="inline">destinatari</code>. Al cos de la funció, l’ordre <code class="inline">print</code> fa servir el valor emmagatzemat a <code class="inline">destinatari</code>.</p>
+
+        <p>Quan la funció és cridada, el <strong>paràmetre</strong> <code class="inline">destinatari</code> pren el valor passat com a <strong>argument</strong>. Per exemple:</p>
+
+        <pre><code class="language-python">nom = "Pau"
+hola(nom)</code></pre>
+
+        <p>En aquest fragment de codi estem cridant a la funció <code class="inline">hola()</code> amb l'<strong>argument</strong> <code class="inline">"Pau"</code>.</p>
+
+        <div class="exercici" id="primer-caracter">
+          <h3>Exercici: El primer caràcter</h3>
+          <p>Completa la funció <code class="inline">primer_caracter</code> perquè imprimeixi el primer caràcter de la cadena que rep com a argument.</p>
+
+          <pre><code class="language-python">def primer_caracter(text):
+    # escriu el teu codi aquí
+
+# proves
+if __name__ == "__main__":
+    primer_caracter('python')
+    primer_caracter('youtube')
+    primer_caracter('tenda')
+    primer_caracter('heliotrop')
+    primer_caracter('obert')
+    primer_caracter('nit')</code></pre>
+
+          <pre class="output">
+p
+y
+t
+h
+o
+n</pre
+          >
+        </div>
+      </section>
+
+      <section id="provar-amb-arguments">
+        <h2>Provar funcions amb arguments</h2>
+        <p>Quan una funció pren arguments, és recomanable provar-la amb <strong>diversos valors</strong> diferents. Pensa també en els <strong>casos especials</strong>: què passa si l’argument és 0, un número negatiu o una cadena buida?</p>
+
+        <p>Si l’enunciat no t’obliga a incloure crides a la funció, pots afegir-les lliurement dins del bloc <code class="inline">if __name__ == "__main__"</code>, aquest <code class="inline">if</code> només s'executarà si executem directament l'arxiu de codi, si un altre programa l'importès no s'executaria i no interferiria. Quan fem comprobacions és una bona pràctica afegir aquest condicional.</p>
+      </section>
+
+      <section id="mes-exemples">
+        <h2>Més exemples</h2>
+
+        <p>Vegem algunes funcions que prenen arguments. En aquest primer exemple, el paràmetre és un número:</p>
+
+        <pre><code class="language-python">def quadrat(x):
+    print(f"El quadrat del número {x} és {x * x}")
+
+quadrat(2)
+quadrat(5)</code></pre>
+
+        <pre class="output">
+El quadrat del número 2 és 4
+El quadrat del número 5 és 25</pre
+        >
+
+        <p>També podem tenir una funció amb una <strong>condició</strong> dins el cos:</p>
+
+        <pre><code class="language-python">def hola(nom):
+    if nom == "Emma":
+        print("Hola", nom)
+    else:
+        print("Ei", nom)
+
+hola("Emma")
+hola("Marc")</code></pre>
+
+        <pre class="output">
+Hola Emma
+Ei Marc</pre
+        >
+
+        <p>Aquesta funció, en canvi, pren <strong>dos arguments</strong>:</p>
+
+        <pre><code class="language-python">def suma(x, y):
+    resultat = x + y
+    print(f"La suma dels arguments {x} i {y} és {resultat}")
+
+suma(1, 2)
+suma(5, 24)</code></pre>
+
+        <pre class="output">
+La suma dels arguments 1 i 2 és 3
+La suma dels arguments 5 i 24 és 29</pre
+        >
+
+        <p>La funció utilitza una variable auxiliar <strong>resultat</strong> per emmagatzemar la suma dels seus arguments. Els noms dels paràmetres dins la funció no tenen relació amb les variables fora d’ella:</p>
+
+        <pre><code class="language-python">x = 100
+y = 30
+suma(1, 2)
+suma(x + y, 10)</code></pre>
+
+        <pre class="output">
+La suma dels arguments 1 i 2 és 3
+La suma dels arguments 130 i 10 és 140</pre
+        >
+
+        <p>En la primera crida, els paràmetres prenen els valors <code class="inline">1</code> i <code class="inline">2</code>; en la segona, <code class="inline">130</code> i <code class="inline">10</code>.</p>
+      </section>
+
+      <section id="variables-globals">
+        <h2>Advertiment: ús de variables globals dins funcions</h2>
+
+        <p>En els exemples anteriors hem vist que és possible assignar noves variables dins d’una funció. La funció també pot “veure” variables definides fora d’ella, al programa principal. Aquestes s’anomenen <strong>variables globals</strong>.</p>
+
+        <p>Fer servir variables globals dins funcions és generalment <strong>una mala pràctica</strong>, ja que pot provocar errors difícils de detectar.</p>
+
+        <p>Per exemple:</p>
+
+        <pre><code class="language-python"># aquesta és una variable global
+nom = "Berta"
+
+def hola(nom_passat):
+    # fem servir la variable global per error
+    print("Hola", nom)
+
+hola("Esteve")
+hola("Berta")</code></pre>
+
+        <pre class="output">
+Hola Berta
+Hola Berta</pre
+        >
+
+        <p>Sigui quin sigui l’argument passat, la funció sempre farà servir el valor global <strong>Berta</strong>.</p>
+
+        <div class="exercici" id="mitjana">
+          <h3>Exercici: Mitjana</h3>
+          <p>Escriu una funció anomenada <code class="inline">mitjana</code> que prengui tres arguments enters i imprimeixi la seva <strong>mitjana aritmètica</strong>.</p>
+
+          <pre><code class="language-python">mitjana(5, 3, 1)
+mitjana(10, 1, 1)</code></pre>
+
+          <pre class="output">
+3.0
+4.0</pre
+          >
+        </div>
+
+        <div class="exercici" id="imprimir-molts-cops">
+          <h3>Exercici: Imprimir molts cops</h3>
+          <p>Escriu una funció anomenada <code class="inline">imprimir_molts_cops(text, cops)</code> que prengui una cadena i un enter com arguments. L’enter indica <strong>quantes vegades</strong> s’ha d’imprimir la cadena:</p>
+
+          <pre><code class="language-python">imprimir_molts_cops("hola", 5)
+
+print()
+
+text = "Tots els Pythons, excepte un, creixen"
+cops = 3
+imprimir_molts_cops(text, cops)</code></pre>
+
+          <pre class="output">
+hola
+hola
+hola
+hola
+hola
+
+Tots els Pythons, excepte un, creixen
+Tots els Pythons, excepte un, creixen
+Tots els Pythons, excepte un, creixen</pre
+          >
+        </div>
+
+        <div class="exercici" id="quadrat-de-coixinets">
+          <h3>Exercici: Un quadrat de coixinets</h3>
+          <p>Escriu una funció anomenada <code class="inline">quadrat_coixinets(longitud)</code> que prengui un argument enter. La funció ha d’imprimir un <strong>quadrat de caràcters #</strong> amb el costat de la longitud indicada.</p>
+
+          <pre><code class="language-python">quadrat_coixinets(3)
+print()
+quadrat_coixinets(5)</code></pre>
+
+          <pre class="output">
+###
+###
+###
+
+#####
+#####
+#####
+#####
+#####</pre
+          >
+        </div>
+
+        <div class="exercici" id="tauler-escacs">
+          <h3>Exercici: Tauler d’escacs</h3>
+          <p>Escriu una funció anomenada <code class="inline">tauler_escacs</code> que imprimeixi un <strong>tauler d’escacs</strong> format per uns i zeros (Representant caselles <strong>blanques</strong> i <strong>negres</strong>). La funció pren un enter com a argument que indica la longitud del costat del tauler.</p>
+
+          <pre><code class="language-python">tauler_escacs(3)
+print()
+tauler_escacs(6)</code></pre>
+
+          <pre class="output">
+101
+010
+101
+
+101010
+010101
+101010
+010101
+101010
+010101</pre
+          >
+        </div>
+
+        <div class="exercici" id="paraula-quadrada">
+          <h3>Exercici: Una paraula quadrada</h3>
+          <p>Escriu una funció anomenada <code class="inline">quadrat_text(text, mida)</code> que prengui una <strong>cadena de text</strong> i un <strong>enter</strong> com arguments, i imprimeixi un quadrat de caràcters segons els exemples següents.</p>
+
+          <pre><code class="language-python">quadrat_text("ab", 3)
+print()
+quadrat_text("aybabtu", 5)</code></pre>
+
+          <pre class="output">
+aba
+bab
+aba
+
+aybab
+tuayb
+abtua
+ybabt
+uayba</pre
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Funció</strong>: bloc de codi reutilitzable que realitza una tasca específica</li>
+          <li><strong>def</strong>: paraula clau per definir una funció</li>
+          <li><strong>Paràmetre</strong>: variable a la definició de la funció que rep valors</li>
+          <li><strong>Argument</strong>: valor passat a la funció quan es crida</li>
+          <li><strong>Cos de funció</strong>: codi indentat sota la capçalera</li>
+          <li><strong>Crida de funció</strong>: executar una funció amb <code class="inline">nom_funció()</code></li>
+          <li><strong>Variables globals</strong>: variables definides fora de funcions (evitar-ne l'ús)</li>
+          <li><strong>if __name__ == "__main__"</strong>: condició per executar codi només quan s'executa directament el fitxer</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="3_3_More_Loops.html">
+              <span class="tornar">←</span>
+              <h3>3.3 Més bucles</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

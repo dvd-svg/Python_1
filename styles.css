@@ -1,0 +1,357 @@
+:root {
+  --color-fons: #fafafa;
+  --color-text: #222;
+  --color-accent: #004edfff;
+  --color-exercici: #dca902ff;
+  --color-subtitol: #555;
+  --color-output-bg: #d0ceceff;
+  --font-base: "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", monospace;
+  --max-width: 1100px;
+}
+
+body {
+  background-color: var(--color-fons);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  line-height: 1.6;
+  margin: 0;
+  padding: 2rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--color-output-bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-subtitol);
+  border-radius: 999px;
+  background-color: var(--color-accent);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.fons {
+  background-image: radial-gradient (gray, 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center;
+  background-color: var(--color-fons);
+  opacity: 1;
+  background-image: radial-gradient(var(--color-accent) 0.4px, var(--color-fons) 0.5px);
+  background-size: 20px 20px;
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.3rem;
+  position: sticky;
+  top: 0;
+}
+
+.objectius {
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.83em;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-top: 1.5rem;
+  color: var(--color-subtitol);
+}
+
+p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin: 1rem 0;
+}
+
+li {
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+img {
+  display: block;
+  max-height: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: start;
+}
+
+pre {
+  border-left: 4px solid var(--color-accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background: none;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+}
+
+.exercici pre {
+  border-left: 4px solid var(--color-exercici);
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--color-codi-fons); /* mateix color que el fons del codi */
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: var(--color-subtitol); /* un to més fosc per contrast */
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+}
+
+.exercici pre::-webkit-scrollbar-thumb {
+  background-color: var(--color-exercici);
+}
+
+pre::-webkit-scrollbar {
+  height: 4px;
+}
+
+pre code {
+  display: block;
+  padding: 1rem;
+  /* -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  */
+}
+
+pre.output {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  background-color: var(--color-output-bg);
+  border: 1.5px solid var(--color-accent);
+  padding: 1rem;
+  color: var(--color-text);
+}
+
+pre code {
+  text-shadow: none !important;
+  padding: 0 !important;
+}
+
+code span {
+  background: none !important;
+}
+
+code.inline {
+  font-family: var(--font-mono);
+  font-size:1rem;
+  background-color: var(--color-output-bg);
+  padding: 2px 4px;
+  border-radius: 5px;
+}
+
+strong {
+  color: var(--color-accent);
+}
+
+.exercici {
+  border: 1.5px solid var(--color-exercici);
+  border-left: 4px solid var(--color-exercici);
+  background-color: #f5f5f5;
+  padding: 1rem 1.2rem;
+  margin: 2rem 0;
+}
+
+.exercici h3,
+.exercici strong {
+  margin-top: 0;
+  color: var(--color-exercici);
+}
+
+.exercici p {
+  margin: 0.5rem 0;
+}
+
+.exercici pre.output {
+  border: 1.5px solid var(--color-exercici);
+  padding: 0.8rem;
+}
+
+.passar-capitol ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 60px auto 0;
+  max-width: var(--max-width);
+}
+
+.passar-capitol li {
+  border: 1.5px solid var(--color-accent);
+  width: 280px;
+  height: 90px;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.passar-capitol li:hover {
+  background-color: var(--color-accent);
+  color: var(--color-fons);
+  transform: translateY(-4px);
+}
+
+.passar-capitol a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  height: 100%;
+  width: 100%;
+  gap: 8px;
+}
+
+.passar-capitol a:hover {
+  color: var(--color-fons);
+}
+
+.passar-capitol h3 {
+  font-size: 1.1rem;
+  color: inherit;
+  margin: 0;
+}
+
+.passar-capitol .tornar,
+.passar-capitol .endavant {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.boto-retorn {
+  display:inline-block;
+  border: 1.5px solid var(--color-accent);
+  padding: 10px 16px;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.boto-retorn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-fons);
+  transform: translateY(-4px);
+}
+
+.index-capitols {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.index-capitols li {
+  width: 50%;
+  background-color: transparent;
+  transition: color 0.2s ease-in-out;
+}
+
+.index-capitols a {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: var(--color-accent);
+  font-weight: 500;
+  transition: all 0.2s ease, color 0.2s ease;
+}
+
+.index-capitols a:hover {
+  color: var(--color-fons);
+  padding-left:2rem;
+  background-color: var(--color-accent); /* color accent molt suau */
+}
+.landing-cols{
+display: flex; 
+width:100%;
+}
+.landing-cols ol {
+  width: 50%;
+}
+.landing-cols li{
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  .passar-capitol ul {
+    flex-direction: column;
+  }
+  .index-capitols {
+    gap: 0.6rem;
+  }
+  .index-capitols a {
+    padding: 0.6rem 0.8rem;
+  }
+  .landing-cols{
+    flex-direction:column;
+}
+ .landing-cols li{
+    width: 100%;
+}
+}

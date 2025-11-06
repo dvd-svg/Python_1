@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrada de dades</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section id="entrada-dades">
+        <h1>Entrada de dades en Python</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Aprendre a escriure un programa que utilitzi <strong>dades introduïdes</strong> per l’usuari.</li>
+          <li>Fer servir <strong>variables</strong> per emmagatzemar i mostrar aquestes dades.</li>
+          <li>Combinar textos (<strong>cadenes de caràcters</strong>).</li>
+        </ul>
+
+        <p>El terme <strong>entrada</strong> fa referència a qualsevol informació que l’usuari proporciona al programa. En Python, la comanda <code class="inline">input</code> llegeix una línia de text introduïda per l’usuari. També pot mostrar un missatge per demanar una entrada concreta.</p>
+
+        <pre><code class="language-python">nom = input("Com et dius? ")
+print("Hola, " + nom)</code></pre>
+
+        <p>Exemple d’execució:</p>
+        <pre class="output">
+Com et dius? Pau Python
+Hola, Pau Python</pre
+        >
+      </section>
+
+      <section id="variables">
+        <h2>Variables</h2>
+        <p>La paraula <code class="inline">nom</code> és una <strong>variable</strong>. En programació, una variable és un espai on es guarda un valor (un <strong>text</strong> o un <strong>número</strong>). Aquest valor pot utilitzar-se o canviar-se més endavant.</p>
+
+        <h3>Nom de les variables</h3>
+        <p>Els noms de les variables poden escollir-se amb bastanta llibertat, seguint certes normes de Python. El més important és que siguin <strong>lògics</strong> i <strong>descriptius</strong>.</p>
+
+        <div class="exercici">
+          <h3>Exercici: Nom dues vegades</h3>
+          <p>Escriu un programa que demani el <strong>nom</strong> de l’usuari i el mostri dues vegades, una sota l’altra.</p>
+          <pre class="output">
+Com et dius? Pau
+Pau
+Pau</pre
+          >
+        </div>
+      </section>
+
+      <section id="referencia-variable">
+        <h2>Referència a una variable</h2>
+        <p>Una <strong>variable</strong> pot utilitzar-se diverses vegades dins del programa:</p>
+
+        <pre><code class="language-python">nom = input("Com et dius? ")
+print("Hola, " + nom + "!")
+print(nom + " és un nom molt bonic.")</code></pre>
+
+        <p>Si l’usuari escriu <em>Pau Python</em>:</p>
+        <pre class="output">
+Com et dius? Pau Python
+Hola, Pau Python!
+Pau Python és un nom molt bonic.</pre
+        >
+      </section>
+
+      <section id="combinacio-cadenes">
+        <h2>Combinació de cadenes i variables</h2>
+
+        <pre><code class="language-python">nom = input("Com et dius? ")
+print("Hola " + nom + "! El teu nom és " + nom + ", oi?")</code></pre>
+
+        <p>Exemple:</p>
+        <pre class="output">
+Com et dius? Elena Exemple
+Hola Elena Exemple! El teu nom és Elena Exemple, oi?</pre
+        >
+
+        <div class="exercici">
+          <h3>Exercici: Nom i signes d’exclamació</h3>
+          <p>Demana el <strong>nom</strong> i mostra’l dues vegades en una mateixa línia, envoltat de <strong>signes d’exclamació</strong>:</p>
+          <pre class="output">
+Com et dius? Pau
+!Pau!Pau!</pre
+          >
+        </div>
+      </section>
+
+      <section id="mes-duna-entrada">
+        <h2>Més d’una entrada</h2>
+        <p>Un programa pot demanar més d’una <strong>dada</strong> a l’usuari:</p>
+
+        <pre><code class="language-python">nom = input("Com et dius? ")
+correu = input("Quina és la teva adreça de correu? ")
+sobrenom = input("Tens algun sobrenom? ")
+
+print("Revisem que sigui correcte:")
+print("Nom: " + nom)
+print("Correu: " + correu)
+print("Sobrenom: " + sobrenom)</code></pre>
+
+        <div class="exercici">
+          <h3>Exercici: Nom i adreça</h3>
+          <p>Demana el <strong>nom</strong>, els <strong>cognoms</strong> i l’<strong>adreça</strong> de l’usuari, i mostra’ls en el format següent:</p>
+          <pre class="output">
+Nom: Esteve
+Cognoms: Sànchez
+Adreça: Carrer Major, 91
+Ciutat i codi postal: Barcelona 08001
+Esteve Sànchez
+Carrer Major, 91
+Barcelona 08001</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Unim paraules</h3>
+          <p>Escriu un programa que demani tres <strong>paraules</strong> i les mostri unides per <strong>guions</strong>:</p>
+          <pre class="output">
+Primera paraula: pica
+Segona paraula: pedra
+Tercera paraula: picador
+pica-pedra-picador!</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Història</h3>
+          <p>Demana un <strong>nom</strong> i un <strong>any</strong>, i crea una història personalitzada com aquesta:</p>
+          <pre class="output">
+Introdueix un nom: Maria
+Introdueix un any: 1572
+
+Maria és una valenta cavallera nascuda l’any 1572. Un matí, Maria es va despertar amb un gran terrabastall: un drac s’acostava al poble. Només Maria podia salvar-ne els habitants.</pre
+          >
+        </div>
+      </section>
+
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Entrada de dades</strong>: informació que l’usuari introdueix en un programa mitjançant el teclat.</li>
+          <li><strong>Variable</strong>: espai on es guarda un valor (text o número) que pot canviar.</li>
+          <li><strong>Cadena de text</strong>: conjunt de caràcters entre cometes, utilitzat per representar paraules o frases.</li>
+          <li><strong>Funció input()</strong>: permet obtenir dades escrites per l’usuari.</li>
+          <li><strong>Funció print()</strong>: mostra informació o resultats per pantalla.</li>
+          <li><strong>Concatenació</strong>: acció d’unir diverses cadenes de text o variables en una sola.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="1_1_Print.html">
+              <span class="tornar">←</span>
+              <h3>1.1 Sortida de dades</h3>
+            </a>
+          </li>
+          <li>
+            <a href="1_3_Variables.html">
+              <h3>1.3 Més sobre variables</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operacions aritmètiques</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section id="introduccio">
+        <h1>Operacions Aritmètiques</h1>
+        <h2>Objectius d’aprenentatge</h2>
+        <ul class="objectius">
+          <li>Seràs capaç d'utilitzar <strong>variables</strong> en diferents <strong>operacions aritmètiques</strong>.</li>
+          <li>Sabràs com tractar els <strong>nombres</strong> quan venen de l'<strong>entrada de dades</strong> de l'usuari.</li>
+          <li>Sabràs com <strong>convertir</strong> valors entre els tipus de dades fonamentals (enter, flotant, cadena).</li>
+        </ul>
+      </section>
+
+      <section id="introduccio">
+        <h1>Operacions aritmètiques</h1>
+        <p>En les seccions anteriors has vist exemples amb aritmètica bàsica. A continuació es mostra una taula amb els operadors aritmètics més comuns en <strong>Python</strong>, amb exemples:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th><strong>Operador</strong></th>
+              <th><strong>Propòsit</strong></th>
+              <th><strong>Exemple</strong></th>
+              <th><strong>Resultat</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>+</td>
+              <td>Suma</td>
+              <td><code class="inline">2 + 4</code></td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>Resta</td>
+              <td><code class="inline">10 - 2.5</code></td>
+              <td>7.5</td>
+            </tr>
+            <tr>
+              <td>*</td>
+              <td>Multiplicació</td>
+              <td><code class="inline">-2 * 123</code></td>
+              <td>-246</td>
+            </tr>
+            <tr>
+              <td>/</td>
+              <td>Divisió (resultat float)</td>
+              <td><code class="inline">9 / 2</code></td>
+              <td>4.5</td>
+            </tr>
+            <tr>
+              <td>//</td>
+              <td>Divisió entera</td>
+              <td><code class="inline">9 // 2</code></td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>%</td>
+              <td>Resta de la divisió (mòdul)</td>
+              <td><code class="inline">9 % 2</code></td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>**</td>
+              <td>Exponenciació</td>
+              <td><code class="inline">2 ** 3</code></td>
+              <td>8</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>La <strong>prioritat d'operacions</strong> és la mateixa que en matemàtiques: primer els exponents, després multiplicacions i divisions, i finalment sumes i restes. La prioritat es pot canviar amb parèntesis.</p>
+
+        <p>Per exemple aquest codi:</p>
+
+        <pre><code class="language-python">print(2 + 3 * 3)
+print((2 + 3) * 3)</code></pre>
+
+        <p>imprimeix:</p>
+
+        <pre class="output">
+11
+15</pre
+        >
+      </section>
+
+      <section id="operands-operadors-i-tips">
+        <h2>Operands, operadors i tipus de dades</h2>
+        <p>
+          Un càlcul normalment està format per <strong>operands</strong> i <strong>operadors</strong>. El tipus de dada d'un operand normalment determina el tipus de dada del resultat: si dos enters s'afegeixen, el resultat serà un <strong>enter</strong>. Si una <strong>cadena de text</strong> es resta d'una altra (no aplicable directament) o si es realitzen operacions amb nombres de punt flotant, el resultat serà un <strong>float</strong>. De fet, si qualsevol un dels operands d'una expressió és un <strong>float</strong>, el resultat serà un <strong>float</strong>, independentment dels altres
+          operands.
+        </p>
+
+        <p>La divisió <code class="inline">/</code> és una excepció a aquesta regla: el seu resultat sempre és de tipus <strong>float</strong>, encara que els operands siguin enters. Per exemple <code class="inline">1 / 5</code> dona <code class="inline">0.2</code>.</p>
+      </section>
+
+      <section id="exemple-imc">
+        <h2>Exemple: càlcul de l'IMC</h2>
+        <p>Exemple d'un programa que calcula l'índex de massa corporal (IMC)</p>
+
+        <pre><code class="language-python">altura = 172.5
+pes = 68.55
+
+# l'IMC es calcula dividint la massa pel quadrat de l'altura
+# l'altura s'ha de convertir a metres en la fórmula
+imc = pes / (altura / 100) ** 2
+
+print(f"L'IMC és {imc}")</code></pre>
+
+        <p>Aquest programa imprimeix:</p>
+
+        <pre class="output">L'IMC és 23.037177063642087</pre>
+
+        <p>Fixeu-vos que Python també té l'operador de divisió entera <code class="inline">//</code>. Si els operands són enters, el resultat serà un enter, arrodonit cap avall.</p>
+
+        <pre><code class="language-python">x = 3
+y = 2
+
+print(f"/ operator {x/y}")
+print(f"// operator {x//y}")</code></pre>
+
+        <pre class="output">
+/ operator 1.5
+// operator 1</pre
+        >
+      </section>
+
+      <section id="nombres-com-entrada">
+        <h2>Nombres com a entrada de l'usuari</h2>
+        <p>Ja hem utilitzat la funció <strong>input</strong> per llegir <strong>cadenes de text</strong> de l'usuari. La mateixa funció es pot utilitzar per llegir nombres, però la cadena retornada per <code class="inline">input</code> s'ha de <strong>convertir</strong> al tipus numèric corresponent dins del codi del programa. Per convertir una cadena a un enter s'utilitza la funció <strong>int</strong>.</p>
+
+        <p>A continuació un exemple que demana l'any de naixement i el converteix a enter per poder calcular l'edat:</p>
+
+        <pre><code class="language-python">entrada_any = input("En quin any vas néixer? ")
+any = int(entrada_any)
+print(f"La teva edat a final de l'any 2021: {2021 - any}")</code></pre>
+
+        <pre class="output">
+En quin any vas néixer? 1995
+La teva edat a final de l'any 2021: 26</pre
+        >
+
+        <p>Normalment no cal crear dues variables separades. Es pot llegir i convertir en una sola línia:</p>
+
+        <pre><code class="language-python">any = int(input("En quin any vas néixer? "))
+print(f"La teva edat a final de l'any 2021: {2021 - any}")</code></pre>
+
+        <p>De la mateixa manera, una cadena es pot convertir a <strong>float</strong> amb la funció <strong>float</strong>. Aquest programa demana l'altura i el pes i calcula l'IMC:</p>
+
+        <pre><code class="language-python">altura = float(input("Quina és la teva altura (en cm)? "))
+pes = float(input("Quin és el teu pes (en kg)? "))
+
+altura = altura / 100
+imc = pes / altura ** 2
+
+print(f"L'IMC és {imc}")</code></pre>
+
+        <pre class="output">
+Quina és la teva altura (en cm)? 163
+Quin és el teu pes (en kg)? 74.45
+L'IMC és 28.02137829801649</pre
+        >
+      </section>
+
+      <section id="per-cinc">
+        <div class="exercici">
+          <h3>Exercici: Per cinc</h3>
+          <p>Escriu un programa que demani a l'usuari un nombre. El programa ha d'imprimir el nombre multiplicat per cinc.</p>
+          <pre class="output">
+Introdueix un nombre: 3
+3 multiplicat per 5 és 15</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-nom-edat">
+        <div class="exercici">
+          <h3>Exercici: Nom i edat</h3>
+          <p>Escriu un programa que demani el nom de l'usuari i l'any de naixement. Després imprimeix un missatge amb el nom i l'edat que tindrà a finals de l'any 2026.</p>
+          <pre class="output">
+Com et dius? Oriol Pons
+En quin any vas néixer? 1990
+Hola Oriol Pons, tindràs 36 anys a final de l'any 2026</pre
+          >
+        </div>
+      </section>
+
+      <section id="amb-variables">
+        <h2>Utilització de variables</h2>
+        <p>Vegem un programa que calcula la suma de tres nombres donats per l'usuari</p>
+        <pre><code class="language-python">numero1 = int(input("Primer nombre: "))
+numero2 = int(input("Segon nombre: "))
+numero3 = int(input("Tercer nombre: "))
+
+suma = numero1 + numero2 + numero3
+print(f"La suma dels nombres: {suma}")</code></pre>
+
+        <pre class="output">
+Primer nombre: 5
+Segon nombre: 21
+Tercer nombre: 7
+La suma dels nombres: 33</pre
+        >
+
+        <p>El programa anterior fa servir quatre variables, però en aquest cas en n'hi haurien prou dues. Podem reutilitzar una variable per llegir diversos valors si no cal conservar-los:</p>
+
+        <pre><code class="language-python">suma = 0
+
+numero = int(input("Primer nombre: "))
+suma = suma + numero
+
+numero = int(input("Segon nombre: "))
+suma = suma + numero
+
+numero = int(input("Tercer nombre: "))
+suma = suma + numero
+
+print(f"La suma dels nombres: {suma}")</code></pre>
+
+        <p>La instrucció <code class="inline">suma = suma + numero</code> pot abreujar-se amb l'operador compost <code class="inline">suma += numero</code>:</p>
+
+        <pre><code class="language-python">suma = 0
+
+suma += int(input("Primer nombre: "))
+suma += int(input("Segon nombre: "))
+suma += int(input("Tercer nombre: "))
+
+print(f"La suma dels nombres: {suma}")</code></pre>
+
+        <p>Si necessites recordar cada valor introduït, no és possible reutilitzar la mateixa variable. Per exemple:</p>
+
+        <pre><code class="language-python">numero1 = int(input("Primer nombre: "))
+numero2 = int(input("Segon nombre: "))
+
+print(f"{numero1} + {numero2} = {numero1+numero2}")</code></pre>
+
+        <pre class="output">
+Primer nombre: 2
+Segon nombre: 3
+2 + 3 = 5</pre
+        >
+
+        <p>Reutilitzar una variable té sentit només quan necessitem emmagatzemar temporalment valors d'un tipus o propòsit semblant, com en la suma acumulada.</p>
+
+        <p>No és recomanable usar la mateixa variable per a conceptes diferents (per exemple, primer per al nom i després per l'edat). Millor utilitzar noms descriptius:</p>
+
+        <pre><code class="language-python">nom = input("Com et dius? ")
+print("Hola " + nom + "!")
+
+edat = int(input("Quants anys tens? "))
+# el programa continua...</code></pre>
+      </section>
+
+      <section id="exercici-segons-dia">
+        <div class="exercici">
+          <h3>Exercici: Segons en un dia</h3>
+          <p>Escriu un programa que demani a l'usuari un nombre de dies. El programa ha d'imprimir el nombre de segons que hi ha en la quantitat de dies donada.</p>
+          <pre class="output">
+Quants dies? 1
+Segons en aquesta quantitat de dies: 86400</pre
+          >
+          <pre class="output">
+Quants dies? 7
+Segons en aquesta quantitat de dies: 604800</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-corrigeix-producte">
+        <div class="exercici">
+          <h3>Exercici: Corregir el codi — Producte</h3>
+          <p>Aquest programa demana a l'usuari tres nombres i ha d'imprimir el producte (els nombres multiplicats entre si). Hi ha, però, alguna cosa malament amb el programa: no funciona bé. Corregiu el codi. Mostrem el codi erroni:</p>
+          <pre><code class="language-python"># Corregiu el codi
+numero = int(input("Introdueix el primer nombre: "))
+numero = int(input("Introdueix el segon nombre: "))
+numero = int(input("Introdueix el tercer nombre: "))
+
+producte = numero * numero * numero
+
+print("El producte és", producte)</code></pre>
+          <pre class="output">
+Introdueix el primer nombre: 2
+Introdueix el segon nombre: 3
+Introdueix el tercer nombre: 5
+El producte és 30</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-suma-producte">
+        <div class="exercici">
+          <h3>Exercici: Suma i producte</h3>
+          <p>Escriu un programa que demani a l'usuari dos nombres. El programa ha d'imprimir la <strong>suma</strong> i el <strong>producte</strong> d'aquests dos nombres.</p>
+          <pre class="output">
+Nombre 1: 3
+Nombre 2: 7
+La suma dels nombres: 10
+El producte dels nombres: 21</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-suma-mitjana">
+        <div class="exercici">
+          <h3>Exercici: Suma i mitjana</h3>
+          <p>Escriu un programa que demani a l'usuari quatre nombres. El programa ha d'imprimir la <strong>suma</strong> i la <strong>mitjana</strong> (mean) dels nombres.</p>
+          <pre class="output">
+Nombre 1: 2
+Nombre 2: 1
+Nombre 3: 6
+Nombre 4: 7
+La suma dels nombres és 16 i la mitjana és 4.0</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-gast-menjar">
+        <div class="exercici">
+          <h3>Exercici: Despesa en alimentació</h3>
+          <p>Escriu un programa que estimi la despesa típica d'alimentació d'un usuari. El programa demana quantes vegades a la setmana dinen a la cantina universitària (o similar). Després pregunta el preu d'un dinar tipus i quant diners es gasten en queviures la setmana.</p>
+          <p>Amb aquesta informació calcula la despesa <strong>setmanal</strong> i <strong>diària</strong>.</p>
+          <pre class="output">
+Quantes vegades a la setmana menges a la cantina? 4
+El preu d'un dinar típic? 2.5
+Quant diners gastes en queviures la setmana? 28.5
+
+Despesa alimentària mitjana:
+Diària: 5.5 euros
+Setmanal: 38.5 euros</pre
+          >
+        </div>
+      </section>
+
+      <section id="exercici-alumnes-grups">
+        <div class="exercici">
+          <h3>Exercici: Estudiants en grups</h3>
+          <p>Escriu un programa que demani el nombre d'estudiants d'un curs i la mida desitjada dels grups. El programa ha d'imprimir el nombre de grups formats amb els estudiants del curs. Si la divisió no és exacta, algun grup pot tenir menys membres.</p>
+          <p>És acceptable resoldre aquest exercici utilitzant la divisió entera <code class="inline">//</code> o amb una construcció condicional si prefereixes.</p>
+
+          <pre class="output">
+Quants estudiants al curs? 8
+Mida desitjada del grup? 4
+Nombre de grups formats: 2 </pre
+          >
+          <pre class="output">
+Quants estudiants al curs? 11
+Mida desitjada del grup? 3
+Nombre de grups formats: 4</pre
+          >
+        </div>
+      </section>
+
+      <section id="conceptes-clau">
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Operador</strong>: símbol que indica una operació (p. ex. <strong>+</strong>, <strong>-</strong>, <strong>*</strong>, <strong>/</strong>, <strong>//</strong>, <strong>%</strong>, <strong>**</strong>).</li>
+          <li><strong>Operand</strong>: valor o <strong>variable</strong> sobre la qual actua l'operador.</li>
+          <li><strong>Conversió</strong>: transformar una dada d'un tipus a un altre mitjançant <strong>int()</strong> o <strong>float()</strong>.</li>
+          <li><strong>Divisió entera</strong>: operador <strong>//</strong> que retorna la part entera de la divisió (arrodonit avall).</li>
+          <li><strong>Mòdul</strong>: operador <strong>%</strong> que retorna la resta d'una divisió.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="1_3_Variables.html">
+              <span class="tornar">←</span>
+              <h3>1.3 Més sobre variables</h3>
+            </a>
+          </li>
+          <li>
+            <a href="1_5_Condicionals.html">
+              <h3>1.5 Condicionals</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
