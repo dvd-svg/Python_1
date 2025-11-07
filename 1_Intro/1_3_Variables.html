@@ -17,43 +17,42 @@
 
       <section id="introduccio">
         <h1>Més sobre les variables</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Fer servir <strong>variables</strong> en diferents contextos.</li>
-          <li>Conèixer quin tipus de <strong>dades</strong> es poden guardar en una variable.</li>
+          <li>Conèixer quin <strong>tipus de dades</strong> es pot guardar en una variable.</li>
           <li>Entendre la diferència entre <strong>cadenes de text</strong>, <strong>enters</strong> i <strong>nombres amb decimals</strong>.</li>
         </ul>
-        <p>Les <strong>variables</strong> són essencials en programació. Serveixen per guardar informació que necessitarem més endavant durant l’execució d’un programa.</p>
-        <p>En Python, una variable es crea així:</p>
-        <pre><code class="language-python">nom_variable = ...</code></pre>
-        <p>On <code>...</code> representa el valor que es vol desar dins la variable.</p>
       </section>
-
-      <section id="exemples-basics">
-        <h2>Crear i utilitzar variables</h2>
-        <p>Per exemple, quan fem servir la comanda <strong>input</strong> per llegir una cadena de text introduïda per l’usuari, podem guardar aquest valor en una variable i fer-lo servir després:</p>
+      <section id="variables-programacio">
+        <h2>Variables en programació</h2>
+        <p>Les <strong>variables</strong> són necessàries per a diversos propòsits en programació. Pots utilitzar variables per <strong>emmagatzemar</strong> qualsevol informació que es necessitarà més tard en l'execució del programa.</p>
+        <p>En programació Python les variables es creen així:</p>
+        <pre><code class="language-python">nom_variable = ...</code></pre>
+        <p>Aquí <code class="inline">...</code> significa el <strong>valor</strong> emmagatzemat a la variable.</p>
+        <p>Per exemple, quan vas utilitzar la comanda <code class="inline">input</code> per llegir una cadena de text de l'usuari, vas emmagatzemar la cadena en una variable i després vas utilitzar la variable més tard al teu programa:</p>
         <pre><code class="language-python">nom = input("Com et dius? ")
 print("Hola, " + nom)</code></pre>
         <pre class="output">
-Com et dius? Pau
-Hola, Pau</pre
+Com et dius? Fantasmin
+Hola, Fantasmin</pre
         >
-
-        <p>També podem definir el valor d’una variable fent servir altres variables:</p>
+        <p>El valor emmagatzemat en una variable també es pot definir utilitzant altres variables:</p>
         <pre><code class="language-python">nom_propi = "Pau"
 cognom = "Python"
 
-nom_complet = nom_propi + " " + cognom
+nom = nom_propi + " " + cognom
 
-print(nom_complet)</code></pre>
+print(nom)</code></pre>
         <pre class="output">Pau Python</pre>
-        <p>Això s’anomena <strong>codificar dades fixes</strong> (hard-coding), ja que no provenen de l’usuari sinó que estan definides dins del codi.</p>
+        <p>Aquí els valors emmagatzemats en les tres variables no s'obtenen de l'entrada de l'usuari. Romanen iguals cada vegada que s'executa el programa. Això es diu <strong>codificar dades de forma fixa</strong> al programa.</p>
       </section>
 
       <section id="canviar-valor-variable">
-        <h2>Canviar el valor d’una variable</h2>
-        <p>Tal com indica el seu nom, una <strong>variable</strong> pot canviar de valor. En aquest exemple, el valor de la variable <code>paraula</code> canvia tres vegades:</p>
-        <pre><code class="language-python">paraula = input("Escriu una paraula: ")
+        <h2>Canviar el valor d'una variable</h2>
+        <p>Com el nom <strong>variable</strong> implica, el valor emmagatzemat en una variable pot canviar. A la secció anterior vam notar que el nou valor reemplaça l'anterior.</p>
+        <p>Durant l'execució del programa següent, la variable <code class="inline">paraula</code> tindrà tres valors diferents:</p>
+        <pre><code class="language-python">paraula = input("Si us plau, escriu una paraula: ")
 print(paraula)
 
 paraula = input("I una altra paraula: ")
@@ -62,201 +61,221 @@ print(paraula)
 paraula = "tercera"
 print(paraula)</code></pre>
         <pre class="output">
-Escriu una paraula: primera
+Si us plau, escriu una paraula: primera
 primera
 I una altra paraula: segona
 segona
 tercera</pre
         >
-
-        <p>El valor d’una variable també pot derivar-se del valor anterior:</p>
-        <pre><code class="language-python">paraula = input("Escriu una paraula: ")
+        <p>El valor emmagatzemat a la variable canvia cada vegada que s'assigna un nou valor a la variable.</p>
+        <p>El nou valor d'una variable es pot derivar del seu valor anterior. A l'exemple següent la variable <code class="inline">paraula</code> primer s'assigna un valor basat en l'entrada de l'usuari. Després se li assigna un nou valor, que és el valor anterior amb tres signes d'exclamació afegits al final.</p>
+        <pre><code class="language-python">paraula = input("Si us plau, escriu una paraula: ")
 print(paraula)
 
 paraula = paraula + "!!!"
 print(paraula)</code></pre>
         <pre class="output">
-Escriu una paraula: prova
+Si us plau, escriu una paraula: prova
 prova
 prova!!!</pre
         >
       </section>
 
-      <section id="nom-variable">
+      <section id="escollir-bon-nom-variable">
         <h2>Escollir un bon nom per a una variable</h2>
-        <p>És recomanable donar noms descriptius a les variables segons el seu ús. Per exemple, si la variable conté una paraula, és millor <code>paraula</code> que <code>a</code>.</p>
-        <p>Els noms de variable han de començar amb una lletra i només poden contenir lletres, números i guions baixos <code>_</code>.</p>
-        <p>Python distingeix entre majúscules i minúscules: <code>nom</code>, <code>Nom</code> i <code>NOM</code> són tres variables diferents.</p>
-        <p>Per convenció, a Python s’utilitzen només <strong>minúscules</strong> i es separen les paraules amb guions baixos: <code>data_naixement</code>, <code>nom_complet</code>, etc.</p>
+        <p>Sovint és útil anomenar les variables d'acord amb allò per a què s'utilitzen. Per exemple, si la variable conté una paraula, el nom <code class="inline">paraula</code> és una millor opció que, diguem, <code class="inline">a</code>.</p>
+        <p>No hi ha un límit establert per a la longitud d'un nom de variable a Python, però hi ha algunes altres limitacions. Un nom de variable ha de començar amb una lletra, i només pot contenir lletres, números i guions baixos <code class="inline">_</code>.</p>
+        <p>Les lletres minúscules i majúscules són caràcters diferents. Les variables <code class="inline">nom</code>, <code class="inline">Nom</code> i <code class="inline">NOM</code> són totes variables diferents. Mentre que aquesta regla té algunes excepcions, les ignorarem per ara.</p>
+        <p>Una pràctica de programació comuna a Python consisteix en utilitzar només caràcters en minúscula en els noms de variables. Si el nom de variable consisteix en múltiples paraules, utilitza un guió baix entre les paraules. Mentre que aquesta regla també té algunes excepcions, les ignorarem per ara.</p>
       </section>
 
       <section id="enters">
-        <h2>Variables amb nombres enters</h2>
-        <p>Fins ara hem desat cadenes de text, però també podem desar <strong>nombres</strong>. Els <strong>enters</strong> són nombres sense part decimal, com ara <code>-15</code>, <code>0</code> o <code>1</code>.</p>
+        <h2>Enters</h2>
+        <p>Fins ara, només hem emmagatzemat <strong>cadenes de text</strong> en variables, però també hi ha molts altres tipus d'informació que voldrem emmagatzemar i accedir més tard. Anem a fer una ullada als enters primer. Els <strong>enters</strong> són números que no tenen una part decimal o fraccional, com -15, 0 i 1.</p>
+        <p>El programa següent crea la variable <code class="inline">edat</code>, que conté un valor enter.</p>
         <pre><code class="language-python">edat = 24
 print(edat)</code></pre>
+        <p>El programa imprimeix només això:</p>
         <pre class="output">24</pre>
-        <p>Si posem cometes al voltant del número, ja no serà un enter sinó una <strong>cadena de text</strong>. Tot i que sembli igual, Python el tracta de manera diferent.</p>
-      </section>
+        <p>Nota la manca de cometes aquí. De fet, si afegíssim cometes al voltant del número, això significaria que la nostra variable ja no seria un enter, sinó una cadena de text. Una cadena de text pot contenir números, però es processa de manera diferent.</p>
+        <p>Aleshores, per què importa que les variables tinguin un tipus, quan el programa següent encara imprimeix el mateix dues vegades?</p>
+        <pre><code class="language-python">numero1 = 100
+numero2 = "100"
 
-      <section id="tipus-variables">
-        <h2>Tipus de dades i operacions</h2>
-        <p>Els tipus de dades són importants perquè les operacions es comporten de manera diferent segons el tipus. Observa aquest exemple:</p>
-        <pre><code class="language-python">num1 = 100
-num2 = "100"
+print(numero1)
+print(numero2)</code></pre>
+        <pre class="output">
+100
+100</pre
+        >
+        <p>Els <strong>tipus de variables</strong> importen perquè diferents operacions afecten diferents tipus de variables de maneres diferents. Anem a fer una ullada a un exemple:</p>
+        <pre><code class="language-python">numero1 = 100
+numero2 = "100"
 
-print(num1 + num1)
-print(num2 + num2)</code></pre>
+print(numero1 + numero1)
+print(numero2 + numero2)</code></pre>
+        <p>Això imprimeix el següent:</p>
         <pre class="output">
 200
 100100</pre
         >
-        <p>Amb nombres, <code>+</code> fa una <strong>suma</strong>; amb cadenes, fa una <strong>concatenació</strong>.</p>
-        <p>No totes les operacions serveixen per a tots els tipus. Aquest codi dona un error:</p>
+        <p>Per a valors enters l'operador <code class="inline">+</code> significa addició, però per a valors de cadena significa concatenació, o "enganxar junts".</p>
+        <p>No tots els operadors estan disponibles per a tots els tipus de variables. Mentre que els números es poden dividir utilitzant l'operador de divisió <code class="inline">/</code>, intentar dividir una cadena per un número causa un error:</p>
         <pre><code class="language-python">numero = "100"
 print(numero / 2)</code></pre>
         <pre class="output">TypeError: unsupported operand type(s) for /: 'str' and 'int'</pre>
       </section>
 
-      <section id="combinar-valors">
-        <h2>Combinar valors en la sortida</h2>
-        <p>El següent programa no funciona perquè intenta sumar una cadena i un enter:</p>
+      <section id="combinar-valors-en-imprimir">
+        <h2>Combinar valors quan s'imprimeix</h2>
+        <p>Similarment, el programa següent no funcionarà, perquè <code class="inline">"El resultat és "</code> i <code class="inline">resultat</code> són de dos tipus diferents:</p>
         <pre><code class="language-python">resultat = 10 * 25
+# la línia següent produeix un error
 print("El resultat és " + resultat)</code></pre>
+        <p>El programa no imprimeix res, sinó que llança un error:</p>
         <pre class="output">TypeError: unsupported operand type(s) for +: 'str' and 'int'</pre>
-        <p>Per combinar tipus diferents, podem convertir l’enter a text amb <strong>str()</strong>:</p>
+        <p>Aquí, Python ens diu que combinar dos tipus diferents de valors no funcionarà així com així. En aquest cas, <code class="inline">"El resultat és "</code> és de tipus cadena, mentre que el valor emmagatzemat a <code class="inline">resultat</code> és de tipus enter.</p>
+        <p>Si volem imprimir una cadena i un enter en una sola comanda, l'enter es pot convertir a cadena amb la funció <code class="inline">str</code>, i després les dues cadenes es poden combinar normalment. Per exemple, això funcionaria:</p>
         <pre><code class="language-python">resultat = 10 * 25
 print("El resultat és " + str(resultat))</code></pre>
         <pre class="output">El resultat és 250</pre>
-
-        <p>També podem separar els valors amb comes dins de <strong>print</strong>:</p>
+        <p>La comanda <code class="inline">print</code> també té funcionalitats incorporades que suporten combinar diferents tipus de valors. La manera més simple és afegir una coma entre els valors. Tots els valors s'imprimiran independentment del seu tipus:</p>
         <pre><code class="language-python">resultat = 10 * 25
 print("El resultat és", resultat)</code></pre>
         <pre class="output">El resultat és 250</pre>
+        <p>Nota que hi ha un caràcter d'espai en blanc afegit automàticament entre els valors separats per una coma aquí.</p>
       </section>
 
-      <section id="f-strings">
-        <h2>Imprimir amb f-strings</h2>
-        <p>Una altra manera molt pràctica és utilitzar <strong>f-strings</strong>:</p>
+      <section id="imprimir-amb-cadenes-f">
+        <h2>Imprimir amb cadenes-f</h2>
+        <p>Què passa si volem tenir més flexibilitat i control sobre el que imprimim? Les anomenades <strong>cadenes-f</strong> són una altra manera de formatar sortides impreses a Python. La sintaxi inicialment pot semblar una mica confusa, però al final les cadenes-f són sovint la manera més simple de formatar text.</p>
+        <p>Amb cadenes-f l'exemple anterior es veuria així:</p>
         <pre><code class="language-python">resultat = 10 * 25
 print(f"El resultat és {resultat}")</code></pre>
+        <p>Anem a desglossar això. Al principi de la cadena que estem imprimint hi ha el caràcter <code class="inline">f</code>. Això li diu a Python que el que segueix és una cadena-f. Dins de la cadena, tancat en claus, hi ha el nom de la variable <code class="inline">resultat</code>. El valor que conté es converteix en una part de la cadena impresa. La sortida impresa és exactament la mateixa que en els exemples anteriors:</p>
         <pre class="output">El resultat és 250</pre>
-
-        <p>Podem incloure múltiples variables en una sola f-string:</p>
-        <pre><code class="language-python">nom = "Marta"
+        <p>Una sola cadena-f pot contenir múltiples variables. Per exemple aquest codi</p>
+        <pre><code class="language-python">nom = "Marc"
 edat = 37
-ciutat = "Barcelona"
-print(f"Hola {nom}, tens {edat} anys i vius a {ciutat}.")</code></pre>
-        <pre class="output">Hola Marta, tens 37 anys i vius a Barcelona.</pre>
-
-        <p>Amb f-strings és més fàcil evitar espais de més i controlar exactament com surt el text.</p>
+ciutat = "Palo Alto"
+print(f"Hola {nom}, tens {edat} anys. Vius a {ciutat}.")</code></pre>
+        <p>imprimeix això:</p>
+        <pre class="output">Hola Marc, tens 37 anys. Vius a Palo Alto.</pre>
+        <p>És difícil crear una sortida impresa exactament com aquesta utilitzant la notació de coma en la comanda print. Per exemple, aquest programa</p>
+        <pre><code class="language-python">nom = "Marc"
+edat = 37
+ciutat = "Palo Alto"
+print("Hola", nom, ", tens", edat, "anys. Vius a", ciutat, ".")</code></pre>
+        <p>imprimeix el següent:</p>
+        <pre class="output">Hola Marc , tens 37 anys. Vius a Palo Alto .</pre>
+        <p>Nota l'espai en blanc inserit automàticament entre cada part separada per coma de la sortida impresa. Impedir que print afegeixi els espais extra és tècnicament possible, però no val la pena donat que podem utilitzar cadenes-f en lloc d'això.</p>
+        <p>En la seva simplicitat la notació de coma de la comanda print sovint pot ser útil, però a vegades causa més problemes del que val. Les cadenes-f són generalment una opció més fiable. A la part 4 aprendràs més sobre les característiques pràctiques de les cadenes-f quan es tracta de formatar sortides impreses.</p>
       </section>
 
-      <section id="exercici-extra-space">
-        <div class="exercici">
-          <h3>Exercici: Espais addicionals</h3>
-          <p>El teu amic està treballant en una aplicació per a persones que busquen feina i t’ha enviat aquest fragment de codi:</p>
-          <pre><code class="language-python">nom = "Toni Tester"
+      <div class="exercici">
+        <h3>Exercici 1: Espai extra</h3>
+        <p>La teva amiga està treballant en una aplicació per a buscadors de feina. T'envia aquest tros de codi:</p>
+        <pre><code class="language-python">nom = "Tim Tester"
 edat = 20
 habilitat1 = "python"
 nivell1 = "principiant"
 habilitat2 = "java"
-nivell2 = "expert"
+nivell2 = "veterà"
 habilitat3 = "programació"
 nivell3 = "semiprofessional"
-inferior = 2000
-superior = 3000
+minim = 2000
+maxim = 3000
 
-print("el meu nom és ", nom, " , tinc ", edat, " anys")
-print("les meves habilitats són")
+print("my name is ", nom, " , I am ", edat, "years old")
+print("my skills are")
 print("- ", habilitat1, " (", nivell1, ")")
 print("- ", habilitat2, " (", nivell2, ")")
 print("- ", habilitat3, " (", nivell3, " )")
-print("busco una feina amb un sou de", inferior, "-", superior, "euros al mes")</code></pre>
-          <p>El programa hauria d’imprimir exactament el següent:</p>
-          <pre class="output">
-el meu nom és Toni Tester, tinc 20 anys
+print("I am looking for a job with a salary of", minim, "-", maxim, "euros per month")</code></pre>
+        <p>El programa hauria d'imprimir exactament el següent:</p>
+        <pre class="output">
+my name is Tim Tester, I am 20 years old
 
-les meves habilitats són
- - python (principiant)
- - java (expert)
- - programació (semiprofessional)
+my skills are
+ - python (beginner)
+ - java (veteran)
+ - programming (semiprofessional)
 
-busco una feina amb un sou de 2000-3000 euros al mes</pre
-          >
-          <p>Corregeix el codi perquè la sortida sigui correcta. Fixa’t especialment en com la notació amb comes dins del comandament <code class="inline">print</code> afegeix automàticament un espai al voltant de les diferents parts separades per comes.</p>
-          <p>La manera més senzilla de transformar el codi perquè compleixi els requisits és utilitzar <strong>f-strings</strong>.</p>
-          <p><strong>Pista</strong>: pots imprimir una línia buida afegint un comandament <code>print()</code> buit, o afegint el caràcter de nova línia <code>\n</code> dins de la teva cadena de text.</p>
-          <p>Recorda ser especialment atent amb el format de les sortides també en futurs exercicis.</p>
-        </div>
-      </section>
+I am looking for a job with a salary of 2000-3000 euros per month</pre
+        >
+        <p>El codi funciona gairebé correctament, però no del tot. Aquest exercici té proves molt estrictes, que comproven la sortida per a cada bit d'espai en blanc.</p>
+        <p>Arregla el codi perquè la sortida impresa es vegi correcta. Nota especialment com la notació de coma en la comanda print insereix automàticament un espai al voltant de les diferents parts separades per coma.</p>
+        <p>La manera més fàcil de transformar el codi perquè compleixi els requisits és utilitzar cadenes-f.</p>
+        <p><strong>Pista:</strong> pots imprimir una línia buida afegint una comanda print buida, o afegint el caràcter de nova línia <code class="inline">\n</code> a la teva cadena.</p>
+        <p>Recorda anar molt acurat quan formategis sortides impreses també en el futur en aquest curs. Alguns dels exercicis tenen proves que requereixen que la teva sortida sigui exactament com s'especifica en els exemples donats. Utilitza caràcters d'espai en blanc reals en el teu codi, en lloc de codis de caràcter ASCII per a espai en blanc, o alguna cosa així.</p>
+      </div>
 
-      <section id="nombres-decimals">
-        <h2>Nombres amb decimals (float)</h2>
-        <p>Els <strong>nombres amb decimals</strong> (o <em>float</em>) representen nombres amb punt decimal. Es poden utilitzar de manera similar als enters.</p>
-        <pre><code class="language-python">num1 = 2.5
-num2 = -1.25
-num3 = 3.62
+      <section id="nombres-de-punt-flotant">
+        <h2>Nombres de punt flotant</h2>
+        <p><strong>Nombre de punt flotant</strong> o <strong>float</strong> és un terme que trobaràs sovint en programació. Es refereix a nombres amb un punt decimal. Es poden utilitzar de manera similar als valors enters.</p>
+        <p>Aquest programa calcula la mitjana de tres nombres de punt flotant:</p>
+        <pre><code class="language-python">numero1 = 2.5
+numero2 = -1.25
+numero3 = 3.62
 
-mitjana = (num1 + num2 + num3) / 3
+mitjana = (numero1 + numero2 + numero3) / 3
 print(f"Mitjana: {mitjana}")</code></pre>
         <pre class="output">Mitjana: 1.6233333333333333</pre>
       </section>
 
-      <section id="exercici-aritmetica">
-        <div class="exercici">
-          <h3>Exercici: Operacions aritmètiques</h3>
-          <p>Aquest programa ja conté dues <strong>variables</strong> de tipus enter, <code class="inline">x</code> i <code class="inline">y</code>:</p>
-          <pre><code class="language-python">x = 27
+      <div class="exercici">
+        <h3>Exercici 2: Aritmètica</h3>
+        <p>Aquest programa ja conté dues variables enteres, x i y:</p>
+        <pre><code class="language-python">x = 27
 y = 15</code></pre>
-          <p>Completa el programa perquè també imprimeixi el resultat de les següents operacions aritmètiques:</p>
-          <pre class="output">
+        <p>Completa el programa perquè també imprimeixi el següent:</p>
+        <pre class="output">
 27 + 15 = 42
 27 - 15 = 12
 27 * 15 = 405
 27 / 15 = 1.8</pre
-          >
-          <p>El programa ha de funcionar correctament encara que els valors de les variables es modifiquin. Per exemple, si les primeres dues línies es substitueixen per:</p>
-          <pre><code class="language-python">x = 4
+        >
+        <p>El programa hauria de funcionar correctament fins i tot si es canvien els valors de les variables. És a dir, si les dues primeres línies es reemplacen amb això</p>
+        <pre><code class="language-python">x = 4
 y = 9</code></pre>
-          <p>El programa hauria d’imprimir el següent:</p>
-          <pre class="output">
+        <p>el programa hauria d'imprimir el següent:</p>
+        <pre class="output">
 4 + 9 = 13
 4 - 9 = -5
 4 * 9 = 36
 4 / 9 = 0.4444444444444444</pre
-          >
-        </div>
-      </section>
-      <section id="exercici-una-linia">
-        <div class="exercici">
-          <h3>Exercici: Imprimir tot en una sola línia</h3>
-          <p>Cada comandament <code class="inline">print</code> normalment imprimeix una línia completa amb un salt de línia al final. No obstant això, si s’afegeix l’argument <code class="inline">end=""</code>, no s’afegirà el salt de línia.</p>
-          <p>Per exemple:</p>
-          <pre><code class="language-python">print("Hola ", end="")
-print("món!")</code></pre>
-          <pre class="output">Hola món!</pre>
-          <p>Corregeix aquest programa perquè tot el càlcul, inclòs el resultat, s’imprimeixi en una sola línia. No canviïs el nombre de comandaments <code class="inline">print</code> utilitzats.</p>
-          <pre><code class="language-python">print(5)
+        >
+      </div>
+
+      <div class="exercici">
+        <h3>Exercici 3: Arregla el codi: Imprimeix una sola línia</h3>
+        <p>Cada comanda print normalment imprimeix una línia pròpia, completa amb un canvi de línia al final. No obstant això, si a la comanda print se li dóna un argument addicional <code class="inline">end = ""</code>, no imprimirà un canvi de línia.</p>
+        <p>Per exemple:</p>
+        <pre><code class="language-python">print("Hola ", end="")
+print("allà!")</code></pre>
+        <pre class="output">Hola allà!</pre>
+        <p>Arregla aquest programa perquè tot el càlcul, complet amb el resultat, s'imprimeixi en una sola línia. No canviïs el nombre de comandes print utilitzades.</p>
+        <pre><code class="language-python">print(5)
 print(" + ")
 print(8)
 print(" - ")
 print(4)
 print(" = ")
 print(5 + 8 - 4)</code></pre>
-        </div>
-      </section>
-
+      </div>
       <section id="conceptes-clau">
         <h2>Conceptes clau</h2>
         <ul>
           <li><strong>Variable</strong>: espai on es desa informació per utilitzar-la més endavant.</li>
-          <li><strong>Tipus de dades</strong>: defineix el tipus d’informació (cadena, enter, decimal...).</li>
+          <li><strong>Tipus de dades</strong>: defineix el tipus d'informació (cadena, enter, decimal...).</li>
           <li><strong>Enter</strong>: nombre sense part decimal.</li>
           <li><strong>Float</strong>: nombre amb part decimal.</li>
           <li><strong>Concatenació</strong>: unir dues o més cadenes de text.</li>
           <li><strong>f-string</strong>: cadena de text especial que permet incrustar variables dins del text.</li>
-          <li><strong>str()</strong>: converteix un valor a cadena de text.</li>
+          <li>
+            <strong><code class="inline">str()</code></strong
+            >: converteix un valor a cadena de text.
+          </li>
         </ul>
       </section>
 

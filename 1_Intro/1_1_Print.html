@@ -22,119 +22,156 @@
           <li>Fer servir la instrucció <code class="inline">print()</code> per mostrar <strong>sortida</strong> per pantalla.</li>
           <li>Utilitzar la programació per fer operacions <strong>aritmètiques senzilles</strong>.</li>
         </ul>
-        <p>Un <strong>programa</strong> informàtic està format per una sèrie de <strong>comandaments</strong>; cada comandament indica a l'ordinador que faci una acció. Aquests comandaments s'executen un darrere l'altre. Poden servir per fer càlculs, comparar valors, canviar el comportament del programa, mostrar missatges o demanar <strong>entrada de dades</strong> a l'usuari.</p>
-        <p>Comencem familiaritzant-nos amb la funció <code class="inline">print()</code>, que s'utilitza per mostrar text a la pantalla. En aquest context, "imprimir" vol dir que el programa mostrarà un text o resultat per pantalla.</p>
+      </section>
+      <section id="comandaments-programacio">
+        <h2>Comandaments de programació</h2>
+        <p>Els programes d'ordinador consisteixen en <strong>comandaments</strong>, cada <strong>comandaments</strong> instruint l'ordinador per realitzar alguna acció. Un ordinador executa aquests comandaments un per un. Entre altres coses, els <strong>comandaments</strong> es poden utilitzar per realitzar càlculs, comparar coses a la memòria de l'ordinador, causar canvis en com funciona el programa, transmetre missatges o demanar informació de l'usuari del programa.</p>
       </section>
 
-      <section id="hola-mon-imprimir-text">
-        <h2>Imprimir text</h2>
-        <p>El programa següent mostrarà la línia "Hola món!" per pantalla:</p>
-        <pre><code class="language-python">print("Hola món!")</code></pre>
-        <pre class="output">Hola món!</pre>
-        <p>Si vols imprimir text, cal que el text estigui entre <code class="inline">"</code> o <code class="inline">'</code>. Si no hi poses cometes, Python intentarà interpretar el contingut com a codi i es produirà un error.</p>
-        <p>Per exemple, si escrivim això sense cometes:</p>
+      <section id="comandament-imprimir">
+        <h2>El comandament imprimir</h2>
+        <p>Comencem a programar familiaritzant-nos amb la comanda <code class="inline">print</code>, que imprimeix text. En aquest context, imprimir essencialment significa que el programa mostrarà algun text a la pantalla.</p>
+
+        <p>El programa següent imprimirà la línia "Hola!":</p>
+
+        <pre><code class="language-python">print("Hola!")</code></pre>
+
+        <p>Quan s'executa el programa, produeix això:</p>
+
+        <pre class="output">Hola!</pre>
+
+        <p>El programa no funcionarà a menys que el codi s'escrigui exactament com és a dalt. Per exemple, intentar executar la comanda print sense les cometes, així:</p>
+
         <pre><code class="language-python">print(Hola!)</code></pre>
-        <p>Python donarà un missatge d'error com aquest:</p>
+
+        <p>no imprimirà el missatge, sinó que causarà un error:</p>
+
         <pre class="output">
 File "", line 1
   print(Hola!)
               ^
-SyntaxError: invalid syntax
-        </pre>
-        <p>En resum, per imprimir text cal utilitzar cometes perquè Python reconegui una <strong>cadena de text</strong>.</p>
+SyntaxError: invalid syntax</pre
+        >
+
+        <p>En resum, si vols imprimir text, el text ha d'estar tot encapsulat en cometes o Python no l'interpretarà correctament.</p>
 
         <div class="exercici">
-          <h3>Exercici 1: Emoticon</h3>
-          <p>Escriu un programa que imprimeixi un emoticon: <strong>:-)</strong></p>
+          <h3>Exercici: Emoticona</h3>
+          <p>Escriu un programa que imprimeixi una emoticona:</p>
           <pre class="output">:-)</pre>
         </div>
       </section>
 
-      <section id="hola-mon-exemples-practica">
-        <h2>Exemples i pràctica bàsica</h2>
-        <h3>Exemple: imprimir diverses línies</h3>
-        <p>Pots escriure diverses instruccions <code class="inline">print()</code> seguides; s'executaran en ordre i cada una mostrarà la seva línia per pantalla. Per exemple:</p>
-        <pre><code class="language-python">print("Benvinguts al curs d'Introducció a la Programació!")
-print("Primer practicarem amb la instrucció print.")
+      <section id="programa-multiples-comandaments">
+        <h2>Programa de múltiples comandaments</h2>
+        <p>Múltiples comandaments escrits en successió s'executaran en ordre del primer a l'últim. Per exemple aquest programa:</p>
+
+        <pre><code class="language-python">print("Benvingut a Introducció a la Programació!")
+print("Primer practicarem l'ús de la comanda print.")
 print("Aquest programa imprimeix tres línies de text a la pantalla.")</code></pre>
+
+        <p>imprimeix les línies següents a la pantalla:</p>
+
         <pre class="output">
-Benvinguts al curs d'Introducció a la Programació!
-Primer practicarem amb la instrucció print.
-Aquest programa imprimeix tres línies de text a la pantalla.
-        </pre>
+Benvingut a Introducció a la Programació!
+Primer practicarem l'ús de la comanda print.
+Aquest programa imprimeix tres línies de text a la pantalla.</pre
+        >
 
         <div class="exercici">
-          <h3>Exercici 2: Corregir el codi - Els set germans de Can Coll</h3>
-          <p>El programa següent hauria d'imprimir els noms dels set germans de Can Coll en ordre alfabètic, però ara mateix no ho fa. Corregeix-lo perquè els noms surtin en l'ordre correcte.</p>
-          <pre><code class="language-python">print("Marc")
-print("Pau")
-print("Biel")
-print("Albert")
-print("Júlia")
-print("Carla")
-print("Dídac")</code></pre>
+          <h3>Exercici: Corregeix el codi: Set germans</h3>
+          <p>"Set germans" és una de les primeres novel·les escrites en finès. És la història de set germans orfes aprenent a fer-se camí al món.</p>
+          <p>Aquest programa ha d'imprimir els noms dels germans en ordre alfabètic, però no funciona del tot bé encara. Si us plau, corregeix el programa perquè els noms s'imprimeixin en l'ordre correcte.</p>
+          <pre><code class="language-python">print("Aapo")
+print("Eero")
+print("Joan")
+print("Llorenç")
+print("Simeó")
+print("Tim")
+print("Tomàs")</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici 3: Remant pel riu</h3>
-          <p>Escriu un programa que imprimeixi exactament les línies següents, amb la mateixa puntuació i salts de línia.</p>
+          <h3>Exercici: Rema, rema, rema el teu bot</h3>
+          <p>Escriu un programa que imprimeixi les línies següents exactament com estan escrites aquí, puntuació i tot:</p>
           <pre class="output">
-Rem, rem, rem el bot,
-Suaument pel rierol.
-Feliç, feliç, feliç, feliç,
-La vida és un somni dolç.
-          </pre>
+Rema, rema, rema el teu bot,
+Suaument pel riu avall.
+Alegrement, alegrement, alegrement, alegrement,
+La vida és només un somni.</pre
+          >
         </div>
       </section>
 
-      <section id="hola-mon-operacions-aritmetiques">
-        <h2>Operacions aritmètiques amb <code class="inline">print()</code></h2>
-        <p>També pots posar operacions aritmètiques dins d'un <code class="inline">print()</code>. Python calcula el resultat i el mostra. Observa que les operacions no van entre cometes:</p>
+      <section id="operacions-aritmetiques">
+        <h2>Operacions aritmètiques</h2>
+        <p>També pots posar <strong>operacions aritmètiques</strong> dins d'una comanda print. Executar-la llavors imprimirà el resultat de l'operació. Per exemple, el programa següent:</p>
+
         <pre><code class="language-python">print(2 + 5)
 print(3 * 3)
 print(2 + 2 * 10)</code></pre>
+
+        <p>imprimeix aquestes línies:</p>
+
         <pre class="output">
 7
 9
 22</pre
         >
-        <p>Si poses la mateixa expressió entre cometes, Python la tractarà com una <strong>cadena de text</strong> i imprimirà l'expressió tal qual:</p>
+
+        <p>
+          Fixa't en la falta de cometes al voltant de les operacions aritmètiques de dalt. Les cometes s'utilitzen per significar <strong>cadenes de text</strong>. En el context de la programació, les cadenes de text són seqüències de caràcters. Poden consistir en lletres, números i qualsevol altre tipus de caràcters, com la puntuació. Les cadenes de text no són només paraules com les entenem habitualment, sinó que una sola cadena pot ser tan llarga com múltiples frases completes. Les cadenes de text normalment s'imprimeixen exactament com estan escrites. Per tant, les dues comandes següents
+          produeixen dos resultats bastant diferents:
+        </p>
+
         <pre><code class="language-python">print(2 + 2 * 10)
 print("2 + 2 * 10")</code></pre>
+
+        <p>Aquest programa imprimeix:</p>
+
         <pre class="output">
 22
 2 + 2 * 10</pre
         >
-        <p>Recorda: sense cometes és un càlcul (<strong>números</strong>), amb cometes és una <strong>cadena de text</strong> (text literal).</p>
 
-        <div class="exercici">
-          <h3>Exercici 4: Minuts en un any</h3>
-          <p>Escriu un programa que imprimeixi el nombre de minuts que hi ha en un any. Utilitza una expressió aritmètica en Python per fer el càlcul.</p>
-          <pre class="output">
-minuts en un any:
-525600</pre
-          >
-        </div>
+        <p>Amb la segona línia de codi, Python no calcula el resultat de l'operació, sinó que imprimeix l'operació en si, com a cadena de text. Així doncs, les cadenes de text s'imprimeixen tal com estan escrites, sense cap referència als seus continguts.</p>
       </section>
 
-      <section id="hola-mon-comentaris">
-        <h2>Comentaris en el codi</h2>
-        <p>Qualsevol línia que comenci amb el símbol <code class="inline">#</code> és un <strong>comentari</strong>. Els comentaris són notes per explicar el codi, que Python ignora durant l'execució.</p>
+      <section id="comentaris">
+        <h2>Comentaris</h2>
+        <p>Qualsevol línia que comenci amb el símbol <code class="inline">#</code>, també conegut com a coixinet o símbol de número, és un <strong>comentari</strong>. Això vol dir que qualsevol text en aquella línia després del símbol <code class="inline">#</code> no afectarà en cap manera com funciona el programa. Python simplement l'ignorarà.</p>
+
+        <p>Els comentaris s'utilitzen per explicar com funciona un programa, tant al programador com a altres persones que llegeixen el codi del programa. En aquest programa un comentari explica el càlcul realitzat al codi:</p>
+
         <pre><code class="language-python">print("Hores en un any:")
 # hi ha 365 dies en un any i 24 hores en cada dia
 print(365*24)</code></pre>
+
+        <p>Quan s'executa el programa, el comentari no serà visible per a l'usuari:</p>
+
         <pre class="output">
 Hores en un any:
 8760</pre
         >
-        <p>També es poden afegir comentaris curts al final d'una línia:</p>
+
+        <p>Els comentaris curts també es poden afegir al final d'una línia:</p>
+
         <pre><code class="language-python">print("Hores en un any:")
-print(365*24) # 365 dies, 24 hores cada dia</code></pre>
+print(365*24) # 365 dies, 24 hores en cada dia</code></pre>
 
         <div class="exercici">
-          <h3>Exercici 5: Imprimir una línia de codi</h3>
-          <p>Fins ara has utilitzat cometes dobles per imprimir cadenes. Python també accepta cometes simples. Escriu un programa que imprimeixi exactament aquest text (incloent cometes i parèntesis):</p>
-          <pre class="output">print("Hola a tothom!")</pre>
+          <h3>Exercici: Minuts en un any</h3>
+          <p>Escriu un programa que imprimeixi el nombre de minuts en un any. Utilitza codi Python per realitzar el càlcul, com en l'exemple de codi anterior.</p>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Imprimeix algun codi</h3>
+          <p>Fins ara, probablement has utilitzat cometes dobles <code class="inline">"</code> per imprimir cadenes de text. A més de les cometes dobles, Python també accepta cometes simples <code class="inline">'</code>.</p>
+          <p>Això és útil si mai vols imprimir les pròpies cometes:</p>
+          <pre><code class="language-python">print('"Torneu ara mateix!", va cridar el policia.')</code></pre>
+          <pre class="output">"Torneu ara mateix!", va cridar el policia.</pre>
+          <p>Escriu un programa que imprimeixi el següent:</p>
+          <pre class="output">print("Hola!")</pre>
         </div>
       </section>
 
