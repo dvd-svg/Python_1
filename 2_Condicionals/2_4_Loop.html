@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bucle simples</title>
+    <title>Bucles simples</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -27,7 +27,7 @@
       <section id="introduccio-bucles">
         <p>
           Ja hem cobert les <strong>estructures condicionals</strong> amb cert detall. Una altra tècnica central en programació és la <strong>repetició</strong>, o <strong>iteració</strong>. Aquestes juntes formen les <strong>estructures de control fonamentals</strong> que tot programador ha de dominar. Es diuen estructures de control perquè permeten <strong>controlar quines línies de codi s'executen i quan</strong>. Mentre les estructures condicionals permeten escollir entre seccions de codi, les estructures d'iteració permeten <strong>repetir seccions de codi</strong>. Sovint s'anomenen
-          <strong>bucles</strong> perquè permeten al programa "torna enrere" a una línia que ja s'ha executat abans. L'execució d'una repetició d'un bucle també s'anomena <strong>iteració del bucle</strong>.
+          <strong>bucles</strong> perquè permeten al programa "tornar enrere" a una línia que ja s'ha executat abans. L'execució d'una repetició d'un bucle també s'anomena <strong>iteració del bucle</strong>.
         </p>
 
         <p>Aquesta secció introdueix un <strong>bucle while</strong> senzill. La seva estructura és similar a les <strong>sentències condicionals</strong> que ja hem vist. A la següent part aprofundirem en exemples més sofisticats.</p>
@@ -95,24 +95,24 @@ Introdueix un número, -1 per sortir: 2
     codi = input("Introdueix el teu PIN: ")
     if codi == "1234":
         break
-    print("Incorrecte...torna-ho a provar")
+    print("Incorrecte... torna-ho a provar")
 
 print("PIN correcte!")</code></pre>
 
         <p>Exemple d'execució:</p>
         <pre class="output">
 Introdueix el teu PIN: 0000
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 9999
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 1234
 PIN correcte!</pre
         >
       </section>
 
       <section id="exercicis">
-        <div class="exercici" id="exercici-1">
-          <h3>Exercici: Continuem?</h3>
+        <div class="exercici" id="exercici-continuem">
+          <h3>Exercici 1: Continuem?</h3>
           <p>Crea un programa que imprimeixi el missatge <code class="inline">"hola"</code> i després pregunti <code class="inline">"Continuem?"</code> fins que l'usuari introdueixi <code class="inline">"no"</code>. Aleshores el programa ha d'imprimir <code class="inline">"d'acord"</code> i finalitzar.</p>
           <pre class="output">
 hola
@@ -128,8 +128,8 @@ d'acord</pre
         </div>
 
         <div class="exercici" id="exercici-validacio-entrada">
-          <h3>Exercici: Validació de l'entrada</h3>
-          <p>Escriu un programa que demani a l'usuari números enters.</p>
+          <h3>Exercici 2: Validació de l'entrada</h3>
+          <p>Escriu un programa que demani a l'usuari <strong>nombres enters</strong>.</p>
           <ul>
             <li>Si el número és menor que zero, imprimeix <code class="inline">"Número invàlid"</code>.</li>
             <li>Si el número és major que zero, imprimeix l'arrel quadrada del número utilitzant la funció <code class="inline">sqrt</code> de Python.</li>
@@ -159,7 +159,7 @@ Sortint...</pre
         </div>
 
         <div class="exercici" id="exercici-compte-enrere">
-          <h3>Exercici: Corregir el codi – Compte enrere</h3>
+          <h3>Exercici 3: Corregir el codi – Compte enrere</h3>
           <p>Aquest programa hauria d'imprimir un compte enrere. El codi actual és el següent:</p>
           <pre><code class="language-python">numero = 5
 print("Compte enrere!")
@@ -183,8 +183,8 @@ Ara!</pre
           <p>Observa que el codi actual no funciona correctament i cal corregir-lo.</p>
         </div>
 
-        <div class="exercici" id="exercici-4">
-          <h3>Exercici: Repetir contrasenya</h3>
+        <div class="exercici" id="exercici-contrasenya">
+          <h3>Exercici 4: Repetir contrasenya</h3>
           <p>Escriu un programa que demani a l'usuari una <code class="inline">contrasenya</code> i després li demani de nou que la introdueixi. Si escriu alguna cosa diferent, el programa ha de continuar preguntant fins que l'usuari escrigui la mateixa contrasenya correcta.</p>
           <pre class="output">
 Exemple:
@@ -199,7 +199,7 @@ Compte d'usuari creat!</pre
         </div>
       </section>
 
-      <section id="bucles-i-variables-auxiliars">
+      <section id="bucles-variables-auxiliars">
         <h2>Bucles i variables auxiliars</h2>
         <p>Fem l'exemple de comprovació de PIN una mica més realista. Aquesta versió dóna a l'usuari només tres intents per introduir el PIN.</p>
         <p>El programa utilitza dues <strong>variables auxiliars</strong>. La variable <code class="inline">intents</code> fa un seguiment del nombre de vegades que l'usuari ha escrit un PIN. La variable <code class="inline">exit</code> s'estableix a <code class="inline">True</code> o <code class="inline">False</code> segons si l'usuari aconsegueix iniciar sessió correctament.</p>
@@ -218,7 +218,7 @@ while True:
         break
 
     # això s'imprimeix si el codi és incorrecte I encara queden intents
-    print("Incorrecte...torna-ho a provar")
+    print("Incorrecte... torna-ho a provar")
 
 if exit:
     print("PIN correcte!")
@@ -228,7 +228,7 @@ else:
         <p>Exemple d'execució amb èxit abans dels tres intents:</p>
         <pre class="output">
 Introdueix el teu PIN: 0000
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 1234
 PIN correcte!</pre
         >
@@ -236,9 +236,9 @@ PIN correcte!</pre
         <p>Exemple d'execució amb tres intents fallits:</p>
         <pre class="output">
 Introdueix el teu PIN: 0000
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 9999
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 4321
 Massa intents...</pre
         >
@@ -264,7 +264,7 @@ while True:
         exit = True
         break
 
-    print("Incorrecte...torna-ho a provar")
+    print("Incorrecte... torna-ho a provar")
 
 if exit:
     print("PIN correcte!")
@@ -274,9 +274,9 @@ else:
         <p>Aquesta versió actua de manera inesperada quan l'usuari introdueix el PIN correcte en el tercer intent:</p>
         <pre class="output">
 Introdueix el teu PIN: 0000
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 9999
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 Introdueix el teu PIN: 1234
 Massa intents...</pre
         >
@@ -299,7 +299,7 @@ Massa intents...</pre
         exit = True
         break
 
-    print("Incorrecte...torna-ho a provar")</code></pre>
+    print("Incorrecte... torna-ho a provar")</code></pre>
 
         <p>Sortida d'exemple amb aquests prints de depuració:</p>
         <pre class="output">
@@ -309,14 +309,14 @@ intents: 1
 condicio1: False
 codi: 2233
 condicio2: False
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 inici del bloc while:
 Introdueix el teu PIN: 4545
 intents: 2
 condicio1: False
 codi: 4545
 condicio2: False
-Incorrecte...torna-ho a provar
+Incorrecte... torna-ho a provar
 inici del bloc while:
 Introdueix el teu PIN: 1234
 intents: 3
@@ -343,7 +343,7 @@ Massa intents...</pre
 
       <section>
         <div class="exercici" id="exercici-pin-intents">
-          <h3>Exercici: PIN i nombre d'intents</h3>
+          <h3>Exercici 5: PIN i nombre d'intents</h3>
           <p>Escriu un programa que demani a l'usuari un <strong>PIN</strong> fins que introdueixi el correcte, que és <code class="inline">4321</code>. Després, imprimeix el nombre de vegades que l'usuari ha provat codis diferents.</p>
           <pre class="output">
 Exemple d'execució:
@@ -364,7 +364,7 @@ Correcte! Només has necessitat un únic intent!</pre
         </div>
 
         <div class="exercici" id="exercici-any-traspas">
-          <h3>Exercici: Proper any de traspàs</h3>
+          <h3>Exercici 6: Proper any de traspàs</h3>
           <p>Escriu un programa que demani un any i imprimeixi el següent <strong>any de traspàs</strong>.</p>
           <pre class="output">
 Any: 2023
@@ -407,7 +407,7 @@ codis += codi + ", "</code></pre>
       </section>
       <section>
         <div class="exercici" id="exercici-historia">
-          <h3>Exercici: Història</h3>
+          <h3>Exercici 7: Història</h3>
           <p><strong>Part 1:</strong> Escriu un programa que segueixi demanant a l'usuari paraules. Si l'usuari escriu <code class="inline">end</code>, el programa ha d'imprimir la història formada per totes les paraules i acabar.</p>
           <pre class="output">
 Exemple d'execució:
@@ -437,7 +437,7 @@ Era una nit fosca i tempestuosa</pre
         </div>
 
         <div class="exercici" id="exercici-treballar-numeros">
-          <h3>Exercici: Treballant amb números</h3>
+          <h3>Exercici 8: Treballant amb números</h3>
           <p><strong>Pre-tasca:</strong> Escriu un programa que demani a l'usuari nombres enters. El programa ha de seguir demanant números fins que l'usuari introdueixi zero.</p>
           <pre class="output">
 Exemple d'execució:
@@ -513,7 +513,7 @@ Nombres negatius: 1</pre
           </li>
           <li>
             <a href="index.html">
-              <h3>Final de tema</h3>
+              <h3>2.5 Projecte</h3>
               <span class="endavant"></span>
             </a>
           </li>

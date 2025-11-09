@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecte Aventura</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="Projecte">
+        <h1>Projecte: Aventura Interactiva Retro</h1>
+        <h2>Objectiu</h2>
+        <p>Els primers videojocs d'aventura dels anys 70 i 80, com "Colossal Cave Adventure" o "Zork", funcionaven completament amb text a través de la línia de comandaments. Aquests jocs permetien als jugadors explorar mons virtuals, resoldre trencaclosques i viure històries èpiques utilitzant només paraules. Ens toca reviure aquesta era daurada dels videojocs!</p>
+        <div class="grid-2x2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0">
+          <img src="../public/Zork.jpg" alt="zork" style="width: 100%; height: 300px; object-fit: contain" />
+          <img src="../public/ZorkTerminal.png" alt="terminal zork" style="width: 100%; height: 300px; object-fit: contain" />
+          <img src="../public/ColossalAdventure.jpg" alt="Colossal Adventure" style="width: 100%; height: 300px; object-fit: contain" />
+          <img src="../public/ColossalAdventureTerminal.jpg" alt="Terminal de Colossal Adventure" style="width: 100%; height: 300px; object-fit: contain" />
+        </div>
+        <p>Desenvolupeu un joc d'aventura retro interactiu. Heu de crear un programa on l'usuari explori, prengui decisions estratègiques i gestioni la seva salut mentre intenta arribar al seu objectiu final.</p>
+      </section>
+      <section>
+        <h2>Funcionalitat:</h2>
+        <h3>Sistema de Vida i Estat</h3>
+        <p>El programa ha de gestionar:</p>
+        <ul>
+          <li>Punts de vida inicials (100)</li>
+          <li>Ubicació actual del jugador</li>
+          <li>Estat de victòria (objectiu assolit o no)</li>
+        </ul>
+
+        <h3>Bucle Principal del Joc</h3>
+        <p>El joc s'ha d'executar en un bucle mentre:</p>
+        <ul>
+          <li>El jugador tingui vida (> 0)</li>
+          <li>No hagi assolit l'objectiu final</li>
+        </ul>
+
+        <h3>Decisions Interactives</h3>
+        <p>A cada ubicació, el jugador ha de poder triar entre diferents accions, per exemple:</p>
+        <ul>
+          <li>Explorar nous camins</li>
+          <li>Enfrontar-se a perills</li>
+          <li>Buscar objectes útils</li>
+          <li>Interactuar amb personatges</li>
+        </ul>
+
+        <h3>Conseqüències de les Decisions</h3>
+        <p>Cada decisió ha de tenir conseqüències:</p>
+        <ul>
+          <li>Pèrdua o guany de punts de vida</li>
+          <li>Canvi d'ubicació</li>
+          <li>Obtenció d'objectes especials</li>
+          <li>Progrés cap a l'objectiu final</li>
+        </ul>
+
+        <h3>Condicionals Múltiples</h3>
+        <p>El programa ha d'utilitzar estructures condicionals per:</p>
+        <ul>
+          <li>Determinar els resultats de cada acció</li>
+          <li>Comprovar si es compleixen les condicions de victòria</li>
+          <li>Gestionar les diferents ubicacions i els seus perills</li>
+        </ul>
+
+        <h3>Sortida del Programa</h3>
+        <p>El programa ha d'anar informant a l'usuari sobre:</p>
+        <ul>
+          <li>Estat actual (vida, ubicació)</li>
+          <li>Descripcions de cada escenari</li>
+          <li>Opcions disponibles</li>
+          <li>Resultats de les accions</li>
+          <li>Missatge de victòria o derrota final</li>
+        </ul>
+
+        <p>Personalitzeu el joc afegint nous llocs, enemics o objectes. Podeu crear una història única amb les vostres pròpies localitzacions i reptes! Si voleu incloure dibuixos podeu buscar art ASCII en repositoris com <a target="_blank" href="https://www.asciiart.eu/">aquest</a> o dibuixar-lo vosaltres amb programes com <a target="_blank" href="https://www.asciiart.eu/ascii-draw-studio/app">aquest</a></p>
+
+        <p>Exemple de sortida:</p>
+        <pre class="output">
+================================
+    AVENTURA INTERACTIVA
+================================
+
+Ets un explorador que busca el llegendari Tresor,
+amagat en unes ruïnes perdudes. La teva missió és trobar
+la manera d'accedir a la cambra del tresor i tornar amb èxit.
+
+Punts de vida: 100
+Pren decisions amb cura!
+
+--- Vida actual: 100 ---
+Et trobes davant les ruïnes antigues. La lluna il·lumina
+les parets de pedra cobertes de heura.
+A la teva dreta hi ha una gran porta de ferro amb una pany.
+[1] Intentar obrir la porta de ferro
+[2] Explorar el passadís de l'est  
+[3] Investigar la cova lateral
+La teva elecció: 1
+
+* La porta està tancada amb pany. No pots obrir-la *
+Necessitaràs trobar la clau adequada.
+
+--- Vida actual: 100 ---
+Et trobes davant les ruïnes antigues. La porta de ferro
+segueix tancada a la teva dreta.
+[1] Explorar el passadís de l'est
+[2] Investigar la cova lateral
+La teva elecció: 1
+
+Entres a la gran sala. Una figura amb armadura es mou a les ombres.
+[1] Amagar-te darrere una columna
+[2] Avançar amb l'espasa a la mà
+[3] Cridar per alertar la figura
+La teva acció: 1
+
+* La figura passa de llarg sense veure't *
+Continues sense danys.
+
+--- Vida actual: 100 ---
+L'arxiu antic està ple de prestatgeries polsoses.
+Els llibres semblen portar segles sense ser tocats.
+[1] Examinar els manuscrits
+[2] Recórrer les prestatgeries
+[3] Tornar a la sala anterior
+La teva acció: 2
+
+* Trobes una clau de ferro sota un volum antic *
+La clau pot ser útil més endavant.
+
+--- Vida actual: 100 ---
+Tornes al passadís principal. De sobte, una ombra es mou
+ràpidament cap a tu. És una ratpenat gegant!
+[1] Intentar esquivar l'atac
+[2] Enfrontar-te amb l'espasa
+[3] Córrer cap enrere
+La teva acció: 1
+
+* El ratpenat et grata el braç amb les seves urpes *
+ /\                 /\
+/ \'._   (\_/)   _.'/ \
+|.''._'--(o.o)--'_.''.|
+ \_ / `;=/ " \=;` \ _/
+   `\__| \___/ |__/`
+        \(_|_)/
+         " ` "
+Has pogut esquivar l'atac i despistar la criatura.
+Perds 15 punts de vida!
+
+--- Vida actual: 85 ---
+Ara que tens la clau, recordes la porta de ferro
+que no vas poder obrir al començament.
+[1] Tornar a l'entrada principal amb la clau
+[2] Continuar explorant el passadís
+[3] Descansar per recuperar forces
+La teva acció: 1
+
+--- Vida actual: 85 ---
+Tornes a l'entrada principal. La porta de ferro
+segueix allà, esperant la clau correcta.
+[1] Utilitzar la clau per obrir la porta
+[2] Esperar i observar els voltants
+[3] Tornar enrere
+La teva acció: 1
+
+* La clau encaixa perfectament i la porta s'obre *
+Has accedit a la cambra del tresor!
+
+================================
+    MISSIÓ COMPLETADA
+================================
+Has superat l'aventura!
+Has trobat el Tresor!
+Punts de vida finals: 85
+</pre
+        >
+
+        <h3>Estructura narrativa</h3>
+        <p>Per a mantenir la coherència narrativa del nostre joc, abans de començar a programar cal que feu un diagrama de flux de la vostra aventura. Podeu fer servir una eina online com <a target="_blank" href="https://app.diagrams.net/">aquesta</a></p>
+        <img src="../public/Diagrama Proj 2.jpg" alt="diagrama de flux delprojecte" />
+        <h3>Requeriments Tècnics</h3>
+        <ul>
+          <li>Utilitzar <strong>bucles while</strong> per mantenir el joc actiu</li>
+          <li>Implementar <strong>condicionals if/elif/else</strong> per a les decisions</li>
+          <li>Gestionar <strong>variables simples</strong> (vida, ubicació, estat)</li>
+          <li>Assegurar que cada decisió tingui conseqüències coherents</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="2_4_Loop.html">
+              <span class="tornar">←</span>
+              <h3>2.4 Bucles</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
