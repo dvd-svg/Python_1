@@ -16,7 +16,7 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Treballar amb cadenes</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Utilitzar els operadors <code class="inline">+</code> i <code class="inline">*</code> amb cadenes de text</li>
           <li>Esbrinar la llargada d'una cadena de text</li>
@@ -27,7 +27,7 @@
       <section id="operacions-cadenes">
         <h1>Operacions amb cadenes</h1>
 
-        <p>Les <strong>cadenes de text</strong> es poden combinar, o <strong>concatenar</strong>, amb l’operador <code class="inline">+</code>:</p>
+        <p>Les <strong>cadenes de text</strong> es poden combinar, o <strong>concatenar</strong>, amb l'operador <code class="inline">+</code>:</p>
 
         <pre><code class="language-python">inici = "ex"
 final = "emple"
@@ -36,7 +36,7 @@ print(paraula)</code></pre>
 
         <pre class="output">exemple</pre>
 
-        <p>L’operador <code class="inline">*</code> també es pot utilitzar amb una cadena de text, quan l’altre operand és un <strong>enter</strong>. La cadena es repeteix tantes vegades com indica l’enter. Per exemple:</p>
+        <p>L'operador <code class="inline">*</code> també es pot utilitzar amb una cadena de text, quan l'altre operand és un <strong>enter</strong>. La cadena es repeteix tantes vegades com indica l'enter. Per exemple:</p>
 
         <pre><code class="language-python">paraula = "banana"
 print(paraula * 3)</code></pre>
@@ -66,11 +66,11 @@ while n > 0:
  *******************</pre
         >
 
-        <p>La comanda <strong>print</strong> dins del bucle escriu una línia que comença amb <strong>n espais</strong>, seguida del contingut de la variable <strong>fila</strong>. Després s’hi afegeixen dos asteriscs més a <strong>fila</strong>, i el valor de <strong>n</strong> es redueix en 1.</p>
+        <p>El comandament <code class="inline">print()</code> dins del bucle escriu una línia que comença amb <strong>n espais</strong>, seguida del contingut de la variable <strong>fila</strong>. Després s'hi afegeixen dos asteriscs més a <strong>fila</strong>, i el valor de <strong>n</strong> es redueix en 1.</p>
 
         <div class="exercici" id="exercici-cadena-multiplicada">
           <h3>Exercici: Cadena multiplicada</h3>
-          <p>Escriu un programa que demani a l’usuari una <strong>cadena de text</strong> i una <strong>quantitat</strong>. El programa ha d’imprimir la cadena tantes vegades com s’hagi indicat, tot seguit en una sola línia, sense espais ni símbols addicionals.</p>
+          <p>Escriu un programa que demani a l'usuari una <strong>cadena de text</strong> i una <strong>quantitat</strong>. El programa ha d'imprimir la cadena tantes vegades com s'hagi indicat, tot seguit en una sola línia, sense espais ni símbols addicionals.</p>
 
           <pre class="output">
 Introdueix una cadena: hola
@@ -81,9 +81,9 @@ holaholaholahola</pre
       </section>
 
       <section id="longitud-i-index-cadena">
-        <h2>La longitud i els índexs d’una cadena</h2>
+        <h2>La longitud i els índexs d'una cadena</h2>
 
-        <p>La funció <code class="inline">len</code> retorna el <strong>nombre de caràcters</strong> d’una cadena, que sempre és un valor enter. Per exemple, <code class="inline">len("hola")</code> retorna 4.</p>
+        <p>La funció <code class="inline">len()</code> retorna el <strong>nombre de caràcters</strong> d'una cadena, que sempre és un valor enter. Per exemple, <code class="inline">len("hola")</code> retorna 4.</p>
 
         <p>El següent programa demana una cadena i la subratlla amb <strong>guions</strong>:</p>
 
@@ -98,11 +98,11 @@ Hola món
 --------</pre
         >
 
-        <p>La longitud d’una cadena inclou tots els caràcters, <strong>incloent els espais</strong>. Per exemple, la longitud de <code class="inline">adeu adeu</code> és 9.</p>
+        <p>La longitud d'una cadena inclou tots els caràcters, <strong>incloent els espais</strong>. Per exemple, la longitud de <code class="inline">adeu adeu</code> és 9.</p>
 
         <div class="exercici" id="exercici-cadena-mes-llarga">
           <h3>Exercici: La cadena més llarga</h3>
-          <p>Escriu un programa que demani dues <strong>cadenes de text</strong> i imprimeixi quina és la més llarga. Si tenen la mateixa longitud, el programa ha d’imprimir <strong>"Les cadenes tenen la mateixa longitud"</strong>.</p>
+          <p>Escriu un programa que demani dues <strong>cadenes de text</strong> i imprimeixi quina és la més llarga. Si tenen la mateixa longitud, el programa ha d'imprimir <strong>"Les cadenes tenen la mateixa longitud"</strong>.</p>
 
           <pre class="output">
 Introdueix la cadena 1: hola
@@ -131,7 +131,7 @@ i
 o</pre
         >
 
-        <p>El primer caràcter té índex <strong>0</strong>. L’últim caràcter està en la posició <strong>len(cadena) - 1</strong>:</p>
+        <p>El primer caràcter té índex <strong>0</strong>. L'últim caràcter està en la posició <strong>len(cadena) - 1</strong>:</p>
 
         <pre><code class="language-python">entrada = input("Introdueix una cadena: ")
 print("Primer caràcter: " + entrada[0])
@@ -170,28 +170,10 @@ Introdueix una cadena: prova
 Primer caràcter: p
 Últim caràcter: a</pre
         >
-        <h2>IndexError: string index out of range</h2>
-        <p>Si intentem accedir a un índex que no existeix, es produeix un <strong>error IndexError: string index out of range</strong>:</p>
-
-        <pre><code class="language-python">entrada = input("Introdueix una cadena: ")
-print("El desè caràcter: " + entrada[9])</code></pre>
-
-        <pre class="output">
-Introdueix una cadena: programació
-El desè caràcter: c</pre
-        >
-
-        <pre class="output">
-Introdueix una cadena: python
-
-Traceback (most recent call last):
-File "", line 1, in 
-IndexError: string index out of range</pre
-        >
 
         <h2>Error IndexError: string index out of range</h2>
 
-        <p>Si intentes accedir a un índex que no existeix dins d’una cadena, Python generarà un <strong>error IndexError: string index out of range</strong>. Això passa quan l’índex indicat és més gran que la longitud de la cadena menys 1.</p>
+        <p>Si intentes accedir a un índex que no existeix dins d'una cadena, Python generarà un <strong>error IndexError: string index out of range</strong>. Això passa quan l'índex indicat és més gran que la longitud de la cadena menys 1.</p>
 
         <pre><code class="language-python">entrada = input("Introdueix una cadena: ")
 print("Desè caràcter: " + entrada[9])</code></pre>
@@ -209,12 +191,12 @@ File "", line 1, in
 IndexError: string index out of range</pre
         >
 
-        <p>Un error com aquest també pot ser causat per un bug al codi, per exemple intentant accedir a l’últim caràcter amb <code class="inline">len(cadena)</code> en lloc de <code class="inline">len(cadena) - 1</code>:</p>
+        <p>Un error com aquest també pot ser causat per un bug al codi, per exemple intentant accedir a l'últim caràcter amb <code class="inline">len(cadena)</code> en lloc de <code class="inline">len(cadena) - 1</code>:</p>
 
         <pre><code class="language-python">entrada = input("Introdueix una cadena: ")
 print("Últim caràcter: " + entrada[len(entrada)])</code></pre>
 
-        <p>Per evitar errors, sempre és recomanable comprovar la longitud de la cadena abans d’accedir als índexs:</p>
+        <p>Per evitar errors, sempre és recomanable comprovar la longitud de la cadena abans d'accedir als índexs:</p>
 
         <pre><code class="language-python">entrada = input("Introdueix una cadena: ")
 if len(entrada) &gt; 0:
@@ -223,7 +205,7 @@ else:
     print("La cadena és buida. No hi ha primer caràcter.")</code></pre>
 
         <div class="exercici" id="exercici-final-a-inici">
-          <h3>Exercici: Del final a l’inici</h3>
+          <h3>Exercici: Del final a l'inici</h3>
           <p>Escriu un programa que demani una <strong>cadena de text</strong> i imprimeixi tots els caràcters en <strong>ordre invers</strong>, un per línia.</p>
 
           <pre class="output">
@@ -237,7 +219,7 @@ h</pre
 
         <div class="exercici" id="exercici-segon-i-penultim">
           <h3>Exercici: Segon i penúltim caràcter</h3>
-          <p>Escriu un programa que comprovi si el <strong>segon caràcter</strong> i el <strong>penúltim caràcter</strong> d’una cadena són iguals.</p>
+          <p>Escriu un programa que comprovi si el <strong>segon caràcter</strong> i el <strong>penúltim caràcter</strong> d'una cadena són iguals.</p>
 
           <pre class="output">
 Introdueix una cadena: python
@@ -266,7 +248,7 @@ Amplada: 8
 
         <div class="exercici" id="rectangle-de-guillemets">
           <h3>Exercici: Un rectangle de caràcters #</h3>
-          <p>Modifica l’exercici anterior perquè també demani l’alçada i imprimeixi un rectangle de caràcters <strong>#</strong>.</p>
+          <p>Modifica l'exercici anterior perquè també demani l'alçada i imprimeixi un rectangle de caràcters <strong>#</strong>.</p>
 
           <pre class="output">
 Amplada: 10
@@ -279,7 +261,7 @@ Alçada: 3
 
         <div class="exercici" id="subratllat">
           <h3>Exercici: Subratllat</h3>
-          <p>Escriu un programa que demani cadenes en un bucle i imprimeixi cada cadena subratllada amb <strong>-</strong>. L’execució finalitza quan l’usuari introdueix una cadena buida.</p>
+          <p>Escriu un programa que demani cadenes en un bucle i imprimeixi cada cadena subratllada amb <strong>-</strong>. L'execució finalitza quan l'usuari introdueix una cadena buida.</p>
 
           <pre class="output">
 Introdueix una cadena: Hola món
@@ -321,7 +303,7 @@ Introdueix una cadena: averyverylongstring
 
         <div class="exercici" id="paraula-emmarcada">
           <h3>Exercici: Paraula emmarcada</h3>
-          <p>Escriu un programa que demani una cadena i imprimeixi un marc de <strong>*</strong> amb la paraula al centre. L’amplada del marc ha de ser de 30 caràcters. Podeu assumir que la cadena d'entrada sempre cabrà dins del marc.</p>
+          <p>Escriu un programa que demani una cadena i imprimeixi un marc de <strong>*</strong> amb la paraula al centre. L'amplada del marc ha de ser de 30 caràcters. Podeu assumir que la cadena d'entrada sempre cabrà dins del marc.</p>
           <p>Si la longitud de la cadena d'entrada és un nombre senar, podeu imprimir la paraula en qualsevol de les dues possibles ubicacions centrals.</p>
 
           <pre class="output">
@@ -343,7 +325,7 @@ Paraula: python
       <section id="subcadenes-i-talls">
         <h2>Subcadenes i talls</h2>
 
-        <p>Una <strong>subcadena</strong> d'una cadena és una seqüència de caràcters que forma part de la cadena. Per exemple, la cadena "exemple" conté les subcadenes <code class="inline"> "exem"</code>, <code class="inline">"emp"</code> i <code class="inline">"ple"</code>, entre d'altres. En la programació Python, el procés de seleccionar subcadenes normalment s'anomena <strong>slicing</strong>, i una subcadena sovint es refereix com una <strong>slice (llesca)</strong> de la cadena.</p>
+        <p>Una <strong>subcadena</strong> d'una cadena és una seqüència de caràcters que forma part de la cadena. Per exemple, la cadena "exemple" conté les subcadenes <code class="inline">"exem"</code>, <code class="inline">"emp"</code> i <code class="inline">"ple"</code>, entre d'altres. En la programació Python, el procés de seleccionar subcadenes normalment s'anomena <strong>slicing</strong>, i una subcadena sovint es refereix com una <strong>llesca</strong> de la cadena.</p>
         <p>Si coneixeu els índexs d'inici i final de la <strong>llesca</strong> que voleu extreure, podeu fer-ho amb la notació <code class="inline">[a:b]</code>. Això vol dir que la llesca comença a l'índex <strong>a</strong> i acaba a l'últim caràcter abans de l'índex <strong>b</strong> - és a dir, inclou el primer, però exclou l'últim. Podeu pensar els índexs com a línies separadores dibuixades al costat esquerre del caràcter indexat</p>
         <img src="../public/subcadenes.png" alt="" />
         <pre><code class="language-python">entrada = "presumptuós"
@@ -352,7 +334,7 @@ print(entrada[0:3])
 print(entrada[4:8])
 # Si el primer índex està buit, s'assumeix que és 0 
 print(entrada[:3])
-# Si el segón índex està buit, s'assumeix que és la longitud de la cadena - 1    
+# Si el segon índex està buit, s'assumeix que és la longitud de la cadena - 1    
 print(entrada[4:])</code></pre>
 
         <pre class="output">
@@ -363,7 +345,7 @@ umptuós</pre
         >
 
         <p>En Python, els intervals <strong>[a:b]</strong> són <strong>semitancats</strong>: inclouen el caràcter inicial però no el final. Això es deu a una convenció heretada d'altres llenguatges de programació.</p>
-        <p>En un principi ens pot semblar antiintuïtiu, però te tambés els seus avantatges, com poder calcular la longitud d'una llesca fent <code class="inline">b-a</code>. De totes maneres és important recordar, que l'index <code class="inline">b</code> sempre estarà <strong>exclòs</strong> de la nostra llesca</p>
+        <p>En un principi ens pot semblar antiintuïtiu, però té també els seus avantatges, com poder calcular la longitud d'una llesca fent <code class="inline">b-a</code>. De totes maneres és important recordar, que l'index <code class="inline">b</code> sempre estarà <strong>exclòs</strong> de la nostra llesca</p>
 
         <div class="exercici" id="exercici-subcadenes-1">
           <h3>Exercici: Subcadenes (part 1)</h3>
@@ -380,7 +362,7 @@ test</pre
 
         <div class="exercici" id="exercici-subcadenes-2">
           <h3>Exercici: Subcadenes (part 2)</h3>
-          <p>Escriu un programa que demani una cadena i imprimeixi totes les <strong>subcadenes</strong> que acaben amb l’<strong>últim caràcter</strong>, de la més curta a la més llarga.</p>
+          <p>Escriu un programa que demani una cadena i imprimeixi totes les <strong>subcadenes</strong> que acaben amb l'<strong>últim caràcter</strong>, de la més curta a la més llarga.</p>
 
           <pre class="output">
 Introdueix una cadena: test
@@ -395,7 +377,7 @@ test</pre
       <section id="cerca-subcadenes">
         <h2>Cercar subcadenes</h2>
 
-        <p>L’operador <code class="inline">in</code> permet saber si una cadena conté una determinada <strong>subcadena</strong>. L’expressió <code class="inline">a in b</code> retorna <strong>True</strong> si <strong>b</strong> conté <strong>a</strong>.</p>
+        <p>L'operador <code class="inline">in</code> permet saber si una cadena conté una determinada <strong>subcadena</strong>. L'expressió <code class="inline">a in b</code> retorna <strong>True</strong> si <strong>b</strong> conté <strong>a</strong>.</p>
 
         <pre><code class="language-python">entrada = "test"
 
@@ -411,7 +393,7 @@ True
 False</pre
         >
 
-        <p>El programa següent permet a l’usuari cercar subcadenes dins d’una cadena definida dins del programa:</p>
+        <p>El programa següent permet a l'usuari cercar subcadenes dins d'una cadena definida dins del programa:</p>
 
         <pre><code class="language-python">cadena = "perpendicular"
 
@@ -457,7 +439,7 @@ o no trobada</pre
         <h2>El mètode find</h2>
 
         <p>L'operador <code class="inline">in</code> retorna un valor <strong>booleà</strong>, de manera que només ens dirà si una <strong>subcadena</strong> existeix en una cadena, però no serà útil per esbrinar on es troba exactament.</p>
-        <p>En lloc d'això, el mètode de cadenes de Python <code class="inline">find</code> es pot utilitzar per a aquest propòsit. Aquest pren la <strong>subcadena</strong> buscada com a argument i retorna o bé el primer <strong>índex</strong> on es troba, o bé <strong>-1</strong> si la <strong>subcadena</strong> no es troba dins de la cadena.</p>
+        <p>En lloc d'això, el mètode de cadenes de Python <code class="inline">find()</code> es pot utilitzar per a aquest propòsit. Aquest pren la <strong>subcadena</strong> buscada com a argument i retorna o bé el primer <strong>índex</strong> on es troba, o bé <strong>-1</strong> si la <strong>subcadena</strong> no es troba dins de la cadena.</p>
         <img src="../public/find.png" alt="mètode find" />
         <pre><code class="language-python">entrada = "test"
 
@@ -556,13 +538,13 @@ t</pre
           <pre class="output">
 Introdueix una cadena: abcabc
 Introdueix una subcadena: ab
-La segona aparició de la subcadena és a l’índex 3.</pre
+La segona aparició de la subcadena és a l'índex 3.</pre
           >
 
           <pre class="output">
 Introdueix una cadena: metodologia
 Introdueix una subcadena: o
-La segona aparició de la subcadena és a l’índex 5.</pre
+La segona aparició de la subcadena és a l'índex 5.</pre
           >
 
           <pre class="output">

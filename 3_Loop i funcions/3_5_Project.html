@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecte Encriptador</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="Projecte">
+        <h1>Projecte: Encriptador/Desencriptador de Missatges Secrets</h1>
+        <h2>Objectiu</h2>
+        <p>Des de l'antiga Roma fins als serveis d'intel·ligència moderns, la criptografia ha estat essencial per protegir informació confidencial. Juli Cèsar utilitzava un sistema simple però efectiu per enviar missatges secrets als seus generals: el <strong>Xifrat Cèsar</strong>. Aquest mètode desplaça cada lletra un nombre fix de posicions en l'alfabet.</p>
+
+        <div class="grid-2x2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0">
+          <img src="../public/caesar-cipher.png" alt="Xifrat Cèsar" style="width: 100%; height: 300px; object-fit: contain" />
+          <img src="../public/enigma-machine.jpg" alt="Màquina Enigma" style="width: 100%; height: 300px; object-fit: contain" />
+        </div>
+
+        <p>En aquest projecte, desenvolupareu un programa que permetrà encriptar i desencriptar missatges utilitzant el Xifrat Cèsar. Aprendreu els fonaments de la criptografia mentre practiqueu els conceptes de Python que hem après al tema 3.</p>
+      </section>
+
+      <section>
+        <h2>Funcionalitats Principals</h2>
+
+        <h3>1. Sistema d'Encriptació</h3>
+        <p>El programa ha de poder:</p>
+        <ul>
+          <li>Acceptar un text introduït per l'usuari</li>
+          <li>Sol·licitar un número de desplaçament (entre 1 i 25)</li>
+          <li>Desplaçar cada lletra de l'alfabet el nombre de posicions indicat</li>
+          <li>Mantenir les majúscules, minúscules i caràcters especials</li>
+          <li>Mostrar el text encriptat resultat</li>
+        </ul>
+
+        <h3>2. Sistema de Desencriptació</h3>
+        <p>El programa ha de poder:</p>
+        <ul>
+          <li>Acceptar un text encriptat</li>
+          <li>Sol·licitar la clau de desplaçament correcta</li>
+          <li>Revertir el desplaçament per recuperar el text original</li>
+          <li>Validar que la clau sigui correcta</li>
+        </ul>
+
+        <h3>3. Atac per Força Bruta</h3>
+        <p>Quan no es coneix la clau, el programa ha de:</p>
+        <ul>
+          <li>Provar automàticament tots els desplaçaments possibles (1-25)</li>
+          <li>Mostrar cada intent al usuari</li>
+          <li>Permetre que l'usuari identifiqui si és el text correcte o no</li>
+          <li>Seguir validant amb l'usuari fins trobar la clau</li>
+        </ul>
+
+        <h3>4. Menú Interactiu</h3>
+        <p>El programa principal ha d'incloure:</p>
+        <ul>
+          <li>Un bucle principal que mostri les opcions</li>
+          <li>Control d'errors per entrades incorrectes</li>
+          <li>Opció per sortir del programa</li>
+        </ul>
+
+        <h3>Exemple de Funcionament</h3>
+        <pre class="output">
+================================
+     ENCRIPTADOR CÈSAR
+================================
+1. Encriptar missatge
+2. Desencriptar missatge (amb clau)
+3. Desencriptar amb força bruta (sense clau)
+4. Sortir
+================================
+La teva elecció: 1
+
+Introdueix el text a encriptar: Hola món!
+Desplaçament (1-25): 3
+
+TEXT ENCRIPTAT: Krod póq!
+CLAU: 3
+
+================================
+     ENCRIPTADOR CÈSAR
+================================
+1. Encriptar missatge
+2. Desencriptar missatge (amb clau)
+3. Desencriptar amb força bruta (sense clau)
+4. Sortir
+================================
+La teva elecció: 2
+
+Introdueix el text encriptat: Krod póq!
+Desplaçament (1-25): 3
+
+TEXT ORIGINAL: Hola món!
+
+================================
+     ENCRIPTADOR CÈSAR 
+================================
+1. Encriptar missatge
+2. Desencriptar missatge (amb clau)
+3. Desencriptar amb força bruta (sense clau)
+4. Sortir
+================================
+La teva elecció: 3
+
+Introdueix el text encriptat: Krod póq!
+
+Provant totes les claus...
+Clau 1: Jqnc ónp!
+¿És correcte? (s/n): n
+
+Clau 2: Ipmb nóo!
+¿És correcte? (s/n): n
+
+Clau 3: Hola món!
+¿És correcte? (s/n): s
+
+TEXT DESXIFRAT: Hola món!
+CLAU TROBADA: 3
+        </pre>
+      </section>
+      <section>
+        <h2>Com funciona el Xifrat Cèsar?</h2>
+        <p>El sistema és més simple del que sembla. Penseu en l'alfabet com una línia circular:</p>
+
+        <p><strong>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</strong></p>
+
+        <p>Per encriptar amb desplaçament 3:</p>
+        <ul>
+          <li><strong>H</strong> → K (H + 3 posicions)</li>
+          <li><strong>o</strong> → r (o + 3 posicions)</li>
+          <li><strong>l</strong> → o (l + 3 posicions)</li>
+          <li><strong>a</strong> → d (a + 3 posicions)</li>
+          <li><strong>z</strong> → c (z + 3 posicions; si arribem al final de la llista tornem al començament)</li>
+        </ul>
+
+        <h3>Requeriments Tècnics</h3>
+        <h3>Conceptes Obligatoris</h3>
+        <ul>
+          <li>
+            <strong>Bucles <code class="inline">while</code></strong> per menús i recorregut de text
+          </li>
+          <li>
+            <strong>Condicionals <code class="inline">if/elif/else</code></strong> per decisions i validacions
+          </li>
+          <li><strong>Funcions</strong> per organitzar el codi modularment</li>
+          <li>
+            <strong>Manipulació de cadenes</strong> amb mètodes com:
+            <ul>
+              <li><code class="inline">len()</code> - Longitud del text</li>
+              <li><code class="inline">isalpha()</code> - Detectar lletres</li>
+              <li><code class="inline">isupper()</code>/<code class="inline">islower()</code> - Detectar majúscules/minúscules</li>
+              <li>Indexació de cadenes <code class="inline">texto[i]</code></li>
+              <li>...</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Estructura Recomanada</h3>
+        <p>Organitzeu el programa en funcions específiques:</p>
+        <ul>
+          <li><code>encriptar(text, desplaçament)</code> - Gestiona la encriptació</li>
+          <li><code>desencriptar(text, desplaçament)</code> - Gestiona la desencriptació</li>
+          <li><code>fuerza_bruta(text)</code> - Prova totes les claus possibles</li>
+          <li><code>validar_entrada()</code> - Assegura entrades correctes</li>
+          <li><code>mostrar_menu()</code> - Mostra les opcions disponibles</li>
+        </ul>
+
+        <h3>Reptes Addicionals (Opcionals)</h3>
+        <p>Per als que vulguin anar més enllà, intenteu:</p>
+        <ul>
+          <li>Afegir suport per caràcters amb accents (à, è, é, ò, etc.)</li>
+          <li>Implementar un sistema per guardar/recuperar missatges encriptats</li>
+          <li>Afegir xifrats addicionals (com el xifrat per transposició)</li>
+        </ul>
+
+        <h3>Consells Pràctics</h3>
+        <ul>
+          <li>Comenceu per la funció d'encriptació, és la més directa</li>
+          <li>Proveu amb textos curts i desplaçaments petits al principi</li>
+          <li>Assegureu-vos que el programa gestiona correctament els espais i signes de puntuació</li>
+          <li>Feu proves amb el vostre propi nom o frases senzilles</li>
+          <li>Recordeu que el desplaçament ha de ser circular (Z + 1 = A)</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="3_4_Funcions.html">
+              <span class="tornar">←</span>
+              <h3>2.4 Funcions</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
