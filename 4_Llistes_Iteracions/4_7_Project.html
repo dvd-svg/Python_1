@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecte Gestor de Tasques</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="Projecte">
+        <h1>Projecte: Gestor de Tasques</h1>
+        <h2>Objectiu</h2>
+        <p>Organitzar-se és una habilitat clau tant per a la vida quotidiana com per al món professional. En aquest projecte, creareu una aplicació de consola que permeti gestionar una llista de tasques: afegir, eliminar, modificar i visualitzar elements de manera dinàmica.</p>
+
+        <p>El projecte us permetrà practicar l’ús de <strong>llistes</strong>, <strong>cadenes de text</strong> i <strong>bucles</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Funcionalitats Principals</h2>
+
+        <h3>1. Menú Interactiu</h3>
+        <p>El vostre programa ha d’incloure un menú com aquest:</p>
+        <ul>
+          <li>1. Afegir una nova tasca</li>
+          <li>2. Mostrar totes les tasques</li>
+          <li>3. Eliminar una tasca</li>
+          <li>4. Modificar una tasca</li>
+          <li>5. Buscar una paraula dins les tasques</li>
+          <li>6. Sortir del programa</li>
+        </ul>
+
+        <p>El menú s’ha de repetir fins que l’usuari triï sortir. Això implica l’ús d’un <code class="inline">while True</code>.</p>
+
+        <h3>2. Gestió de Tasques</h3>
+        <p>Per a crear, eliminar i treballar amb les tasuqes podeu utilitzar les funcions:</p>
+        <ul>
+          <li><code class="inline">append()</code></li>
+          <li><code class="inline">pop()</code></li>
+          <li><code class="inline">replace()</code></li>
+        </ul>
+
+        <h3>3. Cerca de Paraules</h3>
+        <p>
+          El programa ha de permetre buscar una paraula dins de totes les tasques i indicar quantes vegades i en quines tasques apareix. Recordeu que podeu utilitzar mètodes com
+          <code class="inline">count()</code> o bé una condició com <code class="inline">if paraula in tasca</code>.
+        </p>
+
+        <h3>Exemple de Funcionament</h3>
+        <pre class="output">
+================================
+        GESTOR DE TASQUES
+================================
+1. Afegir tasca
+2. Mostrar totes les tasques
+3. Eliminar tasca
+4. Modificar tasca
+5. Buscar paraula
+6. Sortir
+================================
+Tria una opció: 1
+--------------------------------
+Introdueix una nova tasca: Treure les escombraries
+Tasca afegida correctament!
+
+================================
+        GESTOR DE TASQUES
+================================
+1. Afegir tasca
+2. Mostrar totes les tasques
+3. Eliminar tasca
+4. Modificar tasca
+5. Buscar paraula
+6. Sortir
+================================
+Tria una opció: 1
+--------------------------------
+Introdueix una nova tasca: Comprar llet
+Tasca afegida correctament!
+
+================================
+        GESTOR DE TASQUES
+================================
+1. Afegir tasca
+2. Mostrar totes les tasques
+3. Eliminar tasca
+4. Modificar tasca
+5. Buscar paraula
+6. Sortir
+================================
+Tria una opció: 2
+--------------------------------
+Tasques actuals:
+1. Treure les escombraries
+2. Comprar llet
+
+================================
+        GESTOR DE TASQUES
+================================
+1. Afegir tasca
+2. Mostrar totes les tasques
+3. Eliminar tasca
+4. Modificar tasca
+5. Buscar paraula
+6. Sortir
+================================
+Tria una opció: 4
+--------------------------------
+Introdueix el número de la tasca a modificar: 2
+Paraula a substituir: llet
+Nova paraula: formatge
+Tasca modificada correctament!
+
+================================
+        GESTOR DE TASQUES
+================================
+1. Afegir tasca
+2. Mostrar totes les tasques
+3. Eliminar tasca
+4. Modificar tasca
+5. Buscar paraula
+6. Sortir
+================================
+Tria una opció: 5
+--------------------------------
+Paraula a buscar: escombraries
+La paraula escombraries s'ha trobat en un total de (1) tasca.
+tasca 1. Treure les escombraries
+
+================================
+        GESTOR DE TASQUES
+================================
+1. Afegir tasca
+2. Mostrar totes les tasques
+3. Eliminar tasca
+4. Modificar tasca
+5. Buscar paraula
+6. Sortir
+================================
+Tria una opció: 6
+Sortint del programa, fins aviat!
+        </pre>
+      </section>
+
+      <section>
+        <h3>Estructura Recomanada</h3>
+        <p>Separeu les funcions del vostre programa en funcions que pogueu reutilitzar</p>
+        <ul>
+          <li><code class="inline">mostrar_menu()</code> – Mostra les opcions disponibles</li>
+          <li><code class="inline">afegir_tasca()</code> – Afegeix una nova tasca</li>
+          <li><code class="inline">mostrar_tasques()</code> – Mostra totes les tasques</li>
+          <li><code class="inline">eliminar_tasca()</code> – Elimina una tasca pel seu número</li>
+          <li><code class="inline">modificar_tasca()</code> – Substitueix paraules dins una tasca</li>
+          <li><code class="inline">buscar_paraula()</code> – Cerca coincidències dins de la llista</li>
+        </ul>
+
+        <h3>Reptes Addicionals:</h3>
+        <ul>
+          <li>Afegir una opció per marcar tasques com “fetes” afegint un símbol al final.</li>
+          <li>Afegir una opció per eliminar totes les tasques.</li>
+          <li>Afegir una opció per a ordenar les tasques alfabèticament.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="4_6_More_Chains_Lists.html">
+              <span class="tornar">←</span>
+              <h3>4.6 Més cadenes i llistes</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

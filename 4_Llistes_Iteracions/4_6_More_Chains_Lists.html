@@ -16,39 +16,39 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Més cadenes i llistes</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Estar familiaritzat amb <strong>més mètodes</strong> per retallar cadenes de text i llistes</li>
           <li>Entendre què significa la <strong>immutabilitat</strong> de les cadenes de text</li>
-          <li>Ser capaç d'utilitzar els mètodes <code class="inline">count</code> i <code class="inline">replace</code></li>
+          <li>Ser capaç d'utilitzar els mètodes <code class="inline">count()</code> i <code class="inline">replace()</code></li>
         </ul>
       </section>
       <section id="retallar-llistes">
         <h2>Retallar llistes</h2>
-        <p>Ja esteu familiaritzat amb la sintaxi <code class="inline">[]</code> per accedir a una part d'una cadena de text:</p>
-        <pre><code class="language-python">cadena_meva = "exemplar"
-print(cadena_meva[3:7])</code></pre>
+        <p>Ja esteu familiaritzat amb la <strong>sintaxi</strong> <code class="inline">[]</code> per accedir a una part d'una <code class="inline">cadena</code> de text:</p>
+        <pre><code class="language-python">cadena_exemple = "exemplar"
+print(cadena_exemple[3:7])</code></pre>
         <pre class="output">mpla</pre>
-        <p>La mateixa sintaxi funciona amb llistes. Les llistes es poden retallar igual que les cadenes de text:</p>
-        <pre><code class="language-python">llista_meva = [3,4,2,4,6,1,2,4,2]
-print(llista_meva[3:7])</code></pre>
+        <p>La mateixa sintaxi funciona amb <code class="inline">llistes</code>. Les llistes es poden <strong>retallar</strong> igual que les cadenes de text:</p>
+        <pre><code class="language-python">llista_nombres = [3,4,2,4,6,1,2,4,2]
+print(llista_nombres[3:7])</code></pre>
         <pre class="output">[4, 6, 1, 2]</pre>
       </section>
 
       <section id="mes-retalls">
         <h2>Més retalls</h2>
-        <p>De fet, la sintaxi <code class="inline">[]</code> funciona de manera molt similar a la funció <code class="inline">range</code>, cosa que significa que també podem especificar un tercer paràmetre per a donar-li un pas:</p>
-        <pre><code class="language-python">cadena_meva = "exemplar"
-print(cadena_meva[0:7:2])
-llista_meva = [1,2,3,4,5,6,7,8]
-print(llista_meva[6:2:-1])</code></pre>
+        <p>De fet, la sintaxi <code class="inline">[]</code> funciona de manera molt similar a la funció <code class="inline">range()</code>, cosa que significa que també podem especificar un tercer <strong>paràmetre</strong> per a donar-li un <strong>pas</strong>:</p>
+        <pre><code class="language-python">cadena_exemple = "exemplar"
+print(cadena_exemple[0:7:2])
+llista_nombres = [1,2,3,4,5,6,7,8]
+print(llista_nombres[6:2:-1])</code></pre>
         <pre class="output">
 eepa
 [7, 6, 5, 4]</pre
         >
-        <p>Si ometem qualsevol dels índexs, l'operador per defecte inclou tot. Entre altres coses, això ens permet escriure un programa molt curt per invertir una cadena de text:</p>
-        <pre><code class="language-python">cadena_meva = input("Si us plau, escriviu una cadena de text: ")
-print(cadena_meva[::-1])</code></pre>
+        <p>Si ometem qualsevol dels <strong>índexs</strong>, l'operador per defecte inclou tot. Entre altres coses, això ens permet escriure un programa molt curt per <strong>invertir</strong> una cadena de text:</p>
+        <pre><code class="language-python">cadena_exemple = input("Si us plau, escriviu una cadena de text: ")
+print(cadena_exemple[::-1])</code></pre>
         <pre class="output">
 Si us plau, escriviu una cadena de text: exemplar
 ralpmexe</pre
@@ -57,7 +57,7 @@ ralpmexe</pre
 
       <section id="variables-globals-funcions">
         <h2>Advertència: utilitzar variables globals dins de funcions</h2>
-        <p>Sabem que és possible assignar noves variables dins de definicions de funcions, però la funció també pot veure variables assignades fora d'ella, a la funció principal. Aquestes variables s'anomenen <strong>variables globals</strong>.</p>
+        <p>Sabem que és possible assignar noves <strong>variables</strong> dins de definicions de funcions, però la funció també pot veure variables assignades fora d'ella, a la funció principal. Aquestes variables s'anomenen <strong>variables globals</strong>.</p>
         <p>Utilitzar variables globals des de dins de funcions sol ser una mala idea. Entre altres problemes, pot causar errors difícils de rastrejar.</p>
         <p>A continuació es mostra un exemple d'una funció que utilitza una variable global "per error":</p>
         <pre><code class="language-python">def imprimir_invertit(noms: list):
@@ -85,13 +85,13 @@ Steve</pre
         >
       </section>
 
-      <section id="tot-invertit">
+      <section id="exercici-tot-invertit">
         <div class="exercici">
-          <h3>Exercici: Tot invertit</h3>
-          <p>Escriviu una funció anomenada <code class="inline">tot_invertit</code>, que rep una llista de cadenes de text com a argument. La funció retorna una nova llista amb tots els elements de la llista original invertits. A més, l'ordre dels elements també ha d'estar invertit a la nova llista.</p>
+          <h3>Exercici 1: Tot invertit</h3>
+          <p>Escriviu una funció anomenada <code class="inline">tot_invertit()</code>, que rep una <code class="inline">llista</code> de cadenes de text com a argument. La funció retorna una nova llista amb tots els elements de la llista original invertits. A més, l'ordre dels elements també ha d'estar invertit a la nova llista.</p>
           <p>Exemple de com ha de funcionar la funció:</p>
-          <pre><code class="language-python">llista_meva = ["Hola", "allà", "exemple", "un més"]
-nova_llista = tot_invertit(llista_meva)
+          <pre><code class="language-python">llista_paraules = ["Hola", "allà", "exemple", "un més"]
+nova_llista = tot_invertit(llista_paraules)
 print(nova_llista)</code></pre>
           <pre class="output">['sém nu', 'elpmexe', 'allà', 'aloH']</pre>
         </div>
@@ -100,55 +100,69 @@ print(nova_llista)</code></pre>
       <section id="cadenes-immutables">
         <h2>Les cadenes de text són immutables</h2>
         <p>Les cadenes de text i les llistes tenen molt en comú, especialment en la manera com es comporten amb diferents operadors. La principal diferència és que les cadenes de text són <strong>immutables</strong>. Això vol dir que no es poden canviar.</p>
-        <pre><code class="language-python">cadena_meva = "exemplar"
-cadena_meva[0] = "a"</code></pre>
+        <pre><code class="language-python">cadena_exemple = "exemplar"
+cadena_exemple[0] = "a"</code></pre>
         <p>Les cadenes de text no es poden canviar, de manera que l'execució d'aquest programa causa un error:</p>
         <pre class="output">TypeError: 'str' object does not support item assignment</pre>
-        <p>Un error similar es produeix si intenteu ordenar una cadena de text amb el mètode <code class="inline">sort</code>.</p>
+        <p>Un error similar es produeix si intenteu ordenar una cadena de text amb el mètode <code class="inline">sort()</code>.</p>
+
+        <p>Les <strong>cadenes</strong> són <strong>immutables</strong>, però les variables que les contenen no ho són. Una cadena pot ser substituida per una altra cadena.</p>
+
+        <p>Els dos exemples següents són fonamentalment diferents:</p>
+
+        <pre><code class="language-python">llista_exemple = [1,2,3]
+llista_exemple[0] = 10</code></pre>
+        <img src="../public/Valor mutable.png" alt="" />
+        <pre><code class="language-python">cadena_exemple = "Hola"
+cadena_exemple = cadena_exemple + "!"</code></pre>
+        <img src="../public/Valor_nou.png" alt="" />
+        <p>El primer exemple canvia els <strong>continguts</strong> de la llista referenciada. El segon exemple substitueix la <strong>referència</strong> a la cadena original amb una referència a una altra cadena. La cadena original encara es troba en algun lloc de la memòria de l'ordinador, però no hi ha cap referència a ella, i ja no es pot utilitzar en el programa.</p>
+
+        <p>Tornarem a veure aquest tema a la propera part, on s'exploren les referències a llistes amb més detall.</p>
       </section>
 
       <section id="mes-metodes-llistes-cadenes">
         <h2>Més mètodes per a llistes i cadenes de text</h2>
-        <p>El mètode <code class="inline">count</code> compta el nombre de vegades que l'element o subcadena especificat es produeix a l'objectiu. El mètode funciona de manera similar tant amb cadenes de text com amb llistes:</p>
-        <pre><code class="language-python">cadena_meva = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
-print(cadena_meva.count("ch"))
+        <p>El mètode <code class="inline">count()</code> compta el nombre de vegades que l'element o <strong>subcadena</strong> especificat es produeix a l'objectiu. El mètode funciona de manera similar tant amb cadenes de text com amb llistes:</p>
+        <pre><code class="language-python">cadena_text = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
+print(cadena_text.count("ch"))
 
-llista_meva = [1,2,3,1,4,5,1,6]
-print(llista_meva.count(1))</code></pre>
+llista_nombres = [1,2,3,1,4,5,1,6]
+print(llista_nombres.count(1))</code></pre>
         <pre class="output">
 5
 3</pre
         >
         <p>El mètode no comptarà les ocurrències superposades. Per exemple, a la cadena "aaaa" el mètode compta només dues ocurrències de la subcadena "aa", tot i que en realitat n'hi hauria tres si es permetessin ocurrències superposades.</p>
-        <p>El mètode <code class="inline">replace</code> crea una nova cadena de text, on una subcadena especificada es substitueix amb una altra cadena de text:</p>
-        <pre><code class="language-python">cadena_meva = "Hola, bones"
-nova_cadena = cadena_meva.replace("Hola", "Ei")
+        <p>El mètode <code class="inline">replace()</code> crea una nova cadena de text, on una subcadena especificada es substitueix amb una altra cadena de text:</p>
+        <pre><code class="language-python">cadena_salutacio = "Hola, bones"
+nova_cadena = cadena_salutacio.replace("Hola", "Ei")
 print(nova_cadena)</code></pre>
         <pre class="output">Ei, bones</pre>
         <p>El mètode substituirà totes les ocurrències de la subcadena:</p>
         <pre><code class="language-python">frase = "sheila sells seashells on the seashore"
 print(frase.replace("she", "SHE"))</code></pre>
         <pre class="output">SHEila sells seaSHElls on the seashore</pre>
-        <p>Quan s'utilitza el mètode <code class="inline">replace</code>, un error típic és oblidar que les cadenes de text són immutables:</p>
-        <pre><code class="language-python">cadena_meva = "Python és divertit"
+        <p>Quan s'utilitza el mètode <code class="inline">replace()</code>, un error típic és oblidar que les cadenes de text són immutables:</p>
+        <pre><code class="language-python">cadena_exemple = "Python és divertit"
 
 # substitueix la subcadena però no emmagatzema el resultat...
-cadena_meva.replace("Python", "Java")
-print(cadena_meva)</code></pre>
+cadena_exemple.replace("Python", "Java")
+print(cadena_exemple)</code></pre>
         <pre class="output">Python és divertit</pre>
         <p>Si la cadena antiga ja no es necessita, la nova cadena es pot assignar a la mateixa variable:</p>
-        <pre><code class="language-python">cadena_meva = "Python és divertit"
+        <pre><code class="language-python">cadena_exemple = "Python és divertit"
 
 # substitueix la subcadena i emmagatzema el resultat a la mateixa variable
-cadena_meva = cadena_meva.replace("Python", "Java")
-print(cadena_meva)</code></pre>
+cadena_exemple = cadena_exemple.replace("Python", "Java")
+print(cadena_exemple)</code></pre>
         <pre class="output">Java és divertit</pre>
       </section>
 
-      <section id="caracter-mes-comu">
+      <section id="exercici-caracter-mes-comu">
         <div class="exercici">
-          <h3>Exercici: Caràcter més comú</h3>
-          <p>Escriviu una funció anomenada <code class="inline">caracter_mes_comu</code>, que rep una cadena de text com a argument. La funció retorna el caràcter que té més ocurrències dins de la cadena de text. Si hi ha molts caràcters amb igual nombre d'ocurrències, s'ha de retornar el que aparegui primer a la cadena de text.</p>
+          <h3>Exercici 2: Caràcter més comú</h3>
+          <p>Escriviu una funció anomenada <code class="inline">caracter_mes_comu()</code>, que rep una cadena de text com a argument. La funció retorna el caràcter que té més ocurrències dins de la cadena de text. Si hi ha molts caràcters amb igual nombre d'ocurrències, s'ha de retornar el que aparegui primer a la cadena de text.</p>
           <pre><code class="language-python">primera_cadena = "abcdbde"
 print(caracter_mes_comu(primera_cadena))
 
@@ -161,20 +175,20 @@ e</pre
         </div>
       </section>
 
-      <section id="sense-vocals">
+      <section id="exercici-sense-vocals">
         <div class="exercici">
-          <h3>Exercici: No es permeten vocals</h3>
-          <p>Escriviu una funció anomenada <code class="inline">sense_vocals</code>, que rep una cadena de text com a argument. La funció retorna una nova cadena de text, que ha de ser la mateixa que l'original però amb totes les vocals eliminades.</p>
+          <h3>Exercici 3: No es permeten vocals</h3>
+          <p>Escriviu una funció anomenada <code class="inline">sense_vocals()</code>, que rep una cadena de text com a argument. La funció retorna una nova cadena de text, que ha de ser la mateixa que l'original però amb totes les vocals eliminades.</p>
           <p>Podeu assumir que la cadena de text només contindrà caràcters de l'alfabet anglès en minúscules a...z.</p>
-          <pre><code class="language-python">cadena_meva = "aixo es un exemple"
-print(sense_vocals(cadena_meva))</code></pre>
+          <pre><code class="language-python">cadena_exemple = "aixo es un exemple"
+print(sense_vocals(cadena_exemple))</code></pre>
           <pre class="output">x s n xmpl</pre>
         </div>
       </section>
 
-      <section id="no-cridar">
+      <section id="exercici-no-cridar">
         <div class="exercici">
-          <h3>Exercici: No es permet cridar</h3>
+          <h3>Exercici 4: No es permet cridar</h3>
           <p>El mètode de cadena de text Python <code class="inline">isupper()</code> retorna <code class="inline">True</code> si una cadena de text consisteix només en caràcters en majúscules.</p>
           <p>Alguns exemples:</p>
           <pre><code class="language-python">print("XYZ".isupper())
@@ -185,23 +199,23 @@ print(es_majuscula)</code></pre>
 True
 False</pre
           >
-          <p>Utilitzeu el mètode <code class="inline">isupper()</code> per escriure una funció anomenada <code class="inline">no_cridar</code>, que rep una llista de cadenes de text com a argument. La funció retorna una nova llista, que conté només aquells elements de l'original que no consisteixen únicament en caràcters en majúscules.</p>
-          <pre><code class="language-python">llista_meva = ["ABC", "def", "MAJUSCULA", "ALTRA MAJUSCULA", "minúscula", "una altra minúscula", "Majuscula"]
-llista_podada = no_cridar(llista_meva)
+          <p>Utilitzeu el mètode <code class="inline">isupper()</code> per escriure una funció anomenada <code class="inline">no_cridar()</code>, que rep una llista de cadenes de text com a argument. La funció retorna una nova llista, que conté només aquells elements de l'original que no consisteixen únicament en caràcters en majúscules.</p>
+          <pre><code class="language-python">llista_textos = ["ABC", "def", "MAJUSCULA", "ALTRA MAJUSCULA", "minúscula", "una altra minúscula", "Majuscula"]
+llista_podada = no_cridar(llista_textos)
 print(llista_podada)</code></pre>
           <pre class="output">['def', 'minúscula', 'una altra minúscula', 'Majuscula']</pre>
         </div>
       </section>
 
-      <section id="veins-llista">
+      <section id="exercici-veins-llista">
         <div class="exercici">
-          <h3>Exercici: Veïns en una llista</h3>
-          <p>Donada una llista de nombres enters, decidim que dos elements consecutius a la llista són veïns si la seva diferència és 1. Així, els elements 1 i 2 serien veïns, i també ho serien els elements 56 i 55.</p>
-          <p>Escriviu una funció anomenada <code class="inline">serie_mes_llarga_veins</code>, que busca la sèrie més llarga de veïns dins de la llista i retorna la seva longitud.</p>
+          <h3>Exercici 5: Veïns en una llista</h3>
+          <p>Donada una llista de nombres <code class="inline">enters</code>, decidim que dos elements consecutius a la llista són veïns si la seva diferència és 1. Així, els elements 1 i 2 serien veïns, i també ho serien els elements 56 i 55.</p>
+          <p>Escriviu una funció anomenada <code class="inline">serie_mes_llarga_veins()</code>, que busca la sèrie més llarga de veïns dins de la llista i retorna la seva longitud.</p>
           <p>Per exemple, a la llista [1, 2, 5, 4, 3, 4] la llista més llarga de veïns seria [5, 4, 3, 4], amb una longitud de 4.</p>
           <p>Exemple de crida a la funció:</p>
-          <pre><code class="language-python">llista_meva = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
-print(serie_mes_llarga_veins(llista_meva))</code></pre>
+          <pre><code class="language-python">llista_nombres = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
+print(serie_mes_llarga_veins(llista_nombres))</code></pre>
           <pre class="output">4</pre>
         </div>
       </section>
@@ -209,7 +223,7 @@ print(serie_mes_llarga_veins(llista_meva))</code></pre>
       <section id="desenvolupar-projecte-programacio">
         <h2>Desenvolupar un projecte de programació més gran</h2>
         <p>Aquesta quarta part culmina amb un projecte de programació una mica més gran, on podeu aplicar moltes de les tècniques apreses fins ara.</p>
-        <p>La regla núm. 1 per abordar qualsevol projecte de programació és no intentar resoldre tot alhora. El programa s'ha de construir a partir de seccions més petites, com ara funcions auxiliars. Heu de verificar el funcionament de cada part abans de passar a la següent. Si intenteu manejar massa coses alhora, probablement només resulti el caos.</p>
+        <p>La regla núm. 1 per abordar qualsevol projecte de programació és no intentar resoldre tot alhora. El programa s'ha de construir a partir de <strong>seccions més petites</strong>, com ara funcions auxiliars. Heu de verificar el funcionament de cada part abans de passar a la següent. Si intenteu manejar massa coses alhora, probablement només resulti el caos.</p>
         <p>Per fer això necessitareu una manera de provar les vostres funcions fora de la funció principal. Podeu aconseguir-ho definint una funció principal explícitament i cridant aquesta funció des de fora de qualsevol altra funció del programa. Aleshores una sola crida a una funció és fàcil de comentar per fer proves. Els primers passos en la construcció del següent projecte de programació podrien tenir aquest aspecte:</p>
         <pre><code class="language-python">def main():
     punts = []
@@ -237,7 +251,7 @@ print(resultat)</code></pre>
       <section id="passar-dades-funcions">
         <h2>Passar dades d'una funció a una altra</h2>
         <p>Quan un programa conté múltiples funcions, sorgeix la pregunta: com es passen les dades d'una funció a una altra?</p>
-        <p>L'exemple següent demana a l'usuari alguns valors enters. El programa després imprimeix aquests valors i realitza una "anàlisi" sobre ells. El programa es divideix en tres funcions separades:</p>
+        <p>L'exemple següent demana a l'usuari alguns valors <code class="inline">enters</code>. El programa després imprimeix aquests valors i realitza una "anàlisi" sobre ells. El programa es divideix en tres funcions separades:</p>
         <pre><code class="language-python">def entrada_usuari(quants: int):
     print(f"Si us plau, escriviu {quants} nombres:")
     nombres = []
@@ -279,9 +293,9 @@ Els nombres són:
 Hi ha 5 nombres en total, la mitjana és 11.6, el més petit és -53 i el més gran és 99</pre
         >
         <p>La idea aquí és que la funció principal "desa" totes les dades processades pel programa. En aquest cas, tot el que es necessita és l'entrada de l'usuari a la variable <code class="inline">entrades</code>.</p>
-        <p>Si l'entrada es necessita en una funció, es passa com a argument. Això passa amb les funcions <code class="inline">imprimir_resultat</code> i <code class="inline">analitzar</code>. Si la funció produeix dades que es necessiten en una altra part del programa, la funció les retorna amb la comanda <code class="inline">return</code> i s'emmagatzemen en una variable a la funció principal. Això passa amb les funcions <code class="inline">entrada_usuari</code> i <code class="inline">analitzar</code>.</p>
+        <p>Si l'entrada es necessita en una funció, es passa com a <strong>argument</strong>. Això passa amb les funcions <code class="inline">imprimir_resultat()</code> i <code class="inline">analitzar()</code>. Si la funció produeix dades que es necessiten en una altra part del programa, la funció les retorna amb la comanda <code class="inline">return</code> i s'emmagatzemen en una variable a la funció principal. Això passa amb les funcions <code class="inline">entrada_usuari()</code> i <code class="inline">analitzar()</code>.</p>
         <p>Podríeu utilitzar la variable global <code class="inline">entrades</code> de la funció principal directament a les funcions auxiliars. Si les funcions poden canviar una variable global, poden començar a passar coses inesperades al programa, especialment quan el nombre de funcions creix.</p>
-        <p>La manera òptima de passar dades cap a i des de les funcions és mitjançant arguments i valors de retorn.</p>
+        <p>La manera òptima de passar dades cap a i des de les funcions és mitjançant <strong>arguments</strong> i <strong>valors de retorn</strong>.</p>
         <p>També podríeu separar la funció principal implícita de l'exemple anterior en la seva pròpia funció. Aleshores la variable <code class="inline">entrades</code> ja no seria una variable global, sinó una variable local dins de la funció principal:</p>
         <pre><code class="language-python"># la vostra funció principal va aquí
 def principal():
@@ -295,12 +309,12 @@ def principal():
 principal()</code></pre>
       </section>
 
-      <section id="estadistiques-notes">
+      <section id="exercici-estadistiques-notes">
         <div class="exercici">
-          <h3>Exercici: Estadístiques de notes</h3>
+          <h3>Exercici 6: Estadístiques de notes</h3>
           <p>En aquest exercici escriureu un programa per imprimir estadístiques de notes per a un curs universitari.</p>
           <p>El programa demana a l'usuari els resultats de diferents estudiants del curs. Aquests inclouen punts d'examen i nombre d'exercicis completats. El programa després imprimeix estadístiques basades en els resultats.</p>
-          <p>Els punts d'examen són enters entre 0 i 20. El nombre d'exercicis completats és un enter entre 0 i 100.</p>
+          <p>Els punts d'examen són <code class="inline">enters</code> entre 0 i 20. El nombre d'exercicis completats és un <code class="inline">enter</code> entre 0 i 100.</p>
           <p>El programa continua demanant entrada fins que l'usuari escriu una línia buida. Podeu assumir que totes les línies contenen entrada vàlida, cosa que significa que hi ha dos enters a cada línia, o la línia està buida.</p>
           <p>I un exemple de com s'escriuen les dades:</p>
           <pre class="output">
@@ -358,11 +372,11 @@ Distribució de notes:
   1: **
   0: *</pre
           >
-          <p>Els nombres de coma flotant s'han d'imprimir amb una precisió d'un decimal.</p>
+          <p>Els nombres de <code class="inline">float</code> s'han d'imprimir amb una precisió d'un decimal.</p>
           <p><strong>Pista:</strong></p>
           <p>L'entrada de l'usuari en aquest programa consisteix en línies amb dos valors enters:</p>
           <pre class="output">Punts d'examen i exercicis completats: 15 87</pre>
-          <p>Heu de dividir primer la línia d'entrada en dues parts i després convertir les seccions en enters amb la funció <code class="inline">int</code>. Dividir l'entrada es pot aconseguir de la mateixa manera que en l'exercici Primer, segon i última paraula, però també hi ha una manera més simple. El mètode de cadena de text <code class="inline">split</code> dividirà l'entrada facilment. Trobareu més informació buscant <code class="inline">python string split</code> en línia.</p>
+          <p>Heu de dividir primer la línia d'entrada en dues parts i després convertir les seccions en enters amb la funció <code class="inline">int()</code>. Dividir l'entrada es pot aconseguir de la mateixa manera que en l'exercici Primer, segon i última paraula, però també hi ha una manera més simple. El mètode de cadena de text <code class="inline">split()</code> dividirà l'entrada facilment. Trobareu més informació buscant <code class="inline">python string split</code> en línia.</p>
         </div>
       </section>
       <section>
@@ -371,8 +385,8 @@ Distribució de notes:
           <li><strong>Retallada (slicing)</strong>: accés a parts de llistes o cadenes amb [inici:fi:pas].</li>
           <li><strong>Variables globals</strong>: variables definides fora de funcions, evitar el seu ús dins funcions.</li>
           <li><strong>Immutabilitat</strong>: les cadenes no es poden modificar, només reemplaçar.</li>
-          <li><strong>Mètode</strong> <code class="inline">count</code>: compta ocurrencies d'elements o subcadenes.</li>
-          <li><strong>Mètode</strong> <code class="inline">replace</code>: substitueix subcadenes, retorna nova cadena.</li>
+          <li><strong>Mètode</strong> <code class="inline">count()</code>: compta ocurrencies d'elements o subcadenes.</li>
+          <li><strong>Mètode</strong> <code class="inline">replace()</code>: substitueix subcadenes, retorna nova cadena.</li>
           <li><strong>Desenvolupament modular</strong>: dividir projectes en funcions més petites.</li>
           <li><strong>Transmisió de dades</strong>: comunicació entre funcions amb arguments i return.</li>
         </ul>

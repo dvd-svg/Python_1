@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visual studio</title>
+    <title>Visual Studio Code</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -15,25 +15,25 @@
     <main>
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
-        <h1>L'IDE Visual Studio</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h1>L'IDE Visual Studio Code</h1>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Utilitzar l'editor Visual Studio Code per completar exercicis del curs</li>
-          <li>Familiaritzar-se amb l'intèrpret interactiu de Python i executar-hi codi</li>
+          <li>Utilitzar l'editor <strong>Visual Studio Code</strong> per completar exercicis del curs</li>
+          <li>Familiaritzar-se amb l'<strong>intèrpret interactiu</strong> de Python i executar-hi codi</li>
         </ul>
       </section>
-      <section id="introduccio-a-visual-studio-code">
+      <section id="introduccio-visual-studio-code">
         <h2>Introducció a Visual Studio Code</h2>
-        <p>Fins ara, tots els exercicis d’aquest curs s’han completat directament a les pàgines del curs mitjançant editors integrats al navegador. <strong>Programar al navegador</strong> és molt adequat per als primers passos en programació, però ara és el moment de començar a utilitzar un <strong>editor separat</strong> especialment pensat per programar.</p>
-        <p>Hi ha <strong>desenes d’editors</strong> diferents adequats per a la programació. En aquest curs farem servir <strong>Visual Studio Code</strong>, un editor que ha guanyat molta popularitat en els darrers anys.</p>
+        <p>Fins ara, tots els exercicis d'aquest curs s'han completat directament a les pàgines del curs mitjançant editors integrats al navegador. <strong>Programar al navegador</strong> és molt adequat per als primers passos en programació, però ara és el moment de començar a utilitzar un <strong>editor separat</strong> especialment pensat per programar.</p>
+        <p>Hi ha <strong>desenes d'editors</strong> diferents adequats per a la programació. En aquest curs farem servir <strong>Visual Studio Code</strong>, un editor que ha guanyat molta popularitat en els darrers anys.</p>
         <p>Instal·la ara el <strong>Visual Studio Code</strong> al teu ordinador. També pot ser necessari instal·lar <strong>Python</strong> i l'<strong>extensió de Python per a Visual Studio Code</strong>.</p>
-        <p>Consulta la guia d’instal·lació i execució de tots aquests elements. Llegeix les instruccions sobre com treballar i enviar els exercicis, i després completa la tasca següent:</p>
+        <p>Consulta la guia d'instal·lació i execució de tots aquests elements. Llegeix les instruccions sobre com treballar i enviar els exercicis, i després completa la tasca següent:</p>
       </section>
 
       <section id="exercici-hello-visual-studio-code">
-        <div class="exercici" id="hello-visual-studio-code">
+        <div class="exercici">
           <h3>Exercici: Hola Visual Studio Code</h3>
-          <p>Escriu un programa que pregunti a l’usuari quin editor està fent servir. El programa ha de continuar preguntant fins que l’usuari escrigui <strong>Visual Studio Code</strong>.</p>
+          <p>Escriu un <strong>programa</strong> que pregunti a l'usuari quin editor està fent servir. El programa ha de continuar preguntant fins que l'usuari escrigui <strong>Visual Studio Code</strong>.</p>
           <p>Exemple de funcionament esperat:</p>
           <pre class="output">
 Editor: Emacs
@@ -47,7 +47,7 @@ no és bo
 Editor: Visual Studio Code
 una elecció excel·lent!</pre
           >
-          <p>Si l’usuari escriu <strong>Word</strong> o <strong>Notepad</strong>, el programa ha de respondre amb <strong>horrible</strong>. Altres editors no acceptables han de rebre la resposta <strong>no és bo</strong>.</p>
+          <p>Si l'usuari escriu <strong>Word</strong> o <strong>Notepad</strong>, el programa ha de respondre amb <strong>horrible</strong>. Altres editors no acceptables han de rebre la resposta <strong>no és bo</strong>.</p>
           <p>El programa ha de ser <strong>insensible a majúscules i minúscules</strong>. És a dir, la mateixa entrada escrita en minúscules, majúscules o combinada ha de produir la mateixa resposta.</p>
           <pre class="output">
 Editor: NOTEPAD
@@ -55,7 +55,7 @@ horrible
 Editor: viSUal STudiO cODe
 una elecció excel·lent!</pre
           >
-          <p><strong>Pista:</strong> La manera més senzilla d’aconseguir-ho és convertir totes les lletres a la mateixa mida. El mètode <code class="inline">lower</code> d’una cadena converteix tot el text a minúscules. Exemple d’ús:</p>
+          <p><strong>Pista:</strong> La manera més senzilla d'aconseguir-ho és convertir totes les lletres a la mateixa mida. El mètode <code class="inline">lower()</code> d'una <code class="inline">cadena</code> converteix tot el text a minúscules. Exemple d'ús:</p>
           <pre><code class="language-python">meu_text = "Visual Studio CODE"
 if "visual studio code" == meu_text.lower():
     print("aquesta era la cadena que buscava!")</code></pre>
@@ -64,19 +64,19 @@ if "visual studio code" == meu_text.lower():
 
       <section id="executar-codi">
         <h2>Executar codi</h2>
-        <p>En <strong>Visual Studio Code</strong>, la manera més fàcil d’executar el teu codi és fent clic al <strong>triangle de la part superior dreta</strong>. A vegades pot passar que algun programa quedi executant-se en segon pla, potser esperant una <strong>entrada d’usuari</strong> o atrapat en un <strong>bucle infinit</strong>, sense que te n’adonis. Només ho notaràs quan intentis executar el següent programa i aquest no s’executi perquè el procés anterior encara està ocupant recursos.</p>
-        <p>Una solució ràpida és prémer les tecles <strong>Control+C</strong> alhora, cosa que atura l’execució de qualsevol procés actiu. El següent programa ja s’hauria d’executar correctament.</p>
-        <img src="../public/VS_Codi.png" alt="interficie Visual Studio" />
+        <p>En <strong>Visual Studio Code</strong>, la manera més fàcil d'executar el teu codi és fent clic al <strong>triangle de la part superior dreta</strong>. A vegades pot passar que algun programa quedi executant-se en segon pla, potser esperant una <strong>entrada d'usuari</strong> o atrapat en un <strong>bucle infinit</strong>, sense que te n'adonis. Només ho notaràs quan intentis executar el següent programa i aquest no s'executi perquè el procés anterior encara està ocupant recursos.</p>
+        <p>Una solució ràpida és prémer les tecles <strong>Control+C</strong> alhora, cosa que atura l'execució de qualsevol procés actiu. El següent programa ja s'hauria d'executar correctament.</p>
+        <img src="../public/VS_Codi.png" alt="interfície Visual Studio Code" />
       </section>
 
-      <section id="intèrpret-interactiu">
-        <h2>L’intèrpret interactiu de Python</h2>
-        <p>Una de les eines més importants per a qualsevol programador de Python és l’<strong>intèrpret interactiu</strong> de Python.</p>
-        <p>Podem iniciar l’intèrpret dins de <strong>Visual Studio Code</strong>. Primer, executem el comandament <code class="inline">>Python:Start Terminal REPL</code> en la barra superior. Això obrirà una secció anomenada <strong>Terminal</strong> a la part inferior. Allà pots escriure <code class="inline">python3</code> (o <code class="inline">python</code>).</p>
-        <img src="../public/VS_Open_Interpreter.png" alt="Comandament opertura de l'interprete" />
-        <p>Interprete de python</p>
-        <img src="../public/Interpreter.png" alt="Interprete de Python dins de Virtual Studio Code" />
-        <p>L’intèrpret permet executar codi Python <strong>línia per línia</strong> a mesura que l’escrius. Quan introdueixes una línia i prems <strong>Enter</strong>, aquesta s’executa immediatament i mostra el resultat:</p>
+      <section id="interpret-interactiu">
+        <h2>L'intèrpret interactiu de Python</h2>
+        <p>Una de les eines més importants per a qualsevol programador de Python és l'<strong>intèrpret interactiu</strong> de Python.</p>
+        <p>Podem iniciar l'intèrpret dins de <strong>Visual Studio Code</strong>. Primer, executem la comanda <code class="inline">>Python: Start REPL Terminal</code> en la barra superior. Això obrirà una secció anomenada <strong>Terminal</strong> a la part inferior. Allà pots escriure <code class="inline">python3</code> (o <code class="inline">python</code>).</p>
+        <img src="../public/VS_Open_Interpreter.png" alt="Comanda obertura de l'intèrpret" />
+        <p>Intèrpret de Python</p>
+        <img src="../public/Interpreter.png" alt="Intèrpret de Python dins de Visual Studio Code" />
+        <p>L'intèrpret permet executar codi Python <strong>línia per línia</strong> a mesura que l'escrius. Quan introdueixes una línia i prems <strong>Enter</strong>, aquesta s'executa immediatament i mostra el resultat:</p>
         <pre class="output">
 &gt;&gt;&gt; t = [1,2,3,4,5]
 &gt;&gt;&gt; for numero in t:
@@ -104,7 +104,7 @@ NameError: name 'numero' is not defined
 7
 &gt;&gt;&gt;</pre
         >
-        <p>L’intèrpret és molt útil per fer petites comprovacions, provar funcions o mètodes, o verificar si existeixen:</p>
+        <p>L'intèrpret és molt útil per fer petites comprovacions, provar funcions o mètodes, o verificar si existeixen:</p>
         <pre class="output">
 &gt;&gt;&gt; "TextText".toupper()
 Traceback (most recent call last):
@@ -114,7 +114,7 @@ AttributeError: 'str' object has no attribute 'toupper'
 'TEXTTEXT'
 &gt;&gt;&gt;</pre
         >
-        <p>Si necessites un mètode i gairebé recordes el seu nom, pot ser més ràpid utilitzar la funció <strong>dir</strong> en comptes de buscar-lo a Internet. Et mostra quins mètodes estan disponibles per a un objecte determinat:</p>
+        <p>Si necessites un mètode i gairebé recordes el seu nom, pot ser més ràpid utilitzar la funció <code class="inline">dir()</code> en comptes de buscar-lo a Internet. Et mostra quins mètodes estan disponibles per a un objecte determinat:</p>
         <pre class="output">
 &gt;&gt;&gt; dir("això és una cadena")
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__',
@@ -142,7 +142,7 @@ AttributeError: 'str' object has no attribute 'toupper'
 'remove', 'reverse', 'sort']
 &gt;&gt;&gt;</pre
         >
-        <p>Provem alguns mètodes. <strong>reverse</strong> i <strong>clear</strong> semblen prometedors:</p>
+        <p>Provem alguns mètodes. <code class="inline">reverse()</code> i <code class="inline">clear()</code> semblen prometedors:</p>
         <pre class="output">
 &gt;&gt;&gt; nombres = [1,2,3,4,5]
 &gt;&gt;&gt; nombres.reverse()
@@ -153,28 +153,28 @@ AttributeError: 'str' object has no attribute 'toupper'
 []</pre
         >
         <p>Com pots veure, aquests mètodes fan exactament el que el seu nom indica.</p>
-        <p>Observa que l’intèrpret no mostra cap resultat quan executes <code class="inline">nombres.reverse()</code>. Això passa perquè només mostra alguna cosa si la línia de codi té un valor de retorn. En aquest cas, <code class="inline">reverse()</code> no en retorna cap.</p>
-        <p>En l’exemple anterior vam imprimir el valor de la llista <code class="inline">nombres</code> simplement escrivint el nom de la variable. De fet, rarament cal escriure <code class="inline">print</code> dins l’intèrpret, tot i que pots fer-ho si vols.</p>
-        <p>Recorda tancar l’intèrpret quan acabis. Les ordres <code class="inline">quit()</code> o <code class="inline">exit()</code> el tanquen, així com la combinació <strong>Control+D</strong> (Linux/Mac) o <strong>Control+Z</strong> (Windows). Això és especialment important a <strong>Visual Studio Code</strong>, ja que intentar executar un altre programa de Python mentre l’intèrpret encara està actiu provoca un <strong>missatge d’error confús</strong>.</p>
+        <p>Observa que l'intèrpret no mostra cap resultat quan executes <code class="inline">nombres.reverse()</code>. Això passa perquè només mostra alguna cosa si la línia de codi té un valor de retorn. En aquest cas, <code class="inline">reverse()</code> no en retorna cap.</p>
+        <p>En l'exemple anterior vam imprimir el valor de la llista <code class="inline">nombres</code> simplement escrivint el nom de la variable. De fet, rarament cal escriure <code class="inline">print()</code> dins l'intèrpret, tot i que pots fer-ho si vols.</p>
+        <p>Recorda tancar l'intèrpret quan acabis. Les ordres <code class="inline">quit()</code> o <code class="inline">exit()</code> el tanquen, així com la combinació <strong>Control+D</strong> (Linux/Mac) o <strong>Control+Z</strong> (Windows). Això és especialment important a <strong>Visual Studio Code</strong>, ja que intentar executar un altre programa de Python mentre l'intèrpret encara està actiu provoca un <strong>missatge d'error confús</strong>.</p>
       </section>
 
       <section id="depurador-integrat">
         <h2>El depurador integrat</h2>
-        <p>Ja hem dedicat força temps a desenvolupar habilitats de depuració, principalment mitjançant <strong>sentències print</strong>. L’editor <strong>Visual Studio Code</strong> ofereix una altra eina molt útil: el <strong>depurador visual integrat</strong>.</p>
-        <p>Per començar a depurar, primer has de definir un <strong>punt de parada</strong> (breakpoint) al teu codi. Un punt de parada és un lloc on el depurador atura l’execució del programa. Pots establir-lo fent clic al marge esquerre de qualsevol línia.</p>
-        <p>L’exemple següent és un intent lleugerament erroni de resoldre un exercici anterior (“La suma de nombres consecutius”). Hi ha un punt de parada a la línia 5.</p>
+        <p>Ja hem dedicat força temps a desenvolupar habilitats de depuració, principalment mitjançant <strong>sentències print</strong>. L'editor <strong>Visual Studio Code</strong> ofereix una altra eina molt útil: el <strong>depurador visual integrat</strong>.</p>
+        <p>Per començar a depurar, primer has de definir un <strong>punt de parada</strong> (breakpoint) al teu codi. Un punt de parada és un lloc on el depurador atura l'execució del programa. Pots establir-lo fent clic al marge esquerre de qualsevol línia.</p>
+        <p>L'exemple següent és un intent lleugerament erroni de resoldre un exercici anterior ("La suma de nombres consecutius"). Hi ha un punt de parada a la línia 5.</p>
         <img src="../public/Depurar_1.png" alt="captura de pantalla depuració" />
-        <p>Després d’establir-lo, selecciona <strong>Inicia depuració</strong> al menú <strong>Executa</strong>. Això obrirà una llista d’opcions: selecciona <strong>Fitxer de Python</strong>.</p>
+        <p>Després d'establir-lo, selecciona <strong>Inicia depuració</strong> al menú <strong>Executa</strong>. Això obrirà una llista d'opcions: selecciona <strong>Fitxer de Python</strong>.</p>
         <img src="../public/Depurar_2.png" alt="captura de pantalla depuració" />
-        <p>Això inicia el depurador, que executa el codi fins arribar al punt de parada. Si el teu codi demana una <strong>entrada d’usuari</strong>, recorda escriure-la al <strong>terminal</strong>.</p>
+        <p>Això inicia el depurador, que executa el codi fins arribar al punt de parada. Si el teu codi demana una <strong>entrada d'usuari</strong>, recorda escriure-la al <strong>terminal</strong>.</p>
         <img src="../public/Depurar_3.png" alt="captura de pantalla depuració" />
-        <p>A l’esquerra apareixerà la <strong>vista de variables</strong>, que mostra els valors actuals de totes les variables actives. Pots avançar en l’execució línia per línia fent clic a la fletxa avall anomenada <strong>Step into</strong>.</p>
+        <p>A l'esquerra apareixerà la <strong>vista de variables</strong>, que mostra els valors actuals de totes les variables actives. Pots avançar en l'execució línia per línia fent clic a la fletxa avall anomenada <strong>Step into</strong>.</p>
         <img src="../public/Depurar_4.png" alt="captura de pantalla depuració" />
 
-        <p>El depurador també disposa d’una pestanya <strong>Consola de depuració</strong>, on pots avaluar expressions amb els valors actuals de les variables. Per exemple, pots comprovar el valor d’una expressió booleana dins la condició d’un bucle.</p>
+        <p>El depurador també disposa d'una pestanya <strong>Consola de depuració</strong>, on pots avaluar expressions amb els valors actuals de les variables. Per exemple, pots comprovar el valor d'una expressió booleana dins la condició d'un bucle.</p>
         <img src="../public/Depurar_5.png" alt="captura de pantalla depuració" />
 
-        <p>Pots definir <strong>diversos punts de parada</strong> dins el teu programa. Quan l’execució s’atura, pots reprendre-la fent clic al <strong>triangle blau</strong>. El programa continuarà fins al següent punt de parada.</p>
+        <p>Pots definir <strong>diversos punts de parada</strong> dins el teu programa. Quan l'execució s'atura, pots reprendre-la fent clic al <strong>triangle blau</strong>. El programa continuarà fins al següent punt de parada.</p>
         <p>El <strong>depurador visual integrat</strong> és una excel·lent alternativa a la depuració amb <strong>print</strong>. Depèn de tu quina prefereixis utilitzar més endavant. Cada programador té les seves pròpies preferències, però sempre és bona idea provar diferents opcions abans de quedar-te amb una sola.</p>
       </section>
       <section>

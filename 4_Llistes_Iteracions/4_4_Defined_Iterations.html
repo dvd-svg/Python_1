@@ -16,22 +16,22 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Iteracions Definides</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Diferenciar la <strong>iteració definida</strong> de la <strong>iteració indefinida</strong></li>
           <li>Comprendre el funcionament d'un <strong>bucle for</strong> en Python</li>
           <li>Utilitzar un <strong>bucle for</strong> per iterar a través de <strong>llistes</strong> i <strong>cadenes de text</strong></li>
         </ul>
       </section>
-      <section id="bucle-for-lists">
+      <section id="bucle-for-llistes">
         <h2>El bucle for amb llistes</h2>
-        <p>Pots utilitzar un bucle <code class="inline">while</code> per recórrer els elements d'una llista, igual que vam fer servir bucles <code class="inline">while</code> per recórrer cadenes de text. El següent programa imprimeix els elements de la llista, cadascun en una línia separada:</p>
+        <p>Pots utilitzar un bucle <code class="inline">while</code> per recórrer els elements d'una <strong>llista</strong>, igual que vam fer servir bucles <code class="inline">while</code> per recórrer <strong>cadenes de text</strong>. El següent programa imprimeix els elements de la llista, cadascun en una línia separada:</p>
 
-        <pre><code class="language-python">la_meva_llista = [3, 2, 4, 5, 2]
+        <pre><code class="language-python">llista = [3, 2, 4, 5, 2]
 
 index = 0
-while index < len(la_meva_llista):
-    print(la_meva_llista[index])
+while index < len(llista):
+    print(llista[index])
     index += 1</code></pre>
 
         <pre class="output">
@@ -59,9 +59,9 @@ while index < len(la_meva_llista):
         <h3>Iterar a través d'una llista</h3>
         <p>El programa següent imprimeix tots els elements d'una llista utilitzant un bucle <code class="inline">for</code>:</p>
 
-        <pre><code class="language-python">la_meva_llista = [3, 2, 4, 5, 2]
+        <pre><code class="language-python">llista = [3, 2, 4, 5, 2]
 
-for element in la_meva_llista:
+for element in llista:
     print(element)</code></pre>
 
         <pre class="output">
@@ -90,7 +90,7 @@ a</pre
         >
 
         <div class="exercici">
-          <h3>Exercici: Estelat</h3>
+          <h3>Exercici 1: Estelat</h3>
           <p>Escriu un programa que demani a l'usuari que introdueixi una cadena de text. El programa després imprimeix cada caràcter introduït en una línia separada. Després de cada caràcter hi ha d'haver un estel (*) imprès en la seva pròpia línia.</p>
           <p>Així és com hauria de funcionar:</p>
           <pre class="output">
@@ -113,7 +113,7 @@ n
 
       <section id="funcio-range">
         <h2>La funció range</h2>
-        <p>Sovint saps quantes vols repetir una determinada part del codi. Podries, per exemple, desitjar recórrer tots els nombres entre l'1 i el 100. La funció <code class="inline">range</code> connectada a un bucle <code class="inline">for</code> farà això per tu.</p>
+        <p>Sovint saps quantes vegades vols repetir una determinada part del codi. Podries, per exemple, desitjar recórrer tots els nombres entre l'1 i el 100. La funció <code class="inline">range</code> connectada a un bucle <code class="inline">for</code> farà això per tu.</p>
 
         <p>Hi ha algunes maneres diferents de cridar la funció <code class="inline">range</code>. La manera més senzilla és donar a la funció només un argument, que significa el punt final del rang. El punt final en si mateix està exclòs, igual que amb les retallades de cadenes. En altres paraules, la crida a la funció <code class="inline">range(n)</code> proporciona un bucle amb un rang de 0 a n-1:</p>
 
@@ -165,8 +165,8 @@ n
         >
 
         <div class="exercici">
-          <h3>Exercici: De negatiu a positiu</h3>
-          <p>Escriu un programa que demani a l'usuari un enter positiu N. El programa després imprimeix tots els nombres entre -N i N inclosos, però omet el nombre 0. Cada nombre hauria d'estar imprès en una línia separada.</p>
+          <h3>Exercici 2: De negatiu a positiu</h3>
+          <p>Escriu un programa que demani a l'usuari un <strong>enter</strong> positiu N. El programa després imprimeix tots els nombres entre -N i N inclosos, però omet el nombre 0. Cada nombre hauria d'estar imprès en una línia separada.</p>
           <p>Un exemple de comportament esperat:</p>
           <pre class="output">
 Si us plau, introdueix un enter positiu: 4
@@ -200,8 +200,8 @@ print(nombres)</code></pre>
       </section>
       <section id="exercicis-funcions">
         <div class="exercici">
-          <h3>Exercici: Llista d'estels</h3>
-          <p>Escriu una funció anomenada <code class="inline">llista_d_estels</code>, que pren una llista d'enters com a argument. La funció ha d'imprimir línies de caràcters d'estel. Els nombres a la llista especifiquen quants estels ha de contenir cada línia.</p>
+          <h3>Exercici 3: Llista d'estels</h3>
+          <p>Escriu una funció anomenada <code class="inline">llista_d_estels</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció ha d'imprimir línies de caràcters d'estel. Els nombres a la llista especifiquen quants estels ha de contenir cada línia.</p>
           <p>Per exemple, amb la crida a la funció <code class="inline">llista_d_estels([3, 7, 1, 1, 2])</code> s'hauria d'imprimir:</p>
           <pre class="output">
 ***
@@ -213,19 +213,19 @@ print(nombres)</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Anagrams</h3>
-          <p>Escriu una funció anomenada <code class="inline">anagrams</code>, que pren dues cadenes com a arguments. La funció retorna <code class="inline">True</code> si les cadenes són anagrames l'una de l'altra. Dues paraules són anagrames si contenen exactament els mateixos caràcters.</p>
+          <h3>Exercici 4: Anagrama</h3>
+          <p>Escriu una funció anomenada <code class="inline">anagrama</code>, que pren dues <strong>cadenes</strong> com a arguments. La funció retorna <code class="inline">True</code> si les cadenes són anagrames l'una de l'altra. Dues paraules són anagrames si contenen exactament els mateixos caràcters.</p>
           <p>Alguns exemples de com hauria de funcionar la funció:</p>
-          <pre><code class="language-python">print(anagrams("tame", "meta")) # True
-print(anagrams("tame", "mate")) # True
-print(anagrams("tame", "team")) # True
-print(anagrams("tabby", "batty")) # False
-print(anagrams("python", "java")) # False</code></pre>
+          <pre><code class="language-python">print(anagrama("tame", "meta")) # True
+print(anagrama("tame", "mate")) # True
+print(anagrama("tame", "team")) # True
+print(anagrama("tabby", "batty")) # False
+print(anagrama("python", "java")) # False</code></pre>
           <p><strong>Pista:</strong> la funció <code class="inline">sorted</code> es pot utilitzar també en cadenes.</p>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Palíndroms</h3>
+          <h3>Exercici 5: Palíndroms</h3>
           <p>Escriu una funció anomenada <code class="inline">palindroms</code>, que pren un argument de cadena i retorna <code class="inline">True</code> si la cadena és un palíndrom. Els palíndroms són paraules que s'escriuen exactament igual cap endavant i cap enrere.</p>
           <p>Escriu també un programa principal que demani a l'usuari que escrigui paraules fins que escriguin un palíndrom:</p>
           <pre class="output">
@@ -241,20 +241,20 @@ neveroddoreven és un palíndrom!</pre
         </div>
 
         <div class="exercici">
-          <h3>Exercici: La suma dels nombres positius</h3>
-          <p>Escriu una funció anomenada <code class="inline">suma_dels_positius</code>, que pren una llista d'enters com a argument. La funció retorna la suma dels valors positius a la llista.</p>
-          <pre><code class="language-python">la_meva_llista = [1, -2, 3, -4, 5]
-resultat = suma_dels_positius(la_meva_llista)
+          <h3>Exercici 6: La suma dels nombres positius</h3>
+          <p>Escriu una funció anomenada <code class="inline">suma_dels_positius</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció retorna la suma dels valors positius a la llista.</p>
+          <pre><code class="language-python">llista = [1, -2, 3, -4, 5]
+resultat = suma_dels_positius(llista)
 print("El resultat és", resultat)</code></pre>
           <pre class="output">El resultat és 9</pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Nombres parells</h3>
-          <p>Escriu una funció anomenada <code class="inline">nombres_parells</code>, que pren una llista d'enters com a argument. La funció retorna una nova llista que conté els nombres parells de la llista original.</p>
-          <pre><code class="language-python">la_meva_llista = [1, 2, 3, 4, 5]
-nova_llista = nombres_parells(la_meva_llista)
-print("original", la_meva_llista)
+          <h3>Exercici 7: Nombres parells</h3>
+          <p>Escriu una funció anomenada <code class="inline">nombres_parells</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció retorna una nova llista que conté els nombres parells de la llista original.</p>
+          <pre><code class="language-python">llista = [1, 2, 3, 4, 5]
+nova_llista = nombres_parells(llista)
+print("original", llista)
 print("nova", nova_llista)</code></pre>
           <pre class="output">
 original [1, 2, 3, 4, 5]
@@ -263,8 +263,8 @@ nova [2, 4]</pre
         </div>
 
         <div class="exercici">
-          <h3>Exercici: La suma de llistes</h3>
-          <p>Escriu una funció anomenada <code class="inline">suma_llistes</code> que pren dues llistes d'enters com a arguments. La funció retorna una nova llista que conté les sumes dels elements en cada índex de les dues llistes originals. Pots assumir que ambdues llistes tenen el mateix nombre d'elements.</p>
+          <h3>Exercici 8: La suma de llistes</h3>
+          <p>Escriu una funció anomenada <code class="inline">suma_llistes</code> que pren dues llistes d'<strong>enters</strong> com a arguments. La funció retorna una nova llista que conté les sumes dels elements en cada índex de les dues llistes originals. Pots assumir que ambdues llistes tenen el mateix nombre d'elements.</p>
           <p>Un exemple de la funció en acció:</p>
           <pre><code class="language-python">a = [1, 2, 3]
 b = [7, 8, 9]
@@ -272,10 +272,10 @@ print(suma_llistes(a, b)) # [8, 10, 12]</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Nombres diferents</h3>
-          <p>Escriu una funció anomenada <code class="inline">nombres_diferents</code>, que pren una llista d'enters com a argument. La funció retorna una nova llista que conté els nombres de la llista original en ordre de magnitud, i de manera que cada nombre diferent està present només una vegada.</p>
-          <pre><code class="language-python">la_meva_llista = [3, 2, 2, 1, 3, 3, 1]
-print(nombres_diferents(la_meva_llista)) # [1, 2, 3]</code></pre>
+          <h3>Exercici 9: Nombres diferents</h3>
+          <p>Escriu una funció anomenada <code class="inline">nombres_diferents</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció retorna una nova llista que conté els nombres de la llista original en ordre de magnitud, i de manera que cada nombre diferent està present només una vegada.</p>
+          <pre><code class="language-python">llista = [3, 2, 2, 1, 3, 3, 1]
+print(nombres_diferents(llista)) # [1, 2, 3]</code></pre>
         </div>
       </section>
 
@@ -286,7 +286,7 @@ print(nombres_diferents(la_meva_llista)) # [1, 2, 3]</code></pre>
         <p>Un esborrany aproximat que encara no compila del tot:</p>
 
         <pre><code class="language-python">millor = valor_inicial # El valor inicial depèn de la situació
-for element in la_meva_llista:
+for element in llista:
     if element > millor:
         millor = element
 
@@ -297,16 +297,16 @@ for element in la_meva_llista:
         <p>Practiquem una mica aquest mètode.</p>
 
         <div class="exercici">
-          <h3>Exercici: La longitud de la més llarga a la llista</h3>
-          <p>Escriu una funció anomenada <code class="inline">longitud_de_la_mes_llarga</code>, que pren una llista de cadenes com a argument. La funció retorna la longitud de la cadena més llarga.</p>
-          <pre><code class="language-python">la_meva_llista = ["first", "second", "fourth", "eleventh"]
+          <h3>Exercici 10: La longitud de la més llarga a la llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">longitud_de_la_mes_llarga</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció retorna la longitud de la cadena més llarga.</p>
+          <pre><code class="language-python">llista = ["first", "second", "fourth", "eleventh"]
 
-resultat = longitud_de_la_mes_llarga(la_meva_llista)
+resultat = longitud_de_la_mes_llarga(llista)
 print(resultat)
 
-la_meva_llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-resultat = longitud_de_la_mes_llarga(la_meva_llista)
+resultat = longitud_de_la_mes_llarga(llista)
 print(resultat)</code></pre>
           <pre class="output">
 8
@@ -315,16 +315,16 @@ print(resultat)</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: La més curta a la llista</h3>
-          <p>Escriu una funció anomenada <code class="inline">mes_curta</code>, que pren una llista de cadenes com a argument. La funció retorna qualsevol de les cadenes que sigui la més curta. Si més d'una és igual de curta, la funció pot retornar qualsevol de les cadenes més curtes. Pots assumir que no hi haurà cadenes buides a la llista.</p>
-          <pre><code class="language-python">la_meva_llista = ["first", "second", "fourth", "eleventh"]
+          <h3>Exercici 11: La més curta a la llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">mes_curta</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció retorna qualsevol de les cadenes que sigui la més curta. Si més d'una és igual de curta, la funció pot retornar qualsevol de les cadenes més curtes. Pots assumir que no hi haurà cadenes buides a la llista.</p>
+          <pre><code class="language-python">llista = ["first", "second", "fourth", "eleventh"]
 
-resultat = mes_curta(la_meva_llista)
+resultat = mes_curta(llista)
 print(resultat)
 
-la_meva_llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-resultat = mes_curta(la_meva_llista)
+resultat = mes_curta(llista)
 print(resultat)</code></pre>
           <pre class="output">
 first
@@ -333,17 +333,17 @@ tim</pre
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Totes les més llargues de la llista</h3>
-          <p>Escriu una funció anomenada <code class="inline">totes_les_mes_llargues</code>, que pren una llista de cadenes com a argument. La funció ha de retornar una nova llista que contingui la cadena més llarga de la llista original. Si més d'una és igual de llarga, la funció ha de retornar totes les cadenes més llargues.</p>
+          <h3>Exercici 12: Totes les més llargues de la llista</h3>
+          <p>Escriu una funció anomenada <code class="inline">totes_les_mes_llargues</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció ha de retornar una nova llista que contingui la cadena més llarga de la llista original. Si més d'una és igual de llarga, la funció ha de retornar totes les cadenes més llargues.</p>
           <p>L'ordre de les cadenes a la llista retornada ha de ser el mateix que a l'original.</p>
-          <pre><code class="language-python">la_meva_llista = ["first", "second", "fourth", "eleventh"]
+          <pre><code class="language-python">llista = ["first", "second", "fourth", "eleventh"]
 
-resultat = totes_les_mes_llargues(la_meva_llista)
+resultat = totes_les_mes_llargues(llista)
 print(resultat) # ['eleventh']
 
-la_meva_llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-resultat = totes_les_mes_llargues(la_meva_llista)
+resultat = totes_les_mes_llargues(llista)
 print(resultat) # ['dorothy', 'richard']</code></pre>
         </div>
       </section>
@@ -352,14 +352,11 @@ print(resultat) # ['dorothy', 'richard']</code></pre>
         <ul>
           <li>
             <strong>Bucle <code class="inline">for</code></strong
-            >: Estructura de control per iterar sobre elements d'una col·lecció (llistes, cadenes). És una <strong>iteració definida</strong> on el nombre d'iteracions es determina a l'inici.
+            >: Estructura de control per iterar sobre elements d'una col·lecció (<strong>llistes</strong>, <strong>cadenes</strong>). És una <strong>iteració definida</strong> on el nombre d'iteracions es determina a l'inici.
           </li>
           <li><strong>Iteració sobre llistes</strong>: El bucle <code class="inline">for element in llista:</code> permet recórrer tots els elements sense necessitat de variables auxiliars d'índex.</li>
           <li><strong>Iteració sobre cadenes</strong>: Els bucles <code class="inline">for</code> també poden recórrer caràcters d'una cadena un per un.</li>
-          <li>
-            <strong>Conversió range a llista</strong>: La funció <code class="inline">list()</code> converteix un objecte <code>range</code>
-            en una llista amb tots els valors del rang.
-          </li>
+          <li><strong>Conversió range a llista</strong>: La funció <code class="inline">list()</code> converteix un objecte <code class="inline">range</code> en una llista amb tots els valors del rang.</li>
           <li><strong>Algorisme de cerca del millor/pitjor</strong>: Patró que utilitza una variable temporal per trobar l'element òptim en una llista comparant cada element iterativament.</li>
         </ul>
       </section>

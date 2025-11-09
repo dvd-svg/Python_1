@@ -16,23 +16,23 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Format d'un Print</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Utilitzar <strong>arguments</strong> per formatar el resultat de la comanda <code class="inline">print</code></li>
+          <li>Utilitzar <strong>arguments</strong> per formatar el resultat de la comanda <code class="inline">print()</code></li>
           <li>Emprar <strong>cadenes formatejades (f-strings)</strong> per donar format a les impressions</li>
         </ul>
       </section>
       <section id="metodes-imprimir">
         <h2>Mètodes per imprimir</h2>
-        <p>Fins ara hem après tres mètodes per formular l'argument donat a la comanda <code class="inline">print</code>.</p>
+        <p>Fins ara hem après tres mètodes per formular l'<strong>argument</strong> donat a la comanda <code class="inline">print()</code>.</p>
 
-        <p>El primer és l'operador <code class="inline">+</code> per a cadenes de text. Permet la concatenació simple de segments de text:</p>
+        <p>El primer és l'operador <code class="inline">+</code> per a <strong>cadenes de text</strong>. Permet la <strong>concatenació</strong> simple de segments de text:</p>
 
         <pre><code class="language-python">nom = "Marc"
 edat = 37
 print("Hola " + nom + " la teva edat és " + str(edat) + " anys")</code></pre>
 
-        <p>Aquest mètode no funcionarà si algun dels segments no és una cadena de text. A l'exemple anterior, la variable <code class="inline">edat</code> s'ha convertit en una cadena amb la funció <code class="inline">str</code>, ja que és un enter i no es pot concatenar tal com està.</p>
+        <p>Aquest mètode no funcionarà si algun dels segments no és una <code class="inline">cadena</code> de text. A l'exemple anterior, la variable <code class="inline">edat</code> s'ha convertit en una cadena amb la funció <code class="inline">str()</code>, ja que és un <code class="inline">enter</code> i no es pot concatenar tal com està.</p>
       </section>
 
       <section id="metode-comes">
@@ -41,7 +41,7 @@ print("Hola " + nom + " la teva edat és " + str(edat) + " anys")</code></pre>
 
         <pre><code class="language-python">print("Hola", nom, "la teva edat és", edat, "anys")</code></pre>
 
-        <p>Aquest codi produeix exactament el mateix resultat que la versió anterior. La comanda <code class="inline">print</code> normalment afegeix un espai entre cada argument. L'avantatge aquí és que els segments poden ser de tipus diferents, de manera que no cal convertir res en una cadena de text.</p>
+        <p>Aquest codi produeix exactament el mateix resultat que la versió anterior. La comanda <code class="inline">print()</code> normalment afegeix un espai entre cada argument. L'avantatge aquí és que els segments poden ser de <strong>tipus diferents</strong>, de manera que no cal convertir res en una cadena de text.</p>
 
         <p>Si vols eliminar els espais afegits automàticament, pots afegir un argument especial amb nom <code class="inline">sep</code>:</p>
 
@@ -50,7 +50,7 @@ print("Hola " + nom + " la teva edat és " + str(edat) + " anys")</code></pre>
         <p>Això imprimeix:</p>
         <pre class="output">HolaMarcla teva edat és37anys</pre>
 
-        <p>L'argument <code class="inline">sep=""</code> és un argument de paraula clau, i el seu nom és l'abreviatura de separador. Especifica que els altres arguments ara s'han de separar per una cadena buida. Pots establir el separador a qualsevol cadena que vulguis. Per exemple, si vols que cada argument estigui en una línia separada, pots establir el separador a <code class="inline">"\n"</code>, que és el caràcter de nova línia:</p>
+        <p>L'argument <code class="inline">sep=""</code> és un argument de paraula clau, i el seu nom és l'abreviatura de <strong>separador</strong>. Especifica que els altres arguments ara s'han de separar per una cadena buida. Pots establir el separador a qualsevol cadena que vulguis. Per exemple, si vols que cada argument estigui en una línia separada, pots establir el separador a <code class="inline">"\n"</code>, que és el caràcter de <strong>nova línia</strong>:</p>
 
         <pre><code class="language-python">print("Hola", nom, "la teva edat és", edat, "anys", sep="\n")</code></pre>
 
@@ -62,7 +62,7 @@ la teva edat és
 anys</pre
         >
 
-        <p>Per defecte, la comanda <code class="inline">print</code> sempre acaba amb un caràcter de nova línia, però també pots canviar això. L'argument de paraula clau <code class="inline">end</code> especifica què es posa al final d'una línia. Establir <code class="inline">end</code> a una cadena buida significa que no hi ha cap caràcter de nova línia al final de la impressió:</p>
+        <p>Per defecte, la comanda <code class="inline">print()</code> sempre acaba amb un caràcter de nova línia, però també pots canviar això. L'argument de paraula clau <code class="inline">end</code> especifica què es posa al final d'una línia. Establir <code class="inline">end</code> a una cadena buida significa que no hi ha cap caràcter de nova línia al final de la impressió:</p>
 
         <pre><code class="language-python">print("Hola ", end="")
 print("a tots!")</code></pre>
@@ -72,27 +72,27 @@ print("a tots!")</code></pre>
 
       <section id="cadenes-formatejades">
         <h2>Cadenes formatejades (f-strings)</h2>
-        <p>El tercer mètode per preparar cadenes són les cadenes formatejades (f-strings). L'exemple anterior amb el nom i l'edat es veuria així formulat amb f-strings:</p>
+        <p>El tercer mètode per preparar cadenes són les <strong>cadenes formatejades</strong> (f-strings). L'exemple anterior amb el nom i l'edat es veuria així formulat amb f-strings:</p>
 
         <pre><code class="language-python">nom = "Erc"
 edat = 39
 print(f"Hola {nom} la teva edat és {edat} anys")</code></pre>
 
-        <p>Fins ara hem utilitzat només f-strings molt simples, però poden ser molt versàtils en el format del contingut de tipus cadena. Un cas d'ús molt comú és establir el nombre de decimals que es mostren amb un nombre <strong>float</strong>. Per defecte, el nombre és bastant alt:</p>
+        <p>Fins ara hem utilitzat només f-strings molt simples, però poden ser molt versàtils en el format del contingut de tipus cadena. Un cas d'ús molt comú és establir el nombre de decimals que es mostren amb un nombre <code class="inline">float</code>. Per defecte, el nombre és bastant alt:</p>
 
         <pre><code class="language-python">nombre = 1/3
 print(f"El nombre és {nombre}")</code></pre>
 
         <pre class="output">El nombre és 0.3333333333333333</pre>
 
-        <p>El format específic en què volem que es mostri el nombre es pot establir dins dels claus de l'expressió de la variable. Afegim un caràcter de dos punts i un especificador de format després del nom de la variable:</p>
+        <p>El format específic en què volem que es mostri el nombre es pot establir dins dels claus de l'expressió de la variable. Afegim un caràcter de dos punts i un <strong>especificador de format</strong> després del nom de la variable:</p>
 
         <pre><code class="language-python">nombre = 1/3
 print(f"El nombre és {nombre:.2f}")</code></pre>
 
         <pre class="output">El nombre és 0.33</pre>
 
-        <p>L'especificador de format <code class="inline">.2f</code> indica que volem mostrar 2 decimals. La lletra <code class="inline">f</code> al final significa que volem que la variable es mostri com a float, és a dir, un nombre <strong>float</strong>.</p>
+        <p>L'especificador de format <code class="inline">.2f</code> indica que volem mostrar 2 decimals. La lletra <code class="inline">f</code> al final significa que volem que la variable es mostri com a <code class="inline">float</code>, és a dir, un nombre <code class="inline">float</code>.</p>
 
         <p>Aquí teniu un altre exemple, on especifiquem la quantitat d'espai en blanc reservat per a la variable en la impressió. Les dues vegades que s'inclou el nom de la variable en la cadena resultant, té un espai de 15 caràcters reservat. Aquest exemple farà que cada nom ocupi 15 caràcters d'amplada, els primers noms estan justificats a l'esquerra, i després estan justificats a la dreta:</p>
 
@@ -107,7 +107,7 @@ Caterina       centre        Caterina
 Pau            centre             Pau</pre
         >
 
-        <p>Els usos de les f-strings no estan restringits a les comandes <code class="inline">print</code>. Es poden assignar a variables i combinar amb altres cadenes:</p>
+        <p>Els usos de les f-strings no estan restringits a les comandes <code class="inline">print()</code>. Es poden assignar a variables i combinar amb altres cadenes:</p>
 
         <pre><code class="language-python">nom = "Llorenç"
 edat = 48
@@ -123,14 +123,14 @@ print(salutacio + f", i vius a {ciutat}")</code></pre>
       <section id="exercici-enters-cadenes">
         <div class="exercici">
           <h3>Exercici: Enters a cadenes</h3>
-          <p>Escriu una funció anomenada <code class="inline">formatejada</code>, que pren una llista de nombres <strong>float</strong> com a argument. La funció retorna una nova llista, que conté cada element de la llista original en format de cadena, arrodonit a dos decimals. L'ordre dels elements a la llista ha de romandre sense canvis.</p>
+          <p>Escriu una funció anomenada <code class="inline">formatejada()</code>, que pren una <code class="inline">llista</code> de nombres <code class="inline">float</code> com a argument. La funció retorna una nova llista, que conté cada element de la llista original en format de cadena, arrodonit a dos decimals. L'ordre dels elements a la llista ha de romandre sense canvis.</p>
 
-          <p><strong>Pista:</strong> utilitza f-strings per formatar els nombres <strong>float</strong> en cadenes adequades.</p>
+          <p><strong>Pista:</strong> utilitza f-strings per formatar els nombres <code class="inline">float</code> en cadenes adequades.</p>
 
           <p>Exemple de comportament esperat:</p>
 
-          <pre><code class="language-python">la_meva_llista = [1.234, 0.3333, 0.11111, 3.446]
-nova_llista = formatejada(la_meva_llista)
+          <pre><code class="language-python">llista_nombres = [1.234, 0.3333, 0.11111, 3.446]
+nova_llista = formatejada(llista_nombres)
 print(nova_llista)</code></pre>
 
           <pre class="output">['1.23', '0.33', '0.11', '3.45']</pre>
