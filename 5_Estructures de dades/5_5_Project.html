@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecte Pokédex</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="Projecte">
+        <h1>Projecte: Pokédex</h1>
+
+        <h2>Objectiu</h2>
+        <p>En aquest projecte creareu una <strong>Pokédex</strong>, una aplicació de consola capaç de gestionar una col·lecció de Pokémon: afegir-los, eliminar-los, consultar-ne les estadístiques i fins i tot fer-los combatre entre ells!</p>
+
+        <p>
+          El projecte us permetrà practicar l’ús de
+          <strong>llistes</strong>, <strong>diccionaris</strong> i <strong>tuples</strong>, així com el funcionament de les <strong>referències</strong> i els <strong>efectes col·laterals</strong> dins de les funcions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Funcionalitats Principals</h2>
+
+        <h3>1. Menú Interactiu</h3>
+        <p>El vostre programa ha d’incloure un menú com aquest:</p>
+        <ul>
+          <li>1. Afegir un nou Pokémon</li>
+          <li>2. Mostrar tots els Pokémon</li>
+          <li>3. Eliminar un Pokémon</li>
+          <li>4. Filtrar Pokémon per tipus</li>
+          <li>5. Consultar estadístiques d’un Pokémon</li>
+          <li>6. Combatre entre dos Pokémon</li>
+          <li>7. Curar un Pokémon</li>
+          <li>8. Sortir del programa</li>
+        </ul>
+
+        <p>
+          El menú s’ha de repetir fins que l’usuari triï sortir, fent servir un
+          <code class="inline">while True</code>.
+        </p>
+
+        <h3>2. Estructura de Dades</h3>
+        <p>Cada Pokémon ha de ser un <strong>diccionari</strong> i com a mínim contenir les dades:</p>
+        <ul>
+          <li><strong>Nom</strong></li>
+          <li><strong>Tipus</strong></li>
+          <li><strong>Estadístiques</strong> (Vida màxima, Vida actual, Defensa, Atac)</li>
+        </ul>
+
+        <p>I tots els Pokémon s’han de guardar dins d’una <strong>llista</strong> anomenada <code class="inline">pokedex</code>:</p>
+
+        <pre class="language-python"><code>pokedex = []</code></pre>
+
+        <h3>3. Funcionalitats Bàsiques</h3>
+        <ul>
+          <li><strong>Afegir Pokémon:</strong> demanar nom, tipus i estadístiques, només hi pot haver un pokemon de cada.</li>
+          <li><strong>Eliminar Pokémon:</strong> cercar pel nom i eliminar-lo de la llista.</li>
+          <li><strong>Mostrar Pokédex:</strong> llistar tots els Pokémon registrats.</li>
+          <li><strong>Filtrar per tipus:</strong> mostrar només els Pokémon que continguin un tipus concret.</li>
+          <li><strong>Consultar estadístiques:</strong> mostrar les dades detallades d’un Pokémon seleccionat.</li>
+        </ul>
+
+        <h3>4. Sistema de Combat</h3>
+        <p>
+          Afegiu una funció <code class="inline">combat(pokemon1, pokemon2)</code>
+          on un Pokémon ataca un altre. El dany causat és la diferència entre l’atac de l’atacant i la defensa del defensor. Si el resultat és negatiu, no hi ha dany, després de cada ronda d'atacs l'usuari ha de tenir l'opció de parar el combat. La vida d'un pokemon no pot ser inferior a 0 i els pokemons que estiguin a 0 de vida no poden combatre.
+        </p>
+
+        <h3>5. Curar Pokémon</h3>
+        <p>Creeu una funció <code class="inline">curar(pokemon)</code> que permeti recuperar punts de vida al vostre Pokémon.</p>
+
+        <h3>Exemple de Funcionament</h3>
+        <pre class="output">
+================================
+           POKÉDEX
+================================
+1. Afegir Pokémon
+2. Mostrar tots els Pokémon
+3. Eliminar Pokémon
+4. Filtrar per tipus
+5. Consultar estadístiques
+6. Combatre
+7. Curar Pokémon
+8. Sortir
+================================
+Tria una opció: 1
+--------------------------------
+Nom: Bulbasaur
+Tipus (separats per comes): planta, verí
+Vida: 45
+Atac: 49
+Defensa: 49
+Bulbasaur afegit correctament!
+
+Tria una opció: 1
+--------------------------------
+Nom: Charmander
+Tipus (separats per comes): foc
+Vida: 39
+Atac: 52
+Defensa: 43
+Charmander afegit correctament!
+
+Tria una opció: 6
+--------------------------------
+Charmander ataca Bulbasaur i li causa 3 punts de dany!
+Vida actual de Bulbasaur: 42
+        </pre>
+      </section>
+
+      <section>
+        <h3>Estructura Recomanada</h3>
+        <p>Separeu les parts del vostre programa en funcions per mantenir el codi net i fàcil de modificar.</p>
+        <ul>
+          <li><code class="inline">mostrar_menu()</code> – Mostra les opcions disponibles</li>
+          <li><code class="inline">afegir_pokemon()</code> – Afegeix un nou Pokémon</li>
+          <li><code class="inline">mostrar_pokedex()</code> – Mostra tots els Pokémon</li>
+          <li><code class="inline">eliminar_pokemon()</code> – Esborra un Pokémon pel seu nom</li>
+          <li><code class="inline">filtrar_per_tipus()</code> – Filtra la Pokédex per tipus</li>
+          <li><code class="inline">consultar_pokemon()</code> – Mostra estadístiques d’un Pokémon</li>
+          <li><code class="inline">combat()</code> – Simula un atac entre dos Pokémon</li>
+          <li><code class="inline">curar()</code> – Restaura punts de vida d’un Pokémon</li>
+        </ul>
+
+        <h3>Reptes Addicionals:</h3>
+        <ul>
+          <li>Afegir un sistema d’<strong>avantatges de tipus</strong>: el foc és fort contra planta, la planta contra aigua, i l’aigua contra foc.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="5_4_Tuples.html">
+              <span class="tornar">←</span>
+              <h3>5.4 Tuples</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

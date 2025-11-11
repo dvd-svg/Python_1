@@ -16,7 +16,7 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Referències</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Saber què significa una <strong>referència</strong> a una variable</li>
           <li>Entendre que pot haver-hi <strong>múltiples referències</strong> al mateix objecte</li>
@@ -39,7 +39,7 @@ print(id(b))</code></pre>
 4538357072
 4537788912</pre
         >
-        <p>La referència, o l'ID de la variable, és un enter, que es pot considerar com l'adreça a la memòria de l'ordinador on s'emmagatzema el valor de la variable. Si executeu el codi anterior al vostre ordinador, el resultat probablement serà diferent, ja que les vostres variables apuntaran a ubicacions diferents - les referències seran diferents.</p>
+        <p>La referència, o l'ID de la variable, és un <code class="inline">enter</code>, que es pot considerar com l'adreça a la memòria de l'ordinador on s'emmagatzema el valor de la variable. Si executeu el codi anterior al vostre ordinador, el resultat probablement serà diferent, ja que les vostres variables apuntaran a ubicacions diferents - les referències seran diferents.</p>
         <p>L'<a href="https://pythontutor.com/python-compiler.html#mode=edit" target="_blank">eina de visualització Python Tutor</a> també mostra les referències com a fletxes des de la variable fins al contingut real, com vam veure a la secció anterior. L'eina "enganya" una mica quan es tracta de cadenes de text, però. Mostra les cadenes com si s'emmagatzemessin a les variables mateixes:</p>
         <img src="../public/Referencies_tutor.png" alt="diagrama d'una referència" />
         <p>En realitat, les cadenes de text de Python es gestionen de manera molt similar a les llistes, amb referències a ubicacions de memòria.</p>
@@ -103,15 +103,15 @@ print(llista2)</code></pre>
       <section id="copiar-una-llista">
         <h2>Copiar una llista</h2>
         <p>Si voleu crear una còpia separada real d'una llista, podeu crear una llista nova i afegir cada element de la llista original al seu torn:</p>
-        <pre><code class="language-python">la_meva_llista = [1, 2, 3, 3, 5]
+        <pre><code class="language-python">llista_original = [1, 2, 3, 3, 5]
 
 nova_llista = []
-for element in la_meva_llista:
+for element in llista_original:
     nova_llista.append(element)
 
 nova_llista[0] = 10
 nova_llista.append(6)
-print("l'original:", la_meva_llista)
+print("l'original:", llista_original)
 print("la còpia:", nova_llista)</code></pre>
         <pre class="output">
 l'original: [1, 2, 3, 3, 5]
@@ -119,15 +119,15 @@ la còpia: [10, 2, 3, 3, 5, 6]</pre
         >
         <p>Una instantània del procés de còpia a l'<a target="_blank" href="https://pythontutor.com/python-compiler.html#mode=edit">eina de visualització</a>:</p>
         <img src="../public/Copia_valors.png" alt="copia de només els valors d'una llista" />
-        <p>La variable <code class="inline">nova_llista</code> apunta a una llista diferent de la variable <code class="inline">la_meva_llista</code>.</p>
+        <p>La variable <code class="inline">nova_llista</code> apunta a una llista diferent de la variable <code class="inline">llista_original</code>.</p>
         <p>Una manera més fàcil de copiar una llista és l'operador de claudàtors <code class="inline">[]</code>, que vam utilitzar per a retalls anteriorment. La notació <code class="inline">[:]</code> selecciona tots els elements de la col·lecció. Com a efecte secundari, crea una còpia de la llista:</p>
-        <pre><code class="language-python">la_meva_llista = [1,2,3,4]
-nova_llista = la_meva_llista[:]
+        <pre><code class="language-python">llista_original = [1,2,3,4]
+nova_llista = llista_original[:]
 
-la_meva_llista[0] = 10
+llista_original[0] = 10
 nova_llista[1] = 20
 
-print(la_meva_llista)
+print(llista_original)
 print(nova_llista)</code></pre>
         <pre class="output">
 [10, 2, 3, 4]
@@ -139,9 +139,9 @@ print(nova_llista)</code></pre>
         <h2>Utilitzar llistes com a paràmetres en funcions</h2>
         <p>Quan passes una llista com a argument a una funció, estàs passant una referència a aquesta llista. Això significa que la funció pot modificar la llista directament.</p>
         <p>La següent funció pren una llista com a argument i afegeix un element nou al final de la llista:</p>
-        <pre><code class="language-python">def afegeix_element(la_meva_llista: list):
+        <pre><code class="language-python">def afegeix_element(llista: list):
     nou_element = 10
-    la_meva_llista.append(nou_element)
+    llista.append(nou_element)
 
 una_llista = [1,2,3]
 print(una_llista)
@@ -156,9 +156,9 @@ print(una_llista)</code></pre>
         <img src="../public/Visualitzacio.png" alt="visualització" />
         <p>El marc global es refereix a les variables definides a la funció principal, mentre que el marc <code class="inline">afegeix_element</code> amb fons blau representa els paràmetres i les variables dins d'aquesta funció. Com podeu veure a la visualització, la funció <code class="inline">afegeix_element</code> es refereix exactament a la mateixa llista que la funció principal. Els canvis fets dins de la funció <code class="inline">afegeix_element</code> també afecten la funció principal.</p>
         <p>Una altra manera d'implementar aquesta funcionalitat seria crear una llista nova dins de la funció i retornar-la:</p>
-        <pre><code class="language-python">def afegeix_element(la_meva_llista: list) -> list:
+        <pre><code class="language-python">def afegeix_element(llista: list) -> list:
     nou_element = 10
-    copia_llista = la_meva_llista[:]
+    copia_llista = llista[:]
     copia_llista.append(nou_element)
     return copia_llista
 
@@ -177,11 +177,11 @@ nova llista: [1, 2, 3, 10]</pre
       <section id="editar-una-llista-donada-com-argument">
         <h2>Editar una llista donada com a argument</h2>
         <p>El següent és un intent de funció que hauria d'augmentar cada element d'una llista en deu:</p>
-        <pre><code class="language-python">def augmenta_tot(la_meva_llista: list):
+        <pre><code class="language-python">def augmenta_tot(llista: list):
     nova_llista = []
-    for element in la_meva_llista:
+    for element in llista:
         nova_llista.append(element + 10)
-    la_meva_llista = nova_llista
+    llista = nova_llista
 
 numeros = [1, 2, 3]
 print("al principi:", numeros)
@@ -192,47 +192,47 @@ al principi: [1, 2, 3]
 després d'executar la funció: [1, 2, 3]</pre
         >
         <p>Per alguna raó la funció no funciona, així que què està passant?</p>
-        <p>La funció pren una referència a una llista com a argument. Això s'emmagatzema a la variable <code class="inline">la_meva_llista</code>. L'assignació <code class="inline">la_meva_llista = nova_llista</code> assigna un valor nou a aquesta mateixa variable. La variable <code class="inline">la_meva_llista</code> ara apunta a la nova llista creada dins de la funció, i la referència a la llista original ja no està disponible dins de la funció. No obstant això, aquesta assignació no té efecte fora de la funció.</p>
+        <p>La funció pren una referència a una llista com a argument. Això s'emmagatzema a la variable <code class="inline">llista</code>. L'assignació <code class="inline">llista = nova_llista</code> assigna un valor nou a aquesta mateixa variable. La variable <code class="inline">llista</code> ara apunta a la nova llista creada dins de la funció, i la referència a la llista original ja no està disponible dins de la funció. No obstant això, aquesta assignació no té efecte fora de la funció.</p>
         <p>A més, la variable <code class="inline">nova_llista</code>, que conté els valors nous augmentats, no és accessible des de fora de la funció. Es "perd" quan s'acaba l'execució de la funció i el focus torna a la funció principal. La variable <code class="inline">numeros</code> a la funció principal sempre apunta a la llista original.</p>
         <p>L'<a target="_blank" href="https://pythontutor.com/python-compiler.html#mode=edit">eina de visualització</a> és la teva amiga aquí també. Si us plau, passeu pels estadis amb cura i vegeu com la llista original no es veu afectada per l'execució de la funció en absolut:</p>
         <img src="../public/Visualitzacio2.png" alt="visualització" />
         <p>Una manera de solucionar això és copiar tots els elements de la nova llista a la llista antiga, un per un:</p>
-        <pre><code class="language-python">def augmenta_tot(la_meva_llista: list):
+        <pre><code class="language-python">def augmenta_tot(llista: list):
     nova_llista = []
-    for element in la_meva_llista:
+    for element in llista:
         nova_llista.append(element + 10)
 
     # copia elements de la nova llista a la llista antiga
-    for i in range(len(la_meva_llista)):
-        la_meva_llista[i] = nova_llista[i]</code></pre>
+    for i in range(len(llista)):
+        llista[i] = nova_llista[i]</code></pre>
         <p>Python també té una forma abreujada per assignar múltiples elements en una col·lecció alhora:</p>
-        <pre><code class="language-python">>>> la_meva_llista = [1, 2, 3, 4]
->>> la_meva_llista[1:3] = [10, 20]
->>> la_meva_llista
+        <pre><code class="language-python">>>> llista = [1, 2, 3, 4]
+>>> llista[1:3] = [10, 20]
+>>> llista
 [1, 10, 20, 4]</code></pre>
         <p>A l'exemple anterior, s'assignen valors d'una altra col·lecció a un retall de la llista.</p>
         <p>Com sabem, un retall pot incloure tota la col·lecció:</p>
-        <pre><code class="language-python">>>> la_meva_llista = [1, 2, 3, 4]
->>> la_meva_llista[:] = [100, 99, 98, 97]
->>> la_meva_llista
+        <pre><code class="language-python">>>> llista = [1, 2, 3, 4]
+>>> llista[:] = [100, 99, 98, 97]
+>>> llista
 [100, 99, 98, 97]</code></pre>
         <p>Es reemplacen tots els continguts de la llista antiga. Inspirat en això, una versió funcional de la funció d'augmentar podria tenir aquest aspecte:</p>
-        <pre><code class="language-python">def augmenta_tot(la_meva_llista: list):
+        <pre><code class="language-python">def augmenta_tot(llista: list):
     nova_llista = []
-    for element in la_meva_llista:
+    for element in llista:
         nova_llista.append(element + 10)
 
-    la_meva_llista[:] = nova_llista</code></pre>
+    llista[:] = nova_llista</code></pre>
         <p>En realitat, no cal crear una llista nova dins de la funció en absolut. Podem assignar directament els nous valors a la llista original:</p>
-        <pre><code class="language-python">def augmenta_tot(la_meva_llista: list):
-    for i in range(len(la_meva_llista)):
-        la_meva_llista[i] += 10</code></pre>
+        <pre><code class="language-python">def augmenta_tot(llista: list):
+    for i in range(len(llista)):
+        llista[i] += 10</code></pre>
       </section>
 
-      <section id="exercicis-pràctics">
+      <section id="exercicis-practics">
         <div class="exercici">
           <h3>Exercici: Elements multiplicats per dos</h3>
-          <p>Escriviu una funció anomenada <code class="inline">duplica_elements(numeros: list)</code>, que pren una llista d'enters com a argument.</p>
+          <p>Escriviu una funció anomenada <code class="inline">duplica_elements(numeros: list)</code>, que pren una llista d'<code class="inline">enters</code> com a argument.</p>
           <p>La funció ha de retornar una llista nova, que contingui tots els valors de la llista original duplicats. La funció no ha de canviar la llista original.</p>
           <p>Un exemple de la funció en funcionament:</p>
           <pre><code class="language-python">if __name__ == "__main__":
@@ -248,7 +248,7 @@ duplicats: [4, 8, 10, 6, 22, -8]</pre
 
         <div class="exercici">
           <h3>Exercici: Elimina el més petit</h3>
-          <p>Escriviu una funció anomenada <code class="inline">elimina_menor(numeros: list)</code>, que pren una llista d'enters com a argument.</p>
+          <p>Escriviu una funció anomenada <code class="inline">elimina_menor(numeros: list)</code>, que pren una llista d'<code class="inline">enters</code> com a argument.</p>
           <p>La funció ha de trobar i eliminar l'element més petit de la llista. Podeu assumir que hi ha un únic element més petit a la llista.</p>
           <p>La funció no ha de tenir valor de retorn - ha de modificar directament la llista que rep com a paràmetre.</p>
           <p>Un exemple de com funciona la funció:</p>
@@ -312,11 +312,11 @@ _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _</pre
           >
           <p><strong>Pista</strong></p>
-          <p>Recordeu que és possible cridar la funció print sense causar un canvi de línia:</p>
+          <p>Recordeu que és possible cridar la funció <code class="inline">print</code> sense causar un canvi de línia:</p>
           <pre><code class="language-python">print("caràcters ", end="")
 print("sense retorns de carro", end="")</code></pre>
           <pre class="output">caràcters sense retorns de carro</pre>
-          <p>A vegades només necessiteu una línia nova, que una sentència print sense cap argument aconseguirà:</p>
+          <p>A vegades només necessiteu una línia nova, que una sentència <code class="inline">print</code> sense cap argument aconseguirà:</p>
           <pre><code class="language-python">print()</code></pre>
         </div>
 
@@ -397,7 +397,7 @@ True
 
         <div class="exercici">
           <h3>Exercici: Transposa una matriu</h3>
-          <p>Escriviu una funció anomenada <code class="inline">transposa(matriu: list)</code>, que pren una matriu d'enters bidimensional, és a dir, una matriu, com a argument. La funció ha de transposar la matriu. Transposar significa bàsicament girar la matriu sobre la seva diagonal: les columnes es converteixen en files i les files es converteixen en columnes.</p>
+          <p>Escriviu una funció anomenada <code class="inline">transposa(matriu: list)</code>, que pren una matriu d'<code class="inline">enters</code> bidimensional, és a dir, una matriu, com a argument. La funció ha de transposar la matriu. Transposar significa bàsicament girar la matriu sobre la seva diagonal: les columnes es converteixen en files i les files es converteixen en columnes.</p>
           <p>Podeu assumir que la matriu és una matriu quadrada, de manera que tindrà un nombre igual de files i columnes.</p>
           <p>La següent matriu</p>
           <pre class="output">
@@ -419,10 +419,10 @@ True
         <h2>Efectes secundaris de les funcions</h2>
         <p>Si una funció pren una referència a una llista com a argument, podrà modificar aquesta llista. Si no es pretenien modificacions directes, modificar accidentalment la llista rebuda com a paràmetre podria causar problemes a altres parts del programa.</p>
         <p>Vegem una funció que se suposa que ha de trobar el segon element més petit d'una llista:</p>
-        <pre><code class="language-python">def segon_menor(la_meva_llista: list) -> int:
+        <pre><code class="language-python">def segon_menor(llista: list) -> int:
     # en una llista ordenada, el segon element més petit està a l'índex 1
-    la_meva_llista.sort()
-    return la_meva_llista[1]
+    llista.sort()
+    return llista[1]
 
 numeros = [1, 4, 2, 5, 3, 6, 4, 7]
 print(segon_menor(numeros))
@@ -433,8 +433,8 @@ print(numeros)</code></pre>
         >
         <p>La funció troba el segon element més petit de manera fiable, però a més ordena la llista in situ, canviant l'ordre dels elements. Si l'ordre és significatiu en altres parts del programa, cridar la funció podria causar errors. Les modificacions no intencionades a un objecte accedit a través d'una referència s'anomenen <strong>efecte secundari</strong> d'una funció.</p>
         <p>Podem evitar l'efecte secundari fent un petit canvi a la funció:</p>
-        <pre><code class="language-python">def segon_menor(la_meva_llista: list) -> int:
-    copia_llista = sorted(la_meva_llista)
+        <pre><code class="language-python">def segon_menor(llista: list) -> int:
+    copia_llista = sorted(llista)
     return copia_llista[1]
 
 numeros = [1, 4, 2, 5, 3, 6, 4, 7]

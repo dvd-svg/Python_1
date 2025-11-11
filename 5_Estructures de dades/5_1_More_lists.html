@@ -16,16 +16,16 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Més llistes</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Seràs capaç de <strong>crear llistes amb diferents tipus d'elements</strong></li>
-          <li>Sabràs <strong>utilitzar llistes per organitzar dades</strong></li>
-          <li>Seràs capaç d'<strong>emmagatzemar una matriu com a llista bidimensional</strong></li>
+          <li>Crear <strong>llistes amb diferents tipus d'elements</strong></li>
+          <li>utilitzar llistes per <strong>organitzar dades</strong></li>
+          <li>Emmagatzemar una <strong>matriu</strong> com a llista bidimensional</li>
         </ul>
       </section>
       <section id="llistes-diferents-tipus">
         <h2>Llistes amb diferents tipus de dades</h2>
-        <p>En la part anterior vam treballar principalment amb llistes d'enters, però qualsevol tipus de valors es pot emmagatzemar en llistes. Una llista de cadenes de text podria ser així:</p>
+        <p>En la part anterior vam treballar principalment amb <strong>llistes</strong> d'<strong>enters</strong>, però qualsevol tipus de valors es pot emmagatzemar en llistes. Una <code class="inline">llista</code> de <strong>cadenes de text</strong> podria ser així:</p>
 
         <pre><code class="language-python">noms = ["Marta", "Ruth", "Pau"]
 print(noms)
@@ -49,7 +49,7 @@ Pau
 Ruth</pre
         >
 
-        <p>Els nombres de punt flotant també són elements vàlids per a les llistes:</p>
+        <p>Els <strong>nombres de punt flotant</strong> també són elements vàlids per a les llistes:</p>
 
         <pre><code class="language-python">mesures = [-2.5, 1.1, 7.5, 14.6, 21.0, 19.2]
 
@@ -72,7 +72,7 @@ La mitjana és: 10.15</pre
       </section>
       <section id="advertencia-sobrescriure-parametre">
         <h2>Advertència: sobreescriure un paràmetre i retornar massa aviat</h2>
-        <p>Hi ha un parell de fonts noves d'errors que hauríem de mirar abans de saltar als exercicis d'aquesta part. Vegem una funció que ens diu si un enter es troba dins d'una llista. Tots dos es defineixen com a paràmetres de la funció:</p>
+        <p>Hi ha un parell de <strong>fonts d'errors</strong> que hauríem de mirar abans de saltar als exercicis d'aquesta part. Vegem una <code class="inline">funció</code> que ens diu si un <code class="inline">enter</code> es troba dins d'una <code class="inline">llista</code>. Tots dos es defineixen com a <strong>paràmetres</strong> de la funció:</p>
 
         <pre><code class="language-python">def nombre_a_llista(nombres: list, nombre: int):
     for nombre in nombres:
@@ -81,7 +81,7 @@ La mitjana és: 10.15</pre
         else:
             return False</code></pre>
 
-        <p>Aquesta funció sembla retornar sempre <code class="inline">True</code>. La raó és que el bucle for sobreescriu el valor emmagatzemat al paràmetre <code class="inline">nombre</code>. Així la condició en la sentència if sempre és certa.</p>
+        <p>Aquesta funció sembla retornar sempre <code class="inline">True</code>. La raó és que el <code class="inline">bucle for</code> sobreescriu el valor emmagatzemat al <code class="inline">paràmetre</code> <code class="inline">nombre</code>. Així la <code class="inline">condició</code> en la <code class="inline">sentència if</code> sempre és certa.</p>
 
         <p>Canviar el nom del paràmetre resol el problema:</p>
 
@@ -97,7 +97,7 @@ La mitjana és: 10.15</pre
         <pre><code class="language-python">trobat = nombre_a_llista([1, 2, 3, 4], 3)
 print(trobat)  # imprimeix False</code></pre>
 
-        <p>El problema aquí és que la funció retorna massa aviat, sense comprovar tots els nombres de la llista. De fet, la funció només agafa el primer element de la llista, i retorna <code class="inline">True</code> o <code class="inline">False</code> depenent del seu valor. No podem saber si un nombre no està present a la llista fins que no hem comprovat tots els elements de la llista. La comanda <code class="inline">return False</code> s'ha de col·locar fora del bucle for:</p>
+        <p>El problema aquí és que la funció <strong>retorna massa aviat</strong>, sense comprovar tots els elements de la llista. De fet, la funció només agafa el primer element de la llista, i retorna <code class="inline">True</code> o <code class="inline">False</code> depenent del seu valor. No podem saber si un nombre no està present a la llista fins que no hem comprovat tots els elements de la llista. La comanda <code class="inline">return False</code> s'ha de col·locar fora del bucle for:</p>
 
         <pre><code class="language-python">def nombre_a_llista(nombres: list, nombre_cercat: int):
     for nombre in nombres:
@@ -140,7 +140,7 @@ print(unic)  # imprimeix True</code></pre>
 unic = nombres_unics([1, 2, 2])
 print(unic)  # imprimeix False</code></pre>
 
-        <p>Problemes com aquest, i molts altres, es poden localitzar i arreglar amb l'ajuda del depurador o l'eina de visualització. Aprendre a utilitzar aquestes eficientment no es pot emfatitzar prou.</p>
+        <p>Problemes com aquest, i molts altres, es poden localitzar i arreglar amb l'ajuda del <strong>depurador</strong> o l'eina de visualització. Aprendre a utilitzar aquestes eines eficientment no es pot emfatitzar prou.</p>
       </section>
 
       <section id="exercici-cadena-llarga">
@@ -160,12 +160,12 @@ print(unic)  # imprimeix False</code></pre>
 
       <section id="llistes-dins-llistes">
         <h2>Llistes dins de llistes</h2>
-        <p>Els elements d'una llista poden ser llistes elles mateixes:</p>
+        <p>Els elements d'una <code class="inline">llista</code> poden ser llistes elles mateixes:</p>
 
-        <pre><code class="language-python">la_meva_llista = [[5, 2, 3], [4, 1], [2, 2, 5, 1]]
-print(la_meva_llista)
-print(la_meva_llista[1])
-print(la_meva_llista[1][0])</code></pre>
+        <pre><code class="language-python">llista = [[5, 2, 3], [4, 1], [2, 2, 5, 1]]
+print(llista)
+print(llista[1])
+print(llista[1][0])</code></pre>
 
         <pre class="output">
 [[5, 2, 3], [4, 1], [2, 2, 5, 1]]
@@ -196,14 +196,14 @@ Emília: edat 32 anys, alçada 1.64 metres
 Alan: edat 39 anys, alçada 1.78 metres</pre
         >
 
-        <p>El bucle for passa pels elements de la llista exterior un per un. És a dir, cada llista que conté informació sobre una sola persona s'assigna, al seu torn, a la variable <code class="inline">persona</code>.</p>
+        <p>El <code class="inline">bucle for</code> passa pels elements de la llista exterior un per un. És a dir, cada llista que conté informació sobre una sola persona s'assigna, al seu torn, a la variable <code class="inline">persona</code>.</p>
 
-        <p>Les llistes no sempre són la millor manera de presentar dades, com la informació sobre una persona. Aviat ens trobarem amb els diccionaris de Python, que sovint són més adequats per a aquestes situacions.</p>
+        <p>Les llistes no sempre són la millor manera de presentar dades, com la informació sobre una persona. Aviat ens trobarem amb els <strong>diccionaris</strong> de Python, que sovint són més adequats per a aquestes situacions.</p>
       </section>
 
       <section id="matrius">
         <h2>Matrius</h2>
-        <p>Una matriu bidimensional, o simplement una matriu, també és una aplicació natural d'una llista dins d'una llista.</p>
+        <p>Una <strong>matriu bidimensional</strong>, o simplement una matriu, també és una aplicació natural d'una llista dins d'una llista.</p>
 
         <p>Per exemple, la següent matriu</p>
 
@@ -211,15 +211,15 @@ Alan: edat 39 anys, alçada 1.78 metres</pre
 
         <p>es podria presentar com una llista bidimensional en Python així:</p>
 
-        <pre><code class="language-python">la_meva_matriu = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]</code></pre>
+        <pre><code class="language-python">matriu = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]</code></pre>
 
-        <p>Com que una matriu és una llista que conté llistes, els elements individuals dins de la matriu es poden accedir utilitzant claudàtors consecutius. El primer índex es refereix a la fila, i el segon a la columna. La indexació comença des de zero, així per exemple <code class="inline">la_meva_matriu[0][1]</code> es refereix al segon element de la primera fila.</p>
+        <p>Com que una matriu és una llista que conté llistes, els elements individuals dins de la matriu es poden accedir utilitzant claudàtors consecutius. El primer índex es refereix a la fila, i el segon a la columna. La indexació comença des de zero, així per exemple <code class="inline">matriu[0][1]</code> es refereix al segon element de la primera fila.</p>
 
-        <pre><code class="language-python">la_meva_matriu = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
+        <pre><code class="language-python">matriu = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
 
-print(la_meva_matriu[0][1])
-la_meva_matriu[1][0] = 10
-print(la_meva_matriu)</code></pre>
+print(matriu[0][1])
+matriu[1][0] = 10
+print(matriu)</code></pre>
 
         <pre class="output">
 2
@@ -228,9 +228,9 @@ print(la_meva_matriu)</code></pre>
 
         <p>Com qualsevol altra llista, les files de la matriu es poden recórrer amb un bucle for. El codi següent imprimeix cada fila de la matriu en una línia separada:</p>
 
-        <pre><code class="language-python">la_meva_matriu = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        <pre><code class="language-python">matriu = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-for fila in la_meva_matriu:
+for fila in matriu:
     print(fila)</code></pre>
 
         <pre class="output">
@@ -239,11 +239,11 @@ for fila in la_meva_matriu:
 [7, 8, 9]</pre
         >
 
-        <p>De la mateixa manera, es poden utilitzar bucles niats per accedir als elements individuals. El codi següent imprimeix cada element de la matriu en una línia separada amb l'ajuda de dos bucles for:</p>
+        <p>De la mateixa manera, es poden utilitzar <strong>bucles niats</strong> per accedir als elements individuals. El codi següent imprimeix cada element de la matriu en una línia separada amb l'ajuda de dos bucles for:</p>
 
-        <pre><code class="language-python">la_meva_matriu = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        <pre><code class="language-python">matriu = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-for fila in la_meva_matriu:
+for fila in matriu:
     print("una nova fila")
     for element in fila:
         print(element)</code></pre>
@@ -281,9 +281,9 @@ una nova fila
         <h2>Accedir a elements en una matriu</h2>
         <p>Accedir a una sola fila dins d'una matriu és simple - només cal triar la fila desitjada. La següent funció calcula la suma dels elements en una fila triada:</p>
 
-        <pre><code class="language-python">def suma_fila(la_meva_matriu, numero_fila: int):
+        <pre><code class="language-python">def suma_fila(matriu, numero_fila: int):
     # tria la fila desitjada dins de la matriu
-    fila = la_meva_matriu[numero_fila]
+    fila = matriu[numero_fila]
     suma_fila = 0
     for element in fila:
         suma_fila += element
@@ -297,10 +297,10 @@ print(la_meva_suma) # imprimeix 33 (que equival a 9 + 1 + 12 + 11)</code></pre>
 
         <p>Treballar amb columnes dins d'una matriu és una mica més complicat, ja que la matriu s'emmagatzema per files:</p>
 
-        <pre><code class="language-python">def suma_columna(la_meva_matriu, numero_columna: int):
+        <pre><code class="language-python">def suma_columna(matriu, numero_columna: int):
     # passa per cada fila i selecciona l'element a la posició triada
     suma_columna = 0
-    for fila in la_meva_matriu:
+    for fila in matriu:
         suma_columna += fila[numero_columna]
 
     return suma_columna
@@ -316,9 +316,9 @@ print(la_meva_suma) # imprimeix 39 (que equival a 3 + 12 + 9 + 15)</code></pre>
 
         <p>Canviar el valor d'un sol element dins de la matriu és simple: tria una fila dins de la matriu, i després una columna dins de la fila:</p>
 
-        <pre><code class="language-python">def canviar_valor(la_meva_matriu, numero_fila: int, numero_columna: int, nou_valor: int):
+        <pre><code class="language-python">def canviar_valor(matriu, numero_fila: int, numero_columna: int, nou_valor: int):
     # tria la fila desitjada
-    fila = la_meva_matriu[numero_fila]
+    fila = matriu[numero_fila]
     # selecciona l'element correcte dins de la fila
     fila[numero_columna] = nou_valor
 
@@ -353,7 +353,7 @@ print(m)</code></pre>
       <section id="exercici-elements-coincidents">
         <div class="exercici">
           <h3>Exercici: Nombre d'elements coincidents</h3>
-          <p>Escriu una funció anomenada <code class="inline">comptar_elements_coincidents(la_meva_matriu: list, element: int)</code>, que rep una matriu bidimensional d'enters i un sol valor enter com a arguments. La funció llavors compta quants elements dins de la matriu coincideixen amb el valor de l'argument.</p>
+          <p>Escriu una funció anomenada <code class="inline">comptar_elements_coincidents(matriu: list, element: int)</code>, que rep una matriu bidimensional d'enters i un sol valor enter com a arguments. La funció llavors compta quants elements dins de la matriu coincideixen amb el valor de l'argument.</p>
 
           <p>Exemple de com hauria de funcionar la funció:</p>
 
@@ -410,8 +410,6 @@ imprimir_graella(sudoku)</code></pre>
  _ _ 1 _ _ _ _ _ 3
  3 _ _ _ _ _ _ _ 2</pre
         >
-
-        <p>Qualsevol joc comú amb una disposició de tauler de joc es pot modelar de manera similar. Entre d'altres, els escacs, el Buscamines, el Joc dels vaixells o el Mastermind es basen tots en una graella bidimensional. Per al sudoku, és natural utilitzar nombres per representar l'estat del joc, però per a altres jocs, poden ser millors mètodes diferents.</p>
       </section>
 
       <section id="exercici-go">

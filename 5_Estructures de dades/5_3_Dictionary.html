@@ -16,7 +16,7 @@
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
         <h1>Diccionaris</h1>
-        <h2>Objectius d’aprenentatge</h2>
+        <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
           <li>Familiaritzar-te amb l'<strong>estructura de dades del diccionari</strong> i les seves característiques principals</li>
           <li>Ser capaç d'utilitzar un diccionari amb <strong>diferents tipus de claus i valors</strong> segons les necessitats</li>
@@ -26,32 +26,35 @@
       </section>
       <section id="diccionaris-introduccio">
         <h2>Diccionaris</h2>
-        <p>Les llistes poden ser útils en moltes situacions, però estan limitades pel fet que els elements s'accedeixen mitjançant índexs; 0, 1, 2, i així successivament. Si vols trobar algun element en una llista, hauràs de conèixer el seu índex o, en el pitjor dels casos, recórrer tota la llista.</p>
-        <p>Una altra <strong>estructura de dades central</strong> en Python és el <strong>diccionari</strong>. En un diccionari, els elements s'indexen per claus. Cada clau assigna a un valor. Els valors emmagatzemats en el diccionari es poden accedir i canviar utilitzant la clau.</p>
+        <p>Les <code class="inline">llistes</code> poden ser útils en moltes situacions, però estan limitades pel fet que els elements s'accedeixen mitjançant <strong>índexs</strong>: 0, 1, 2, i així successivament. Si vols trobar algun element en una llista, hauràs de conèixer el seu índex o, en el pitjor dels casos, recórrer tota la llista.</p>
+        <p>Una altra <strong>estructura de dades central</strong> en Python és el <strong>diccionari</strong>. En un diccionari, els elements s'indexen per <strong>claus</strong>. Cada clau assigna a un <strong>valor</strong>. Els valors emmagatzemats en el diccionari es poden accedir i canviar utilitzant la clau.</p>
       </section>
 
       <section id="usar-diccionari">
         <h2>Utilitzar un diccionari</h2>
         <p>L'exemple següent et mostra com funciona l'estructura de dades del diccionari. Aquí tens un diccionari simple del finès a l'anglès:</p>
-        <pre><code class="language-python">el_meu_diccionari = {}
+        <pre><code class="language-python">diccionari_traduccions = {}
 
-el_meu_diccionari["mico"] = "monkey"
-el_meu_diccionari["plàtan"] = "banana"
-el_meu_diccionari["clavicèmbal"] = "harpsichord"
+diccionari_traduccions["mico"] = "monkey"
+diccionari_traduccions["plàtan"] = "banana"
+diccionari_traduccions["clavicèmbal"] = "harpsichord"
 
-print(len(el_meu_diccionari))
-print(el_meu_diccionari)
-print(el_meu_diccionari["mico"])</code></pre>
+print(len(diccionari_traduccions))
+print(diccionari_traduccions)
+print(diccionari_traduccions["mico"])</code></pre>
         <pre class="output">
 3
 {'mico': 'monkey', 'plàtan': 'banana', 'clavicèmbal': 'harpsichord'}
 monkey</pre
         >
-        <p>La notació <code class="inline">{}</code> crea un diccionari buit, al qual ara podem afegir contingut. S'afegeixen tres parells clau-valor: <code class="inline">"mico"</code> assigna a <code class="inline">"monkey"</code>, <code class="inline">"plàtan"</code> assigna a <code class="inline">"banana"</code>, i <code class="inline">"clavicèmbal"</code> assigna a <code class="inline">"harpsichord"</code>. Finalment, s'imprimeix el nombre de parells clau-valor en el diccionari, juntament amb tot el diccionari, i el valor assignat a la clau <code class="inline">"mico"</code>.</p>
+        <p>
+          La notació <code class="inline">{}</code> crea un diccionari buit, al qual ara podem afegir contingut. S'afegeixen tres <strong>parells clau-valor</strong>: <code class="inline">"mico"</code> assigna a <code class="inline">"monkey"</code>, <code class="inline">"plàtan"</code> assigna a <code class="inline">"banana"</code>, i <code class="inline">"clavicèmbal"</code> assigna a <code class="inline">"harpsichord"</code>. Finalment, s'imprimeix el nombre de parells clau-valor en el diccionari, juntament amb tot el diccionari, i el valor assignat a la clau
+          <code class="inline">"mico"</code>.
+        </p>
         <p>Després de definir el diccionari també podríem utilitzar-lo amb entrada de l'usuari:</p>
         <pre><code class="language-python">paraula = input("Si us plau, escriu una paraula: ")
-if paraula in el_meu_diccionari:
-    print("Traducció: ", el_meu_diccionari[paraula])
+if paraula in diccionari_traduccions:
+    print("Traducció: ", diccionari_traduccions[paraula])
 else:
     print("Paraula no trobada")</code></pre>
         <p>Observa l'ús de l'operador <code class="inline">in</code> anterior. Quan s'utilitza en una variable de tipus diccionari, comprova si el primer operand es troba entre les claus emmagatzemades en el diccionari. Donades diferents entrades, aquest programa podria imprimir el següent:</p>
@@ -67,7 +70,7 @@ Paraula no trobada</pre
 
       <section id="que-es-pot-emmagatzemar">
         <h2>Què es pot emmagatzemar en un diccionari?</h2>
-        <p>El tipus de dades es diu diccionari, però no ha de contenir només cadenes de text. Per exemple, en el diccionari següent les claus són cadenes de text, però els valors són enters:</p>
+        <p>El tipus de dades es diu diccionari, però no ha de contenir només <code class="inline">cadenes</code> de text. Per exemple, en el diccionari següent les claus són cadenes de text, però els valors són <code class="inline">enters</code>:</p>
         <pre><code class="language-python">resultats = {}
 resultats["Maria"] = 4
 resultats["Anna"] = 5
@@ -82,12 +85,12 @@ llistes[100] = [5, 2, 3]</code></pre>
       <section id="com-funcionen-claus-i-valors">
         <h2>Com funcionen les claus i els valors</h2>
         <p>Cada clau pot aparèixer només una vegada en el diccionari. Si afegiu una entrada utilitzant una clau que ja existeix en el diccionari, el valor original assignat a aquesta clau es reemplaça amb el nou valor:</p>
-        <pre><code class="language-python">el_meu_diccionari["gran"] = "big"
-el_meu_diccionari["gran"] = "large"
-print(el_meu_diccionari["gran"])</code></pre>
+        <pre><code class="language-python">diccionari_traduccions["gran"] = "big"
+diccionari_traduccions["gran"] = "large"
+print(diccionari_traduccions["gran"])</code></pre>
         <pre class="output">large</pre>
         <p>Totes les claus en un diccionari han de ser <strong>immutables</strong>. Per tant, una llista no es pot utilitzar com a clau, perquè es pot canviar. Per exemple, executar el codi següent causa un error:</p>
-        <pre><code class="language-python">el_meu_diccionari[[1, 2, 3]] = 5</code></pre>
+        <pre><code class="language-python">diccionari_traduccions[[1, 2, 3]] = 5</code></pre>
         <pre class="output">TypeError: unhashable type: 'list'</pre>
       </section>
 
@@ -131,15 +134,15 @@ print(k[5])</code></pre>
       <section id="recórrer-diccionari">
         <h2>Recórrer un diccionari</h2>
         <p>El conegut bucle <code class="inline">for element in col·lecció</code> també es pot utilitzar per recórrer un diccionari. Quan s'utilitza directament en el diccionari, el bucle passa per les claus emmagatzemades en el diccionari, una per una. En l'exemple següent, es mostren totes les claus i valors emmagatzemats en el diccionari:</p>
-        <pre><code class="language-python">el_meu_diccionari = {}
+        <pre><code class="language-python">diccionari_traduccions = {}
 
-el_meu_diccionari["mico"] = "monkey"
-el_meu_diccionari["plàtan"] = "banana"
-el_meu_diccionari["clavicèmbal"] = "harpsichord"
+diccionari_traduccions["mico"] = "monkey"
+diccionari_traduccions["plàtan"] = "banana"
+diccionari_traduccions["clavicèmbal"] = "harpsichord"
 
-for clau in el_meu_diccionari:
+for clau in diccionari_traduccions:
     print("clau:", clau)
-    print("valor:", el_meu_diccionari[clau])</code></pre>
+    print("valor:", diccionari_traduccions[clau])</code></pre>
         <pre class="output">
 clau: mico
 valor: monkey
@@ -148,8 +151,8 @@ valor: banana
 clau: clavicèmbal
 valor: harpsichord</pre
         >
-        <p>A vegades necessites recórrer tot el contingut d'un diccionari. El mètode <code class="inline">items</code> retorna totes les claus i valors emmagatzemats en el diccionari, un parell a la vegada:</p>
-        <pre><code class="language-python">for clau, valor in el_meu_diccionari.items():
+        <p>A vegades necessites recórrer tot el contingut d'un diccionari. El mètode <code class="inline">items()</code> retorna totes les claus i valors emmagatzemats en el diccionari, un parell a la vegada:</p>
+        <pre><code class="language-python">for clau, valor in diccionari_traduccions.items():
     print("clau:", clau)
     print("valor:", valor)</code></pre>
       </section>
@@ -164,9 +167,9 @@ valor: harpsichord</pre
 ]</code></pre>
         <p>Voldríem analitzar aquesta llista de paraules de diferents maneres. Per exemple, voldríem saber quantes vegades apareix cada paraula en la llista.</p>
         <p>Un diccionari pot ser una eina útil per gestionar aquest tipus d'informació. En l'exemple següent, recorrem els elements de la llista un per un. Utilitzant les paraules de la llista com a claus en un nou diccionari, el valor assignat a cada clau és el nombre de vegades que la paraula ha aparegut:</p>
-        <pre><code class="language-python">def recomptes(la_meva_llista):
+        <pre><code class="language-python">def recomptes(llista):
     paraules = {}
-    for paraula in la_meva_llista:
+    for paraula in llista:
         # si la paraula encara no està en el diccionari, inicialitza el valor a zero
         if paraula not in paraules:
             paraules[paraula] = 0
@@ -178,9 +181,9 @@ valor: harpsichord</pre
 print(recomptes(llista_paraules))</code></pre>
         <pre class="output">{'plàtan': 1, 'llet': 1, 'cervesa': 3, 'formatge': 2, 'iogurt': 3, 'suc': 1, 'salsitxa': 2, 'tomàquet': 1, 'cogombre': 1, 'mantega': 2, 'margarina': 1, 'xocolata': 1}</pre>
         <p>I si volguéssim categoritzar les paraules basant-nos en la lletra inicial de cada paraula? Una manera d'aconseguir-ho seria utilitzar diccionaris:</p>
-        <pre><code class="language-python">def categoritzar_per_inicial(la_meva_llista):
+        <pre><code class="language-python">def categoritzar_per_inicial(llista):
     grups = {}
-    for paraula in la_meva_llista:
+    for paraula in llista:
         inicial = paraula[0]
         # inicialitza una nova llista quan es troba la lletra per primera vegada
         if inicial not in grups:
@@ -340,7 +343,7 @@ if "Pau" in personal:
   print("Eliminat")
 else:
   print("Aquesta persona no és membre del personal")</code></pre>
-        <p>L'altra manera d'eliminar entrades en un diccionari és el mètode <code class="inline">pop</code>:</p>
+        <p>L'altra manera d'eliminar entrades en un diccionari és el mètode <code class="inline">pop()</code>:</p>
         <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
 eliminat = personal.pop("David")
 print(personal)
@@ -349,8 +352,8 @@ print(eliminat, "eliminat")</code></pre>
 {'Alan': 'professor', 'Anna': 'catedràtica'}
 professor eliminat</pre
         >
-        <p>Com pots veure a dalt, <code class="inline">pop</code> també retorna el valor de l'entrada eliminada.</p>
-        <p>Per defecte, <code class="inline">pop</code> també causarà un error si intentes eliminar una clau que no està present en el diccionari. És possible evitar això donant al mètode un segon argument, que conté un valor de retorn per defecte. Aquest valor es retorna en cas que la clau no es trobi en el diccionari. El valor especial de Python <code class="inline">None</code> funcionarà aquí:</p>
+        <p>Com pots veure a dalt, <code class="inline">pop()</code> també retorna el valor de l'entrada eliminada.</p>
+        <p>Per defecte, <code class="inline">pop()</code> també causarà un error si intentes eliminar una clau que no està present en el diccionari. És possible evitar això donant al mètode un segon argument, que conté un valor de retorn per defecte. Aquest valor es retorna en cas que la clau no es trobi en el diccionari. El valor especial de Python <code class="inline">None</code> funcionarà aquí:</p>
         <pre><code class="language-python">personal = {"Alan": "professor", "Anna": "catedràtica", "David": "professor"}
 eliminat = personal.pop("Pau", None)
 if eliminat == None:
@@ -480,7 +483,7 @@ print(les_meves_pelicules)</code></pre>
           <li><strong>Clau</strong>: identificador únic i immutable per accedir a un valor en el diccionari.</li>
           <li><strong>Valor</strong>: dada emmagatzemada associada a una clau, pot ser de qualsevol tipus.</li>
           <li><strong>Parell clau-valor</strong>: unitat bàsica d'emmagatzematge en un diccionari.</li>
-          <li><strong>Mètode</strong><code class="inline">items()</code>: retorna totes les claus i valors del diccionari per recórrer-lo.</li>
+          <li><strong>Mètode</strong> <code class="inline">items()</code>: retorna totes les claus i valors del diccionari per recórrer-lo.</li>
           <li><strong>Estructuració de dades</strong>: ús de diccionaris per organitzar informació complexa de manera lògica.</li>
         </ul>
       </section>
