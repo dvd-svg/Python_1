@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="debugging-revisitat">
+        <h2>Depuració reviscolada</h2>
+        <p>Ja hem conegut bastants mètodes de <strong>depuració</strong> en aquest curs. L'eina de visualització ja us hauria de ser familiar, i les <strong>impressions de depuració</strong> són un clàssic de tota la vida. Possiblement també heu provat el <strong>depurador integrat de Visual Studio Code</strong>. Si us trobeu problemes amb el depurador que no troba els vostres fitxers, hi havia alguns consells per gestionar aquestes situacions a la part anterior.</p>
+
+        <p>En la versió 3.7 de Python va arribar una altra eina fàcil i útil per depurar programes: la comanda <code class="inline">breakpoint()</code>.</p>
+
+        <p>Podeu afegir aquesta comanda a qualsevol punt del vostre codi (dins de les regles sintàctiques normals, és clar). Quan s'executa el programa, l'execució s'atura en el punt on heu inserit la comanda <code class="inline">breakpoint</code>. Aquí teniu un exemple dels esforços de depuració en completar un dels exercicis de la part anterior (ignoreu els noms de variables en finès a les imatges i concentreu-vos en la funcionalitat):</p>
+
+        <p>Quan l'execució s'atura a la comanda <code class="inline">breakpoint</code>, s'obre una finestra de consola interactiva. Aquí podeu escriure qualsevol codi tal com ho faríeu en una consola normal de Python, i veure com funciona el codi exactament en aquell punt del programa.</p>
+
+        <p>La comanda <code class="inline">breakpoint</code> és especialment útil quan sabeu que alguna línia de codi causa un error, però no esteu segurs de per què és això. Afegiu un <code class="inline">breakpoint</code> just abans de la línia de codi problemàtica i executeu el vostre programa. Ara podeu provar diferents opcions a la finestra de consola interactiva i esbrinar les comandes correctes per incloure al vostre programa.</p>
+
+        <p>També és possible continuar l'execució des d'on es va aturar. La comanda <code class="inline">continue</code>, o l'abreviatura <code class="inline">c</code>, escrita a la consola de depuració reprendrà l'execució fins que s'arribi al següent <code class="inline">breakpoint</code>. La següent imatge representa una situació en què el bucle ja s'ha executat unes quantes vegades:</p>
+
+        <p>Hi ha també algunes altres comandes disponibles a la consola de depuració. Les podeu trobar aquí, o bé podeu escriure <code class="inline">help</code> a la consola de depuració:</p>
+
+        <p>La comanda <code class="inline">exit</code> finalitza l'execució del programa.</p>
+
+        <p>Quan hàgiu acabat de depurar, recordeu eliminar les comandes <code class="inline">breakpoint</code> del vostre codi!</p>
+      </section>
+
+      <section id="utilitzar-moduls">
+        <h2>Utilitzar mòduls</h2>
+        <p>
+          La definició del llenguatge Python ja conté algunes funcions útils, com la funció <code class="inline">len</code> que retorna la longitud d'una <code class="inline">cadena</code> de text o una <code class="inline">llista</code>, o la funció <code class="inline">sum</code> que retorna la suma dels elements en una estructura de dades, però només portaran a un programador fins a cert punt. La <strong>llibreria estàndard</strong> de Python és una col·lecció de funcions i objectes estandarditzats, que es poden utilitzar per expandir el poder expressiu de Python de moltes maneres. Ja hem
+          utilitzat algunes funcions definides a la llibreria estàndard en exercicis anteriors, per exemple en calcular arrels quadrades.
+        </p>
+
+        <p>La llibreria estàndard està composta de <strong>mòduls</strong>, que contenen funcions i classes agrupades al voltant de diferents temes i funcionalitats. En aquesta part del curs ens familiaritzarem amb alguns mòduls útils de Python. També aprendrem a escriure els nostres propis mòduls.</p>
+
+        <p>La comanda <code class="inline">import</code> fa que els continguts del mòdul donat siguin accessibles en el programa actual. Anem a fer una ullada més de prop a treballar amb el mòdul <code class="inline">math</code>. Conté les definicions d'algunes funcions matemàtiques, com <code class="inline">sqrt</code> per a l'arrel quadrada i <code class="inline">log</code> per al logaritme.</p>
+
+        <pre><code class="language-python">import math
+
+# L'arrel quadrada del número 5
+print(math.sqrt(5))
+# el logaritme en base 2 del número 8
+print(math.log(8, 2))</code></pre>
+
+        <pre class="output">
+2.23606797749979
+3.0</pre
+        >
+
+        <p>Les funcions estan definides al mòdul <code class="inline">math</code>, de manera que s'han de referir com <code class="inline">math.sqrt</code> i <code class="inline">math.log</code> en el codi del programa.</p>
+      </section>
+
+      <section id="seleccionar-seccions-modul">
+        <h2>Seleccionar parts d'un mòdul</h2>
+        <p>Una altra manera d'utilitzar mòduls és seleccionar una entitat concreta del mòdul amb la comanda <code class="inline">from</code>. En cas que vulguem utilitzar només les funcions <code class="inline">sqrt</code> i <code class="inline">log</code> del mòdul <code class="inline">math</code>, podem fer el següent:</p>
+
+        <pre><code class="language-python">from math import sqrt, log
+
+print(sqrt(5))
+print(log(5,2))</code></pre>
+
+        <p>Com podeu veure a dalt, no necessitem el prefix <code class="inline">math</code> quan utilitzem les funcions importades d'aquesta manera.</p>
+
+        <p>De vegades una drecera útil és importar tots els continguts d'un mòdul amb la notació d'asterisc:</p>
+
+        <pre><code class="language-python">from math import *
+
+print(sqrt(5))
+print(log(5,2))</code></pre>
+
+        <p>Importar mòduls amb la notació d'asterisc pot ser útil en proves i en alguns projectes petits, però també pot plantejar alguns problemes nous. Ens els trobarem més endavant.</p>
+
+        <div class="exercici">
+          <h3>Exercici: Hipotenusa</h3>
+          <p>Escriu una funció anomenada <code class="inline">hipotenusa(catet1: float, catet2: float)</code>, que rep les longituds dels dos costats adjacents a l'angle recte d'un triangle rectangle. La funció ha de retornar la longitud de la hipotenusa, o el costat oposat a l'angle recte.</p>
+
+          <p>Pots utilitzar el <strong>teorema de Pitàgores</strong> per calcular el resultat. Necessitaràs la funció <code class="inline">sqrt</code> del mòdul <code class="inline">math</code>.</p>
+
+          <p>Alguns exemples:</p>
+
+          <pre><code class="language-python">print(hipotenusa(3,4)) # 5.0
+print(hipotenusa(5,12)) # 13.0
+print(hipotenusa(1,1)) # 1.4142135623730951</code></pre>
+        </div>
+      </section>
+
+      <section id="continguts-modul">
+        <h2>Els continguts d'un mòdul</h2>
+        <p>La documentació de Python té recursos extensius sobre cada mòdul a la llibreria estàndard de Python. La documentació conté informació sobre les funcions i mètodes definits al mòdul, i com es pot utilitzar el mòdul. Per exemple, aquí teniu l'enllaç a la documentació per al mòdul <code class="inline">math</code>:</p>
+
+        <p>https://docs.python.org/3/library/math.html</p>
+
+        <p>També podem fer una ullada als continguts del mòdul amb la funció <code class="inline">dir</code>:</p>
+
+        <pre><code class="language-python">import math
+
+print(dir(math))</code></pre>
+
+        <p>La funció retorna una <code class="inline">llista</code> de noms definits pel mòdul. Aquests poden ser, per exemple, noms de classes, valors constants o funcions:</p>
+
+        <pre class="output">['__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']</pre>
+
+        <div class="exercici">
+          <h3>Exercici: Caràcters especials</h3>
+          <p>El mòdul Python <code class="inline">string</code> conté algunes constants de cadena de text, que defineixen certs grups de caràcters. Aquests inclouen per exemple lletres minúscules i caràcters de puntuació. Si us plau, familiaritzeu-vos amb aquestes constants, i després escriviu una funció anomenada <code class="inline">separar_caracters(meu_text: str)</code>. La funció rep una cadena de text com a argument, i ha de separar els caràcters de la cadena en tres altres cadenes de text, i retornar-les en una <code class="inline">tupla</code>:</p>
+
+          <ul>
+            <li>La primera cadena ha de contenir les lletres ASCII minúscules i majúscules (constant de cadena <code class="inline">ascii_letters</code>)</li>
+            <li>La segona cadena ha de contenir tots els caràcters de puntuació definits per la constant de cadena <code class="inline">punctuation</code></li>
+            <li>La tercera cadena ha de contenir tots els altres caràcters (incloent espais en blanc)</li>
+          </ul>
+
+          <p>Els caràcters han d'aparèixer a les tres cadenes en el mateix ordre en què van aparèixer a la cadena original.</p>
+
+          <p>Un exemple de la funció en acció:</p>
+
+          <pre><code class="language-python">parts = separar_caracters("Olé!!! Hey, are ümläüts wörking?")
+print(parts[0])
+print(parts[1])
+print(parts[2])</code></pre>
+
+          <pre class="output">
+OlHeyaremltswrking
+!!!,?
+é  üäü ö</pre
+          >
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Fraccions</h3>
+          <p>Si us plau, familiaritzeu-vos amb el mòdul Python <code class="inline">fractions</code>. Utilitzeu-lo per escriure una funció anomenada <code class="inline">fraccionar(quantitat: int)</code>, que rep el nombre de parts com a argument. La funció ha de dividir el número 1 en tantes fraccions iguals com s'especifiqui per l'argument, i retornar-les en una llista.</p>
+
+          <p>Un exemple de la funció en acció:</p>
+
+          <pre><code class="language-python">for p in fraccionar(3):
+    print(p)
+
+print()
+
+print(fraccionar(5))</code></pre>
+
+          <pre class="output">
+1/3
+1/3
+1/3
+
+[Fraction(1, 5), Fraction(1, 5), Fraction(1, 5), Fraction(1, 5), Fraction(1, 5)]</pre
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capítol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

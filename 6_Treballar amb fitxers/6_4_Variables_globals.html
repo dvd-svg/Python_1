@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="abast-variables">
+        <h2>L'abast de les variables</h2>
+        <p>L'<strong>abast d'una variable</strong> es refereix a les parts d'un <strong>programa</strong> on una variable és accessible. Una <strong>variable local</strong> només és accessible en una part definida del programa, mentre que una <strong>variable global</strong> està disponible per a ús en qualsevol part del programa.</p>
+      </section>
+
+      <section id="variables-locals">
+        <h2>Variables locals</h2>
+        <p>Les variables definides dins d'una <strong>funció</strong> de Python són <strong>variables locals</strong>, només disponibles dins de la funció. Això s'aplica tant als <strong>paràmetres</strong> de la funció com a altres variables definides dins de la definició de la funció. Una variable que és local a una funció no existeix fora de la funció.</p>
+        <p>En l'exemple següent intentem accedir a la variable <code class="inline">x</code> a la funció principal, però això provoca un error:</p>
+        <pre><code class="language-python">def prova():
+    x = 5
+    print(x)
+
+prova()
+print(x)</code></pre>
+        <pre class="output">
+5
+NameError: name 'x' is not defined</pre
+        >
+        <p>La variable <code class="inline">x</code> només existeix mentre s'està executant la funció <code class="inline">prova</code>. Altres funcions o la funció principal no poden accedir a la variable.</p>
+      </section>
+
+      <section id="variables-globals">
+        <h2>Variables globals</h2>
+        <p>Les variables definides dins de la funció principal són <strong>variables globals</strong>. Anteriorment vam definir la funció principal com aquelles parts de codi en un programa de Python que no es troben dins de cap altra funció. El valor emmagatzemat en una variable global es pot accedir des de qualsevol altra funció del programa, de manera que el següent no provoca cap error:</p>
+        <pre><code class="language-python">def prova():
+    print(x)
+
+x = 3
+prova()</code></pre>
+        <pre class="output">3</pre>
+        <p>Una variable global no es pot canviar directament des d'una altra funció. La següent funció no té cap efecte sobre el valor emmagatzemat a la variable global:</p>
+        <pre><code class="language-python">def prova():
+    x = 5
+    print(x)
+
+x = 3
+prova()
+print(x)</code></pre>
+        <pre class="output">
+5
+3</pre
+        >
+        <p>Aquí la funció <code class="inline">prova</code> crea una nova variable local <code class="inline">x</code>, que "emmascara" la variable global mentre s'està executant la funció. Aquesta variable té el valor 5, però és una variable diferent de la global <code class="inline">x</code> que està definida a la funció principal.</p>
+        <div class="exercici">
+          <h3>Exercici: Error d'assignació local</h3>
+          <p>Què faria el següent codi?</p>
+          <pre><code class="language-python">def prova():
+    print(x)
+    x = 5
+
+x = 3
+prova()
+print(x)</code></pre>
+          <pre class="output">UnboundLocalError: local variable 'x' referenced before assignment</pre>
+          <p>La funció <code class="inline">prova</code> assigna un valor a la variable <code class="inline">x</code>, de manera que Python interpreta que <code class="inline">x</code> és una variable local en lloc de la variable global del mateix nom. La funció intenta accedir a la variable abans que estigui definida, de manera que hi ha un error.</p>
+        </div>
+      </section>
+
+      <section id="paraula-clau-global">
+        <h2>La paraula clau global</h2>
+        <p>Si volem especificar que volem canviar la variable global dins d'una funció, necessitarem la paraula clau de Python <code class="inline">global</code>:</p>
+        <pre><code class="language-python">def prova():
+    global x
+    x = 3
+    print(x)
+
+x = 5
+prova()
+print(x)</code></pre>
+        <pre class="output">
+3
+3</pre
+        >
+        <p>Ara l'assignació <code class="inline">x = 3</code> dins de la funció també afecta la funció principal. Totes les parts del programa estan utilitzant la mateixa variable global <code class="inline">x</code>.</p>
+      </section>
+
+      <section id="quan-utilitzar-variables-globals">
+        <h2>Quan s'han d'utilitzar variables globals?</h2>
+        <p>Les variables globals no són una manera d'evitar els <strong>paràmetres</strong> de les funcions o els <strong>valors de retorn</strong>, i no s'han d'utilitzar com a tal. És a dir, és possible escriure una funció que emmagatzemi els seus resultats directament en una variable global:</p>
+        <pre><code class="language-python">def calcula_suma(a, b):
+    global resultat
+    resultat = a + b
+
+calcula_suma(2, 3)
+print(resultat)</code></pre>
+        <p>És millor escriure una funció amb un valor de retorn, com estem acostumats a fer:</p>
+        <pre><code class="language-python">def calcula_suma(a, b):
+    return a + b
+
+resultat = calcula_suma(2, 3)
+print(resultat)</code></pre>
+        <p>L'avantatge d'aquest darrer enfocament és que la funció és un tot independent. Té uns <strong>paràmetres</strong> definits i retorna un <strong>resultat</strong>. No té efectes secundaris, de manera que es pot provar i canviar independentment de les altres parts del programa.</p>
+        <p>Les variables globals són útils en situacions on necessitem tenir alguna informació comuna, de "nivell superior" disponible per a totes les funcions del programa. El següent és un exemple d'aquest tipus de situació:</p>
+        <pre><code class="language-python">def calcula_suma(a, b):
+    global comptador
+    comptador += 1
+    return a + b
+
+def calcula_diferencia(a, b):
+    global comptador
+    comptador += 1
+    return a - b
+
+
+comptador = 0
+print(calcula_suma(2, 3))
+print(calcula_suma(5, 5))
+print(calcula_diferencia(5, 2))
+print(calcula_suma(1, 0))
+print("Hi va haver", comptador, "crides a funcions")</code></pre>
+        <pre class="output">
+5
+10
+3
+1
+Hi va haver 4 crides a funcions</pre
+        >
+        <p>En aquest cas volem fer un seguiment de quantes vegades es van cridar les funcions durant l'execució del programa. La variable global <code class="inline">comptador</code> és útil aquí, perquè podem incrementar-la des de les pròpies funcions mentre s'executen, però encara accedir al valor final a la funció principal.</p>
+      </section>
+
+      <section id="passar-dades-entre-funcions">
+        <h2>Passar dades d'una funció a una altra, revisitat</h2>
+        <p>Si un programa consta de múltiples funcions, sovint sorgeix la qüestió de passar dades d'una funció a una altra.</p>
+        <p>Quan vam tocar aquest tema anteriorment, teníem un programa que demana a l'usuari alguns valors enters, els imprimeix i realitza algun anàlisi estadística sobre els números. El programa es va dividir en tres funcions separades:</p>
+        <pre><code class="language-python">def entrada_usuari(quants: int):
+    print(f"Si us plau, introdueix {quants} números:")
+    numeros = []
+
+    for i in range(quants):
+        numero = int(input(f"Número {i+1}: "))
+        numeros.append(numero)
+
+    return numeros
+
+def imprimeix_resultat(numeros: list):
+    print("Els números són: ")
+    for numero in numeros:
+        print(numero)
+
+def analitza(numeros: list):
+    mitjana = sum(numeros) / len(numeros)
+    return f"Hi ha {len(numeros)} números en total, la mitjana és {mitjana}, el més petit és {min(numeros)} i el més gran és {max(numeros)}"
+
+# la funció principal que utilitza aquestes funcions
+entrades = entrada_usuari(5)
+imprimeix_resultat(entrades)
+resultat_analisi = analitza(entrades)
+print(resultat_analisi)</code></pre>
+        <p>Un exemple de l'execució del programa:</p>
+        <pre class="output">
+Si us plau, introdueix 5 números:
+Número 1: 10
+Número 2: 34
+Número 3: -32
+Número 4: 99
+Número 5: -53
+Els números són:
+10
+34
+-32
+99
+-53
+Hi ha 5 números en total, la mitjana és 11.6, el més petit és -53 i el més gran és 99</pre
+        >
+        <p>El principi bàsic aquí és que la funció principal "emmagatzema" les dades processades pel programa. Aquí, això significa els números introduïts per l'usuari, que s'emmagatzemen a la variable <code class="inline">entrades</code>.</p>
+        <p>Si els números es necessiten en alguna funció, la variable es passa com a argument, com es veu anteriorment quan es criden les funcions <code class="inline">imprimeix_resultat</code> i <code class="inline">analitza</code>. Si la funció produeix un resultat que és rellevant en altres parts del programa, la funció retorna això amb una sentència <code class="inline">return</code>, com es veu amb les funcions <code class="inline">entrada_usuari</code> i <code class="inline">analitza</code> anteriorment.</p>
+        <p>
+          Com sempre en programació, hi ha moltes maneres d'arribar a la mateixa funcionalitat. Seria possible utilitzar la paraula clau <code class="inline">global</code> i fer que les funcions accedeixin directament a la variable <code class="inline">entrades</code> definida a la funció principal. Hi ha bones raons per les quals això no és una jugada intel·ligent, però. Quan moltes funcions diferents poden accedir i potencialment alterar una variable directament, es torna difícil fer un seguiment fiable de l'estat del programa, el que pot fer que el programa sigui impredictible. Això és
+          especialment cert a mesura que augmenta el nombre de funcions involucrades, cosa que és comuna en grans projectes de programari.
+        </p>
+        <p>En conclusió, passar dades cap a i des de les funcions es gestiona millor mitjançant arguments i valors de retorn.</p>
+        <div class="exercici">
+          <h3>Exercici: Funció principal explícita</h3>
+          <p>També podries separar la funció principal implícita en l'exemple anterior en la seva pròpia funció principal explícita. Llavors la variable <code class="inline">entrades</code> ja no seria una variable global, sinó una variable local dins de la funció principal:</p>
+          <pre><code class="language-python"># la teva funció principal va aquí
+def main():
+    entrades = entrada_usuari(5)
+    imprimeix_resultat(entrades)
+    resultat_analisi = analitza(entrades)
+
+    print(resultat_analisi)
+
+# executa la funció principal
+main()</code></pre>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capítol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

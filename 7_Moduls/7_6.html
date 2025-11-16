@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="caracteristiques-utils">
+        <h2>Característiques útils de Python</h2>
+        <p>Per acabar aquest curs, aquí trobareu diverses <strong>característiques útils</strong> de Python.</p>
+      </section>
+
+      <section id="condicionals-una-linia">
+        <h2>Condicionals d'una sola línia</h2>
+        <p>Les dues sentències següents produeixen exactament els mateixos resultats:</p>
+
+        <pre><code class="language-python">if x%2 == 0:
+    print("parell")
+else:
+    print("senar")</code></pre>
+
+        <pre><code class="language-python">print("parell" if x%2 == 0 else "senar")</code></pre>
+
+        <p>En l'últim exemple tenim una <strong>expressió condicional</strong> en una sola línia: <code class="inline">a if [condició] else b</code>. El valor d'aquesta expressió s'avalua com a <code class="inline">a</code> si la condició és certa, i com a <code class="inline">b</code> si és falsa. Aquesta estructura de vegades s'anomena <strong>operador ternari</strong>.</p>
+
+        <p>Les <strong>expressions condicionals</strong> poden ser molt útils quan necessites assignar alguna cosa condicionalment. Per exemple, si tens les variables <code class="inline">x</code> i <code class="inline">y</code>, i vols incrementar o establir el valor de <code class="inline">y</code> depenent de la paritat de <code class="inline">x</code>, podries escriure-ho en una sentència <code class="inline">if else</code> normal, així:</p>
+
+        <pre><code class="language-python">if x%2 == 0:
+    y += 1
+else:
+    y = 0</code></pre>
+
+        <p>El mateix es podria aconseguir amb una línia elegant:</p>
+
+        <pre><code class="language-python">y = y + 1 if x%2 == 0 else 0</code></pre>
+      </section>
+
+      <section id="bloc-buit">
+        <h2>Un bloc "buit"</h2>
+        <p>Potser recordes de la part anterior que no tens permís per tenir un bloc buit en un programa Python. Si necessites tenir un bloc de codi que no fa res, per exemple quan proves alguna altra funcionalitat, la comanda <code class="inline">pass</code> et permetrà fer això. Podries, per exemple, escriure una <strong>funció</strong> que no fa res:</p>
+
+        <pre><code class="language-python">def provant():
+    pass</code></pre>
+
+        <p>Aquesta funció simplement retornaria immediatament. Ometre la comanda <code class="inline">pass</code>, és a dir, tenir un bloc completament buit, produiria un error.</p>
+
+        <pre><code class="language-python">def provant():  # això causa un error!</code></pre>
+      </section>
+
+      <section id="bucles-blocs-else">
+        <h2>Bucles amb blocs else</h2>
+        <p>En Python, els <strong>bucles</strong> també poden tenir blocs <code class="inline">else</code>. Aquesta secció de codi s'executa si el bucle acaba normalment.</p>
+
+        <p>Per exemple, en l'exemple següent estem buscant a través d'una <code class="inline">llista</code> de nombres. Si hi ha un nombre parell a la llista, el programa imprimeix un missatge i el bucle es trenca. Si no hi ha nombres parells, el bucle acaba normalment, però llavors s'imprimeix un missatge diferent.</p>
+
+        <pre><code class="language-python">llista_meva = [3,5,2,8,1]
+for x in llista_meva:
+    if x%2 == 0:
+        print("trobat un nombre parell", x)
+        break
+else:
+    print("no hi havia nombres parells")</code></pre>
+
+        <p>Una manera més tradicional d'aconseguir això seria utilitzar una <strong>variable auxiliar</strong> per recordar si s'ha trobat l'element desitjat:</p>
+
+        <pre><code class="language-python">llista_meva = [3,5,2,8,1]
+trobat = False
+for x in llista_meva:
+    if x%2 == 0:
+        print("trobat un nombre parell", x)
+        trobat = True
+        break
+if not trobat:
+    print("no hi havia nombres parells")</code></pre>
+
+        <p>Utilitzar una sentència <code class="inline">for else</code> ens estalvia la molèstia d'escriure una variable separada.</p>
+      </section>
+
+      <section id="valor-per-defecte-parametres">
+        <h2>Valor per defecte dels paràmetres</h2>
+        <p>Una <strong>funció</strong> Python pot tenir un valor de paràmetre per defecte. S'utilitza quan no es passa cap argument a la funció. Vegeu l'exemple següent:</p>
+
+        <pre><code class="language-python">def digues_hola(nom="Anna"):
+    print("Hola,", nom)
+
+digues_hola()
+digues_hola("Eduard")
+digues_hola("Marta")
+digues_hola("")</code></pre>
+
+        <pre class="output">
+Hola, Anna
+Hola, Eduard
+Hola, Marta
+Hola,</pre
+        >
+
+        <p><strong>Nota:</strong> una cadena buida segueix sent una cadena, de manera que el paràmetre per defecte no s'utilitza si es passa una cadena buida a la funció.</p>
+      </section>
+
+      <section id="nombre-variable-parametres">
+        <h2>Un nombre variable de paràmetres</h2>
+        <p>També pots definir una funció amb un nombre variable de paràmetres, afegint un asterisc abans del nom del paràmetre. Tots els arguments restants passats a la funció es conten en una <strong>tupla</strong>, i es poden accedir a través del paràmetre amb nom.</p>
+
+        <p>La funció següent compta el nombre i la suma dels seus arguments:</p>
+
+        <pre><code class="language-python">def provant(*els_meus_args):
+    print("Has passat", len(els_meus_args), "arguments")
+    print("La suma dels arguments és", sum(els_meus_args))
+
+provant(1, 2, 3, 4, 5)</code></pre>
+
+        <pre class="output">
+Has passat 5 arguments
+La suma dels arguments és 15</pre
+        >
+      </section>
+
+      <section id="exercici-llenguatge-programacio">
+        <div class="exercici">
+          <h3>Exercici: El teu propi llenguatge de programació</h3>
+          <p>En aquest exercici escriuràs el teu propi executor de llenguatge de programació. Pots utilitzar qualsevol tècnica i habilitat que hagis après en aquest curs fins ara.</p>
+
+          <p>Els programes consistiran en files, i cada fila estarà en un dels formats següents:</p>
+
+          <ul>
+            <li><code class="inline">PRINT [valor]</code>: imprimeix el valor</li>
+            <li><code class="inline">MOV [variable] [valor]</code>: assigna el valor a la variable</li>
+            <li><code class="inline">ADD [variable] [valor]</code>: afegeix el valor a la variable</li>
+            <li><code class="inline">SUB [variable] [valor]</code>: resta el valor de la variable</li>
+            <li><code class="inline">MUL [variable] [valor]</code>: multiplica la variable pel valor</li>
+            <li><code class="inline">[ubicació]::</code>: nomena una línia de codi, per poder saltar-hi des d'un altre lloc</li>
+            <li><code class="inline">JUMP [ubicació]</code>: salta a la ubicació especificada</li>
+            <li><code class="inline">IF [condició] JUMP [ubicació]</code>: si la condició és certa, salta a la ubicació especificada</li>
+            <li><code class="inline">END</code>: acaba l'execució</li>
+          </ul>
+
+          <p>Els claudàtors anteriors són només una notació per significar operands; vegeu a continuació exemples d'ús.</p>
+
+          <p>El programa s'executa línia per línia des de la primera línia endavant. L'execució acaba quan l'executor es troba amb la comanda <code class="inline">END</code>, o quan no queden més línies per executar.</p>
+
+          <p>Cada programa té 26 variables predefinides, anomenades de la A a la Z. Cada variable té el valor 0 quan el programa comença. La notació <code class="inline">[variable]</code> es refereix a una d'aquestes 26 variables.</p>
+
+          <p>Tots els valors processats pel programa són <strong>nombres enters</strong>. La notació <code class="inline">[valor]</code> es refereix ja sigui a un valor emmagatzemat en una variable, o a un nombre enter escrit directament.</p>
+
+          <p>La notació <code class="inline">[ubicació]</code> es refereix a qualsevol nom d'una ubicació que consisteixi en lletres minúscules de la a a la z i/o nombres del 0 al 9. Dues ubicacions diferents no poden tenir el mateix nom.</p>
+
+          <p>La notació <code class="inline">[condició]</code> es refereix a qualsevol expressió en el format <code class="inline">[valor] [comparació] [valor]</code>, on <code class="inline">[comparació]</code> és un dels operadors següents: <code class="inline">==</code>, <code class="inline">!=</code>, <code class="inline"><</code>, <code class="inline"><=</code>, <code class="inline">></code> i <code class="inline">>=</code>.</p>
+
+          <p>Si us plau, escriu una funció anomenada <code class="inline">run(programa)</code>, que pren una llista que conté les comandes del programa com a argument. Cada element de la llista és una línia de codi en el programa. La funció ha de retornar una nova llista, que conté els resultats de les comandes <code class="inline">PRINT</code> executades durant l'execució del programa.</p>
+
+          <p>Pots assumir que la funció només rebrà programes que estan completament en el format correcte. No has d'implementar cap validació d'entrada o maneig d'errors.</p>
+
+          <p>Aquest exercici val dos punts. Rebràs un punt si les comandes <code class="inline">PRINT</code>, <code class="inline">MOV</code>, <code class="inline">ADD</code>, <code class="inline">SUB</code>, <code class="inline">MUL</code> i <code class="inline">END</code> funcionen correctament. Rebràs un altre punt si la resta de comandes, que s'utilitzen per implementar bucles, també funcionen.</p>
+
+          <p>A continuació hi ha alguns exemples, que també pots utilitzar per provar. Exemple 1:</p>
+
+          <pre><code class="language-python">programa1 = []
+programa1.append("MOV A 1")
+programa1.append("MOV B 2")
+programa1.append("PRINT A")
+programa1.append("PRINT B")
+programa1.append("ADD A B")
+programa1.append("PRINT A")
+programa1.append("END")
+resultat = run(programa1)
+print(resultat)</code></pre>
+
+          <pre class="output">[1, 2, 3]</pre>
+
+          <p>Exemple 2:</p>
+
+          <pre><code class="language-python">programa2 = []
+programa2.append("MOV A 1")
+programa2.append("MOV B 10")
+programa2.append("inici:")
+programa2.append("IF A >= B JUMP sortir")
+programa2.append("PRINT A")
+programa2.append("PRINT B")
+programa2.append("ADD A 1")
+programa2.append("SUB B 1")
+programa2.append("JUMP inici")
+programa2.append("sortir:")
+programa2.append("END")
+resultat = run(programa2)
+print(resultat)</code></pre>
+
+          <pre class="output">[1, 10, 2, 9, 3, 8, 4, 7, 5, 6]</pre>
+
+          <p>Exemple 3 (factorial):</p>
+
+          <pre><code class="language-python">programa3 = []
+programa3.append("MOV A 1")
+programa3.append("MOV B 1")
+programa3.append("inici:")
+programa3.append("PRINT A")
+programa3.append("ADD B 1")
+programa3.append("MUL A B")
+programa3.append("IF B <= 10 JUMP inici")
+programa3.append("END")
+resultat = run(programa3)
+print(resultat)</code></pre>
+
+          <pre class="output">[1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]</pre>
+
+          <p>Exemple 4 (nombres primers):</p>
+
+          <pre><code class="language-python">programa4 = []
+programa4.append("MOV N 50")
+programa4.append("PRINT 2")
+programa4.append("MOV A 3")
+programa4.append("inici:")
+programa4.append("MOV B 2")
+programa4.append("MOV Z 0")
+programa4.append("prova:")
+programa4.append("MOV C B")
+programa4.append("nou:")
+programa4.append("IF C == A JUMP error")
+programa4.append("IF C > A JUMP sobre")
+programa4.append("ADD C B")
+programa4.append("JUMP nou")
+programa4.append("error:")
+programa4.append("MOV Z 1")
+programa4.append("JUMP sobre2")
+programa4.append("sobre:")
+programa4.append("ADD B 1")
+programa4.append("IF B < A JUMP prova")
+programa4.append("sobre2:")
+programa4.append("IF Z == 1 JUMP sobre3")
+programa4.append("PRINT A")
+programa4.append("sobre3:")
+programa4.append("ADD A 1")
+programa4.append("IF A <= N JUMP inici")
+resultat = run(programa4)
+print(resultat)</code></pre>
+
+          <pre class="output">[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]</pre>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capítol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

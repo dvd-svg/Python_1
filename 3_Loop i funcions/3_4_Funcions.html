@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola món</title>
+    <title>Funcions</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -84,18 +84,16 @@ Aquesta és la meva pròpia funció!</pre
 saluda()</code></pre>
 
         <div class="exercici">
-          <h3>Exercici: Funció - Els set germans de Can Coll</h3>
-          <p>Escriu una funció anomenada <code class="inline">set_germans()</code>. Quan la funció sigui cridada, ha d'imprimir els noms dels <strong>set germans</strong> en <strong>ordre alfabètic</strong>, com en l'exemple següent. Consulta l'exercici amb el mateix nom al capítol 1 per a més detalls.</p>
-
-          <p><strong>Sortida esperada:</strong></p>
-
+          <h3>Exercici 1: Funció - La casa de Bernarda Alba</h3>
+          <p>Escriu una funció anomenada <code class="inline">bernarda_alba()</code>. Quan la funció sigui cridada, ha d'imprimir els noms dels <strong>dels personatges de l'obra</strong> en <strong>ordre alfabètic</strong>, com en l'exemple següent. Consulta l'exercici amb el mateix nom al capítol 1 per a més detalls.</p>
           <pre class="output">
-Albert
-Biel
-Carla
-Dídac
-Júlia
-Pau</pre
+Adela
+Amelia
+Angustias
+Bernarda
+Magdalena
+Martirio
+</pre
           >
         </div>
       </section>
@@ -137,20 +135,19 @@ hola(nom)</code></pre>
         <p>En aquest fragment de codi estem cridant a la funció <code class="inline">hola()</code> amb l'<strong>argument</strong> <code class="inline">"Pau"</code>.</p>
 
         <div class="exercici">
-          <h3>Exercici: El primer caràcter</h3>
+          <h3>Exercici 2: El primer caràcter</h3>
           <p>Completa la funció <code class="inline">primer_caracter()</code> perquè imprimeixi el primer caràcter de la cadena que rep com a argument.</p>
 
           <pre><code class="language-python">def primer_caracter(text):
     # escriu el teu codi aquí
 
 # proves
-if __name__ == "__main__":
-    primer_caracter('python')
-    primer_caracter('youtube')
-    primer_caracter('tenda')
-    primer_caracter('heliotrop')
-    primer_caracter('obert')
-    primer_caracter('nit')</code></pre>
+primer_caracter('python')
+primer_caracter('youtube')
+primer_caracter('tenda')
+primer_caracter('heliotrop')
+primer_caracter('obert')
+primer_caracter('nit')</code></pre>
 
           <pre class="output">
 p
@@ -258,7 +255,7 @@ Hola Berta</pre
         <p>Sigui quin sigui l'argument passat, la funció sempre farà servir el valor global <strong>Berta</strong>.</p>
 
         <div class="exercici">
-          <h3>Exercici: Mitjana</h3>
+          <h3>Exercici 3: Mitjana</h3>
           <p>Escriu una funció anomenada <code class="inline">mitjana()</code> que prengui tres arguments enters i imprimeixi la seva <strong>mitjana aritmètica</strong>.</p>
 
           <pre><code class="language-python">mitjana(5, 3, 1)
@@ -271,14 +268,14 @@ mitjana(10, 1, 1)</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Imprimir molts cops</h3>
+          <h3>Exercici 4: Imprimir molts cops</h3>
           <p>Escriu una funció anomenada <code class="inline">imprimir_molts_cops(text, cops)</code> que prengui una cadena i un enter com arguments. L'enter indica <strong>quantes vegades</strong> s'ha d'imprimir la cadena:</p>
 
           <pre><code class="language-python">imprimir_molts_cops("hola", 5)
 
 print()
 
-text = "Tots els Pythons, excepte un, creixen"
+text = "Totes les pitons, excepte una, creixen"
 cops = 3
 imprimir_molts_cops(text, cops)</code></pre>
 
@@ -296,7 +293,7 @@ Tots els Pythons, excepte un, creixen</pre
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Un quadrat de coixinets</h3>
+          <h3>Exercici 5: Un quadrat de coixinets</h3>
           <p>Escriu una funció anomenada <code class="inline">quadrat_coixinets(longitud)</code> que prengui un argument enter. La funció ha d'imprimir un <strong>quadrat de caràcters #</strong> amb el costat de la longitud indicada.</p>
 
           <pre><code class="language-python">quadrat_coixinets(3)
@@ -317,7 +314,7 @@ quadrat_coixinets(5)</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Tauler d'escacs</h3>
+          <h3>Exercici 6: Tauler d'escacs</h3>
           <p>Escriu una funció anomenada <code class="inline">tauler_escacs()</code> que imprimeixi un <strong>tauler d'escacs</strong> format per uns i zeros (Representant caselles <strong>blanques</strong> i <strong>negres</strong>). La funció pren un enter com a argument que indica la longitud del costat del tauler.</p>
 
           <pre><code class="language-python">tauler_escacs(3)
@@ -339,7 +336,7 @@ tauler_escacs(6)</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Una paraula quadrada</h3>
+          <h3>Exercici 7: Una paraula quadrada</h3>
           <p>Escriu una funció anomenada <code class="inline">quadrat_text(text, mida)</code> que prengui una <strong>cadena de text</strong> i un <strong>enter</strong> com arguments, i imprimeixi un quadrat de caràcters segons els exemples següents.</p>
 
           <pre><code class="language-python">quadrat_text("ab", 3)

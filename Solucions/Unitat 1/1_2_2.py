@@ -1,0 +1,7 @@
+nom = input ("Nom de pila:")
+cognom = input ("Cognom:")
+adreça = input ("Adreça:")
+ciutat_cp = input ("Ciutat i codi postal:")
+print (nom + " " + cognom)
+print (adreça)
+print (ciutat_cp)

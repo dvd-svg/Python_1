@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="errors-programacio">
+        <h2>Errors en programació</h2>
+        <p>Hi ha dues categories bàsiques d'<strong>errors</strong> que apareixen en contextos de programació:</p>
+        <p><strong>Errors de sintaxi</strong>, que impedeixen l'<strong>execució</strong> del programa</p>
+        <p><strong>Errors d'execució</strong>, que aturen l'execució</p>
+        <p>Els errors de la primera categoria solen ser fàcils de corregir, ja que l'<strong>intèrpret</strong> de Python marca la ubicació de l'error quan intenta executar el programa. Errors de sintaxi comuns inclouen els <strong>dos punts</strong> que falten al final d'una línia de capçalera, o una <strong>cometa</strong> que falta al final d'una <code class="inline">cadena de text</code>.</p>
+        <p>Els errors de la segona categoria poden ser més difícils de detectar, ja que pot passar que només ocorrin en un cert punt de l'execució d'un programa, i només en certes circumstàncies. El programa pot funcionar bé en la majoria de situacions, però aturar-se a causa d'un error en un cas marginal específic. Ara ens centrarem en gestionar aquests tipus d'errors.</p>
+      </section>
+
+      <section id="validacio-entrada">
+        <h2>Validació d'entrada</h2>
+        <p>Molts errors que apareixen durant l'execució d'un programa tenen a veure amb <strong>entrades no vàlides</strong>. Alguns exemples inclouen:</p>
+        <p>valors d'entrada faltants o buits en camps obligatoris, com <code class="inline">cadenes de text</code> buides quan la longitud de la cadena és crítica</p>
+        <p>valors negatius on només s'accepten valors positius, com -15 com a quantitat d'un ingredient en una recepta</p>
+        <p>fitxers faltants o errors tipogràfics en noms de fitxers</p>
+        <p>valors massa petits o massa grans, per exemple quan es treballa amb dates i hores</p>
+        <p>índexs no vàlids, com intentar accedir a l'índex 3 en la cadena "hola"</p>
+        <p>valors d'un <strong>tipus incorrecte</strong>, com <code class="inline">cadenes de text</code> quan s'esperen <code class="inline">enters</code></p>
+        <p>Afortunadament, nosaltres com a programadors podem preparar-nos per a la majoria d'errors. Vegem un programa que demana a l'usuari la seva edat, i s'assegura que sigui un número acceptable (entre 0 i 150, en aquest cas):</p>
+
+        <pre><code class="language-python">edat = int(input("Si us plau, introdueix la teva edat: "))
+if edat >= 0 and edat <= 150:
+    print("Aquesta és una bona edat")
+else:
+    print("Aquesta no és una edat vàlida")</code></pre>
+
+        <pre class="output">
+Si us plau, introdueix la teva edat: 25
+Aquesta és una bona edat</pre
+        >
+
+        <pre class="output">
+Si us plau, introdueix la teva edat: -3
+Aquesta no és una edat vàlida</pre
+        >
+
+        <p>Mentre l'usuari introdueixi un valor <code class="inline">enter</code>, la nostra validació d'entrada sembla funcionar bé. Però què passa si introdueix una cadena?</p>
+
+        <pre class="output">
+Si us plau, introdueix la teva edat: vint-i-tres
+ValueError: literal invàlid per a int() amb base 10: 'vint-i-tres'</pre
+        >
+
+        <p>La funció <code class="inline">int()</code> no pot analitzar la cadena d'entrada <code class="inline">vint-i-tres</code> com un valor <code class="inline">enter</code> vàlid. L'execució s'atura i es mostra el missatge d'error anterior.</p>
+      </section>
+
+      <section id="excepcions">
+        <h2>Excepcions</h2>
+        <p>Els errors que ocorren mentre el programa ja s'està executant s'anomenen <strong>excepcions</strong>. És possible preparar-se per a les excepcions, i gestionar-les perquè l'execució continuï tot i que ocorrin.</p>
+        <p>La gestió d'excepcions en Python s'aconsegueix amb les sentències <code class="inline">try</code> i <code class="inline">except</code>. La idea és que si alguna cosa dins d'un bloc <code class="inline">try</code> causa una excepció, Python comprova si hi ha un bloc <code class="inline">except</code> corresponent. Si existeix un bloc així, s'executa i el programa després continua com si no hagués passat res.</p>
+        <p>Canviem l'exemple anterior perquè el programa estigui preparat per a l'excepció <code class="inline">ValueError</code>:</p>
+
+        <pre><code class="language-python">try:
+    edat = int(input("Si us plau, introdueix la teva edat: "))
+except ValueError:
+    edat = -1
+
+if edat >= 0 and edat <= 150:
+    print("Aquesta és una bona edat")
+else:
+    print("Aquesta no és una edat vàlida")</code></pre>
+
+        <pre class="output">
+Si us plau, introdueix la teva edat: vint-i-tres
+Aquesta no és una edat vàlida</pre
+        >
+
+        <p>Podem utilitzar el bloc <code class="inline">try</code> per assenyalar que el codi dins del bloc pot causar un error. A la sentència <code class="inline">except</code> directament després del bloc es menciona l'error rellevant. En l'exemple anterior vam cobrir només una excepció <code class="inline">ValueError</code>. Si l'excepció hagués tingut una altra causa, l'execució encara s'hauria aturat, tot i els blocs <code class="inline">try</code> i <code class="inline">except</code>.</p>
+        <p>En l'exemple anterior, si es captura l'error, el valor d'<code class="inline">edat</code> s'estableix a -1. Aquest és un valor d'entrada no vàlid per al qual ja hem programat comportament, ja que el programa espera que l'edat de l'usuari sigui major que 0.</p>
+        <p>En l'exemple següent tenim una funció <code class="inline">llegir_enter()</code>, que demana a l'usuari que introdueixi un valor <code class="inline">enter</code>, però la funció també està preparada per a entrades no vàlides. La funció continua demanant <code class="inline">enters</code> fins que l'usuari introdueixi un valor d'entrada vàlid.</p>
+
+        <pre><code class="language-python">def llegir_enter():
+    while True:
+        try:
+            entrada_str = input("Si us plau, introdueix un enter: ")
+            return int(entrada_str)
+        except ValueError:
+            print("Aquesta entrada no és vàlida")
+
+numero = llegir_enter()
+print("Gràcies!")
+print(numero, "elevat al cub és", numero**3)</code></pre>
+
+        <pre class="output">
+Si us plau, introdueix un enter: tres
+Aquesta entrada no és vàlida
+Si us plau, introdueix un enter: aybabtu
+Aquesta entrada no és vàlida
+Si us plau, introdueix un enter: 5
+Gràcies!
+5 elevat al cub és 125</pre
+        >
+
+        <p>A vegades és suficient capturar excepcions amb una estructura <code class="inline">try-except</code>, sense fer res sobre elles. És a dir, podem simplement ignorar la situació en el bloc <code class="inline">except</code>.</p>
+        <p>Si canviéssim l'exemple anterior perquè només acceptéssim <code class="inline">enters</code> més petits que 100, els resultats podrien ser així:</p>
+
+        <pre><code class="language-python">def llegir_enter_petit():
+    while True:
+        try:
+            entrada_str = input("Si us plau, introdueix un enter: ")
+            numero = int(entrada_str)
+            if numero < 100:
+                return numero
+        except ValueError:
+            pass # aquesta ordre no fa realment res
+
+        print("Aquesta entrada no és vàlida")
+
+numero = llegir_enter_petit()
+print(numero, "elevat al cub és", numero**3)</code></pre>
+
+        <pre class="output">
+Si us plau, introdueix un enter: tres
+Aquesta entrada no és vàlida
+Si us plau, introdueix un enter: 1000
+Aquesta entrada no és vàlida
+Si us plau, introdueix un enter: 5
+Gràcies!
+5 elevat al cub és 125</pre
+        >
+
+        <p>Ara el bloc <code class="inline">except</code> només conté l'ordre <code class="inline">pass</code>, que no fa res. Python no permet blocs buits, per la qual cosa l'ordre és necessària.</p>
+
+        <div class="exercici">
+          <h3>Exercici: Llegir entrada</h3>
+          <p>Escriu una funció anomenada <code class="inline">llegir_entrada()</code>, que demani a l'usuari una entrada fins que l'usuari introdueixi un <code class="inline">enter</code> que estigui dins dels límits donats com a arguments a la funció. La funció ha de retornar el valor <code class="inline">enter</code> final vàlid introduït per l'usuari.</p>
+          <p>Un exemple de la funció en acció:</p>
+          <pre><code class="language-python">numero = llegir_entrada("Si us plau, introdueix un número: ", 5, 10)
+print("Has introduït:", numero)</code></pre>
+          <pre class="output">
+Si us plau, introdueix un número: set
+Has d'introduir un enter entre 5 i 10
+Si us plau, introdueix un número: -3
+Has d'introduir un enter entre 5 i 10
+Si us plau, introdueix un número: 8
+Has introduït: 8</pre
+          >
+        </div>
+      </section>
+
+      <section id="errors-tipics">
+        <h2>Errors típics</h2>
+        <p>Aquí tens una selecció d'errors típics que probablement trobaràs, juntament amb algunes situacions on poden ocórrer.</p>
+        <p><strong>ValueError</strong></p>
+        <p>Aquest error sovint es llança quan l'argument passat a una funció és d'alguna manera invàlid. Per exemple, la crida a la funció <code class="inline">float("1,23")</code> causa un error, perquè els decimals sempre es separen per un punt en Python, i aquí tenim una coma.</p>
+        <p><strong>TypeError</strong></p>
+        <p>Aquest error ocorre quan un valor és del tipus equivocat. Per exemple, la crida a la funció <code class="inline">len(10)</code> causa un <code class="inline">TypeError</code>, perquè la funció <code class="inline">len()</code> requereix un valor la longitud del qual es pugui calcular, com una <code class="inline">cadena de text</code> o una <code class="inline">llista</code>.</p>
+        <p><strong>IndexError</strong></p>
+        <p>Aquest error comú ocorre quan s'intenta fer referència a un índex que no existeix. Per exemple, l'expressió <code class="inline">"abc"[5]</code> causa un <code class="inline">IndexError</code>, perquè la cadena en qüestió no té índex 5.</p>
+        <p><strong>ZeroDivisionError</strong></p>
+        <p>Com el nom indica, aquest error es llança quan s'intenta dividir per zero, que sabem per les matemàtiques que sempre és una mala idea. Per exemple, si intentem determinar la mitjana aritmètica de valors en una <code class="inline">llista</code> amb la fórmula <code class="inline">sum(la_meva_llista) / len(la_meva_llista)</code>, però la nostra <code class="inline">llista</code> té longitud zero, aquest error ocorrerà.</p>
+        <p><strong>Excepcions en gestió de fitxers</strong></p>
+        <p>Alguns errors comuns quan es treballa amb fitxers són <code class="inline">FileNotFoundError</code> (quan s'intenta accedir a un fitxer que no existeix), <code class="inline">io.UnsupportedOperation</code> (quan s'intenta realitzar una operació en un fitxer que no és compatible amb el mode en què s'obre el fitxer) o <code class="inline">PermissionError</code> (al programa li manquen els permisos necessaris per accedir al fitxer).</p>
+      </section>
+
+      <section id="gestionar-multiples-excepcions">
+        <h2>Gestionar múltiples excepcions a la vegada</h2>
+        <p>Pot haver-hi més d'un bloc <code class="inline">except</code> adjunt a cada bloc <code class="inline">try</code>. Per exemple, el programa següent pot gestionar tant un <code class="inline">FileNotFoundError</code> com un <code class="inline">PermissionError</code>:</p>
+
+        <pre><code class="language-python">try:
+    with open("exemple.txt") as el_meu_fitxer:
+        for linia in el_meu_fitxer:
+            print(linia)
+except FileNotFoundError:
+    print("No s'ha trobat el fitxer exemple.txt")
+except PermissionError:
+    print("No hi ha permís per accedir al fitxer exemple.txt")</code></pre>
+
+        <p>A vegades no és necessari especificar l'error pel qual es prepara el programa. Especialment quan es treballa amb fitxers, sovint és suficient saber que ha ocorregut un error, i sortir del programa de manera segura. No sempre cal saber per què va ocórrer l'error. Si necessitem cobrir totes les excepcions possibles, podem utilitzar el bloc <code class="inline">except</code> sense especificar l'error:</p>
+
+        <pre><code class="language-python">try:
+    with open("exemple.txt") as el_meu_fitxer:
+        for linia in el_meu_fitxer:
+            print(linia)
+except:
+    print("Hi va haver un error en llegir el fitxer.")</code></pre>
+
+        <p>NB: la sentència <code class="inline">except</code> aquí cobreix tots els errors possibles, fins i tot els causats per errors de programació. Només els errors de sintaxi no seran capturats per això, ja que impedeixen que el codi s'executi en primer lloc.</p>
+        <p>Per exemple, el programa següent sempre llançarà un error, perquè el nom de variable <code class="inline">el_meu_fitxer</code> s'escriu com <code class="inline">elmeufitxer</code> a la tercera línia.</p>
+
+        <pre><code class="language-python">try:
+    with open("exemple.txt") as el_meu_fitxer:
+        for linia in elmeufitxer:
+            print(linia)
+except:
+    print("Hi va haver un error en llegir el fitxer.")</code></pre>
+
+        <p>Un bloc <code class="inline">except</code> pot amagar l'error real: el problema aquí no va ser causat per la gestió de fitxers com a tal, sinó pel nom de variable que estava mal escrit. Sense el bloc <code class="inline">except</code> es mostraria l'error llançat, i la causa es podria trobar més fàcilment. Per tant, normalment és una bona idea utilitzar només blocs <code class="inline">except</code> declarats específicament per a certs tipus d'errors.</p>
+      </section>
+
+      <section id="passar-excepcions">
+        <h2>Passar excepcions</h2>
+        <p>Si executar una funció causa una excepció, i aquesta excepció no es gestiona, es passa a la secció de codi que va cridar la funció, i així successivament amunt de la cadena de crides, fins que arriba al nivell de la funció principal. Si no es gestiona allà tampoc, l'execució del programa s'atura, i normalment es mostra l'excepció perquè l'usuari la vegi.</p>
+        <p>En l'exemple següent tenim la funció <code class="inline">provar()</code>. Si causa una excepció, aquesta no es gestiona dins de la funció mateixa, sinó a la funció principal:</p>
+
+        <pre><code class="language-python">def provar(x):
+    print(int(x) + 1)
+
+try:
+    numero = input("Si us plau, introdueix un número: ")
+    provar(numero)
+except:
+    print("Alguna cosa va sortir malament")</code></pre>
+
+        <pre class="output">
+Si us plau, introdueix un número: tres
+Alguna cosa va sortir malament</pre
+        >
+      </section>
+
+      <section id="llancar-excepcions">
+        <h2>Llançar excepcions</h2>
+        <p>També pots llançar excepcions, amb l'ordre <code class="inline">raise</code>. Pot semblar una idea estranya causar errors deliberadament als teus programes, però pot, de fet, ser un mecanisme molt útil.</p>
+        <p>Per exemple, a vegades pot ser una bona idea llançar un error quan es detecten paràmetres invàlids. Fins ara normalment hem imprès missatges en validar entrades, però si estem escrivint una funció que s'executa des d'un altre lloc, simplement imprimir alguna cosa pot passar desapercebut quan es crida la funció. Llançar un error pot facilitar la depuració.</p>
+        <p>En l'exemple següent tenim una funció que calcula factorials (per exemple, el factorial del número 5 és 1 * 2 * 3 * 4 * 5). Si l'argument passat a la funció és negatiu, la funció llança un error:</p>
+
+        <pre><code class="language-python">def factorial(n):
+    if n < 0:
+        raise ValueError("L'entrada era negativa: " + str(n))
+    k = 1
+    for i in range(2, n + 1):
+        k *= i
+    return k
+
+print(factorial(3))
+print(factorial(6))
+print(factorial(-1))</code></pre>
+
+        <pre class="output">
+6
+720
+Traceback (most recent call last):
+File "test.py", line 11, in 
+print(factorial(-1))
+File "test.py", line 3, in factorial
+raise ValueError("L'entrada era negativa: " + str(n))
+ValueError: L'entrada era negativa: -1</pre
+        >
+
+        <div class="exercici">
+          <h3>Exercici: Validació de paràmetres</h3>
+          <p>Escriu una funció anomenada <code class="inline">nova_persona(nom: str, edat: int)</code>, que crea i retorna una <code class="inline">tupla</code> que conté les dades dels arguments. El primer element ha de ser el nom i el segon l'edat.</p>
+          <p>Si els valors emmagatzemats en les variables de paràmetre no són vàlids, la funció ha de llançar una excepció <code class="inline">ValueError</code>.</p>
+          <p>Els paràmetres no vàlids en aquest cas inclouen:</p>
+          <p>nom és una cadena buida</p>
+          <p>nom conté menys de dues paraules</p>
+          <p>nom és més llarg de 40 caràcters</p>
+          <p>edat és un número negatiu</p>
+          <p>edat és major que 150</p>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Números de loteria incorrectes</h3>
+          <p>El fitxer <code class="inline">lottery_numbers.csv</code> conté números de loteria guanyadors en el següent format:</p>
+          <pre class="output">
+setmana 1;5,7,11,13,23,24,30
+setmana 2;9,13,14,24,34,35,37
+...etc...</pre
+          >
+          <p>Cada línia ha de contenir una capçalera <code class="inline">setmana x</code>, seguida de set números <code class="inline">enters</code> que estan tots entre 1 i 39 inclosos.</p>
+          <p>El fitxer s'ha corromput. Les línies del fitxer poden contenir els següents tipus d'errors (aquestes línies exactes poden no estar presents al fitxer, però hi haurà errors en un format similar):</p>
+          <p>El número de setmana és incorrecte:</p>
+          <pre class="output">setmana zzc;1,5,13,22,24,25,26</pre>
+          <p>Un o més números no són correctes:</p>
+          <pre class="output">setmana 22;1,**,5,6,13,2b,34</pre>
+          <p>Massa pocs números:</p>
+          <pre class="output">setmana 13;4,6,17,19,24,33</pre>
+          <p>Els números són massa petits o grans:</p>
+          <pre class="output">setmana 39;5,9,15,35,39,41,105</pre>
+          <p>El mateix número apareix dues vegades:</p>
+          <pre class="output">setmana 41;5,12,3,35,12,14,36</pre>
+          <p>Escriu una funció anomenada <code class="inline">filtrar_incorrecte()</code>, que crea un fitxer anomenat <code class="inline">correct_numbers.csv</code>. El fitxer ha de contenir només aquelles línies del fitxer original que estan en el format correcte.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capítol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

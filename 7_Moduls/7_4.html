@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="llegir-fitxers-csv">
+        <h2>Llegir fitxers CSV</h2>
+        <p>CSV és un <strong>format</strong> tan simple que fins ara hem accedit amb <strong>codi</strong> escrit a mà. Hi ha, però, un <strong>mòdul</strong> predefinit a la biblioteca estàndard de Python per treballar amb fitxers CSV: <code class="inline">csv</code>. Funciona així:</p>
+        <pre><code class="language-python">import csv
+
+with open("test.csv") as fitxer:
+    for linia in csv.reader(fitxer, delimiter=";"):
+        print(linia)</code></pre>
+        <p>El <strong>codi</strong> anterior llegeix totes les <code class="inline">línies</code> del fitxer CSV <code class="inline">test.csv</code>, separa els continguts de cada línia en una <code class="inline">llista</code> utilitzant el <code class="inline">delimitador</code> <code class="inline">;</code>, i imprimeix cada <code class="inline">llista</code>. Així, suposant que els continguts de la línia són els següents:</p>
+        <pre><code class="language-text">012121212;5
+012345678;2
+015151515;4</code></pre>
+        <p>El codi imprimiria això:</p>
+        <pre class="output">
+['012121212', '5']
+['012345678', '2']
+['015151515', '4']</pre
+        >
+        <p>Com que el <strong>format CSV</strong> és tan simple, quina utilitat té tenir un <strong>mòdul</strong> separat quan podem utilitzar igualment la <strong>funció</strong> <code class="inline">split</code>? Doncs, per començar, la manera com està construït el mòdul, també funcionarà correctament si els <strong>valors</strong> al fitxer són <code class="inline">cadenes de text</code>, que també poden contenir el caràcter delimitador. Si alguna línia del fitxer tingués aquest aspecte:</p>
+        <pre><code class="language-text">"aaa;bbb";"ccc;ddd"</code></pre>
+        <p>el codi anterior produiria això:</p>
+        <pre class="output">['aaa;bbb', 'ccc;ddd']</pre>
+        <p>Utilitzar la <strong>funció</strong> <code class="inline">split</code> també dividiria dins de les <code class="inline">cadenes</code>, cosa que probablement trencaria les <strong>dades</strong> i el nostre <strong>programa</strong> en el procés.</p>
+      </section>
+
+      <section id="llegir-fitxers-json">
+        <h2>Llegir fitxers JSON</h2>
+        <p>CSV és només un dels molts <strong>formats de dades</strong> llegibles per màquina. JSON és un altre, i s'utilitza sovint quan les <strong>dades</strong> s'han de transferir entre <strong>aplicacions</strong>.</p>
+        <p>Els fitxers JSON són fitxers de text amb un <strong>format</strong> estricte, que és potser una mica menys accessible a la vista humana que el format CSV. L'exemple següent utilitza el fitxer <code class="inline">courses.json</code>, que conté informació sobre alguns cursos:</p>
+        <pre><code class="language-json">[
+    {
+        "name": "Introduction to Programming",
+        "abbreviation": "ItP",
+        "periods": [1, 3]
+    },
+    {
+        "name": "Advanced Course in Programming",
+        "abbreviation": "ACiP",
+        "periods": [2, 4]
+    },
+    {
+        "name": "Database Application",
+        "abbreviation": "DbApp",
+        "periods": [1, 2, 3, 4]
+    }
+]</code></pre>
+        <p>L'<strong>estructura</strong> d'un fitxer JSON et pot resultar bastant familiar ara. El fitxer JSON anterior s'assembla exactament a una <code class="inline">llista</code> de Python, que conté tres <code class="inline">diccionaris</code> de Python.</p>
+        <p>La biblioteca estàndard té un <strong>mòdul</strong> per treballar amb fitxers JSON: <code class="inline">json</code>. La <strong>funció</strong> <code class="inline">loads</code> pren qualsevol <strong>argument</strong> passat en format JSON i el transforma en una <strong>estructura de dades</strong> de Python. Així, processar el fitxer <code class="inline">courses.json</code> amb el codi següent:</p>
+        <pre><code class="language-python">import json
+
+with open("courses.json") as fitxer:
+    dades = fitxer.read()
+
+cursos = json.loads(dades)
+print(cursos)</code></pre>
+        <p>imprimiria el següent:</p>
+        <pre class="output">[{'name': 'Introduction to Programming', 'abbreviation': 'ItP', 'periods': [1, 3]}, {'name': 'Advanced Course in Programming', 'abbreviation': 'ACiP', 'periods': [2, 4]}, {'name': 'Database Application', 'abbreviation': 'DbApp', 'periods': [1, 2, 3, 4]}]</pre>
+        <p>Si també volguéssim imprimir el nom de cada curs, podríem ampliar el nostre <strong>programa</strong> amb un <strong>bucle</strong> <code class="inline">for</code>:</p>
+        <pre><code class="language-python">for curs in cursos:
+    print(curs["name"])</code></pre>
+        <pre class="output">
+Introduction to Programming
+Advanced Course in Programming
+Database Application</pre
+        >
+      </section>
+
+      <section id="maneig-fitxers-json">
+        <div class="exercici">
+          <h3>Exercici: Maneig de fitxers JSON</h3>
+          <p>Fem una ullada a un fitxer JSON, que conté alguna informació sobre estudiants en el següent format:</p>
+          <pre><code class="language-json">[
+    {
+        "name": "Peter Pythons",
+        "age": 27,
+        "hobbies": [
+            "coding",
+            "knitting"
+        ]
+    },
+    {
+        "name": "Jean Javanese",
+        "age": 24,
+        "hobbies": [
+            "coding",
+            "rock climbing",
+            "reading"
+        ]
+    }
+]</code></pre>
+          <p>Escriu una <strong>funció</strong> anomenada <code class="inline">print_persons(filename: str)</code>, que llegeix un fitxer JSON en el format anterior, i imprimeix els continguts com es mostra a continuació. El fitxer pot contenir qualsevol nombre d'entrades.</p>
+          <pre class="output">
+Peter Pythons 27 years (coding, knitting)
+Jean Javanese 24 years (coding, rock climbing, reading)</pre
+          >
+          <p>Les aficions s'han de llistar en el mateix ordre en què apareixen al fitxer JSON.</p>
+        </div>
+      </section>
+
+      <section id="recuperar-fitxer-internet">
+        <h2>Recuperar un fitxer d'internet</h2>
+        <p>La biblioteca estàndard de Python també conté <strong>mòduls</strong> per tractar continguts en línia, i una <strong>funció</strong> útil és <code class="inline">urllib.request.urlopen</code>. T'animem a fer una ullada a tot el mòdul, però l'exemple següent hauria de ser suficient perquè t'hi familiaritzis amb la funció. Es pot utilitzar per recuperar continguts d'internet, de manera que es puguin processar als teus programes.</p>
+        <p>El codi següent imprimiria els continguts de la pàgina principal de la Universitat de Helsinki:</p>
+        <pre><code class="language-python">import urllib.request
+
+peticio = urllib.request.urlopen("https://helsinki.fi")
+print(peticio.read())</code></pre>
+        <p>Les pàgines destinades a la vista humana normalment no tenen un aspecte molt bonic quan el seu codi s'imprimeix. En els exemples següents, però, treballarem amb <strong>dades</strong> llegibles per màquina d'una font en línia. Moltes de les dades llegibles per màquina disponibles en línia estan en format JSON.</p>
+      </section>
+
+      <section id="estadistiques-curs">
+        <div class="exercici">
+          <h3>Exercici: Estadístiques del curs</h3>
+          <p><strong>Nota:</strong> Alguns exercicis tenen múltiples parts, i pots rebre punts per les diferents parts per separat. Pots enviar un exercici parcialment completat triant 'Submit Solution' des del menú al costat del botó per executar proves.</p>
+
+          <h4>Recuperar la llista de cursos actius</h4>
+          <p>A l'adreça <code class="inline">https://studies.cs.helsinki.fi/stats-mock/api/courses</code> trobaràs informació bàsica sobre alguns dels cursos oferts pel Departament d'Informàtica de la Universitat de Helsinki, en format JSON.</p>
+          <p>Escriu una <strong>funció</strong> anomenada <code class="inline">retrieve_all()</code>, que recupera les dades de tots els cursos que actualment estan actius (el camp <code class="inline">enabled</code> té el valor <code class="inline">true</code>). Aquests s'han de retornar com una <code class="inline">llista</code> de <code class="inline">tuples</code>, en el següent format:</p>
+          <pre class="output">
+[
+    ('Full Stack Open 2020', 'ofs2019', 2020, 201),
+    ('DevOps with Docker 2019', 'docker2019', 2019, 36),
+    ('DevOps with Docker 2020', 'docker2020', 2020, 36),
+    ('Beta DevOps with Kubernetes', 'beta-dwk-20', 2020, 28)
+]</pre
+          >
+          <p>Cada <code class="inline">tuple</code> conté els següents camps de les dades originals:</p>
+          <ul>
+            <li>el nom del curs: <code class="inline">fullName</code></li>
+            <li><code class="inline">name</code></li>
+            <li><code class="inline">year</code></li>
+            <li>la suma dels valors llistats a <code class="inline">exercises</code></li>
+          </ul>
+          <p><strong>Nota:</strong> És essencial que recuperis les dades amb la <strong>funció</strong> <code class="inline">urllib.request.urlopen</code>, o els tests automàtics podrien no funcionar correctament.</p>
+          <p><strong>Nota 2:</strong> Els tests estan dissenyats perquè modifiquen lleugerament les dades recuperades d'internet, per assegurar-se que no codifiques de forma rígida els teus valors de retorn.</p>
+          <p><strong>Nota 3:</strong> Alguns usuaris de Mac s'han trobat amb el següent problema:</p>
+          <pre><code class="language-text">File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1353, in do_open
+    raise URLError(err)
+urllib.error.URLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1124)&gt;</code></pre>
+          <p>La solució depèn de com estigui instal·lat Python a la teva màquina. En alguns casos executar el següent en un terminal ajuda:</p>
+          <pre><code class="language-bash">cd "/Applications/Python 3.8/"
+sudo "./Install Certificates.command"</code></pre>
+          <p>El camí utilitzat a la comanda <code class="inline">cd</code> anterior depèn de la versió de Python que tinguis instal·lada. El camí també pot ser, per exemple, <code class="inline">"/Applications/Python 3.9/"</code>.</p>
+          <p>S'han suggerit diverses solucions al problema.</p>
+          <p>Un truc que alguns han trobat útil:</p>
+          <pre><code class="language-python">import urllib.request
+import json
+import ssl # afegeix aquesta biblioteca a la teva secció d'imports
+
+def retrieve_all():
+    # afegeix la línia següent al principi de totes les teves funcions
+    context = ssl._create_unverified_context()
+    # la resta de la teva funció</code></pre>
+          <p>Una altra solució potencial:</p>
+          <pre><code class="language-python">import urllib.request
+import certifi # afegeix aquesta biblioteca a la teva secció d'imports
+import json
+
+def retrieve_all():
+   adreca = "https://studies.cs.helsinki.fi/stats-mock/api/courses"
+   # afegeix un segon argument a la crida de la funció
+   peticio = urllib.request.urlopen(adreca, cafile=certifi.where())
+   # la resta de la teva funció</code></pre>
+
+          <h4>Recuperar les dades per a un sol curs</h4>
+          <p>Cada curs també té la seva pròpia URL, on hi ha dades setmanals més específiques sobre el curs disponible. Les URL segueixen el format <code class="inline">https://studies.cs.helsinki.fi/stats-mock/api/courses/****/stats</code>, on hauries de reemplaçar els asteriscs amb els continguts del camp <code class="inline">name</code> per al curs al qual vulguis accedir.</p>
+          <p>Per exemple, les dades per al curs <code class="inline">docker2019</code> estan a l'adreça <code class="inline">https://studies.cs.helsinki.fi/stats-mock/api/courses/docker2019/stats</code>.</p>
+          <p>Escriu una <strong>funció</strong> anomenada <code class="inline">retrieve_course(course_name: str)</code>, que retorna estadístiques per al curs especificat, en format <code class="inline">diccionari</code>.</p>
+          <p>Per exemple, la crida de funció <code class="inline">retrieve_course("docker2019")</code> retornaria un <code class="inline">diccionari</code> amb els següents continguts:</p>
+          <pre class="output">
+{
+    'weeks': 4,
+    'students': 220,
+    'hours': 5966,
+    'hours_average': 27,
+    'exercises': 4988,
+    'exercises_average': 22
+}</pre
+          >
+          <p>Els valors al <code class="inline">diccionari</code> es determinen de la manera següent:</p>
+          <ul>
+            <li><code class="inline">weeks</code>: el nombre de literals d'objecte JSON recuperats</li>
+            <li><code class="inline">students</code>: el nombre màxim d'estudiants en totes les setmanes</li>
+            <li><code class="inline">hours</code>: la suma de tots els valors <code class="inline">hour_total</code> en les diferents setmanes</li>
+            <li><code class="inline">hours_average</code>: el valor <code class="inline">hours</code> dividit pel valor <code class="inline">students</code> (arrodonit cap avall a l'<code class="inline">enter</code> més proper)</li>
+            <li><code class="inline">exercises</code>: la suma de tots els valors <code class="inline">exercise_total</code> en les diferents setmanes</li>
+            <li><code class="inline">exercises_average</code>: el valor <code class="inline">exercises</code> dividit pel valor <code class="inline">students</code> (arrodonit cap avall a l'<code class="inline">enter</code> més proper)</li>
+          </ul>
+          <p><strong>Nota:</strong> Mira els avisos a la Part 1 de l'exercici, ja que s'apliquen aquí també.</p>
+          <p><strong>Nota 2:</strong> El mòdul <code class="inline">math</code> de Python té una funció útil per arrodonir enters cap avall.</p>
+        </div>
+      </section>
+
+      <section id="qui-va-enganyar">
+        <div class="exercici">
+          <h3>Exercici: Qui va enganyar</h3>
+          <p>El fitxer <code class="inline">start_times.csv</code> conté temps d'inici individuals per a un examen de programació, en el format <code class="inline">nom;hh:mm</code>. Un exemple:</p>
+          <pre><code class="language-text">jarmo;09:00
+timo;18:42
+kalle;13:23</code></pre>
+          <p>A més, el fitxer <code class="inline">submissions.csv</code> conté punts i temps de lliurament per a exercicis individuals. El format aquí és <code class="inline">nom;tasca;punts;hh:mm</code>. Un exemple:</p>
+          <pre><code class="language-text">jarmo;1;8;16:05
+timo;2;10;21:22
+jarmo;2;10;19:15
+etc...</code></pre>
+          <p>La teva tasca és trobar els estudiants que van passar més de 3 hores en les tasques de l'examen. És a dir, qualsevol estudiant la qual tasca es va lliurar més de 3 hores després del seu temps d'inici de l'examen s'etiqueta com a enganyós. Pot haver-hi més d'una entrega per a la mateixa tasca per a cada estudiant. Pots assumir que totes les hores estan dins del mateix dia.</p>
+          <p>Escriu una <strong>funció</strong> anomenada <code class="inline">cheaters()</code>, que retorna una <code class="inline">llista</code> que conté els noms dels estudiants que van enganyar.</p>
+        </div>
+      </section>
+
+      <section id="qui-va-enganyar-versio-2">
+        <div class="exercici">
+          <h3>Exercici: Qui va enganyar, versió 2</h3>
+          <p>Tens els fitxers CSV de l'exercici anterior a la teva disposició de nou. Escriu una <strong>funció</strong> anomenada <code class="inline">final_points()</code>, que retorna els punts finals de l'examen rebuts pels estudiants, en format <code class="inline">diccionari</code>, seguint aquests criteris:</p>
+          <ul>
+            <li>Si hi ha múltiples entregues per a la mateixa tasca, es té en compte l'entrega amb el nombre més alt de punts.</li>
+            <li>Si l'entrega es va fer més de 3 hores després de l'hora d'inici, l'entrega s'ignora.</li>
+            <li>Les tasques estan numerades de l'1 al 8, i cada entrega es qualifica amb 0 a 6 punts.</li>
+          </ul>
+          <p>Al <code class="inline">diccionari</code> retornat la clau ha de ser el nom de l'estudiant, i el valor els punts totals rebuts per l'estudiant.</p>
+          <p><strong>Pista:</strong> els <code class="inline">diccionaris</code> niats podrien ser un bon enfocament quan es processen les tasques i els temps de lliurament de cada estudiant.</p>
+        </div>
+      </section>
+
+      <section id="cercant-moduls">
+        <h2>Cercant mòduls</h2>
+        <p>La documentació oficial de Python conté informació sobre tots els <strong>mòduls</strong> disponibles a la biblioteca estàndard:</p>
+        <p><code class="inline">https://docs.python.org/3/library/</code></p>
+        <p>A més de la biblioteca estàndard, internet està ple de mòduls de Python lliurement disponibles per a diferents propòsits. Alguns mòduls comunament utilitzats es llisten aquí:</p>
+        <p><code class="inline">https://wiki.python.org/moin/UsefulModules</code></p>
+      </section>
+
+      <section id="corrector-ortografic-versio-2">
+        <div class="exercici">
+          <h3>Exercici: Corrector ortogràfic, versió 2</h3>
+          <p>En aquest exercici escriuràs una versió millorada del Corrector ortogràfic de la part anterior.</p>
+          <p>Igual que en la versió anterior, el programa ha de demanar a l'usuari que escrigui una línia de text. El teu programa ha de realitzar una comprovació ortogràfica i imprimir retroalimentació a l'usuari, de manera que totes les paraules mal escrites tinguin estels al voltant. A més, el programa ha d'imprimir una llista de suggeriments per a les paraules mal escrites.</p>
+          <p>Fes una ullada als dos exemples següents.</p>
+          <pre class="output">
+escriu text: We use ptython to make a spell checker
+
+We use *ptython* to make a spell checker
+suggestions:
+ptython: python, pythons, typhon</pre
+          >
+          <pre class="output">
+escriu text: this is acually a good and usefull program
+
+this is *acually* a good and *usefull* program
+suggestions:
+acually: actually, tactually, factually
+usefull: usefully, useful, museful</pre
+          >
+          <p>Els suggeriments s'han de determinar amb la <strong>funció</strong> <code class="inline">get_close_matches</code> del <strong>mòdul</strong> <code class="inline">difflib</code> de la biblioteca estàndard de Python.</p>
+          <p><strong>Nota:</strong> Perquè els tests automàtics funcionin correctament, si us plau utilitza la funció amb la "configuració per defecte". És a dir, si us plau passa només dos arguments a la funció: la paraula mal escrita, i la llista de paraules.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capítol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+print("Adela")
+print("Amelia")
+print("Angustias")
+print("Bernarda")
+print("Magdalena")
+print("Martirio")

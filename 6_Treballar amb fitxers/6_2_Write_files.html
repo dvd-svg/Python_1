@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="escriptura-fitxers">
+        <h2>Escriptura de fitxers</h2>
+        <p>Fins ara hem <strong>llegit dades</strong> de fitxers, però també és possible <strong>escriure dades</strong> en fitxers. Normalment un programa processa dades i emmagatzema els resultats en un fitxer, perquè puguin ser utilitzats més tard o processats per algun altre programa.</p>
+        <p>Podem crear un <strong>fitxer nou</strong> cada vegada que vulguem escriure dades en un fitxer, però també podem <strong>afegir noves dades</strong> al final d'un fitxer existent. En ambdós casos utilitzem la funció <code class="inline">open()</code> de la secció anterior. Per escriure fitxers la funció requereix un segon argument.</p>
+      </section>
+
+      <section id="crear-fitxer-nou">
+        <h2>Crear un fitxer nou</h2>
+        <p>Si vols crear un fitxer nou, hauries de cridar la funció <code class="inline">open()</code> amb l'argument addicional <code class="inline">"w"</code>, per significar que el fitxer s'ha d'obrir en <strong>mode escriptura</strong>. Així, la crida a la funció podria ser així:</p>
+        <pre><code class="language-python">with open("fitxer_nou.txt", "w") as el_meu_fitxer:
+    # codi per escriure alguna cosa al fitxer</code></pre>
+        <p><strong>Nota</strong>: si el fitxer ja existeix, tot el contingut se sobreescriurà. Val la pena anar amb molt de compte quan es creen fitxers nous.</p>
+        <p>Amb el fitxer obert pots escriure dades en ell. Pots utilitzar el mètode <code class="inline">write()</code>, que rep la <strong>cadena de text</strong> que s'ha d'escriure com a argument.</p>
+        <pre><code class="language-python">with open("fitxer_nou.txt", "w") as el_meu_fitxer:
+    el_meu_fitxer.write("Hola!")</code></pre>
+        <p>Quan executeu el programa, apareixerà un fitxer nou anomenat <code class="inline">fitxer_nou.txt</code> al directori. El contingut seria així:</p>
+        <pre class="output">Hola!</pre>
+        <p>Si voleu <strong>salts de línia</strong> al fitxer, haureu d'afegir-los manualment - la funció <code class="inline">write()</code> no funciona exactament com la funció <code class="inline">print()</code>, tot i que són similars. Així, el programa següent:</p>
+        <pre><code class="language-python">with open("fitxer_nou.txt", "w") as el_meu_fitxer:
+    el_meu_fitxer.write("Hola!")
+    el_meu_fitxer.write("Aquesta és la segona línia")
+    el_meu_fitxer.write("Aquesta és l'última línia")</code></pre>
+        <p>resultaria en un fitxer amb aquest contingut:</p>
+        <pre class="output">Hola!Aquesta és la segona líniaAquesta és l'última línia</pre>
+        <p>Els salts de línia s'aconsegueixen afegint caràcters de <strong>nova línia</strong> <code class="inline">\n</code> a les cadenes d'argument:</p>
+        <pre><code class="language-python">with open("fitxer_nou.txt", "w") as el_meu_fitxer:
+    el_meu_fitxer.write("Hola!\n")
+    el_meu_fitxer.write("Aquesta és la segona línia\n")
+    el_meu_fitxer.write("Aquesta és l'última línia\n")</code></pre>
+        <p>Ara el contingut de <code class="inline">fitxer_nou.txt</code> seria així:</p>
+        <pre class="output">
+Hola!
+Aquesta és la segona línia
+Aquesta és l'última línia</pre
+        >
+
+        <div class="exercici">
+          <h3>Exercici: Inscripció</h3>
+          <p>Escriu un programa que demani el nom de l'usuari i després creï una "inscripció" en un fitxer especificat per l'usuari. Mira l'exemple a continuació.</p>
+          <pre class="output">
+A qui haig de signar això: Anna
+On ho he de desar: inscrit.txt</pre
+          >
+          <p>El contingut del fitxer <code class="inline">inscrit.txt</code> seria:</p>
+          <pre class="output">Hola Anna, esperem que gaudeixis aprenent Python amb nosaltres! Salut, l'Equip de Mooc.fi</pre>
+          <p><strong>Nota</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
+        </div>
+      </section>
+
+      <section id="afegir-dades-fitxer-existents">
+        <h2>Afegir dades a un fitxer existent</h2>
+        <p>Si vols afegir dades al final d'un fitxer, en lloc de sobreescriure tot el fitxer, hauries d'obrir el fitxer en <strong>mode afegir</strong> amb l'argument <code class="inline">"a"</code>.</p>
+        <p>Si el fitxer encara no existeix, el mode afegir funciona exactament com el mode escriptura.</p>
+        <p>El programa següent obre el fitxer <code class="inline">fitxer_nou.txt</code> i afegeix un parell de línies de text al final:</p>
+        <pre><code class="language-python">with open("fitxer_nou.txt", "a") as el_meu_fitxer:
+    el_meu_fitxer.write("Aquesta és la quarta línia\n")
+    el_meu_fitxer.write("I una altra línia més.\n")</code></pre>
+        <p>Després d'executar aquest programa el contingut del fitxer seria així:</p>
+        <pre class="output">
+Hola!
+Aquesta és la segona línia
+Aquesta és l'última línia
+Aquesta és la quarta línia
+I una altra línia més.</pre
+        >
+        <p>En la pràctica de programació, afegir dades a fitxers no és una tasca molt comuna.</p>
+        <p>Més sovint es llegeix un fitxer, es processa i se sobreescriu completament. Per exemple, quan el contingut ha de canviar al mig del fitxer, normalment és més fàcil sobreescriure tot el fitxer.</p>
+
+        <div class="exercici">
+          <h3>Exercici: Diari</h3>
+          <p>Escriu un programa que funcioni com un diari simple. Les entrades del diari s'han de desar al fitxer <code class="inline">diari.txt</code>. Quan s'executi el programa, ha de llegir primer qualsevol entrada ja existent al fitxer.</p>
+          <p><strong>Nota</strong>: les proves automàtiques per a aquest exercici canviaran el contingut del fitxer. Si vols mantenir el seu contingut, primer fes una còpia del fitxer amb un nom diferent.</p>
+          <p>El programa ha de funcionar de la següent manera:</p>
+          <pre class="output">
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 1
+Entrada del diari: Avui he esmorrat farinetes
+Diari desat
+
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 2
+Entrades:
+Avui he esmorrat farinetes
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 1
+Entrada del diari: A la tarda he anat a la sauna
+Diari desat
+
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 2
+Entrades:
+Avui he esmorrat farinetes
+A la tarda he anat a la sauna
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 0
+Fins aviat!</pre
+          >
+          <p>Quan el programa s'executi per segona vegada, ha de passar això:</p>
+          <pre class="output">
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 2
+Entrades:
+Avui he esmorrat farinetes
+A la tarda he anat a la sauna
+1 - afegir entrada, 2 - llegir entrades, 0 - sortir
+Funció: 0
+Fins aviat!</pre
+          >
+          <p><strong>Nota</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
+        </div>
+      </section>
+
+      <section id="escriure-fitxers-csv">
+        <h2>Escriure fitxers CSV</h2>
+        <p>Els fitxers CSV es poden escriure línia per línia amb el mètode <code class="inline">write()</code> com qualsevol altre fitxer. L'exemple següent crea el fitxer <code class="inline">programadors.csv</code>, amb cada línia contenint el nom, entorn de treball, llenguatge preferit i anys d'experiència d'un sol programador. Els camps estan separats per un punt i coma.</p>
+        <pre><code class="language-python">with open("programadors.csv", "w") as el_meu_fitxer:
+    el_meu_fitxer.write("Erica;Windows;Pascal;10\n")
+    el_meu_fitxer.write("Marta;Linux;PHP;2\n")
+    el_meu_fitxer.write("Alan;Linux;Java;17\n")
+    el_meu_fitxer.write("Emili;Mac;Cobol;9\n")</code></pre>
+        <p>Executar aquest programa resultaria en el següent fitxer:</p>
+        <pre class="output">
+Erica;Windows;Pascal;10
+Marta;Linux;PHP;2
+Alan;Linux;Java;17
+Emili;Mac;Cobol;9</pre
+        >
+        <p>Què passa si les dades a escriure estan emmagatzemades en la memòria de l'ordinador en una <strong>llista</strong>?</p>
+        <pre><code class="language-python">programadors = []
+programadors.append(["Erica", "Windows", "Pascal", 10])
+programadors.append(["Marta", "Linux", "PHP", 2])
+programadors.append(["Alan", "Linux", "Java", 17])
+programadors.append(["Emili", "Mac", "Cobol", 9])</code></pre>
+        <p>Podem construir la cadena que volem escriure com una <strong>f-cadena</strong>, i escriure la línia preparada al fitxer així:</p>
+        <pre><code class="language-python">with open("programadors.csv", "w") as el_meu_fitxer:
+    for programador in programadors:
+        linia = f"{programador[0]};{programador[1]};{programador[2]};{programador[3]}"
+        el_meu_fitxer.write(linia+"\n")</code></pre>
+        <p>Si cada llista de dades de programador fos molt llarga, amb molts més elements, construir la cadena manualment seria bastant feixuc. Podem utilitzar un <strong>bucle for</strong> per construir la cadena:</p>
+        <pre><code class="language-python">with open("programadors.csv", "w") as el_meu_fitxer:
+    for programador in programadors:
+        linia = ""
+        for valor in programador:
+            linia += f"{valor};"
+        linia = linia[:-1]
+        el_meu_fitxer.write(linia+"\n")</code></pre>
+      </section>
+
+      <section id="netejar-contingut-fitxers">
+        <h2>Netejar el contingut dels fitxers i esborrar fitxers</h2>
+        <p>De vegades és necessari netejar el contingut d'un fitxer existent. Obrir el fitxer en mode escriptura i tancar el fitxer immediatament aconseguirà exactament això:</p>
+        <pre><code class="language-python">with open("fitxer_a_netejar.txt", "w") as el_meu_fitxer:
+    pass</code></pre>
+        <p>Ara el bloc <code class="inline">with</code> només conté la comanda <code class="inline">pass</code>, que en realitat no fa res. Python no permet blocs buits, per tant la comanda és necessària aquí.</p>
+        <p>És possible també evitar el bloc <code class="inline">with</code> utilitzant la següent línia única:</p>
+        <pre><code class="language-python">open('fitxer_a_netejar.txt', 'w').close()</code></pre>
+
+        <h3>Esborrar fitxers</h3>
+        <p>També pots esborrar un fitxer completament. Hauràs de demanar ajuda al sistema operatiu per aconseguir això:</p>
+        <pre><code class="language-python"># la comanda per esborrar fitxers està al mòdul os
+import os
+
+os.remove("fitxer_innecessari.csv")</code></pre>
+        <p><strong>Nota</strong>: això no funcionarà quan s'executin les proves automàtiques als servidors del curs a causa de limitacions tècniques en l'entorn de proves. Si se't demana que netegis el contingut d'un fitxer, utilitza els mètodes descrits anteriorment.</p>
+
+        <div class="exercici">
+          <h3>Exercici: Filtrar el contingut d'un fitxer</h3>
+          <p>El fitxer <code class="inline">solucions.csv</code> conté algunes solucions a problemes de matemàtiques:</p>
+          <pre class="output">
+Artur;2+5;7
+Pere;3-2;1
+Erica;9+3;11
+Artur;8-3;4
+Pere;5+5;10
+...etc...</pre
+          >
+          <p>Com es pot veure més amunt, en cada línia el format és <code class="inline">nom_de_l'estudiant;problema;resultat</code>. Totes les operacions són sumes o restes, i cadascuna té exactament dos operands.</p>
+          <p>Escriu una funció anomenada <code class="inline">filtra_solucions()</code> que:</p>
+          <ul>
+            <li>Llegeixi el contingut del fitxer <code class="inline">solucions.csv</code></li>
+            <li>Escrigui les línies que tenen un resultat correcte al fitxer <code class="inline">correcte.csv</code></li>
+            <li>Escrigui les línies que tenen un resultat incorrecte al fitxer <code class="inline">incorrecte.csv</code></li>
+          </ul>
+          <p>Utilitzant l'exemple anterior, el fitxer <code class="inline">correcte.csv</code> contindria les línies:</p>
+          <pre class="output">
+Artur;2+5;7
+Pere;3-2;1
+Pere;5+5;10</pre
+          >
+          <p>Les altres dues estarien al fitxer <code class="inline">incorrecte.csv</code>.</p>
+          <p>Escriu les línies en el mateix ordre en què apareixen al fitxer original. No canviïs el fitxer original.</p>
+          <p><strong>Nota</strong>: la funció ha de tenir exactament el mateix resultat, sense importar quantes vegades es cridi. És a dir, no hauria d'importar si la funció es crida una vegada:</p>
+          <pre><code class="language-python">filtra_solucions()</code></pre>
+          <p>o múltiples vegades seguides:</p>
+          <pre><code class="language-python">filtra_solucions()
+filtra_solucions()
+filtra_solucions()
+filtra_solucions()</code></pre>
+          <p>Després de l'execució, el contingut dels fitxers <code class="inline">correcte.csv</code> i <code class="inline">incorrecte.csv</code> ha de ser exactament el mateix en qualsevol cas.</p>
+        </div>
+
+        <div class="exercici">
+          <h3>Exercici: Emmagatzemar dades personals</h3>
+          <p>Escriu una funció anomenada <code class="inline">emmagatzema_dades_personals(persona: tuple)</code>, que rep una tupla que conté alguna informació identificativa com a argument.</p>
+          <p>La tupla conté els elements següents:</p>
+          <ul>
+            <li>Nom (cadena de text)</li>
+            <li>Edat (enter)</li>
+            <li>Alçada (float)</li>
+          </ul>
+          <p>Això s'ha de processar i escriure al fitxer <code class="inline">persones.csv</code>. El fitxer ja pot contenir algunes dades; la nova entrada va al final del fitxer. Les dades s'han d'escriure en el format:</p>
+          <pre class="output">nom;edat;alçada</pre>
+          <p>Cada entrada ha d'estar en una línia separada. Si cridem la funció amb l'argument <code class="inline">("Pau Paulson", 37, 175.5)</code>, la funció hauria d'escriure aquesta línia al final del fitxer:</p>
+          <pre class="output">Pau Paulson;37;175.5</pre>
+        </div>
+      </section>
+
+      <section id="maneig-dades-csv">
+        <h2>Maneig de dades en format CSV</h2>
+        <p>Escrivim un programa que avalua el rendiment dels estudiants en un curs. El programa llegeix un fitxer CSV, que conté els punts d'exercicis setmanals rebuts pels estudiants. El programa després calcula el total de punts i determina la nota assolida per cada estudiant. Finalment, el programa crea un fitxer CSV que conté el total de punts i la nota per a cada estudiant.</p>
+        <p>El fitxer CSV donat com a entrada al programa té aquest aspecte:</p>
+        <pre class="output">
+Pere;4;2;3;5;4;0;0
+Paula;7;2;8;3;5;4;5
+Susanna;3;4;3;5;3;4;4
+Emília;6;6;5;5;0;4;8</pre
+        >
+        <p>La lògica del programa es divideix en tres funcions: llegir el fitxer i processar el contingut en un format accessible, determinar la nota, i escriure el fitxer.</p>
+        <p>El fitxer es llegeix seguint els principis coberts a la secció anterior. Les dades s'emmagatzemen en un <strong>diccionari</strong>, on la clau és el nom de l'estudiant, i el valor és una llista dels punts rebuts per l'estudiant, en format enter:</p>
+        <pre><code class="language-python">def llegeix_punts_setmanals(nom_fitxer):
+    punts_setmanals = {}
+    with open(nom_fitxer) as el_meu_fitxer:
+        for linia in el_meu_fitxer:
+            parts = linia.split(";")
+            llista_punts = []
+            for punts in parts[1:]:
+                llista_punts.append(int(punts))
+            punts_setmanals[parts[0]] = llista_punts
+
+    return punts_setmanals</code></pre>
+        <p>La segona funció és per determinar la nota basada en els punts rebuts. Aquesta funció és alhora utilitzada per la tercera funció, que escriu els resultats al fitxer.</p>
+        <pre><code class="language-python">def nota(punts):
+    if punts < 20:
+        return 0
+    elif punts < 25:
+        return 1
+    elif punts < 30:
+        return 2
+    elif punts < 35:
+        return 3
+    elif punts < 40:
+        return 4
+    else:
+        return 5
+
+def desa_resultats(nom_fitxer, punts_setmanals):
+    with open(nom_fitxer, "w") as el_meu_fitxer:
+        for nom, llista_punts in punts_setmanals.items():
+            suma_punts = sum(llista_punts)
+            el_meu_fitxer.write(f"{nom};{suma_punts};{nota(suma_punts)}\n")</code></pre>
+        <p>Aquesta estructura ens permet escriure una funció principal molt simple. Fixa't com els noms dels fitxers que es llegeixen i s'escriuen es donen com arguments a la funció principal:</p>
+        <pre><code class="language-python">punts_setmanals = llegeix_punts_setmanals("punts_setmanals.csv")
+desa_resultats("resultats.csv", punts_setmanals)</code></pre>
+        <p>Quan s'executa la funció principal, el contingut del fitxer <code class="inline">resultats.csv</code> creat com a resultat té aquest aspecte:</p>
+        <pre class="output">
+Pere;18;0
+Paula;34;3
+Susanna;26;2
+Emília;41;5</pre
+        >
+        <p>Fixa't com cada funció definida anteriorment és relativament simple, i totes tenen una única responsabilitat. Aquest és un enfocament comú i aconsellable quan es programen conjunts més grans. El principi de responsabilitat única facilita la verificació de la funcionalitat. També facilita fer canvis al programa més tard, i afegir noves funcionalitats.</p>
+        <p>Diguem que volguéssim afegir una funció per imprimir la nota d'un sol estudiant. Ja tenim una funció que determina la nota de l'estudiant, així que podem utilitzar-la en la nostra nova funció:</p>
+        <pre><code class="language-python">def obte_nota(nom_estudiant, punts_setmanals):
+    for nom, llista_punts in punts_setmanals.items():
+        if nom == nom_estudiant:
+            return nota(sum(llista_punts))
+
+punts_setmanals = llegeix_punts_setmanals("punts_setmanals.csv")
+print(obte_nota("Paula", punts_setmanals))</code></pre>
+        <pre class="output">3</pre>
+        <p>
+          Si determinem que certa funcionalitat al programa necessita arreglar-se, en un programa ben dissenyat el canvi afectarà només algunes seccions selectes de codi, i serà més fàcil determinar on s'han de fer els canvis. Per exemple, si volguéssim canviar els límits de les notes, només hauríem de implementar el canvi a la funció per determinar la nota, i funcionaria també en totes les altres funcions que utilitzin aquesta funció. Si el codi per a aquesta única funcionalitat estigués implementat en múltiples llocs, hi hauria un risc definitiu que no recordaríem canviar totes les
+          instàncies quan canviéssim la funcionalitat.
+        </p>
+
+        <div class="exercici">
+          <h3>Exercici: Avaluació del curs, part 4</h3>
+          <p>Tornem a visitar el projecte d'avaluació del curs de la secció anterior.</p>
+          <p>Com ho vam deixar l'última vegada, el programa llegia i processava fitxers que contenien informació dels estudiants, exercicis completats i resultats d'examen. Afegirem un fitxer que conté informació sobre el curs. Un exemple del format del fitxer:</p>
+          <pre class="output">
+nom: Introducció a la Programació
+crèdits: 5</pre
+          >
+          <p>El programa ha de crear després dos fitxers. Hi ha d'haver un fitxer anomenat <code class="inline">resultats.txt</code> amb el següent contingut:</p>
+          <pre class="output">
+Introducció a la Programació, 5 crèdits
+======================================
+nom                          nbr_ex   punts_ex. punts_exm. tot_punts. nota
+pere pelat                  21        5         9         14        0
+jana javanesa               27        6         11        17        1
+lisa verda                  35        8         14        22        3</pre
+          >
+          <p>La secció d'estadístiques és idèntica als resultats impresos a la part 3 del projecte. L'única addició aquí és la secció de capçalera.</p>
+          <p>A més, hi ha d'haver un fitxer anomenat <code class="inline">resultats.csv</code> amb el següent format:</p>
+          <pre class="output">
+12345678;pere pelat;0
+12345687;jana javanesa;1
+12345699;lisa verda;3</pre
+          >
+          <p>Quan s'executi el programa, hauria de tenir aquest aspecte:</p>
+          <pre class="output">
+Informació de l'estudiant: estudiants1.csv
+Exercicis completats: exercicis1.csv
+Punts d'examen: punts_examen1.csv
+Informació del curs: curs1.txt
+Resultats escrits als fitxers resultats.txt i resultats.csv</pre
+          >
+          <p>És a dir, el programa només demana els noms dels fitxers d'entrada. Tota la sortida s'ha d'escriure als fitxers. L'usuari només veurà un missatge que ho confirmi.</p>
+          <p><strong>Nota</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
+        </div>
+      </section>
+
+      <section id="cerca-paraules">
+        <div class="exercici">
+          <h3>Exercici: Cerca de paraules</h3>
+          <p>La plantilla de l'exercici inclou el fitxer <code class="inline">paraules.txt</code>, que conté paraules en anglès.</p>
+          <p>Escriu una funció anomenada <code class="inline">cerca_paraules(terme_cerca: str)</code>. Ha de retornar una llista que contingui totes les paraules del fitxer que coincideixin amb el terme de cerca.</p>
+          <p>El terme de cerca pot incloure lletres minúscules i els següents caràcters comodí:</p>
+          <ul>
+            <li>Un punt <code class="inline">.</code> significa que qualsevol caràcter individual és acceptable en el seu lloc. Per exemple, <code class="inline">ca.</code> produiria paraules com <code class="inline">cat</code> i <code class="inline">car</code>, <code class="inline">p.ng</code> produiria paraules com <code class="inline">ping</code> i <code class="inline">pong</code>, i <code class="inline">.a.e</code> produiria paraules com <code class="inline">sane</code>, <code class="inline">care</code> i <code class="inline">late</code>.</li>
+            <li>
+              Un asterisc <code class="inline">*</code> al final del terme de cerca significa que qualsevol paraula que comenci amb el terme de cerca és acceptable. Un asterisc al principi del terme de cerca significa que qualsevol paraula que acabi amb el terme de cerca és acceptable. Per exemple, <code class="inline">ca*</code> produiria paraules com <code class="inline">california</code>, <code class="inline">cat</code>, <code class="inline">caring</code> i <code class="inline">catapult</code>, mentre que <code class="inline">*ane</code> produiria paraules com
+              <code class="inline">crane</code>, <code class="inline">insane</code> i <code class="inline">aeroplane</code>. Només pot haver-hi un únic asterisc en el terme de cerca.
+            </li>
+          </ul>
+          <p>Si no hi ha caràcters comodí en el terme de cerca, només es retornen les paraules que coincideixin exactament amb el terme de cerca.</p>
+          <p>Pots assumir que tant els comodins com mai s'utilitzen en el mateix terme de cerca.</p>
+          <p>Les paraules del fitxer estan totes escrites en minúscules. També pots assumir que l'argument de la funció estarà completament en minúscules.</p>
+          <p>Si no es troben paraules coincidents, la funció ha de retornar una llista buida.</p>
+          <p><strong>Pista</strong>: els mètodes de cadenes de Python <code class="inline">startswith()</code> i <code class="inline">endswith()</code> poden ser útils aquí. Pots buscar més informació sobre ells en línia.</p>
+          <p>Un exemple de la funció en acció:</p>
+          <pre><code class="language-python">print(cerca_paraules("*vokes"))</code></pre>
+          <pre class="output">['convokes', 'equivokes', 'evokes', 'invokes', 'provokes', 'reinvokes', 'revokes']</pre>
+        </div>
+      </section>
+
+      <section id="diccionari-fitxer">
+        <div class="exercici">
+          <h3>Exercici: Diccionari emmagatzemat en un fitxer</h3>
+          <p>Escriu un programa que funcioni com un diccionari. L'usuari pot introduir noves entrades o buscar entrades existents.</p>
+          <p>El programa ha de funcionar de la següent manera:</p>
+          <pre class="output">
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 1
+La paraula en finès: auto
+La paraula en anglès: cotxe
+Entrada del diccionari afegida
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 1
+La paraula en finès: rovellat
+La paraula en anglès: oxidat
+Entrada del diccionari afegida
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 1
+La paraula en finès: motxilla
+La paraula en anglès: motxilla
+Entrada del diccionari afegida
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 2
+Terme de cerca: motxilla
+rovellat - oxidat
+motxilla - motxilla
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 2
+Terme de cerca: cotxe
+auto - cotxe
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 2
+Terme de cerca: motxilla
+motxilla - motxilla
+1 - Afegir paraula, 2 - Cercar, 3 - Sortir
+Funció: 3
+Fins aviat!</pre
+          >
+          <p>Les entrades del diccionari s'han d'escriure en un fitxer anomenat <code class="inline">diccionari.txt</code>. El programa ha de llegir primer el contingut del fitxer. Les noves entrades s'escriuen al final del fitxer sempre que s'afegeixen al diccionari.</p>
+          <p>El format de les dades emmagatzemades en el diccionari depèn de tu.</p>
+          <p><strong>Nota</strong>: les proves automàtiques per a aquest exercici poden canviar el contingut del fitxer. Si vols mantenir el seu contingut, primer fes una còpia del fitxer amb un nom diferent.</p>
+          <p><strong>Nota 2</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capitol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

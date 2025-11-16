@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola món</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+      <section>
+        <h1>Introducció a la programació: Hola món</h1>
+        <h2>Objectius d'aprenentatge</h2>
+        <ul class="objectius">
+          <li>Objectiu amb <strong>paraules clau</strong></li>
+        </ul>
+      </section>
+      <section id="moduls-propies">
+        <h2>Crear els teus propis mòduls Python</h2>
+        <p>Escriure els teus propis <strong>mòduls</strong> Python és fàcil. Qualsevol fitxer que contingui codi Python vàlid pot ser importat com a mòdul. Suposem que tenim un fitxer anomenat <code class="inline">paraules.py</code> amb el següent contingut:</p>
+
+        <pre><code class="language-python">def primera_paraula(meu_text: str):
+    parts = meu_text.split(" ")
+    return parts[0]
+
+def darrera_paraula(meu_text: str):
+    parts = meu_text.split(" ")
+    return parts[-1]
+
+def nombre_paraules(meu_text: str):
+    parts = meu_text.split(" ")
+    return len(parts)</code></pre>
+
+        <p>Les <strong>funcions</strong> definides al fitxer poden ser accedides important el fitxer:</p>
+
+        <pre><code class="language-python">import paraules
+
+meu_text = "La Sílvia ven conquilles a la costa"
+
+print(paraules.primera_paraula(meu_text))
+print(paraules.darrera_paraula(meu_text))
+print(paraules.nombre_paraules(meu_text))</code></pre>
+
+        <pre class="output">
+La
+costa
+6</pre
+        >
+
+        <p><strong>Nota:</strong> el fitxer que conté el <strong>mòdul</strong> Python ha d'estar ubicat o bé en el mateix directori que el programa que l'importa, o en un dels directoris per defecte de Python, o si no l'<strong>intèrpret</strong> de Python no el trobarà quan s'executi la sentència d'importació.</p>
+
+        <p>Podem utilitzar els nostres propis mòduls tal com hem après a utilitzar els mòduls de la <strong>biblioteca estàndard</strong> de Python:</p>
+
+        <pre><code class="language-python">from paraules import primera_paraula, darrera_paraula
+
+frase = input("Escriu una frase: ")
+
+print("La primera paraula era: " + primera_paraula(frase))
+print("La darrera paraula era: " + darrera_paraula(frase))</code></pre>
+
+        <pre class="output">
+Escriu una frase: Python és un llenguatge de programació fantàstic
+La primera paraula era: Python
+La darrera paraula era: fantàstic</pre
+        >
+      </section>
+
+      <section id="indicacions-tipus">
+        <h2>Utilitzant les indicacions de tipus</h2>
+        <p>Quan s'utilitzen mòduls, les <strong>indicacions de tipus</strong> esdevenen especialment útils. Si utilitzes un editor que té suport integrat per a les indicacions de tipus, l'ús de diferents mòduls es fa molt més fàcil.</p>
+
+        <p>Per exemple, Visual Studio Code mostrarà les indicacions de tipus quan estiguis escrivint codi.</p>
+      </section>
+
+      <section id="codi-funcio-principal">
+        <h2>Codi de la funció principal en un mòdul</h2>
+        <p>Si un mòdul conté codi que no està dins d'una definició de <strong>funció</strong> (és a dir, si el mòdul conté codi en la funció principal del mòdul), aquest codi s'executa automàticament sempre que el mòdul s'importa.</p>
+
+        <p>Suposem que el nostre fitxer <code class="inline">paraules.py</code> també contenia alguns casos de prova:</p>
+
+        <pre><code class="language-python">def primera_paraula(meu_text: str):
+    parts = meu_text.split(" ")
+    return parts[0]
+
+def darrera_paraula(meu_text: str):
+    parts = meu_text.split(" ")
+    return parts[-1]
+
+def nombre_paraules(meu_text: str):
+    parts = meu_text.split(" ")
+    return len(parts)
+
+print(primera_paraula("Això és una prova"))
+print(darrera_paraula("Aquí encara estem provant"))
+print(nombre_paraules("Un dos tres quatre cinc"))</code></pre>
+
+        <p>Ara, si importem el mòdul amb una sentència d'importació, tot el codi del mòdul que està fora de les funcions definides s'executa automàticament:</p>
+
+        <pre><code class="language-python">import paraules
+
+meu_text = "La Sílvia ven conquilles a la costa"
+
+print(paraules.primera_paraula(meu_text))
+print(paraules.darrera_paraula(meu_text))
+print(paraules.nombre_paraules(meu_text))</code></pre>
+
+        <pre class="output">
+Això
+provant
+5
+La
+costa
+6</pre
+        >
+
+        <p>Com podeu veure a dalt, això no és un bon resultat, perquè el programa que estem intentant escriure es veu alterat pels casos de prova del propi mòdul.</p>
+
+        <p>
+          Per sort, hi ha una solució, i és una que has utilitzat moltes vegades abans en els exercicis d'aquest curs. Només hem de comprovar si el programa s'està executant per si mateix, o si el codi ha estat importat amb una sentència d'importació. Python té una <strong>variable</strong> incorporada <code class="inline">__name__</code>, que conté el nom del programa que s'està executant. Si el programa s'està executant per si mateix, el valor de la variable és <code class="inline">__main__</code>. Si el programa ha estat importat, el valor de la variable és el nom del mòdul importat (en
+          aquest cas, <code class="inline">paraules</code>).
+        </p>
+
+        <p>Sabent això, podem afegir una sentència <strong>condicional</strong>, que ens permet executar només els casos de prova si el programa s'executa per si mateix. Com podeu veure a sota, l'estructura us resulta familiar:</p>
+
+        <pre><code class="language-python">def primera_paraula(meu_text: str) -> str:
+    parts = meu_text.split(" ")
+    return parts[0]
+
+def darrera_paraula(meu_text: str) -> str:
+    parts = meu_text.split(" ")
+    return parts[-1]
+
+def nombre_paraules(meu_text: str) -> int:
+    parts = meu_text.split(" ")
+    return len(parts)
+
+if __name__ == "__main__":
+    # provant funcionalitat
+    print(primera_paraula("Això és una prova"))
+    print(darrera_paraula("Aquí encara estem provant"))
+    print(nombre_paraules("Un dos tres quatre cinc"))</code></pre>
+
+        <p>Si executeu el mòdul per si mateix, els casos de prova es mostren:</p>
+
+        <pre class="output">
+Això
+provant
+5</pre
+        >
+
+        <p>Quan el mòdul s'importa en un altre programa, els casos de prova no s'executen:</p>
+
+        <pre><code class="language-python">import paraules
+
+meu_text = "La Sílvia ven conquilles a la costa"
+
+print(paraules.primera_paraula(meu_text))
+print(paraules.darrera_paraula(meu_text))
+print(paraules.nombre_paraules(meu_text))</code></pre>
+
+        <pre class="output">
+La
+costa
+6</pre
+        >
+
+        <p>En els exercicis d'aquest curs, sempre que se us ha demanat que escriviu funcions, normalment també s'esperava que envoltéssiu els casos de prova en un bloc <code class="inline">if __name__ == "__main__"</code> exactament com el de dalt. Ara ja sabeu per què.</p>
+      </section>
+
+      <section id="exercici-ajudant-text">
+        <div class="exercici">
+          <h3>Exercici: Ajudant de text</h3>
+          <p>Escriu un mòdul anomenat <code class="inline">ajudant_text</code>, que contingui les següents funcions:</p>
+
+          <p>La funció <code class="inline">canviar_cas(text_original: str)</code> crea i retorna una nova versió del paràmetre text. Les lletres minúscules en l'original haurien de ser majúscules, i les lletres majúscules haurien de ser minúscules.</p>
+
+          <p>La funció <code class="inline">dividir_per_meitat(text_original: str)</code> divideix el paràmetre text per la meitat, i retorna els resultats en una <strong>tupla</strong>. Si l'original té un nombre imparell de caràcters, la primera meitat hauria de ser més curta.</p>
+
+          <p>La funció <code class="inline">eliminar_caracters_especials(text_original: str)</code> retorna una nova versió del paràmetre text, amb tots els caràcters especials eliminats. Només es permeten lletres minúscules i majúscules, números i espais en el text retornat.</p>
+
+          <p>Alguns exemples de com s'utilitzaria el mòdul:</p>
+
+          <pre><code class="language-python">import ajudant_text
+
+meu_text = "Hola, com estàs!"
+
+print(ajudant_text.canviar_cas(meu_text))
+
+p1, p2 = ajudant_text.dividir_per_meitat(meu_text)
+
+print(p1)
+print(p2)
+
+m2 = ajudant_text.eliminar_caracters_especials("Això és una prova, vejam com va!!!11!")
+print(m2)</code></pre>
+
+          <pre class="output">
+hOLA, COM ESTÀS!
+Hola, com
+ estàs!
+Això és una prova vejam com va11</pre
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Conceptes clau</h2>
+        <ul>
+          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+        </ul>
+      </section>
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="">
+              <span class="tornar">←</span>
+              <h3>Capitol anterior</h3>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <h3>Següent capítol</h3>
+              <span class="endavant">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
