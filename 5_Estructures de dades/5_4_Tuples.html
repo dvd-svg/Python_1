@@ -18,24 +18,24 @@
         <h1>Tuples</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Familiaritzar-se amb el tipus de dades <strong>tuple</strong></li>
+          <li>Familiaritzar-se amb el tipus de dades <strong>tupla</strong></li>
           <li>Ser capaç de crear <strong>tuples</strong> a partir de diversos tipus de valors</li>
-          <li>Conèixer la <strong>diferència</strong> entre una tuple i una llista</li>
+          <li>Conèixer la <strong>diferència</strong> entre una tupla i una llista</li>
           <li>Poder nomenar alguns <strong>usos típics</strong> per a les tuples</li>
         </ul>
       </section>
       <section id="tuples-introduccio">
         <h2>Les tuples</h2>
-        <p>Una <strong>tuple</strong> és una <strong>estructura de dades</strong> que, en molts aspectes, és similar a una <code class="inline">llista</code>. Les diferències més importants entre les dues són:</p>
+        <p>Una <strong>tupla</strong> és una <strong>estructura de dades</strong> que, en molts aspectes, és similar a una <code class="inline">llista</code>. Les diferències més importants entre les dues són:</p>
         <p>Les tuples s'encapsulen entre <code class="inline">()</code>, mentre que les llistes s'encapsulen entre <code class="inline">[]</code></p>
         <p>Les tuples són <strong>immutables</strong>, mentre que el contingut d'una <code class="inline">llista</code> pot canviar</p>
-        <p>El següent fragment de codi crea una tuple que conté les coordenades d'un punt:</p>
+        <p>El següent fragment de codi crea una tupla que conté les coordenades d'un punt:</p>
         <pre><code class="language-python">punt = (10, 20)</code></pre>
       </section>
 
       <section id="accedir-elements-tuple">
         <h2>Accedir als elements d'una tupla</h2>
-        <p>Els elements emmagatzemats en una tuple s'accedeixen per <strong>índex</strong>, igual que els elements emmagatzemats en una <code class="inline">llista</code>:</p>
+        <p>Els elements emmagatzemats en una tupla s'accedeixen per <strong>índex</strong>, igual que els elements emmagatzemats en una <code class="inline">llista</code>:</p>
         <pre><code class="language-python">punt = (10, 20)
 print("coordenada x:", punt[0])
 print("coordenada y:", punt[1])</code></pre>
@@ -47,7 +47,7 @@ coordenada y: 20</pre
 
       <section id="immutabilitat-tuples">
         <h2>Immutabilitat de les tuples</h2>
-        <p>Els valors emmagatzemats en una tuple <strong>no es poden canviar</strong> després que la tuple ha estat definida. El següent no funcionarà:</p>
+        <p>Els valors emmagatzemats en una tupla <strong>no es poden canviar</strong> després que la tupla ha estat definida. El següent no funcionarà:</p>
         <pre><code class="language-python">punt = (10, 20)
 punt[0] = 15</code></pre>
         <pre class="output">TypeError: 'tuple' object does not support item assignment</pre>
@@ -55,22 +55,21 @@ punt[0] = 15</code></pre>
 
       <section id="exercici-crear-tuple">
         <div class="exercici">
-          <h3>Exercici: Crear una tupla</h3>
-          <p>Escriu una funció anomenada <code class="inline">crear_tuple(x: int, y: int, z: int)</code>, que rep tres <code class="inline">enters</code> com a arguments, i crea i retorna una tuple basada en els següents criteris:</p>
-          <p>El primer element de la tuple és el més petit dels arguments</p>
-          <p>El segon element de la tuple és el més gran dels arguments</p>
-          <p>El tercer element de la tuple és la suma dels arguments</p>
+          <h3>Exercici 1: Crear una tupla</h3>
+          <p>Escriu una funció anomenada <code class="inline">crear_tupla(x: int, y: int, z: int)</code>, que rep tres <code class="inline">enters</code> com a arguments, i crea i retorna una tupla basada en els següents criteris:</p>
+          <p>El primer element de la tupla és el més petit dels arguments</p>
+          <p>El segon element de la tupla és el més gran dels arguments</p>
+          <p>El tercer element de la tupla és la suma dels arguments</p>
           <p>Exemple d'ús:</p>
-          <pre><code class="language-python">if __name__ == "__main__":
-    print(crear_tuple(5, 3, -1))</code></pre>
+          <pre><code class="language-python">print(crear_tupla(5, 3, -1))</code></pre>
           <pre class="output">(-1, 5, 7)</pre>
         </div>
       </section>
 
       <section id="exercici-persona-mes-vella">
         <div class="exercici">
-          <h3>Exercici: La persona més vella</h3>
-          <p>Escriu una funció anomenada <code class="inline">persona_mes_vella(persones: llista)</code>, que rep una <code class="inline">llista</code> de tuples com a argument. En cada tuple, el primer element és el nom d'una persona, i el segon element és el seu any de naixement. La funció ha de trobar la persona més vella de la llista i retornar el seu nom.</p>
+          <h3>Exercici 2: La persona més vella</h3>
+          <p>Escriu una funció anomenada <code class="inline">persona_mes_vella(persones: list)</code>, que rep una <code class="inline">llista</code> de tuples com a argument. En cada tuple, el primer element és el nom d'una persona, i el segon element és el seu any de naixement. La funció ha de trobar la persona més vella de la llista i retornar el seu nom.</p>
           <p>Exemple de la funció en acció:</p>
           <pre><code class="language-python">p1 = ("Adam", 1977)
 p2 = ("El·lena", 1985)
@@ -85,9 +84,9 @@ print(persona_mes_vella(persones))</code></pre>
 
       <section id="exercici-persones-mes-grans">
         <div class="exercici">
-          <h3>Exercici: Persones més grans</h3>
+          <h3>Exercici 3: Persones més grans</h3>
           <p>En aquest exercici tractem tuples iguals a les descrites en l'exercici anterior.</p>
-          <p>Escriu una funció anomenada <code class="inline">persones_mes_grans(persones: llista, any: int)</code>, que selecciona totes aquelles persones de la llista que van néixer abans de l'any donat com a argument. La funció ha de retornar els noms d'aquestes persones en una nova <code class="inline">llista</code>.</p>
+          <p>Escriu una funció anomenada <code class="inline">persones_mes_grans(persones: list, any: int)</code>, que selecciona totes aquelles persones de la llista que van néixer abans de l'any donat com a argument. La funció ha de retornar els noms d'aquestes persones en una nova <code class="inline">llista</code>.</p>
           <p>Exemple d'ús:</p>
           <pre><code class="language-python">p1 = ("Adam", 1977)
 p2 = ("El·lena", 1985)
@@ -103,7 +102,7 @@ print(mes_grands)</code></pre>
 
       <section id="proposit-tuples">
         <h2>Quin és el propòsit d'una tupla?</h2>
-        <p>Les tuples són ideals quan hi ha un conjunt de valors que estan <strong>connectats</strong> d'alguna manera. Per exemple, quan cal gestionar les coordenades x i y d'un punt, una tuple és una elecció natural, perquè les coordenades sempre consistiran en dos valors:</p>
+        <p>Les tuples són ideals quan hi ha un conjunt de valors que estan <strong>connectats</strong> d'alguna manera. Per exemple, quan cal gestionar les coordenades x i y d'un punt, una tupla és una elecció natural, perquè les coordenades sempre consistiran en dos valors:</p>
         <pre><code class="language-python">punt = (10, 20)</code></pre>
         <p>Tècnicament, és possible també utilitzar una <code class="inline">llista</code> per emmagatzemar-ho:</p>
         <pre><code class="language-python">punt = [10, 20]</code></pre>
@@ -142,9 +141,9 @@ llista = [33, 5, 21, 7, 88, 312, 5]
 valor_min, valor_max = minmax(llista)
 print(f"L'element més petit és {valor_min} i l'element més gran és {valor_max}")</code></pre>
         <pre class="output">L'element més petit és 5 i l'element més gran és 312</pre>
-        <p>Aquesta funció retorna dos valors en una tuple. El valor de retorn s'assigna a dues variables alhora:</p>
+        <p>Aquesta funció retorna dos valors en una tupla. El valor de retorn s'assigna a dues variables alhora:</p>
         <pre><code class="language-python">valor_min, valor_max = minmax(llista)</code></pre>
-        <p>Utilitzar parèntesis pot fer que la notació sigui més clara. A la part esquerra de la sentència d'assignació també tenim una tuple, que conté dos noms de variables. Els valors continguts dins la tuple retornada per la funció s'assignen a aquestes dues variables.</p>
+        <p>Utilitzar parèntesis pot fer que la notació sigui més clara. A la part esquerra de la sentència d'assignació també tenim una tuple, que conté dos noms de variables. Els valors continguts dins la tupla retornada per la funció s'assignen a aquestes dues variables.</p>
         <pre><code class="language-python">(valor_min, valor_max) = minmax(llista)</code></pre>
       </section>
 
@@ -175,7 +174,7 @@ nombre2 = auxiliar</code></pre>
 
       <section id="exercici-base-dades-estudiants">
         <div class="exercici">
-          <h3>Exercici: Base de dades d'estudiants</h3>
+          <h3>Exercici 4: Base de dades d'estudiants</h3>
           <h3>Part 1: Afegir estudiants</h3>
           <p>Primer escriu una funció anomenada <code class="inline">afegir_estudiant</code>, que afegeix un nou estudiant a la base de dades. També escriu una versió preliminar de la funció <code class="inline">imprimir_estudiant</code>, que imprimeix la informació d'un sol estudiant.</p>
           <p>Aquestes funcions s'utilitzen així:</p>
@@ -188,14 +187,15 @@ imprimir_estudiant(estudiants, "Joan")</code></pre>
           <p>El teu programa ara hauria d'imprimir:</p>
           <pre class="output">
 Pere:
- cap curs completat
+cap curs completat
 Elisabet:
- cap curs completat
-Joan: no hi ha aquesta persona a la base de dades</pre
+cap curs completat
+Joan: 
+no hi ha aquesta persona a la base de dades</pre
           >
 
           <h3>Part 2: Afegir cursos completats</h3>
-          <p>Escriu una funció anomenada <code class="inline">afegir_curs</code>, que afegeix un curs completat a la informació d'un estudiant específic a la base de dades. Les dades del curs són una tuple que consisteix en el nom del curs i la nota:</p>
+          <p>Escriu una funció anomenada <code class="inline">afegir_curs</code>, que afegeix un curs completat a la informació d'un estudiant específic a la base de dades. Les dades del curs són una tupla que consisteix en el nom del curs i la nota:</p>
           <pre><code class="language-python">estudiants = {}
 afegir_estudiant(estudiants, "Pere")
 afegir_curs(estudiants, "Pere", ("Introducció a la Programació", 3))
@@ -211,7 +211,7 @@ Pere:
           >
 
           <h3>Part 3: Repetir cursos</h3>
-          <p>Els cursos amb nota 0 s'han d'ignorar quan s'afegeix informació del curs. Addicionalment, si el curs ja està a la base de dades en la informació d'aquest estudiant específic, la nota registrada a la base de dades mai ha de baixar si el curs es repeteix.</p>
+          <p>Els cursos amb nota 0 s'han d'ignorar quan s'afegeix informació del curs. Addicionalment, si el curs ja està a la base de dades, els cursos amb nota 0 s'han d'ignorar. Finalment, si un curs es repeteix mai s'ha de baixar la nota.</p>
           <pre><code class="language-python">estudiants = {}
 afegir_estudiant(estudiants, "Pere")
 afegir_curs(estudiants, "Pere", ("Introducció a la Programació", 3))
@@ -248,8 +248,8 @@ millor nota mitjana 4.5 Elisabet</pre
 
       <section id="exercici-quadrat-lletres">
         <div class="exercici">
-          <h3>Exercici: Un quadrat de lletres</h3>
-          <p>Aquest exercici final d'aquesta part és una tasca de resolució de problemes relativament exigent. Es pot resoldre de moltes maneres diferents. Tot i que aquesta secció actual del material cobreix les tuples, les tuples no són necessàriament la millor manera de resoldre-ho.</p>
+          <h3>Exercici 5: Un quadrat de lletres</h3>
+          <p>L'exercici final d'aquesta part és una tasca de resolució de problemes relativament exigent. Es pot resoldre de moltes maneres diferents. Tot i que aquesta secció actual del material cobreix les tuples, les tuples no són necessàriament la millor manera de resoldre-ho.</p>
           <p>Escriu un programa que imprimeixi un quadrat de lletres com s'especifica en els exemples següents. Pots assumir que hi haurà com a màxim 26 capes.</p>
           <pre class="output">
 Capes: 3
@@ -276,11 +276,11 @@ DDDDDDD</pre
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Tuple</strong>: estructura de dades <strong>immutable</strong> similar a una <code class="inline">llista</code>.</li>
+          <li><strong>Tupla</strong>: estructura de dades <strong>immutable</strong> similar a una <code class="inline">llista</code>.</li>
           <li><strong>Parèntesis</strong>: s'utilitzen per definir tuples <code class="inline">()</code>.</li>
           <li><strong>Tuples sense parèntesis</strong>: la definició sense parèntesis és vàlida i equivalent.</li>
           <li><strong>Retorn múltiple</strong>: les tuples permeten retornar diversos valors des d'una funció.</li>
-          <li><strong>Desempaquetament</strong>: assignació de valors de tuple a múltiples variables.</li>
+          <li><strong>Desempaquetament</strong>: assignació de valors de tupla a múltiples variables.</li>
           <li><strong>Intercanvi de valors</strong>: tècnica elegant per intercanviar variables amb tuples.</li>
           <li><strong>Col·leccions relacionades</strong>: ús ideal per agrupar valors conceptualment units.</li>
         </ul>

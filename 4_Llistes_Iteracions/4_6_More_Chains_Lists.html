@@ -143,7 +143,7 @@ print(nova_cadena)</code></pre>
         <pre><code class="language-python">frase = "sheila sells seashells on the seashore"
 print(frase.replace("she", "SHE"))</code></pre>
         <pre class="output">SHEila sells seaSHElls on the seashore</pre>
-        <p>Quan s'utilitza el mètode <code class="inline">replace()</code>, un error típic és oblidar que les cadenes de text són immutables:</p>
+        <p>Quan s'utilitza el mètode <code class="inline">replace()</code>, un <strong>error</strong> típic és oblidar que les cadenes de text són immutables:</p>
         <pre><code class="language-python">cadena_exemple = "Python és divertit"
 
 # substitueix la subcadena però no emmagatzema el resultat...
@@ -377,6 +377,34 @@ Distribució de notes:
           <p>L'entrada de l'usuari en aquest programa consisteix en línies amb dos valors enters:</p>
           <pre class="output">Punts d'examen i exercicis completats: 15 87</pre>
           <p>Heu de dividir primer la línia d'entrada en dues parts i després convertir les seccions en enters amb la funció <code class="inline">int()</code>. Dividir l'entrada es pot aconseguir de la mateixa manera que en l'exercici Primer, segon i última paraula, però també hi ha una manera més simple. El mètode de cadena de text <code class="inline">split()</code> dividirà l'entrada facilment. Trobareu més informació buscant <code class="inline">python string split</code> en línia.</p>
+          <p><strong>Resultats esperats:</strong></p>
+          <pre class="output">
+Punts d'examen i exercicis completats: 12 55
+['12', '55']
+Punts d'examen i exercicis completats: 20 100
+['20', '100']
+Punts d'examen i exercicis completats: 3 45
+['3', '45']
+Punts d'examen i exercicis completats: 7 160
+['7', '160']
+Punts d'examen i exercicis completats: 6 180
+['6', '180']
+Punts d'examen i exercicis completats: 5 130
+['5', '130']
+Punts d'examen i exercicis completats: 7 190
+['7', '190']
+Punts d'examen i exercicis completats: 
+Estadístiques:
+Mitjana de punts:  2.71
+Percentatge d'aprovats:  57.14
+Distribució de notes:
+  5: *
+  4: **
+  3: *
+  2: *
+  1: *
+  0: *
+          </pre>
         </div>
       </section>
       <section>
@@ -400,9 +428,9 @@ Distribució de notes:
             </a>
           </li>
           <li>
-            <a href="index.html">
-              <h3>Final de tema</h3>
-              <span class="endavant"></span>
+            <a href="4_7_Project.html">
+              <h3>4.7 Projecte</h3>
+              <span class="endavant">→</span>
             </a>
           </li>
         </ul>

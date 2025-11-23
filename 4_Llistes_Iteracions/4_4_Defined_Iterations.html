@@ -201,8 +201,8 @@ print(nombres)</code></pre>
       <section id="exercicis-funcions">
         <div class="exercici">
           <h3>Exercici 3: Llista d'estels</h3>
-          <p>Escriu una funció anomenada <code class="inline">llista_d_estels</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció ha d'imprimir línies de caràcters d'estel. Els nombres a la llista especifiquen quants estels ha de contenir cada línia.</p>
-          <p>Per exemple, amb la crida a la funció <code class="inline">llista_d_estels([3, 7, 1, 1, 2])</code> s'hauria d'imprimir:</p>
+          <p>Escriu una funció anomenada <code class="inline">llista_estels</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció ha d'imprimir línies de caràcters d'estel. Els nombres a la llista especifiquen quants estels ha de contenir cada línia.</p>
+          <p>Per exemple, amb la crida a la funció <code class="inline">llista_estels([3, 7, 1, 1, 2])</code> s'hauria d'imprimir:</p>
           <pre class="output">
 ***
 *******
@@ -242,9 +242,9 @@ neveroddoreven és un palíndrom!</pre
 
         <div class="exercici">
           <h3>Exercici 6: La suma dels nombres positius</h3>
-          <p>Escriu una funció anomenada <code class="inline">suma_dels_positius</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció retorna la suma dels valors positius a la llista.</p>
+          <p>Escriu una funció anomenada <code class="inline">suma_positius</code>, que pren una llista d'<strong>enters</strong> com a argument. La funció retorna la suma dels valors positius a la llista.</p>
           <pre><code class="language-python">llista = [1, -2, 3, -4, 5]
-resultat = suma_dels_positius(llista)
+resultat = suma_positius(llista)
 print("El resultat és", resultat)</code></pre>
           <pre class="output">El resultat és 9</pre>
         </div>
@@ -298,15 +298,15 @@ for element in llista:
 
         <div class="exercici">
           <h3>Exercici 10: La longitud de la més llarga a la llista</h3>
-          <p>Escriu una funció anomenada <code class="inline">longitud_de_la_mes_llarga</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció retorna la longitud de la cadena més llarga.</p>
+          <p>Escriu una funció anomenada <code class="inline">longitud_mes_llarga</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció retorna la longitud de la cadena més llarga.</p>
           <pre><code class="language-python">llista = ["first", "second", "fourth", "eleventh"]
 
-resultat = longitud_de_la_mes_llarga(llista)
+resultat = longitud_mes_llarga(llista)
 print(resultat)
 
 llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-resultat = longitud_de_la_mes_llarga(llista)
+resultat = longitud_mes_llarga(llista)
 print(resultat)</code></pre>
           <pre class="output">
 8
@@ -334,16 +334,16 @@ tim</pre
 
         <div class="exercici">
           <h3>Exercici 12: Totes les més llargues de la llista</h3>
-          <p>Escriu una funció anomenada <code class="inline">totes_les_mes_llargues</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció ha de retornar una nova llista que contingui la cadena més llarga de la llista original. Si més d'una és igual de llarga, la funció ha de retornar totes les cadenes més llargues.</p>
+          <p>Escriu una funció anomenada <code class="inline">totes_les_llargues</code>, que pren una llista de <strong>cadenes</strong> com a argument. La funció ha de retornar una nova llista que contingui la cadena més llarga de la llista original. Si més d'una és igual de llarga, la funció ha de retornar totes les cadenes més llargues.</p>
           <p>L'ordre de les cadenes a la llista retornada ha de ser el mateix que a l'original.</p>
           <pre><code class="language-python">llista = ["first", "second", "fourth", "eleventh"]
 
-resultat = totes_les_mes_llargues(llista)
+resultat = totes_les_llargues(llista)
 print(resultat) # ['eleventh']
 
 llista = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-resultat = totes_les_mes_llargues(llista)
+resultat = totes_les_llargues(llista)
 print(resultat) # ['dorothy', 'richard']</code></pre>
         </div>
       </section>

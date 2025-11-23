@@ -231,15 +231,14 @@ després d'executar la funció: [1, 2, 3]</pre
 
       <section id="exercicis-practics">
         <div class="exercici">
-          <h3>Exercici: Elements multiplicats per dos</h3>
+          <h3>Exercici 1: Elements multiplicats per dos</h3>
           <p>Escriviu una funció anomenada <code class="inline">duplica_elements(numeros: list)</code>, que pren una llista d'<code class="inline">enters</code> com a argument.</p>
           <p>La funció ha de retornar una llista nova, que contingui tots els valors de la llista original duplicats. La funció no ha de canviar la llista original.</p>
           <p>Un exemple de la funció en funcionament:</p>
-          <pre><code class="language-python">if __name__ == "__main__":
-    numeros = [2, 4, 5, 3, 11, -4]
-    numeros_duplicats = duplica_elements(numeros)
-    print("original:", numeros)
-    print("duplicats:", numeros_duplicats)</code></pre>
+          <pre><code class="language-python">numeros = [2, 4, 5, 3, 11, -4]
+numeros_duplicats = duplica_elements(numeros)
+print("original:", numeros)
+print("duplicats:", numeros_duplicats)</code></pre>
           <pre class="output">
 original: [2, 4, 5, 3, 11, -4]
 duplicats: [4, 8, 10, 6, 22, -8]</pre
@@ -247,20 +246,19 @@ duplicats: [4, 8, 10, 6, 22, -8]</pre
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Elimina el més petit</h3>
+          <h3>Exercici 2: Elimina el més petit</h3>
           <p>Escriviu una funció anomenada <code class="inline">elimina_menor(numeros: list)</code>, que pren una llista d'<code class="inline">enters</code> com a argument.</p>
           <p>La funció ha de trobar i eliminar l'element més petit de la llista. Podeu assumir que hi ha un únic element més petit a la llista.</p>
           <p>La funció no ha de tenir valor de retorn - ha de modificar directament la llista que rep com a paràmetre.</p>
           <p>Un exemple de com funciona la funció:</p>
-          <pre><code class="language-python">if __name__ == "__main__":
-    numeros = [2, 4, 6, 1, 3, 5]
-    elimina_menor(numeros)
-    print(numeros)</code></pre>
+          <pre><code class="language-python">numeros = [2, 4, 6, 1, 3, 5]
+elimina_menor(numeros)
+print(numeros)</code></pre>
           <pre class="output">[2, 4, 6, 3, 5]</pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Sudoku: imprimeix el tauler i afegeix un número</h3>
+          <h3>Exercici 3: Sudoku: imprimeix el tauler i afegeix un número</h3>
           <p>En aquest exercici completarem dues funcions més per al projecte sudoku de la secció anterior: <code class="inline">imprimeix_sudoku</code> i <code class="inline">afegeix_numero</code>.</p>
           <p>La funció <code class="inline">imprimeix_sudoku(sudoku: list)</code> pren una matriu bidimensional que representa una graella de sudoku com a argument. La funció ha d'imprimir la graella amb el format especificat als exemples següents.</p>
           <p>La funció <code class="inline">afegeix_numero(sudoku: list, num_fila: int, num_columna: int, numero: int)</code> pren una matriu bidimensional que representa una graella de sudoku, dos enters que es refereixen als índexs de fila i columna d'una única casella, i un únic dígit entre 1 i 9, com a arguments. La funció ha d'afegir el dígit a la ubicació especificada a la graella.</p>
@@ -321,7 +319,7 @@ print("sense retorns de carro", end="")</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Sudoku: afegeix número a una còpia de la graella</h3>
+          <h3>Exercici 4: Sudoku: afegeix número a una còpia de la graella</h3>
           <p>Aquesta és l'última tasca de sudoku. Aquesta vegada crearem una versió lleugerament diferent de la funció per afegir nous números a la graella.</p>
           <p>La funció <code class="inline">copia_i_afegeix(sudoku: list, num_fila: int, num_columna: int, numero: int)</code> pren una matriu bidimensional que representa una graella de sudoku, dos enters que es refereixen als índexs de fila i columna d'una única casella, i un únic dígit entre 1 i 9, com a arguments. La funció ha de retornar una còpia de la graella original amb el nou dígit afegit a la ubicació correcta. La funció no ha de canviar la graella original rebuda com a paràmetre.</p>
           <p>La funció <code class="inline">imprimeix_sudoku</code> de l'exercici anterior podria ser útil per fer proves, i s'utilitza a l'exemple següent:</p>
@@ -374,7 +372,7 @@ _ _ _  _ _ _  _ _ _</pre
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Tres en ratlla</h3>
+          <h3>Exercici 5: Tres en ratlla</h3>
           <p>El tres en ratlla es juga en una graella de 3 per 3, per dos jugadors que van alternant entrant cercles i creus. Si qualsevol jugador aconsegueix col·locar tres dels seus símbols en qualsevol fila, columna o diagonal, guanya. Si cap jugador ho aconsegueix, és un empat.</p>
           <p>Escriviu una funció anomenada <code class="inline">juga_torn(tauler_joc: list, x: int, y: int, fitxa: str)</code>, que col·loca el símbol donat a les coordenades donades al tauler. Els valors de les coordenades al tauler estan entre 0 i 2.</p>
           <p><strong>Nota</strong>: en comparació amb els exercicis de sudoku, els arguments que pren la funció són a l'inrevés aquí. La columna x ve primer, i la fila y segon.</p>
@@ -384,7 +382,7 @@ _ _ _  _ _ _  _ _ _</pre
             <li><code class="inline">"X"</code>: símbol del jugador 1</li>
             <li><code class="inline">"O"</code>: símbol del jugador 2</li>
           </ul>
-          <p>La funció ha de retornar <code class="inline">True</code> si la casella estava buida i el símbol es va col·locar amb èxit al tauler de joc. La funció ha de retornar <code class="inline">False</code> si la casella estava ocupada, o si les coordenades no eren vàlides.</p>
+          <p>La funció ha de retornar <code class="inline">True</code> si la casella estava buida i el símbol s'ha col·locat amb èxit al tauler de joc. La funció ha de retornar <code class="inline">False</code> si la casella estava ocupada, o si les coordenades no eren vàlides.</p>
           <p>Una execució exemple de la funció:</p>
           <pre><code class="language-python">tauler_joc = [["", "", ""], ["", "", ""], ["", "", ""]]
 print(juga_torn(tauler_joc, 2, 0, "X"))
@@ -396,7 +394,7 @@ True
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Transposa una matriu</h3>
+          <h3>Exercici 6: Transposa una matriu</h3>
           <p>Escriviu una funció anomenada <code class="inline">transposa(matriu: list)</code>, que pren una matriu d'<code class="inline">enters</code> bidimensional, és a dir, una matriu, com a argument. La funció ha de transposar la matriu. Transposar significa bàsicament girar la matriu sobre la seva diagonal: les columnes es converteixen en files i les files es converteixen en columnes.</p>
           <p>Podeu assumir que la matriu és una matriu quadrada, de manera que tindrà un nombre igual de files i columnes.</p>
           <p>La següent matriu</p>

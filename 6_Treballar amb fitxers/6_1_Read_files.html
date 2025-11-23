@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola món</title>
+    <title>Llegir arxius</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -15,23 +15,25 @@
     <main>
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
-        <h1>Introducció a la programació: Hola món</h1>
+        <h1>Llegir arxius</h1>
         <h2>Objectius d'aprenentatge</h2>
-        <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+        <ul>
+          <li>Llegir el contingut de fitxers amb Python</li>
+          <li>Conèixer què és un fitxer de text i un fitxer CSV</li>
+          <li>Processar el contingut d'un fitxer CSV als teus programes</li>
         </ul>
       </section>
       <section id="introduccio-arxius">
         <h2>Introducció als arxius</h2>
         <p>Un cas d'ús molt comú en <strong>programació</strong> és la gestió de dades emmagatzemades en <strong>arxius</strong>. Els programes poden llegir dades d'arxius i escriure els resultats calculats en arxius. Fins i tot grans quantitats de dades esdevenen fàcils de processar automàticament quan s'utilitzen arxius.</p>
-        <p>En aquest curs només tractarem amb <strong>arxius de text</strong>. Tots els arxius utilitzats consistiran en línies de text. Com a exemple, l'editor Visual Studio Code que utilitzem en aquest curs treballa amb arxius de text. <strong>Nota important</strong>: tot i que els processadors de text com Microsoft Word normalment s'utilitzen amb arxius que contenen text, els documents de Word en si mateixos no són arxius de text. També contenen informació de formatació i estan codificats d'una manera que fa que el seu tractament en un programa sigui més complicat.</p>
+        <p>En aquest curs només tractarem amb <strong>arxius de text</strong>. Tots els arxius utilitzats consistiran en línies de text. Com a exemple, l'editor Visual Studio Code que utilitzem en aquest curs treballa amb arxius de text.</p>
+        <p><strong>Nota important</strong>: tot i que els processadors de text com Microsoft Word normalment s'utilitzen amb arxius que contenen text, els documents de Word en si mateixos no són només arxius de text. També contenen informació de format i estan codificats d'una manera que fa que el seu tractament en un altre programa sigui més complicat.</p>
       </section>
 
       <section id="llegir-dades-arxiu">
         <h2>Llegir dades d'un arxiu</h2>
         <p>Primer treballarem amb un arxiu anomenat <code class="inline">exemple.txt</code>, amb el següent contingut:</p>
-        <pre><code class="language-python">Dades d'exemple
-Hola!
+        <pre><code class="language-python">Hola!
 Aquest arxiu d'exemple conté tres línies de text.
 Aquesta és l'última línia.</code></pre>
         <p>Una manera simple d'incloure arxius en un programa Python és utilitzar la sentència <code class="inline">with</code>. La línia de capçalera obre l'arxiu i segueix el bloc on es pot accedir a l'arxiu. Després del bloc, l'arxiu es tanca automàticament i ja no es pot accedir-hi.</p>
@@ -71,13 +73,13 @@ Línia 2 Aquest arxiu d'exemple conté tres línies de text.
 Línia 3 Aquesta és l'última línia.
 Longitud total de les línies: 81</pre
         >
-        <p>Hi ha un salt de línia <code class="inline">\n</code> al final de cada línia de l'arxiu, però la funció <code class="inline">print</code> també afegeix un salt de línia per defecte. No hi ha salts de línia addicionals a la impressió anterior perquè els salts de línia als extrems de les línies s'eliminen amb el mètode <code class="inline">replace</code>. Reemplaça cada caràcter de salt de línia amb una cadena buida. D'aquesta manera, les longituds de les línies també es calculen correctament.</p>
+        <p>Hi ha un salt de línia <code class="inline">\n</code> al final de cada línia de l'arxiu, però la funció <code class="inline">print</code> també afegeix un salt de línia per defecte. No hi ha salts de línia addicionals a la impressió anterior perquè els salts de línia als extrems de les línies s'eliminen amb el mètode <code class="inline">replace</code>. Substitueix cada caràcter de salt de línia amb una cadena buida. D'aquesta manera, les longituds de les línies també es calculen correctament.</p>
       </section>
 
       <section id="exercici-nombre-mes-gran">
         <div class="exercici">
-          <h3>Exercici: Nombre més gran</h3>
-          <p>L'arxiu <code class="inline">nombres.txt</code> conté <strong>nombres enters</strong>, un nombre per línia. El contingut podria ser així:</p>
+          <h3>Exercici 1: Nombre més gran</h3>
+          <p>L'arxiu <code class="inline">6_1_1.txt</code> conté <strong>nombres enters</strong>, un nombre per línia. El contingut podria ser així:</p>
           <pre><code class="language-python">2
 45
 108
@@ -86,8 +88,7 @@ Longitud total de les línies: 81</pre
 1100
 ...etc...</code></pre>
           <p>Escriu una funció anomenada <code class="inline">mes_gran</code>, que llegeix l'arxiu i retorna el nombre més gran de l'arxiu.</p>
-          <p>Nota: la funció no rep cap argument. L'arxiu amb què estàs treballant sempre s'anomena <code class="inline">nombres.txt</code>.</p>
-          <p><strong>Nota important</strong>: Si Visual Studio Code no pot trobar l'arxiu i has comprovat que no hi ha errors d'ortografia, consulta les instruccions que segueixen aquest exercici.</p>
+          <p>Nota: la funció no rep cap argument. L'arxiu amb què estàs treballant sempre s'anomena <code class="inline">6_1_1.txt</code>.</p>
         </div>
       </section>
 
@@ -126,14 +127,12 @@ plàtan
 clavicordi</pre
         >
         <p>Suposem que tenim un arxiu <code class="inline">notes.csv</code>, que conté noms d'estudiants i les notes que van rebre en alguns cursos. Cada línia té les dades d'un sol estudiant i les dades estan separades per un punt i coma.</p>
-        <pre><code class="language-python">Dades d'exemple
-Pau;5;4;5;3;4;5;5;4;2;4
+        <pre><code class="language-python">Pau;5;4;5;3;4;5;5;4;2;4
 Berta;3;4;2;4;4;2;3;1;3;3
 Rut;4;5;5;4;5;5;4;5;4;4</code></pre>
         <p>El programa següent recorre l'arxiu línia per línia, divideix cada línia en les seves parts separades i imprimeix el nom i les notes de cada estudiant.</p>
         <pre><code class="language-python">with open("notes.csv") as nou_arxiu:
     for linia in nou_arxiu:
-        linia = linia.replace("\n", "")
         parts = linia.split(";")
         nom = parts[0]
         notes = parts[1:]
@@ -151,7 +150,7 @@ Notes: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']</pre
 
       <section id="exercici-mercat-fruites">
         <div class="exercici">
-          <h3>Exercici: Mercat de fruites</h3>
+          <h3>Exercici 2: Mercat de fruites</h3>
           <p>L'arxiu <code class="inline">fruites.csv</code> conté noms de fruites i els seus preus, en el format especificat en aquest exemple:</p>
           <pre><code class="language-python">plàtan;6.50
 poma;4.95
@@ -164,7 +163,7 @@ taronja;8.0
 
       <section id="exercici-matriu">
         <div class="exercici">
-          <h3>Exercici: Matriu</h3>
+          <h3>Exercici 3: Matriu</h3>
           <p>L'arxiu <code class="inline">matriu.txt</code> conté una matriu en el format especificat en l'exemple següent:</p>
           <pre><code class="language-python">1,0,2,8,2,1,3,2,5,2,2,2
 9,2,4,5,2,4,2,4,1,10,4,2
@@ -174,7 +173,7 @@ taronja;8.0
           <pre><code class="language-python">1,2,3
 2,3,4</code></pre>
           <p>La funció hauria de retornar la llista <code class="inline">[6, 9]</code>.</p>
-          <p><strong>Pista</strong>: també pots incloure altres funcions auxiliars al teu programa. Val la pena passar un moment considerant quines funcionalitats comparteixen les tres funcions que se't demana escriure. Nota que les tres funcions anomenades anteriorment no reben arguments, però qualsevol funció auxiliar que escriguis pot rebre arguments. L'arxiu amb què estàs treballant sempre s'anomena <code class="inline">matriu.txt</code>.</p>
+          <p><strong>Pista</strong>: també pots incloure altres funcions auxiliars al teu programa. Val la pena passar un moment considerant quines funcionalitats comparteixen les tres funcions que se't demana escriure. L'arxiu amb què estàs treballant sempre s'anomena <code class="inline">matriu.txt</code>.</p>
         </div>
       </section>
 
@@ -282,7 +281,7 @@ Pau: millor nota 5, mitjana 4.10
 Berta: millor nota 4, mitjana 2.90
 Rut: millor nota 5, mitjana 4.50</pre
         >
-        <p>Si us plau, observa atentament el programa de l'exemple anterior. Pot semblar una mica complicat al principi, però la tècnica es pot utilitzar en arxius que contenen molts tipus diferents de dades.</p>
+        <p>Observa atentament el programa de l'exemple anterior. Pot semblar una mica complicat al principi, però la tècnica es pot utilitzar en arxius que contenen molts tipus diferents de dades.</p>
       </section>
 
       <section id="eliminar-linies-innecessaries">
@@ -292,7 +291,7 @@ Rut: millor nota 5, mitjana 4.50</pre
 Pau; Python
 Joan; Java
 Hugo; Haskell</code></pre>
-        <p>Excel és conegut per afegir espais addicionals. Aquí tenim un caràcter d'espai addicional entre els elements, després de cada punt i coma.</p>
+        <p>Excel molts cops afegeix espais addicionals. Aquí tenim un caràcter d'espai addicional entre els elements, després de cada punt i coma.</p>
         <p>Ens agradaria imprimir els cognoms de cada persona de la llista. La primera línia conté les capçaleres per a les dades i es pot ignorar amb seguretat:</p>
         <pre><code class="language-python">cognoms = []
 with open("persones.csv") as nou_arxiu:
@@ -399,7 +398,7 @@ for dni, nom in noms.items():
 
       <section id="exercici-avaluacio-curs-part1">
         <div class="exercici">
-          <h3>Exercici: Avaluació del curs, part 1</h3>
+          <h3>Exercici 4: Avaluació del curs, part 1</h3>
           <p>Aquest programa treballa amb dos arxius CSV. Un d'ells conté informació sobre alguns estudiants d'un curs:</p>
           <pre><code class="language-python">id;nom;cognom
 12345678;pere;pitons
@@ -429,7 +428,7 @@ else:
     info_estudiant = "estudiants1.csv"
     dades_exercicis = "exercicis1.csv"</code></pre>
           <p>La funcionalitat real del programa ara està "amagada" a la branca <code class="inline">False</code> d'una sentència <code class="inline">if</code>. Mai s'executarà.</p>
-          <p>Ara, si vols verificar ràpidament que el programa funciona correctament també amb l'entrada de l'usuari, pots simplement reemplaçar <code class="inline">False</code> per <code class="inline">True</code>:</p>
+          <p>Ara, si vols verificar ràpidament que el programa funciona correctament també amb l'entrada de l'usuari, pots simplement substituir <code class="inline">False</code> per <code class="inline">True</code>:</p>
           <pre><code class="language-python">if True:
     info_estudiant = input("Informació de l'estudiant: ")
     dades_exercicis = input("Exercicis completats: ")
@@ -438,13 +437,12 @@ else:
     info_estudiant = "estudiants1.csv"
     dades_exercicis = "exercicis1.csv"</code></pre>
           <p>Quan hagis verificat que el teu programa funciona correctament, pots eliminar l'estructura <code class="inline">if</code>, mantenint les ordres que demanen entrada.</p>
-          <p><strong>Nota important</strong>: aquest exercici no et demana que escriguis cap funció, així que no hauries de col·locar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
         </div>
       </section>
 
       <section id="exercici-avaluacio-curs-part2">
         <div class="exercici">
-          <h3>Exercici: Avaluació del curs, part 2</h3>
+          <h3>Exercici 5: Avaluació del curs, part 2</h3>
           <p>Ampliem el programa creat en l'exercici anterior. Ara també els punts d'examen atorgats a cada estudiant es contenen en un arxiu CSV. El contingut de l'arxiu segueix aquest format:</p>
           <pre><code class="language-python">id;e1;e2;e3
 12345678;4;1;4
@@ -460,8 +458,10 @@ pere pitons 0
 joan java 1
 alícia sumadora 3</pre
           >
-          <p>Cada exercici completat es compta cap a punts d'exercicis, de manera que completar almenys el 10% del total d'exercicis atorga 1 punt, completar almenys el 20% atorga 2 punts, etc. Completar els 40 exercicis atorga 10 punts. El nombre de punts atorgats és sempre un nombre enter.</p>
-          <p>La nota final del curs es determina basant-se en la suma de punts d'examen i punts d'exercicis d'acord amb la següent taula:</p>
+          <p>La nota es calcularà en funció de les notes dels <strong>exercicis</strong> i de l'<strong>examen</strong>.</p>
+          <p>Completar els 40 exercicis donarà 10 punts d'exercicis, completar el 10% dels exercicis donarà 1 punt, el 20% 2 punts ...</p>
+          <p>Les notes de l'exament d'un alumne es sumaràn per a donar la seva nota d'examen.</p>
+          <p>Ambdues notes s'han de sumar per a calcular la nota final segons la següent taula:</p>
           <table>
             <tr>
               <th>punts d'examen + punts d'exercicis</th>
@@ -492,51 +492,49 @@ alícia sumadora 3</pre
               <td>5</td>
             </tr>
           </table>
-          <p><strong>Nota important</strong>: aquest exercici no et demana que escriguis cap funció, així que no hauries de col·locar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
         </div>
       </section>
 
       <section id="exercici-avaluacio-curs-part3">
         <div class="exercici">
-          <h3>Exercici: Avaluació del curs, part 3</h3>
+          <h3>Exercici 6: Avaluació del curs, part 3</h3>
           <p>Aquest exercici continuarà des de l'anterior. Ara imprimirem algunes estadístiques basades en els arxius CSV.</p>
           <pre class="output">
 Informació de l'estudiant: estudiants1.csv
 Exercicis completats: exercicis1.csv
 Punts d'examen: punts_examen1.csv
 
-nom                            num_ex  punts_ex. punts_exm. punts_tot. nota
-pere pitons                    21      5         9          14         0
-joan java                      27      6         11         17         1
-alícia sumadora                35      8         14         22         3</pre
+nom                           num_ex      punts_ex    punts_exm   punts_tot   nota
+pere pitons                   21          5           9           14          0
+joan java                     27          6           11          17          1
+alícia sumadora               35          8           14          22          3</pre
           >
-          <p>Cada fila conté la informació per a un sol estudiant. El nombre d'exercicis completats, el nombre de punts d'exercicis atorgats, el nombre de punts d'examen atorgats, el nombre total de punts atorgats i la nota es mostren tots en columnes ordenades. L'amplada de la columna per al nom hauria de ser de 30 caràcters, mentre que les altres columnes haurien de tenir 10 caràcters d'amplada.</p>
-          <p>Podries trobar útils les cadenes f tractades a la part 4 aquí.</p>
+          <p>Cada fila conté la informació per a un sol estudiant. El nombre d'exercicis completats, el nombre de punts d'exercicis atorgats, el nombre de punts d'examen atorgats, el nombre total de punts atorgats i la nota es mostren tots en columnes ordenades. L'amplada de la columna per al nom hauria de ser de 30 caràcters, mentre que les altres columnes haurien de tenir 12 caràcters d'amplada.</p>
+          <p>Podries trobar útils les <strong>cadenes f</strong> tractades a la part 4 aquí.</p>
           <p>Les cadenes f diferencien entre cadenes de text i nombres quan es tracta de justificar columnes:</p>
           <pre><code class="language-python">paraula = "python"
 print(f"{paraula:10}continua")
 print(f"{paraula:>10}continua")</code></pre>
           <pre class="output">
 python    continua
-    pythoncontinua</pre
+      pythoncontinua</pre
           >
           <p>Com pots veure més amunt, per defecte les cadenes de text es justifiquen a la vora esquerra de l'àrea especificada per a elles. El símbol <code class="inline">&gt;</code> es pot utilitzar per justificar a la vora dreta.</p>
           <p>Amb valors numèrics la lògica és inversa:</p>
           <pre><code class="language-python">nombre = 42
-print(f"{nombre:10}continua")
-print(f"{nombre:<10}continua")</code></pre>
+print(f"{nombre:10} continua")
+print(f"{nombre:<10} continua")</code></pre>
           <pre class="output">
-        42continua
-42        continua</pre
+        42 continua
+42         continua</pre
           >
           <p>Amb nombres, el comportament per defecte és justificar a la vora dreta. El símbol <code class="inline">&lt;</code> es pot utilitzar per justificar a la vora esquerra.</p>
-          <p><strong>Nota important</strong>: aquest exercici no et demana que escriguis cap funció, així que no hauries de col·locar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
         </div>
       </section>
 
       <section id="exercici-corrector-ortografic">
         <div class="exercici">
-          <h3>Exercici: Corrector ortogràfic</h3>
+          <h3>Exercici 7: Corrector ortogràfic</h3>
           <p>Escriu un programa que demani a l'usuari que escrigui algun text. El teu programa hauria de realitzar una comprovació ortogràfica i imprimir comentaris a l'usuari, de manera que totes les paraules mal escrites tinguin asteriscs al voltant. Si us plau, vegeu els dos exemples següents:</p>
           <pre class="output">
 Escriu text: Utilitzem ptython per fer un corrector ortogràfic
@@ -544,22 +542,23 @@ Escriu text: Utilitzem ptython per fer un corrector ortogràfic
 Utilitzem *ptython* per fer un corrector ortogràfic</pre
           >
           <pre class="output">
-Escriu text: Això és realment un bon i útil programa
+Escriu text: Això és réalment un bon porgrama
 
-Això és *realment* un bon i *útil* programa</pre
+Això és *realment* un bon *porgrama*</pre
           >
-          <p>El cas de les lletres hauria de ser irrellevant per al funcionament del teu programa.</p>
-          <p>La plantilla de l'exercici inclou l'arxiu <code class="inline">llista_paraules.txt</code>, que conté totes les paraules que el corrector ortogràfic hauria d'acceptar com a correctes.</p>
-          <p><strong>Nota important</strong>: aquest exercici no et demana que escriguis cap funció, així que no hauries de col·locar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
+          <p>El programa ha de funcionar tant per a majúscules com minúscules. Hauria de poder corregir les dues frases de l'exemple i 3 frases més de la vostra elecció.</p>
+          <p>A la plantilla de l'exercici incloeu l'arxiu <code class="inline">llista_paraules.txt</code>, que contingui totes les paraules que el corrector ortogràfic hauria d'acceptar com a correctes.</p>
+          <p>Si el programa no us detecta correctament les paraules amb <strong>accents</strong>, això es deu a la manera en què interpreta els caràcters. Per defecte, python llegeix en <code class="inline">UTF-8</code>, per a llegir l'arxiu de text en aquest format modifiqueu aquesta línia de codi:</p>
+          <pre><code class="language-python">with open("llista_paraules.txt", encoding="utf-8") as nou_arxiu:</code></pre>
         </div>
       </section>
 
       <section id="exercici-cerca-receptes">
         <div class="exercici">
-          <h3>Exercici: Cerca de receptes</h3>
+          <h3>Exercici 8: Cerca de receptes</h3>
           <p>Aquest exercici tracta sobre crear un programa que permeti a l'usuari cercar receptes basant-se en els seus noms, temps de preparació o ingredients utilitzats. El programa ha de llegir les receptes d'un arxiu proporcionat per l'usuari.</p>
           <p>Cada recepta consta de tres o més línies. La primera línia té el nom de la recepta, la segona línia conté un nombre enter que representa el temps de preparació en minuts i la línia o línies restants contenen els ingredients utilitzats, un per línia. La recepta acaba amb una línia buida, amb l'excepció de la recepta final de l'arxiu que simplement acaba amb el final de l'arxiu. Així doncs, pot haver-hi més d'una recepta en un sol arxiu, com en l'exemple següent.</p>
-          <pre><code class="language-python">Creps
+          <pre><code class="language-python">Pancakes
 15
 llet
 ous
@@ -584,7 +583,7 @@ cogombre
 alvocat
 wasabi
 
-Pops de Pastís
+Cake Pops
 60
 llet
 bicarbonat
@@ -593,121 +592,131 @@ sal
 sucre
 cardamom
 mantega</code></pre>
-          <p><strong>Pista</strong>: pot ser millor primer llegir totes les línies de l'arxiu i posar-les en una llista, que després és més fàcil de manipular de la manera descrita en l'exercici.</p>
-        </div>
-      </section>
-
-      <section id="cerca-receptes-per-nom">
-        <h3>Cerca de receptes basant-se en el nom de la recepta</h3>
-        <p>Escriu una funció anomenada <code class="inline">cercar_per_nom(fitxer: str, paraula: str)</code>, que rep un nom de fitxer i una cadena de cerca com a arguments. La funció ha de recórrer el fitxer i seleccionar totes les receptes el nom de les quals conté la cadena de cerca donada. Els noms d'aquestes receptes es retornen després en una llista.</p>
-        <p>Un exemple de la funció en acció:</p>
-        <pre><code class="language-python">receptes_trobades = cercar_per_nom("receptes1.txt", "pastís")
+          <p><strong>Pista</strong>: pot ser millor primer llegir totes les línies de l'arxiu i posar-les en una llista, que després sigui més fàcil de manipular de la manera descrita en l'exercici.</p>
+          <h3>Cerca de receptes basant-se en el nom de la recepta</h3>
+          <p>Escriu una funció anomenada <code class="inline">cercar_per_nom(fitxer: str, paraula: str)</code>, que rep un nom de fitxer i una cadena de cerca com a arguments. La funció ha de recórrer el fitxer i seleccionar totes les receptes el nom de les quals conté la cadena de cerca donada. Els noms d'aquestes receptes es retornen després en una llista.</p>
+          <p>Un exemple de la funció en acció:</p>
+          <pre><code class="language-python">receptes_trobades = cercar_per_nom("receptes.txt", "pastís")
 
 for recepta in receptes_trobades:
     print(recepta)</code></pre>
-        <pre class="output">
-Creps
-Pops de Pastís</pre
-        >
-        <p>Com pots veure en l'exemple anterior, el cas de les lletres és irrellevant. El terme de cerca pastís retorna tant Creps com Pops de Pastís, tot i que aquest últim està en majúscules.</p>
-      </section>
-
-      <section id="cerca-receptes-per-temps">
-        <h3>Cerca de receptes basant-se en el temps de preparació</h3>
-        <p>Escriu una funció anomenada <code class="inline">cercar_per_temps(fitxer: str, temps_preparacio: int)</code>, que rep un nom de fitxer i un enter com a arguments. La funció ha de recórrer el fitxer i seleccionar totes les receptes el temps de preparació de les quals és com a màxim el nombre donat.</p>
-        <p>Els noms d'aquestes receptes es retornen de nou en una llista, però el temps de preparació s'ha d'afegir a cada nom. Si us plau, fes una ullada a l'exemple següent.</p>
-        <pre><code class="language-python">receptes_trobades = cercar_per_temps("receptes1.txt", 20)
+          <pre class="output">
+Pancakes
+Cake pops</pre
+          >
+          <p>Com pots veure en l'exemple anterior, el cas de les lletres és irrellevant. El terme de cerca pastís retorna tant Creps com Pops de Pastís, tot i que aquest últim està en majúscules.</p>
+          <h3>Cerca de receptes basant-se en el temps de preparació</h3>
+          <p>Escriu una funció anomenada <code class="inline">cercar_per_temps(fitxer: str, temps_preparacio: int)</code>, que rep un nom de fitxer i un enter com a arguments. La funció ha de recórrer el fitxer i seleccionar totes les receptes el temps de preparació de les quals és com a màxim el nombre donat.</p>
+          <p>Els noms d'aquestes receptes es retornen de nou en una llista, però el temps de preparació s'ha d'afegir a cada nom. Si us plau, fes una ullada a l'exemple següent.</p>
+          <pre><code class="language-python">receptes_trobades = cercar_per_temps("receptes.txt", 30)
 
 for recepta in receptes_trobades:
     print(recepta)</code></pre>
-        <pre class="output">Creps, temps de preparació 15 min</pre>
-      </section>
+          <pre class="output">Rotllos de Tofu, temps de preparació 30 min</pre>
 
-      <section id="cerca-receptes-per-ingredients">
-        <h3>Cerca de receptes basant-se en els ingredients</h3>
-        <p>Una paraula de precaució: aquesta tercera part de l'exercici és considerablement més exigent que les dues anteriors. Si sents que no estàs progressant, pot valer la pena continuar, completar els altres exercicis d'aquesta part del material i després tornar a aquest exercici si tens temps més endavant. Recorda, pots enviar i rebre punts per les dues primeres parts d'aquest exercici encara que no hagis completat la tercera part.</p>
-        <p>Escriu una funció anomenada <code class="inline">cercar_per_ingredient(fitxer: str, ingredient: str)</code>, que rep un nom de fitxer i una cadena de cerca com a arguments. La funció ha de recórrer el fitxer i seleccionar totes les receptes els ingredients de les quals contenen la cadena de cerca donada.</p>
-        <p>Els noms d'aquestes receptes es retornen en una llista igual que en la segona part, amb el temps de preparació afegit. Si us plau, fes una ullada a l'exemple següent.</p>
-        <pre><code class="language-python">receptes_trobades = cercar_per_ingredient("receptes1.txt", "ous")
+          <h3>Cerca de receptes basant-se en els ingredients</h3>
+          <p>Escriu una funció anomenada <code class="inline">cercar_per_ingredient(fitxer: str, ingredient: str)</code>, que rep un nom de fitxer i una cadena de cerca com a arguments. La funció ha de recórrer el fitxer i seleccionar totes les receptes els ingredients de les quals contenen la cadena de cerca donada.</p>
+          <p>Els noms d'aquestes receptes es retornen en una llista igual que en la segona part, amb el temps de preparació afegit. Si us plau, fes una ullada a l'exemple següent.</p>
+          <pre><code class="language-python">receptes_trobades = cercar_per_ingredient("receptes.txt", "ous")
 
 for recepta in receptes_trobades:
     print(recepta)</code></pre>
-        <pre class="output">
+          <pre class="output">
 Creps, temps de preparació 15 min
 Mandonguilles, temps de preparació 45 min
 Pops de Pastís, temps de preparació 60 min</pre
-        >
+          >
+        </div>
       </section>
 
       <section id="exercici-bicicletes-ciutat">
         <div class="exercici">
-          <h3>Exercici: Bicicletes de ciutat</h3>
+          <h3>Exercici 9: Bicicletes de ciutat</h3>
           <p>En aquest exercici escriurem algunes funcions per treballar en un arxiu que conté dades de localització de les estacions de bicicletes de ciutat a Barcelona.</p>
           <p>Cada arxiu seguirà aquest format:</p>
           <pre><code class="language-python">Longitud;Latitud;FID;nom;places_totals;operativa;id
-2.15899;41.38879;1;Plaça Catalunya;50;Sí;001
-2.16514;41.39523;2;Arc de Triomf;30;Sí;002
-2.16124;41.38186;3;Plaça Espanya;40;Sí;003</code></pre>
+2.169794;41.386035;1;Plaça Catalunya;50;Sí;001
+2.180945;41.391245;2;Arc de Triomf;30;Sí;002
+2.148476;41.374219;3;Plaça Espanya;40;Sí;003</code></pre>
           <p>Cada estació té una sola línia a l'arxiu. La línia conté les coordenades, el nom i altra informació d'identificació de l'estació.</p>
-        </div>
-      </section>
-
-      <section id="distancia-entre-estacions">
-        <h3>Distància entre estacions</h3>
-        <p>Primer, escriu una funció anomenada <code class="inline">obtenir_dades_estacions(fitxer: str)</code>. Aquesta funció ha de llegir els noms i ubicacions de totes les estacions de l'arxiu i retornar-les en un diccionari amb el següent format:</p>
-        <pre class="output">
+          <p>Afegiu 10 estacions més com a mínim, us podeu inventar les dades excepte les coordenades geogràfiques, les pots consultar a google maps.</p>
+          <h3>Distància entre estacions</h3>
+          <p>Primer, escriu una funció anomenada <code class="inline">obtenir_dades_estacions(fitxer: str)</code>. Aquesta funció ha de llegir els noms i ubicacions de totes les estacions de l'arxiu i retornar-les en un diccionari amb el següent format:</p>
+          <pre class="output">
 {
-  "Plaça Catalunya": (2.15899, 41.38879),
-  "Arc de Triomf": (2.16514, 41.39523),
-  "Plaça Espanya": (2.16124, 41.38186)
+  "Plaça Catalunya": (2.169794, 41.386035),
+  "Arc de Triomf": (2.180945, 41.391245),
+  "Plaça Espanya": (2.148476, 41.374219)
 }</pre
-        >
-        <p>Les claus del diccionari són els noms de les estacions i el valor associat és una tupla que conté les coordenades de ubicació de l'estació. El primer element de la tupla és el camp Longitud i el segon és el camp Latitud.</p>
-        <p>A continuació, escriu una funció anomenada <code class="inline">distancia(estacions: dict, estacio1: str, estacio2: str)</code>, que retorna la distància entre les dues estacions donades com a arguments.</p>
-        <p>La distància es calcula utilitzant el teorema de Pitàgores. Els factors de multiplicació següents són valors aproximats per convertir latituds i longituds a distàncies en quilòmetres a la regió de Barcelona.</p>
-        <pre><code class="language-python"># necessitarem la funció sqrt del mòdul math 
+          >
+          <p>Les claus del diccionari són els noms de les estacions i el valor associat és una tupla que conté les coordenades de ubicació de l'estació. El primer element de la tupla és el camp Longitud i el segon és el camp Latitud.</p>
+          <p>A continuació, escriu una funció anomenada <code class="inline">distancia(estacions: dict, estacio1: str, estacio2: str)</code>, que retorna la distància entre les dues estacions donades com a arguments.</p>
+          <p>La distància es calcula utilitzant el teorema de Pitàgores. Com que les coordenades geogràfiques estan expressades en graus, primer cal convertir-les a quilòmetres. Per fer-ho fem servir dos factors de conversió aproximats per a la zona de Barcelona:</p>
+          <ul>
+            <li><strong>1° de longitud ≈ 83.4 km</strong></li>
+            <li><strong>1° de latitud ≈ 111.2 km</strong></li>
+          </ul>
+          <p>Aquests valors permeten transformar la diferència en graus a una distància aproximada en línia recta.</p>
+          <pre><code class="language-python"># necessitarem la funció sqrt del mòdul math 
 import math
 
-x_km = (longitud1 - longitud2) * 55.26
+x_km = (longitud1 - longitud2) * 83.4
 y_km = (latitud1 - latitud2) * 111.2
 distancia_km = math.sqrt(x_km**2 + y_km**2)</code></pre>
-        <p>Alguns exemples de la funció en acció:</p>
-        <pre><code class="language-python">estacions = obtenir_dades_estacions('estacions1.csv')
-d = distancia(estacions, "Museu Disseny", "Mercat Horta")
-print(d)
-d = distancia(estacions, "Cinc Cantonades", "Plaça Catalunya")
-print(d)</code></pre>
-        <pre class="output">
-0.9032737292463177
-0.7753594392019532</pre
-        >
-      </section>
+          <p>Alguns exemples de la funció en acció:</p>
+          <pre><code class="language-python">
+estacions = obtenir_dades_estacions ("estacions.csv")
+d = distancia (estacions, "Plaça Espanya", "Arc de Triomf")
+print (d)
+d = distancia (estacions, "Plaça Catalunya", "Arc de Triomf")
+print (d)</code></pre>
+          <pre class="output">
+3.3041418021766398
+1.0956899488209744</pre
+          >
 
-      <section id="distancia-mes-gran">
-        <h3>La distància més gran</h3>
-        <p>Escriu una funció anomenada <code class="inline">distancia_mes_gran(estacions: dict)</code>, que determina les dues estacions de la llista amb la distància més gran entre elles. La funció ha de retornar una tupla, on els dos primers elements són els noms de les dues estacions i el tercer element és la distància entre les dues.</p>
-        <pre><code class="language-python">estacions = obtenir_dades_estacions('estacions1.csv')
+          <h3>La distància més gran</h3>
+          <p>Escriu una funció anomenada <code class="inline">distancia_mes_gran(estacions: dict)</code>, que determina les dues estacions de la llista amb la distància més gran entre elles. La funció ha de retornar una tupla, on els dos primers elements són els noms de les dues estacions i el tercer element és la distància entre les dues.</p>
+          <pre><code class="language-python">estacions = obtenir_dades_estacions('estacions.csv')
 estacio1, estacio2, mes_gran = distancia_mes_gran(estacions)
 print(estacio1, estacio2, mes_gran)</code></pre>
-        <pre class="output">Arc de Triomf Mercat Horta 1.478708873076181</pre>
+          <pre class="output">Arc de Triomf Plaça Espanya 3.3041418021766398</pre>
+          <p>Aquest resultat canviarà a mida que afegiu més estacions</p>
+        </div>
       </section>
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li><strong>Arxius de text</strong>: fitxers que contenen dades en format de text pla, sense informació de format complexa.</li>
+          <li><strong>Arxius CSV</strong>: valors separats per caràcters, utilitzats per emmagatzemar dades estructurades en forma de taula.</li>
+          <li>
+            <strong>Sentència <code class="inline">with</code></strong
+            >: manera segura d'obrir i treballar amb arxius, garantint que es tanquen automàticament.
+          </li>
+          <li>
+            <strong>Mètode <code class="inline">split()</code></strong
+            >: divideix una cadena de text en una llista segons un separador especificat.
+          </li>
+          <li>
+            <strong>Mètode <code class="inline">strip()</code></strong
+            >: elimina espais i caràcters no imprimibles del principi i final d'una cadena.
+          </li>
+          <li>
+            <strong>Codificació <code class="inline">UTF-8</code></strong>: format d'codificació que permet treballar correctament amb caràcters especials i accents.
+          </li>
         </ul>
       </section>
       <nav class="passar-capitol">
         <ul>
           <li>
-            <a href="">
+            <a href="index.html">
               <span class="tornar">←</span>
-              <h3>Capitol anterior</h3>
+              <h3>Tornar als capítols</h3>
             </a>
           </li>
           <li>
-            <a href="">
-              <h3>Següent capítol</h3>
+            <a href="6_2_Write_files.html">
+              <h3>6.2 Escriure arxius</h3>
               <span class="endavant">→</span>
             </a>
           </li>

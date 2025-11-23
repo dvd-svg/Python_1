@@ -97,14 +97,13 @@ print(diccionari_traduccions["gran"])</code></pre>
       <section id="taula-hash">
         <h2>Taula hash</h2>
         <p>Observa la paraula 'unhashable' en el missatge d'error anterior. Això és una referència al funcionament intern del tipus de dades diccionari. Python emmagatzema el contingut d'un diccionari en una <strong>taula hash</strong>. Cada clau es redueix a un <strong>valor hash</strong>, que determina on s'emmagatzema la clau en la memòria de l'ordinador. El missatge d'error anterior indica que una llista no es pot processar en un valor hash, per tant no es pot utilitzar com a clau en un diccionari.</p>
-        <p>Els cursos d'Estructures de Dades i Algorismes exploraran més les taules hash.</p>
         <p>A diferència de les claus, els valors emmagatzemats en un diccionari poden canviar, de manera que qualsevol tipus de dades és acceptable com a valor. Un valor també pot ser assignat a més d'una clau en el mateix diccionari.</p>
       </section>
 
       <section id="exercici-deu-vegades">
         <div class="exercici">
-          <h3>Exercici: Deu vegades</h3>
-          <p>Escriu una funció anomenada <code class="inline">deu_vegades(índex_inici: int, índex_fi: int)</code>, que crea i retorna un nou diccionari. Les claus del diccionari han de ser els números entre <code class="inline">índex_inici</code> i <code class="inline">índex_fi</code> inclosos.</p>
+          <h3>Exercici 1: Deu vegades</h3>
+          <p>Escriu una funció anomenada <code class="inline">deu_vegades(index_inici: int, index_fi: int)</code>, que crea i retorna un nou diccionari. Les claus del diccionari han de ser els números entre <code class="inline">index_inici</code> i <code class="inline">index_fi</code> inclosos.</p>
           <p>El valor assignat a cada clau ha de ser la clau multiplicada per deu.</p>
           <p>Per exemple:</p>
           <pre><code class="language-python">d = deu_vegades(3, 6)
@@ -115,7 +114,7 @@ print(d)</code></pre>
 
       <section id="exercici-factorials">
         <div class="exercici">
-          <h3>Exercici: Factorials</h3>
+          <h3>Exercici 2: Factorials</h3>
           <p>Escriu una funció anomenada <code class="inline">factorials(n: int)</code>, que retorna els factorials dels números 1 a n en un diccionari. El número és la clau, i el factorial d'aquest número és el valor assignat.</p>
           <p>Un recordatori: el factorial del número n s'escriu n! i es calcula multiplicant el número per cada enter més petit que ell mateix. Per exemple, el factorial de 4 és 4 * 3 * 2 * 1 = 24.</p>
           <p>Un exemple del funcionament de la funció:</p>
@@ -232,7 +231,7 @@ xocolata</pre
 
       <section id="exercici-histograma">
         <div class="exercici">
-          <h3>Exercici: Histograma</h3>
+          <h3>Exercici 3: Histograma</h3>
           <p>Escriu una funció anomenada <code class="inline">histograma</code>, que pren una cadena de text com a argument. La funció ha d'imprimir un histograma que representi el nombre de vegades que apareix cada lletra en la cadena. Cada aparició d'una lletra ha de ser representada per un asterisc en la línia específica per a aquesta lletra.</p>
           <p>Per exemple, la crida a la funció <code class="inline">histograma("abba")</code> hauria d'imprimir</p>
           <pre class="output">
@@ -246,17 +245,18 @@ s **
 t ***
 a **
 d *
-i **
+i *
+í *
 c *
-m*
-n*</pre
+m *
+n *</pre
           >
         </div>
       </section>
 
       <section id="exercici-agenda-telefonica-1">
         <div class="exercici">
-          <h3>Exercici: Agenda telefònica, versió 1</h3>
+          <h3>Exercici 4: Agenda telefònica, versió 1</h3>
           <p>Escriu una aplicació d'agenda telefònica. Ha de funcionar de la següent manera:</p>
           <pre class="output">
 comanda (1 cercar, 2 afegir, 3 sortir): 2
@@ -289,7 +289,7 @@ sortint...</pre
 
       <section id="exercici-agenda-telefonica-2">
         <div class="exercici">
-          <h3>Exercici: Agenda telefònica, versió 2</h3>
+          <h3>Exercici 5: Agenda telefònica, versió 2</h3>
           <p>Escriu una versió millorada de l'aplicació d'agenda telefònica. Ara cada entrada ha d'acomodar múltiples números de telèfon. L'aplicació ha de funcionar exactament igual que abans, però aquest cop s'han d'imprimir tots els números vinculats a un nom.</p>
           <pre class="output">
 comanda (1 cercar, 2 afegir, 3 sortir): 2
@@ -374,7 +374,7 @@ for clau in personal:
 
       <section id="exercici-invertir-diccionari">
         <div class="exercici">
-          <h3>Exercici: Invertir un diccionari</h3>
+          <h3>Exercici 6: Invertir un diccionari</h3>
           <p>Escriu una funció anomenada <code class="inline">invertir(diccionari: dict)</code>, que pren un diccionari com a argument. El diccionari s'ha d'invertir in situ de manera que els valors es converteixin en claus i les claus es converteixin en valors.</p>
           <p>Un exemple del seu ús:</p>
           <pre><code class="language-python">s = {1: "primer", 2: "segon", 3: "tercer", 4: "quart"}
@@ -387,7 +387,7 @@ print(s)</code></pre>
 
       <section id="exercici-nombres-escrits">
         <div class="exercici">
-          <h3>Exercici: Nombres escrits amb lletres</h3>
+          <h3>Exercici 7: Nombres escrits amb lletres</h3>
           <p>Escriu una funció anomenada <code class="inline">diccionari_nombres()</code>, que retorna un nou diccionari. El diccionari ha de tenir els números del 0 al 99 com a claus. El valor assignat a cada clau ha de ser el número escrit amb paraules. Fes una ullada a l'exemple següent:</p>
           <pre><code class="language-python">nombres = diccionari_nombres()
 print(nombres[2])
@@ -443,8 +443,8 @@ L'alçada mitjana és 173.0</pre
 
       <section id="exercici-base-dades-pelicules">
         <div class="exercici">
-          <h3>Exercici: Base de dades de pel·lícules</h3>
-          <p>Escriu una funció anomenada <code class="inline">afegir_pelicula(base_dades: list, nom: str, director: str, any: int, durada: int)</code>, que afegeix un nou objecte de pel·lícula a una base de dades de pel·lícules.</p>
+          <h3>Exercici 8: Base de dades de pel·lícules</h3>
+          <p>Escriu una funció anomenada <code class="inline">afegir_pelicula(...)</code>, que afegeix un nou objecte de pel·lícula a una base de dades de pel·lícules.</p>
           <p>La base de dades és una llista, i cada objecte de pel·lícula en la llista és un diccionari. El diccionari ha de contenir les claus següents.</p>
           <ul>
             <li><code class="inline">nom</code></li>
@@ -464,7 +464,7 @@ print(base_dades)</code></pre>
 
       <section id="exercici-trobar-pelicules">
         <div class="exercici">
-          <h3>Exercici: Trobar pel·lícules</h3>
+          <h3>Exercici 9: Trobar pel·lícules</h3>
           <p>Escriu una funció anomenada <code class="inline">trobar_pelicules(base_dades: list, terme_cerca: str)</code>, que processa la base de dades de pel·lícules creada en l'exercici anterior. La funció ha de formular una nova llista, que contingui només les pel·lícules el títol de les quals inclou la paraula cercada. Les majúscules i minúscules són irrellevants aquí. Una cerca per 'ana' hauria de retornar una llista que contingui tant 'Anaconda' com 'Gestió'.</p>
           <p>Un exemple del seu ús:</p>
           <pre><code class="language-python">base_dades = [{"nom": "Allò que el vent s'endugué amb Python", "director": "Víctor Pything", "any": 2017, "durada": 116},

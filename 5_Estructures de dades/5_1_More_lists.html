@@ -145,14 +145,13 @@ print(unic)  # imprimeix False</code></pre>
 
       <section id="exercici-cadena-llarga">
         <div class="exercici">
-          <h3>Exercici: La cadena més llarga</h3>
+          <h3>Exercici 1: La cadena més llarga</h3>
           <p>Escriu una funció anomenada <code class="inline">mes_llarga(cadenes: list)</code>, que rep una llista de cadenes de text com a argument. La funció troba i retorna la cadena més llarga de la llista. Pots assumir que sempre hi ha una única cadena més llarga a la llista.</p>
 
           <p>Exemple de comportament esperat:</p>
 
-          <pre><code class="language-python">if __name__ == "__main__":
-    cadenes = ["hola", "hola!", "hello", "howdydoody", "hola tu"]
-    print(mes_llarga(cadenes))</code></pre>
+          <pre><code class="language-python">cadenes = ["hola", "hola!", "hello", "howdydoody", "hola tu"]
+print(mes_llarga(cadenes))</code></pre>
 
           <pre class="output">howdydoody</pre>
         </div>
@@ -352,7 +351,7 @@ print(m)</code></pre>
 
       <section id="exercici-elements-coincidents">
         <div class="exercici">
-          <h3>Exercici: Nombre d'elements coincidents</h3>
+          <h3>Exercici 2: Nombre d'elements coincidents</h3>
           <p>Escriu una funció anomenada <code class="inline">comptar_elements_coincidents(matriu: list, element: int)</code>, que rep una matriu bidimensional d'enters i un sol valor enter com a arguments. La funció llavors compta quants elements dins de la matriu coincideixen amb el valor de l'argument.</p>
 
           <p>Exemple de com hauria de funcionar la funció:</p>
@@ -414,7 +413,7 @@ imprimir_graella(sudoku)</code></pre>
 
       <section id="exercici-go">
         <div class="exercici">
-          <h3>Exercici: Go</h3>
+          <h3>Exercici 3: Go</h3>
           <p>En un joc de Go dos jugadors es tornen per col·locar pedres negres i blanques en un tauler de joc. El guanyador és el jugador que aconsegueix envoltar una àrea més gran al tauler amb les seves pròpies peces de joc.</p>
 
           <p>Escriu una funció anomenada <code class="inline">qui_ha_guanyat(tauler_joc: list)</code>, que rep una matriu bidimensional com a argument. La matriu consisteix en valors enters, que representen les situacions següents:</p>
@@ -433,7 +432,7 @@ imprimir_graella(sudoku)</code></pre>
 
       <section id="exercici-sudoku-comprovar-fila">
         <div class="exercici">
-          <h3>Exercici: Sudoku: comprovar fila</h3>
+          <h3>Exercici 4: Sudoku: comprovar fila</h3>
           <p>Escriu una funció anomenada <code class="inline">fila_correcta(sudoku: list, numero_fila: int)</code>, que rep una matriu bidimensional que representa una graella de sudoku, i un enter que es refereix a una sola fila, com a arguments. Les files s'indexen des de 0.</p>
 
           <p>La funció ha de retornar <code class="inline">True</code> o <code class="inline">False</code>, depenent de si la fila està omplerta correctament, és a dir, si conté cadascun dels nombres 1 a 9 com a màxim una vegada.</p>
@@ -462,7 +461,7 @@ False</pre
 
       <section id="exercici-sudoku-comprovar-columna">
         <div class="exercici">
-          <h3>Exercici: Sudoku: comprovar columna</h3>
+          <h3>Exercici 5: Sudoku: comprovar columna</h3>
           <p>Escriu una funció anomenada <code class="inline">columna_correcta(sudoku: list, numero_columna: int)</code>, que rep una matriu bidimensional que representa una graella de sudoku, i un enter que es refereix a una sola columna, com a arguments. Les columnes s'indexen des de 0.</p>
 
           <p>La funció ha de retornar <code class="inline">True</code> o <code class="inline">False</code>, depenent de si la columna està omplerta correctament, és a dir, si conté cadascun dels nombres 1 a 9 com a màxim una vegada.</p>
@@ -491,7 +490,7 @@ True</pre
 
       <section id="exercici-sudoku-comprovar-bloc">
         <div class="exercici">
-          <h3>Exercici: Sudoku: comprovar bloc</h3>
+          <h3>Exercici 6: Sudoku: comprovar bloc</h3>
           <p>Escriu una funció anomenada <code class="inline">bloc_correcte(sudoku: list, numero_fila: int, numero_columna: int)</code>, que rep una matriu bidimensional que representa una graella de sudoku, i dos enters que es refereixen als índexs de fila i columna d'un sol quadrat, com a arguments. Les files i columnes s'indexen des de 0.</p>
 
           <p>La funció ha de retornar <code class="inline">True</code> o <code class="inline">False</code> depenent de si el bloc de 3 per 3 a la dreta i avall des dels índexs donats està omplert correctament. És a dir, si el bloc conté cadascun dels nombres 1 a 9 com a màxim una vegada.</p>
@@ -540,7 +539,7 @@ True</pre
 
       <section id="exercici-sudoku-comprovar-graella">
         <div class="exercici">
-          <h3>Exercici: Sudoku: comprovar graella</h3>
+          <h3>Exercici 7: Sudoku: comprovar graella</h3>
           <p>Escriu una funció anomenada <code class="inline">graella_sudoku_correcta(sudoku: list)</code>, que rep una matriu bidimensional que representa una graella de sudoku com a argument. La funció ha d'utilitzar les funcions dels tres exercicis anteriors per determinar si la graella de sudoku completa està omplerta correctament. Copia les funcions dels exercicis anteriors al teu fitxer de codi Python per a aquest exercici.</p>
 
           <p>La funció ha de comprovar cadascuna de les nou files, columnes i blocs de 3 per 3 a la graella. Si tots contenen cadascun dels nombres 1 a 9 com a màxim una vegada, la funció retorna <code class="inline">True</code>. Si una sola està omplerta incorrectament, la funció retorna <code class="inline">False</code>.</p>
