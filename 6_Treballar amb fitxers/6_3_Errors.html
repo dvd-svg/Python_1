@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola món</title>
+    <title>Errors</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -15,17 +15,26 @@
     <main>
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
-        <h1>Introducció a la programació: Hola món</h1>
+        <h1>Errors</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+          <li>Aprendre a gestionar <strong>entrades invàlides</strong></li>
+          <li>Entendre què són les <strong>excepcions</strong> en programació</li>
+          <li>Familiaritzar-se amb els <strong>tipus d'excepcions</strong> més comuns en Python</li>
+          <li>Gestionar <strong>excepcions</strong> en els teus propis programes</li>
         </ul>
       </section>
       <section id="errors-programacio">
         <h2>Errors en programació</h2>
         <p>Hi ha dues categories bàsiques d'<strong>errors</strong> que apareixen en contextos de programació:</p>
-        <p><strong>Errors de sintaxi</strong>, que impedeixen l'<strong>execució</strong> del programa</p>
-        <p><strong>Errors d'execució</strong>, que aturen l'execució</p>
+        <ul>
+          <li>
+            <p><strong>Errors de sintaxi</strong>, que impedeixen l'<strong>execució</strong> del programa</p>
+          </li>
+          <li>
+            <p><strong>Errors d'execució</strong>, que aturen l'execució</p>
+          </li>
+        </ul>
         <p>Els errors de la primera categoria solen ser fàcils de corregir, ja que l'<strong>intèrpret</strong> de Python marca la ubicació de l'error quan intenta executar el programa. Errors de sintaxi comuns inclouen els <strong>dos punts</strong> que falten al final d'una línia de capçalera, o una <strong>cometa</strong> que falta al final d'una <code class="inline">cadena de text</code>.</p>
         <p>Els errors de la segona categoria poden ser més difícils de detectar, ja que pot passar que només ocorrin en un cert punt de l'execució d'un programa, i només en certes circumstàncies. El programa pot funcionar bé en la majoria de situacions, però aturar-se a causa d'un error en un cas marginal específic. Ara ens centrarem en gestionar aquests tipus d'errors.</p>
       </section>
@@ -145,7 +154,7 @@ Gràcies!
         <p>Ara el bloc <code class="inline">except</code> només conté l'ordre <code class="inline">pass</code>, que no fa res. Python no permet blocs buits, per la qual cosa l'ordre és necessària.</p>
 
         <div class="exercici">
-          <h3>Exercici: Llegir entrada</h3>
+          <h3>Exercici 1: Llegir entrada</h3>
           <p>Escriu una funció anomenada <code class="inline">llegir_entrada()</code>, que demani a l'usuari una entrada fins que l'usuari introdueixi un <code class="inline">enter</code> que estigui dins dels límits donats com a arguments a la funció. La funció ha de retornar el valor <code class="inline">enter</code> final vàlid introduït per l'usuari.</p>
           <p>Un exemple de la funció en acció:</p>
           <pre><code class="language-python">numero = llegir_entrada("Si us plau, introdueix un número: ", 5, 10)
@@ -164,15 +173,15 @@ Has introduït: 8</pre
       <section id="errors-tipics">
         <h2>Errors típics</h2>
         <p>Aquí tens una selecció d'errors típics que probablement trobaràs, juntament amb algunes situacions on poden ocórrer.</p>
-        <p><strong>ValueError</strong></p>
+        <h3><strong>ValueError</strong></h3>
         <p>Aquest error sovint es llança quan l'argument passat a una funció és d'alguna manera invàlid. Per exemple, la crida a la funció <code class="inline">float("1,23")</code> causa un error, perquè els decimals sempre es separen per un punt en Python, i aquí tenim una coma.</p>
-        <p><strong>TypeError</strong></p>
+        <h3><strong>TypeError</strong></h3>
         <p>Aquest error ocorre quan un valor és del tipus equivocat. Per exemple, la crida a la funció <code class="inline">len(10)</code> causa un <code class="inline">TypeError</code>, perquè la funció <code class="inline">len()</code> requereix un valor la longitud del qual es pugui calcular, com una <code class="inline">cadena de text</code> o una <code class="inline">llista</code>.</p>
-        <p><strong>IndexError</strong></p>
+        <h3><strong>IndexError</strong></h3>
         <p>Aquest error comú ocorre quan s'intenta fer referència a un índex que no existeix. Per exemple, l'expressió <code class="inline">"abc"[5]</code> causa un <code class="inline">IndexError</code>, perquè la cadena en qüestió no té índex 5.</p>
-        <p><strong>ZeroDivisionError</strong></p>
+        <h3><strong>ZeroDivisionError</strong></h3>
         <p>Com el nom indica, aquest error es llança quan s'intenta dividir per zero, que sabem per les matemàtiques que sempre és una mala idea. Per exemple, si intentem determinar la mitjana aritmètica de valors en una <code class="inline">llista</code> amb la fórmula <code class="inline">sum(la_meva_llista) / len(la_meva_llista)</code>, però la nostra <code class="inline">llista</code> té longitud zero, aquest error ocorrerà.</p>
-        <p><strong>Excepcions en gestió de fitxers</strong></p>
+        <h3><strong>Excepcions en gestió de fitxers</strong></h3>
         <p>Alguns errors comuns quan es treballa amb fitxers són <code class="inline">FileNotFoundError</code> (quan s'intenta accedir a un fitxer que no existeix), <code class="inline">io.UnsupportedOperation</code> (quan s'intenta realitzar una operació en un fitxer que no és compatible amb el mode en què s'obre el fitxer) o <code class="inline">PermissionError</code> (al programa li manquen els permisos necessaris per accedir al fitxer).</p>
       </section>
 
@@ -196,7 +205,7 @@ except PermissionError:
         for linia in el_meu_fitxer:
             print(linia)
 except:
-    print("Hi va haver un error en llegir el fitxer.")</code></pre>
+    print("Hi ha hagut un error en llegir el fitxer.")</code></pre>
 
         <p>NB: la sentència <code class="inline">except</code> aquí cobreix tots els errors possibles, fins i tot els causats per errors de programació. Només els errors de sintaxi no seran capturats per això, ja que impedeixen que el codi s'executi en primer lloc.</p>
         <p>Per exemple, el programa següent sempre llançarà un error, perquè el nom de variable <code class="inline">el_meu_fitxer</code> s'escriu com <code class="inline">elmeufitxer</code> a la tercera línia.</p>
@@ -206,9 +215,9 @@ except:
         for linia in elmeufitxer:
             print(linia)
 except:
-    print("Hi va haver un error en llegir el fitxer.")</code></pre>
+    print("Hi ha hagut un error en llegir el fitxer.")</code></pre>
 
-        <p>Un bloc <code class="inline">except</code> pot amagar l'error real: el problema aquí no va ser causat per la gestió de fitxers com a tal, sinó pel nom de variable que estava mal escrit. Sense el bloc <code class="inline">except</code> es mostraria l'error llançat, i la causa es podria trobar més fàcilment. Per tant, normalment és una bona idea utilitzar només blocs <code class="inline">except</code> declarats específicament per a certs tipus d'errors.</p>
+        <p>Un bloc <code class="inline">except</code> pot amagar l'error real: el problema aquí no ha sigut causat per la gestió de fitxers com a tal, sinó pel nom de variable que estava mal escrit. Sense el bloc <code class="inline">except</code> es mostraria l'error llançat, i la causa es podria trobar més fàcilment. Per tant, normalment és una bona idea utilitzar només blocs <code class="inline">except</code> declarats específicament per a certs tipus d'errors.</p>
       </section>
 
       <section id="passar-excepcions">
@@ -239,7 +248,7 @@ Alguna cosa va sortir malament</pre
 
         <pre><code class="language-python">def factorial(n):
     if n < 0:
-        raise ValueError("L'entrada era negativa: " + str(n))
+        raise ValueError("L'entrada és negativa: " + str(n))
     k = 1
     for i in range(2, n + 1):
         k *= i
@@ -256,62 +265,122 @@ Traceback (most recent call last):
 File "test.py", line 11, in 
 print(factorial(-1))
 File "test.py", line 3, in factorial
-raise ValueError("L'entrada era negativa: " + str(n))
-ValueError: L'entrada era negativa: -1</pre
+raise ValueError("L'entrada és negativa: " + str(n))
+ValueError: L'entrada és negativa: -1</pre
         >
 
         <div class="exercici">
-          <h3>Exercici: Validació de paràmetres</h3>
-          <p>Escriu una funció anomenada <code class="inline">nova_persona(nom: str, edat: int)</code>, que crea i retorna una <code class="inline">tupla</code> que conté les dades dels arguments. El primer element ha de ser el nom i el segon l'edat.</p>
+          <h3>Exercici 2: Validació de paràmetres</h3>
+          <p>Escriu una funció anomenada <code class="inline">nova_persona(nom_cognom: str, edat: int)</code>, que crea i retorna una <code class="inline">tupla</code> que conté les dades dels arguments. El primer element ha de ser una cadena amb un nom i cognom i el segon l'edat.</p>
           <p>Si els valors emmagatzemats en les variables de paràmetre no són vàlids, la funció ha de llançar una excepció <code class="inline">ValueError</code>.</p>
           <p>Els paràmetres no vàlids en aquest cas inclouen:</p>
-          <p>nom és una cadena buida</p>
-          <p>nom conté menys de dues paraules</p>
-          <p>nom és més llarg de 40 caràcters</p>
-          <p>edat és un número negatiu</p>
-          <p>edat és major que 150</p>
+          <ul>
+            <li><p>nom_cognom és una cadena buida</p></li>
+            <li><p>nom_cognom conté menys de dues paraules</p></li>
+            <li><p>nom_cognom és més llarg de 40 caràcters</p></li>
+            <li><p>edat és un número negatiu</p></li>
+            <li><p>edat és major que 150</p></li>
+          </ul>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Números de loteria incorrectes</h3>
-          <p>El fitxer <code class="inline">lottery_numbers.csv</code> conté números de loteria guanyadors en el següent format:</p>
+          <h3>Exercici 3: Números de loteria incorrectes</h3>
+          <p>El fitxer <code class="inline">numeros_loteria.csv</code> conté números de loteria guanyadors en el següent format:</p>
           <pre class="output">
 setmana 1;5,7,11,13,23,24,30
 setmana 2;9,13,14,24,34,35,37
 ...etc...</pre
           >
-          <p>Cada línia ha de contenir una capçalera <code class="inline">setmana x</code>, seguida de set números <code class="inline">enters</code> que estan tots entre 1 i 39 inclosos.</p>
-          <p>El fitxer s'ha corromput. Les línies del fitxer poden contenir els següents tipus d'errors (aquestes línies exactes poden no estar presents al fitxer, però hi haurà errors en un format similar):</p>
-          <p>El número de setmana és incorrecte:</p>
+          <p>Cada línia ha de contenir una capçalera <code class="inline">setmana x</code>, seguida de 7 números <code class="inline">enters</code> que estan tots entre 1 i 39 inclosos.</p>
+          <p>El fitxer s'ha corromput. Les línies del fitxer poden contenir els següents tipus d'errors:</p>
+          <p><strong>El número de setmana és incorrecte:</strong></p>
           <pre class="output">setmana zzc;1,5,13,22,24,25,26</pre>
-          <p>Un o més números no són correctes:</p>
+          <p><strong>Un o més números no són correctes:</strong></p>
           <pre class="output">setmana 22;1,**,5,6,13,2b,34</pre>
-          <p>Massa pocs números:</p>
+          <p><strong>Massa pocs números:</strong></p>
           <pre class="output">setmana 13;4,6,17,19,24,33</pre>
-          <p>Els números són massa petits o grans:</p>
+          <p><strong>Els números són massa petits o grans:</strong></p>
           <pre class="output">setmana 39;5,9,15,35,39,41,105</pre>
-          <p>El mateix número apareix dues vegades:</p>
+          <p><strong>El mateix número apareix dues vegades:</strong></p>
           <pre class="output">setmana 41;5,12,3,35,12,14,36</pre>
-          <p>Escriu una funció anomenada <code class="inline">filtrar_incorrecte()</code>, que crea un fitxer anomenat <code class="inline">correct_numbers.csv</code>. El fitxer ha de contenir només aquelles línies del fitxer original que estan en el format correcte.</p>
+          <p>Escriu una funció anomenada <code class="inline">filtrar_correctes()</code>, que crea un fitxer anomenat <code class="inline">numeros_correctes.csv</code>. El fitxer ha de contenir només aquelles línies del fitxer original que estan en el format correcte.</p>
+          <h3>Arxiu corromput</h3>
+          <pre class="output">
+setmana 1;5,7,11,13,23,24,30
+setmana 2;9,13,14,24,34,35,37
+setmana 3;2,8,15,21,29,31,38
+setmana 4;3,10,16,25,28,32,39
+setmana 5;1,4,12,18,27,30,36
+setmana *;7,14,19,26,33,38,2
+setmana 7;8,16,21,29,34,37,39
+setmana 8;6,11,17,22,28,35,1
+setmana 9;4,9,15,20,31,36,39
+setmana 10;2,7,13,19,24,33,38
+setmana 11;3,8,14,25,29,34,37
+setmana 12;1,5,12,18,26,32,35
+setmana zzc;1,5,13,22,24,25,26
+setmana 13;1,**,5,6,13,2b,34
+setmana 14;4,6,17,19,24,33
+setmana 15;5,9,15,35,39,41,105
+setmana 16;5,12,3,35,12,14,36
+setmana f7,5,13,22,24,25,26
+setmana 18;0,5,13,22,40,25,26
+setmana 19;1,5,13,22,24,25,26,33
+setmana abc;1,5,13,22,24,25,26
+setmana 21;5,5,10,15,20,25,30
+setmana 22;1,2,3,4,5,6,50
+setmana 23;9,16,23,27,31,35,38
+setmana 24;2,7,14,21,26,33,37
+setmana 25;3,8,15,22,29,34,39
+setmana 26;1,6,12,18,25,32,36
+setmana 27;4,11,17,24,28,35,37
+setmana 28;5,10,16,23,30,33,38
+setmana 29;2,9,13,19,27,31,39
+setmana 30;3,7,14,20,26,34,36
+setmana 31;6,11,18,22,29,35,37
+setmana 32;1,8,15,21,28,32,38
+setmana 33;4,10,17,23,30,33,39
+setmana 34;2,7,12,19,25,31,36
+</pre
+          >
         </div>
       </section>
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li><strong>Errors de sintaxi</strong>: impedeixen l'execució, fàcils de corregir, intèrpret marca ubicació.</li>
+          <li><strong>Errors d'execució</strong>: aturen l'execució, difícils de detectar, ocorren en circumstàncies específiques.</li>
+          <li><strong>Excepcions</strong>: errors durant l'execució, gestionades amb <code class="inline">try</code> i <code class="inline">except</code>.</li>
+          <li>
+            <strong><code class="inline">ValueError</code></strong
+            >: argument invàlid, float amb coma, int amb cadena no numèrica.
+          </li>
+          <li>
+            <strong><code class="inline">TypeError</code></strong
+            >: valor de tipus equivocat, <code class="inline">len()</code> amb enter.
+          </li>
+          <li>
+            <strong><code class="inline">IndexError</code></strong
+            >: índex inexistent, accedir índex 5 en "abc".
+          </li>
+          <li>
+            <strong><code class="inline">ZeroDivisionError</code></strong
+            >: divisió per zero, mitjana amb llista buida.
+          </li>
+          <li><strong>Llançar excepcions</strong>: provocar els nostres propis errors amb missatges personalitzats per a validar paràmetres i facilitar depuració.</li>
         </ul>
       </section>
       <nav class="passar-capitol">
         <ul>
           <li>
-            <a href="">
+            <a href="6_2_Write_files.html">
               <span class="tornar">←</span>
-              <h3>Capítol anterior</h3>
+              <h3>6.2 Escriure arxius</h3>
             </a>
           </li>
           <li>
-            <a href="">
-              <h3>Següent capítol</h3>
+            <a href="6_4_Variables_globals.html">
+              <h3>6.4 Variables globals</h3>
               <span class="endavant">→</span>
             </a>
           </li>

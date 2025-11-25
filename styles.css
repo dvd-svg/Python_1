@@ -78,6 +78,9 @@ h2 {
   top: 0;
 }
 
+h3 strong {
+  font-weight: 700;
+}
 .objectius {
   border-bottom: 2px solid var(--color-accent);
   padding-bottom: 0.83em;
