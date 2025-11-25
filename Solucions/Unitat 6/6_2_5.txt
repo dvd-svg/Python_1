@@ -1,0 +1,2 @@
+nom: Introducció a la Programació
+crèdits: 5

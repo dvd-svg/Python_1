@@ -1,0 +1,6 @@
+Introducció a la Programació, 5 crèdits
+========================================
+nom                           num_ex      punts_ex    punts_exm   punts_tot   nota        
+pere pitons                   21          5           9           14          0           
+joan java                     27          6           11          17          1           
+alícia sumadora               35          8           14          22          3           

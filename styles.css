@@ -343,16 +343,24 @@ gap:16px
   .passar-capitol ul {
     flex-direction: column;
   }
-  .index-capitols {
+  .landing-cols ol {
     gap: 0.6rem;
+    width: 100%;
   }
   .index-capitols a {
     padding: 0.6rem 0.8rem;
+  }
+  .index_capitols li {
+    width: 100%;
   }
   .landing-cols{
     flex-direction:column;
 }
  .landing-cols li{
     width: 100%;
+}
+svg {
+  width: 300px;
+  margin: 0 auto;
 }
 }

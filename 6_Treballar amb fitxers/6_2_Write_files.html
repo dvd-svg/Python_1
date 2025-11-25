@@ -18,7 +18,9 @@
         <h1>Escriure arxius</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+          <li>Crear arxius amb codi Python</li>
+          <li>Escriure dades basades en text a un arxiu</li>
+          <li>Aprendre a crear un arxiu CSV</li>
         </ul>
       </section>
       <section id="escriptura-arxius">
@@ -58,15 +60,14 @@ Aquesta és l'última línia</pre
         >
 
         <div class="exercici">
-          <h3>Exercici: Inscripció</h3>
-          <p>Escriu un programa que demani el nom de l'usuari i després creï una "inscripció" en un arxiu especificat per l'usuari. Mira l'exemple a continuació.</p>
+          <h3>Exercici 1: Missatge</h3>
+          <p>Escriu un programa que demani el nom de l'usuari i després creï un "missatge" en un arxiu especificat per l'usuari. Mira l'exemple a continuació.</p>
           <pre class="output">
-A qui haig de signar això: Anna
-On ho he de desar: inscrit.txt</pre
+A qui haig d'adreçar això: Anna
+On ho he de desar: missatge.txt</pre
           >
-          <p>El contingut de l'arxiu <code class="inline">inscrit.txt</code> seria:</p>
-          <pre class="output">Hola Anna, esperem que gaudeixis aprenent Python amb nosaltres! Salut, l'Equip de Mooc.fi</pre>
-          <p><strong>Nota</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
+          <p>El contingut de l'arxiu <code class="inline">missatge.txt</code> seria:</p>
+          <pre class="output">Hola Anna, espero que gaudeixis aprenent Python! Salutacions</pre>
         </div>
       </section>
 
@@ -86,24 +87,24 @@ Aquesta és l'última línia
 Aquesta és la quarta línia
 I una altra línia més.</pre
         >
-        <p>En la pràctica de programació, afegir dades a arxius no és una tasca molt comuna.</p>
+        <p>En la pràctica, afegir dades a arxius no és una tasca molt comuna.</p>
         <p>Més sovint es llegeix un arxiu, es processa i se sobreescriu completament. Per exemple, quan el contingut ha de canviar al mig de l'arxiu, normalment és més fàcil sobreescriure tot l'arxiu.</p>
 
         <div class="exercici">
-          <h3>Exercici: Diari</h3>
+          <h3>Exercici 2: Diari</h3>
           <p>Escriu un programa que funcioni com un diari simple. Les entrades del diari s'han de desar en l'arxiu <code class="inline">diari.txt</code>. Quan s'executi el programa, ha de llegir primer qualsevol entrada ja existent en l'arxiu.</p>
-          <p><strong>Nota</strong>: les proves automàtiques per a aquest exercici canviaran el contingut de l'arxiu. Si vols mantenir el seu contingut, primer fes una còpia de l'arxiu amb un nom diferent.</p>
           <p>El programa ha de funcionar de la següent manera:</p>
           <pre class="output">
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 1
-Entrada del diari: Avui he esmorrat farinetes
+Entrada del diari: Avui he esmorzat cereals
 Diari desat
 
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 2
 Entrades:
-Avui he esmorrat farinetes
+Avui he esmorzat cereals
+
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 1
 Entrada del diari: A la tarda he anat a la sauna
@@ -112,8 +113,9 @@ Diari desat
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 2
 Entrades:
-Avui he esmorrat farinetes
+Avui he esmorzat cereals
 A la tarda he anat a la sauna
+
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 0
 Fins aviat!</pre
@@ -123,13 +125,12 @@ Fins aviat!</pre
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 2
 Entrades:
-Avui he esmorrat farinetes
+Avui he esmorzat cereals
 A la tarda he anat a la sauna
 1 - afegir entrada, 2 - llegir entrades, 0 - sortir
 Funció: 0
 Fins aviat!</pre
           >
-          <p><strong>Nota</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
         </div>
       </section>
 
@@ -154,7 +155,7 @@ programadors.append(["Erica", "Windows", "Pascal", 10])
 programadors.append(["Marta", "Linux", "PHP", 2])
 programadors.append(["Alan", "Linux", "Java", 17])
 programadors.append(["Emili", "Mac", "Cobol", 9])</code></pre>
-        <p>Podem construir la cadena que volem escriure com una <strong>f-cadena</strong>, i escriure la línia preparada en l'arxiu així:</p>
+        <p>Podem construir la cadena que volem escriure com una <strong>cadena f</strong>, i escriure la línia preparada en l'arxiu així:</p>
         <pre><code class="language-python">with open("programadors.csv", "w") as el_meu_arxiu:
     for programador in programadors:
         linia = f"{programador[0]};{programador[1]};{programador[2]};{programador[3]}"
@@ -184,10 +185,8 @@ programadors.append(["Emili", "Mac", "Cobol", 9])</code></pre>
 import os
 
 os.remove("arxiu_innecessari.csv")</code></pre>
-        <p><strong>Nota</strong>: això no funcionarà quan s'executin les proves automàtiques als servidors del curs a causa de limitacions tècniques en l'entorn de proves. Si se't demana que netegis el contingut d'un arxiu, utilitza els mètodes descrits anteriorment.</p>
-
         <div class="exercici">
-          <h3>Exercici: Filtrar el contingut d'un arxiu</h3>
+          <h3>Exercici 3: Filtrar el contingut d'un arxiu</h3>
           <p>E l'arxiu <code class="inline">solucions.csv</code> conté algunes solucions a problemes de matemàtiques:</p>
           <pre class="output">
 Artur;2+5;7
@@ -223,7 +222,7 @@ filtra_solucions()</code></pre>
         </div>
 
         <div class="exercici">
-          <h3>Exercici: Emmagatzemar dades personals</h3>
+          <h3>Exercici 4: Emmagatzemar dades personals</h3>
           <p>Escriu una funció anomenada <code class="inline">emmagatzema_dades_personals(persona: tuple)</code>, que rep una tupla que conté alguna informació identificativa com a argument.</p>
           <p>La tupla conté els elements següents:</p>
           <ul>
@@ -249,7 +248,7 @@ Susanna;3;4;3;5;3;4;4
 Emília;6;6;5;5;0;4;8</pre
         >
         <p>La lògica del programa es divideix en tres funcions: llegir l'arxiu i processar el contingut en un format accessible, determinar la nota, i escriure en l'arxiu.</p>
-        <p>E l'arxiu es llegeix seguint els principis coberts a la secció anterior. Les dades s'emmagatzemen en un <strong>diccionari</strong>, on la clau és el nom de l'estudiant, i el valor és una llista dels punts rebuts per l'estudiant, en format enter:</p>
+        <p>L'arxiu es llegeix seguint els principis coberts a la secció anterior. Les dades s'emmagatzemen en un <strong>diccionari</strong>, on la clau és el nom de l'estudiant, i el valor és una llista dels punts rebuts per l'estudiant, en format enter:</p>
         <pre><code class="language-python">def llegeix_punts_setmanals(nom_arxiu):
     punts_setmanals = {}
     with open(nom_arxiu) as el_meu_arxiu:
@@ -307,7 +306,7 @@ print(obte_nota("Paula", punts_setmanals))</code></pre>
         </p>
 
         <div class="exercici">
-          <h3>Exercici: Avaluació del curs, part 4</h3>
+          <h3>Exercici 5: Avaluació del curs, part 4</h3>
           <p>Tornem a visitar el projecte d'avaluació del curs de la secció anterior.</p>
           <p>Com ho vam deixar l'última vegada, el programa llegia i processava arxius que contenien informació dels estudiants, exercicis completats i resultats d'examen. Afegirem un arxiu que conté informació sobre el curs. Un exemple del format de l'arxiu:</p>
           <pre class="output">
@@ -318,35 +317,34 @@ crèdits: 5</pre
           <pre class="output">
 Introducció a la Programació, 5 crèdits
 ======================================
-nom                          nbr_ex   punts_ex. punts_exm. tot_punts. nota
-pere pelat                  21        5         9         14        0
-jana javanesa               27        6         11        17        1
-lisa verda                  35        8         14        22        3</pre
+nom                         nbr_ex      punts_ex    punts_exm   tot_punts   nota
+pere pitons                 21          5           9           14          0
+joan java                   27          6           11          17          1
+alícia sumadora             35          8           14          22          3</pre
           >
           <p>La secció d'estadístiques és idèntica als resultats impresos a la part 3 del projecte. L'única addició aquí és la secció de capçalera.</p>
           <p>A més, hi ha d'haver un arxiu anomenat <code class="inline">resultats.csv</code> amb el següent format:</p>
           <pre class="output">
-12345678;pere pelat;0
-12345687;jana javanesa;1
-12345699;lisa verda;3</pre
+12345678;pere pitons;0
+12345687;joan java;1
+12345699;alícia sumadora;3</pre
           >
           <p>Quan s'executi el programa, hauria de tenir aquest aspecte:</p>
           <pre class="output">
-Informació de l'estudiant: estudiants1.csv
-Exercicis completats: exercicis1.csv
-Punts d'examen: punts_examen1.csv
+Informació dels estudiants: estudiants.csv
+Exercicis completats: exercicis.csv
+Punts d'examen: punts_examen.csv
 Informació del curs: curs1.txt
 Resultats escrits als arxius resultats.txt i resultats.csv</pre
           >
           <p>És a dir, el programa només demana els noms dels arxius d'entrada. Tota la sortida s'ha d'escriure als arxius. L'usuari només veurà un missatge que ho confirmi.</p>
-          <p><strong>Nota</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
         </div>
       </section>
 
       <section id="cerca-paraules">
         <div class="exercici">
-          <h3>Exercici: Cerca de paraules</h3>
-          <p>La plantilla de l'exercici inclou l'arxiu <code class="inline">paraules.txt</code>, que conté paraules en anglès.</p>
+          <h3>Exercici 6: Cerca de paraules</h3>
+          <p>Crea l'arxiu <code class="inline">paraules.txt</code>, que contingui paraules en anglès en diferents línies.</p>
           <p>Escriu una funció anomenada <code class="inline">cerca_paraules(terme_cerca: str)</code>. Ha de retornar una llista que contingui totes les paraules de l'arxiu que coincideixin amb el terme de cerca.</p>
           <p>El terme de cerca pot incloure lletres minúscules i els següents caràcters comodí:</p>
           <ul>
@@ -357,8 +355,7 @@ Resultats escrits als arxius resultats.txt i resultats.csv</pre
             </li>
           </ul>
           <p>Si no hi ha caràcters comodí en el terme de cerca, només es retornen les paraules que coincideixin exactament amb el terme de cerca.</p>
-          <p>Pots assumir que tant els comodins com mai s'utilitzen en el mateix terme de cerca.</p>
-          <p>Les paraules de l'arxiu estan totes escrites en minúscules. També pots assumir que l'argument de la funció estarà completament en minúscules.</p>
+          <p>Les paraules de l'arxiu han d'estar totes escrites en minúscules. També pots assumir que l'argument de la funció estarà completament en minúscules.</p>
           <p>Si no es troben paraules coincidents, la funció ha de retornar una llista buida.</p>
           <p><strong>Pista</strong>: els mètodes de cadenes de Python <code class="inline">startswith()</code> i <code class="inline">endswith()</code> poden ser útils aquí. Pots buscar més informació sobre ells en línia.</p>
           <p>Un exemple de la funció en acció:</p>
@@ -369,65 +366,83 @@ Resultats escrits als arxius resultats.txt i resultats.csv</pre
 
       <section id="diccionari-arxiu">
         <div class="exercici">
-          <h3>Exercici: Diccionari emmagatzemat en un arxiu</h3>
+          <h3>Exercici 7: Diccionari emmagatzemat en un arxiu</h3>
           <p>Escriu un programa que funcioni com un diccionari. L'usuari pot introduir noves entrades o buscar entrades existents.</p>
           <p>El programa ha de funcionar de la següent manera:</p>
           <pre class="output">
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 1
-La paraula en finès: auto
-La paraula en anglès: cotxe
+La paraula en euskera: etxea
+La paraula en català: casa
 Entrada del diccionari afegida
+
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 1
-La paraula en finès: rovellat
-La paraula en anglès: oxidat
+La paraula en euskera: mutila
+La paraula en català: noi
 Entrada del diccionari afegida
+
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 1
-La paraula en finès: motxilla
-La paraula en anglès: motxilla
+La paraula en euskera: andre
+La paraula en català: dona
 Entrada del diccionari afegida
+
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 2
-Terme de cerca: motxilla
-rovellat - oxidat
-motxilla - motxilla
+Terme de cerca: dona
+andre - dona
+
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 2
-Terme de cerca: cotxe
-auto - cotxe
+Terme de cerca: casa
+etxea - casa
+
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 2
-Terme de cerca: motxilla
-motxilla - motxilla
+Terme de cerca: mutila
+mutila - noi
+
 1 - Afegir paraula, 2 - Cercar, 3 - Sortir
 Funció: 3
 Fins aviat!</pre
           >
           <p>Les entrades del diccionari s'han d'escriure en un arxiu anomenat <code class="inline">diccionari.txt</code>. El programa ha de llegir primer el contingut de l'arxiu. Les noves entrades s'escriuen al final de l'arxiu sempre que s'afegeixen al diccionari.</p>
           <p>El format de les dades emmagatzemades en el diccionari depèn de tu.</p>
-          <p><strong>Nota</strong>: les proves automàtiques per a aquest exercici poden canviar el contingut de l'arxiu. Si vols mantenir el seu contingut, primer fes una còpia de l'arxiu amb un nom diferent.</p>
-          <p><strong>Nota 2</strong>: aquest exercici no et demana que escriguis cap funció, per tant no hauries de posar cap codi dins d'un bloc <code class="inline">if __name__ == "__main__"</code>.</p>
         </div>
       </section>
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li>
+            <strong>Mode escriptura <code class="inline">("w")</code></strong
+            >: obre un arxiu per escriure-hi, sobreescriu el contingut existent.
+          </li>
+          <li>
+            <strong>Mode afegir <code class="inline">("a")</code></strong
+            >: obre un arxiu per afegir contingut al final sense eliminar l'existent.
+          </li>
+          <li>
+            <strong>Mètode <code class="inline">write()</code></strong
+            >: escriu una cadena de text en un
+          </li>
+          <li><strong>Netejar contingut</strong>: obrir un arxiu en mode escriptura i tancar-lo sense escriure res.</li>
+          <li><strong>Esborrar arxius</strong>: utilitzar la funció <code class="inline">remove()</code> del mòdul <code class="inline">os</code> per eliminar arxius del sistema.</li>
+          <li><strong>Processament de dades</strong>: llegir dades d'un arxiu, processar-les i escriure els resultats en un altre arxiu.</li>
+          <li><strong>Principi de responsabilitat única</strong>: dissenyar funcions que realitzin una única tasca específica per facilitar el manteniment.</li>
         </ul>
       </section>
       <nav class="passar-capitol">
         <ul>
           <li>
-            <a href="">
+            <a href="6_1_Read_files.html">
               <span class="tornar">←</span>
-              <h3>Capitol anterior</h3>
+              <h3>6.1 Llegir arxius</h3>
             </a>
           </li>
           <li>
-            <a href="">
-              <h3>Següent capítol</h3>
+            <a href="6_3_Errors.html">
+              <h3>6.3 Errors</h3>
               <span class="endavant">→</span>
             </a>
           </li>
