@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecte Flashcards</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="Projecte">
+        <h1>Projecte: Flashcards Multitema</h1>
+
+        <h2>Objectiu</h2>
+        <p>En aquest projecte creareu un programa d'estudi tipus <strong>Flashcards</strong>, una aplicació de consola capaç de gestionar col·leccions de targetes d’estudi dividides per <strong>temes</strong>. Cada tema es guardarà en un arxiu propi, i el programa permetrà afegir, eliminar, consultar i estudiar les targetes.</p>
+
+        <p>
+          El projecte us permetrà practicar l’ús de
+          <strong>llistes</strong>, <strong>diccionaris</strong> i <strong>fitxers externs</strong>, així com la gestió de <strong>menús</strong>, <strong>funcions</strong> i <strong>organització modular</strong> del codi.
+        </p>
+      </section>
+
+      <section>
+        <h2>Funcionalitats Principals</h2>
+
+        <h3>1. Menú Inicial</h3>
+        <p>El vostre programa ha d’incloure un menú com aquest:</p>
+        <ul>
+          <li>1. Escollir tema</li>
+          <li>2. Crear un nou tema</li>
+          <li>3. Eliminar un tema</li>
+          <li>4. Sortir</li>
+        </ul>
+
+        <p>Quan l’usuari esculli un tema, el programa accedirà al menú de gestió de les flashcards d’aquell tema.</p>
+
+        <h3>2. Menú del Tema Seleccionat</h3>
+        <ul>
+          <li>1. Afegir una nova flashcard</li>
+          <li>2. Mostrar totes les flashcards</li>
+          <li>3. Eliminar una flashcard</li>
+          <li>4. Mode estudi</li>
+          <li>5. Tornar al menú principal</li>
+        </ul>
+
+        <h3>3. Estructura de Dades</h3>
+        <p>Cada Flashcard ha de ser un <strong>diccionari</strong> amb:</p>
+        <ul>
+          <li><strong>Pregunta</strong></li>
+          <li><strong>Resposta</strong></li>
+        </ul>
+
+        <p>Les flashcards d’un tema es guardaran dins d’una <strong>llista</strong> carregada des d’un arxiu CSV o TXT.</p>
+
+        <code class="inline">flashcards = []</code>
+      </section>
+
+      <section>
+        <h3>Estructura Recomanada</h3>
+        <p>Separeu les parts del vostre programa en funcions per mantenir el codi net i fàcil de modificar.</p>
+        <ul>
+          <li><code class="inline">llistar_temes()</code> – Mostra els arxius disponibles</li>
+          <li><code class="inline">crear_tema()</code> – Genera un nou arxiu</li>
+          <li><code class="inline">seleccionar_tema()</code> – Tria un tema i el carrega</li>
+          <li><code class="inline">carregar_flashcards()</code> – Llegeix el CSV del tema</li>
+          <li><code class="inline">guardar_flashcards()</code> – Desa totes les flashcards al fitxer</li>
+          <li><code class="inline">afegir_flashcard()</code> – Afegeix una nova targeta</li>
+          <li><code class="inline">mostrar_flashcards()</code> – Mostra totes les targetes</li>
+          <li><code class="inline">eliminar_flashcard()</code> – Esborra per número</li>
+          <li><code class="inline">mode_estudi()</code> – Mostra preguntes en ordre i compara amb la resposta de l'usuari</li>
+        </ul>
+
+        <h3><strong>Pista:</strong> Com funciona <code class="inline">os</code> per gestionar temes?</h3>
+        <p>Per mostrar els temes disponibles, el programa pot utilitzar el mòdul <code>os</code>, que permet llegir els arxius d'una carpeta. Per exemple:</p>
+        <pre class="language-python"><code>import os
+
+def llistar_temes():
+  arxius = os.listdir("data")
+  temes = []
+  for f in arxius:
+    if f.endswith(".csv"):
+      temes.append(f)(".csv")]
+  return temes</code></pre>
+        <p>Aquesta funció llegeix tots els arxius de la carpeta <code>data</code> i filtra només els que acaben en <code>.csv</code>, que representen els temes.</p>
+
+        <h3>Reptes Addicionals:</h3>
+        <ul>
+          <li>Afegir un comptador d'encerts i errors.</li>
+          <li>Investigueu com utilitzar el mòdul <a href="https://www.geeksforgeeks.org/python/python-random-module/" target="_blank">random</a> per mostrar les flashcards en ordre aleatori.</li>
+          <li>Busqueu com afegir colors a la consola utilitzant <a target="_blank" href="https://www.geeksforgeeks.org/python/print-colors-python-terminal/">codis ANSI</a>.</li>
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="6_4_Variables_globals.html">
+              <span class="tornar">←</span>
+              <h3>6.4 Variables locals i globals</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

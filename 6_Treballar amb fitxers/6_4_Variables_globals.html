@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola món</title>
+    <title>Variables locals i globals</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -15,10 +15,13 @@
     <main>
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
-        <h1>Introducció a la programació: Hola món</h1>
+        <h1>Variables locals i globals</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+          <li>Entendre que s'enten per variable local</li>
+          <li>Comprendre com l'àmbit d'una variable afecta el seu ús</li>
+          <li>Utilitzar la paraula clau <code class="inline">global</code> de Python</li>
+          <li>Aplicar variables locals i globals en els contextos correctes</li>
         </ul>
       </section>
       <section id="abast-variables">
@@ -65,19 +68,6 @@ print(x)</code></pre>
 3</pre
         >
         <p>Aquí la funció <code class="inline">prova</code> crea una nova variable local <code class="inline">x</code>, que "emmascara" la variable global mentre s'està executant la funció. Aquesta variable té el valor 5, però és una variable diferent de la global <code class="inline">x</code> que està definida a la funció principal.</p>
-        <div class="exercici">
-          <h3>Exercici: Error d'assignació local</h3>
-          <p>Què faria el següent codi?</p>
-          <pre><code class="language-python">def prova():
-    print(x)
-    x = 5
-
-x = 3
-prova()
-print(x)</code></pre>
-          <pre class="output">UnboundLocalError: local variable 'x' referenced before assignment</pre>
-          <p>La funció <code class="inline">prova</code> assigna un valor a la variable <code class="inline">x</code>, de manera que Python interpreta que <code class="inline">x</code> és una variable local en lloc de la variable global del mateix nom. La funció intenta accedir a la variable abans que estigui definida, de manera que hi ha un error.</p>
-        </div>
       </section>
 
       <section id="paraula-clau-global">
@@ -137,15 +127,15 @@ print("Hi va haver", comptador, "crides a funcions")</code></pre>
 10
 3
 1
-Hi va haver 4 crides a funcions</pre
+Hi ha hagut 4 crides a funcions</pre
         >
-        <p>En aquest cas volem fer un seguiment de quantes vegades es van cridar les funcions durant l'execució del programa. La variable global <code class="inline">comptador</code> és útil aquí, perquè podem incrementar-la des de les pròpies funcions mentre s'executen, però encara accedir al valor final a la funció principal.</p>
+        <p>En aquest cas volem fer un seguiment de quantes vegades s'han cridat les funcions durant l'execució del programa. La variable global <code class="inline">comptador</code> és útil aquí, perquè podem incrementar-la des de les pròpies funcions mentre s'executen, però encara accedir al valor final a la funció principal.</p>
       </section>
 
       <section id="passar-dades-entre-funcions">
         <h2>Passar dades d'una funció a una altra, revisitat</h2>
         <p>Si un programa consta de múltiples funcions, sovint sorgeix la qüestió de passar dades d'una funció a una altra.</p>
-        <p>Quan vam tocar aquest tema anteriorment, teníem un programa que demana a l'usuari alguns valors enters, els imprimeix i realitza algun anàlisi estadística sobre els números. El programa es va dividir en tres funcions separades:</p>
+        <p>Quan vam tocar aquest tema anteriorment, teníem un programa que demana a l'usuari alguns valors enters, els imprimeix i realitza algun anàlisi estadístic sobre els números. El programa es dividia en tres funcions separades:</p>
         <pre><code class="language-python">def entrada_usuari(quants: int):
     print(f"Si us plau, introdueix {quants} números:")
     numeros = []
@@ -193,10 +183,9 @@ Hi ha 5 números en total, la mitjana és 11.6, el més petit és -53 i el més 
           especialment cert a mesura que augmenta el nombre de funcions involucrades, cosa que és comuna en grans projectes de programari.
         </p>
         <p>En conclusió, passar dades cap a i des de les funcions es gestiona millor mitjançant arguments i valors de retorn.</p>
-        <div class="exercici">
-          <h3>Exercici: Funció principal explícita</h3>
-          <p>També podries separar la funció principal implícita en l'exemple anterior en la seva pròpia funció principal explícita. Llavors la variable <code class="inline">entrades</code> ja no seria una variable global, sinó una variable local dins de la funció principal:</p>
-          <pre><code class="language-python"># la teva funció principal va aquí
+        <h3>Funció principal explícita</h3>
+        <p>També podries separar la funció principal implícita en l'exemple anterior en la seva pròpia funció principal explícita. Llavors la variable <code class="inline">entrades</code> ja no seria una variable global, sinó una variable local dins de la funció principal:</p>
+        <pre><code class="language-python"># la teva funció principal va aquí
 def main():
     entrades = entrada_usuari(5)
     imprimeix_resultat(entrades)
@@ -206,25 +195,32 @@ def main():
 
 # executa la funció principal
 main()</code></pre>
-        </div>
       </section>
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li><strong>Abast d'una variable</strong>: parts del programa on una variable és accessible.</li>
+          <li><strong>Variable local</strong>: accessible només dins de la funció on es defineix.</li>
+          <li><strong>Variable global</strong>: accessible des de qualsevol part del programa.</li>
+          <li>
+            <strong>Paraula clau <code class="inline">global</code></strong
+            >: permet modificar una variable global des d'una funció.
+          </li>
+          <li><strong>Passar dades entre funcions</strong>: mitjançant arguments i valors de retorn, no amb variables globals.</li>
+          <li><strong>Funció principal (main)</strong>: on es coordina l'execució del programa i es gestionen les dades globals com a variables locals de la funció principal.</li>
         </ul>
       </section>
       <nav class="passar-capitol">
         <ul>
           <li>
-            <a href="">
+            <a href="6_3_Errors.html">
               <span class="tornar">←</span>
-              <h3>Capítol anterior</h3>
+              <h3>6.3 Errors</h3>
             </a>
           </li>
           <li>
-            <a href="">
-              <h3>Següent capítol</h3>
+            <a href="6_5_Project.html">
+              <h3>6.5 Projecte: Flashcards</h3>
               <span class="endavant">→</span>
             </a>
           </li>
