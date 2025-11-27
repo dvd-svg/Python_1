@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola món</title>
+    <title>Aleatorietat</title>
     <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
@@ -15,16 +15,23 @@
     <main>
       <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
       <section>
-        <h1>Introducció a la programació: Hola món</h1>
+        <h1>Aleatorietat</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+          <li>
+            Familiaritzar-se amb les funcions del mòdul <strong><code class="inline">random</code></strong>
+          </li>
+          <li>
+            Fer servir el mòdul <code class="inline">random</code><strong> per a afegir <strong>aleatorietat</strong> en els vostres programes.</strong>
+          </li>
         </ul>
       </section>
       <section id="modul-random">
         <h2>El mòdul random</h2>
-        <p>Aquesta secció se centra en el <strong>mòdul</strong> <code class="inline">random</code> de la biblioteca estàndard de Python. Conté eines per generar <strong>nombres aleatoris</strong> i altres funcionalitats aleatòries.</p>
-        <p>Les seccions d'aquesta part del material contenen molts enllaços a la documentació de la biblioteca estàndard de Python. Recomanem seguir els enllaços per familiaritzar-vos amb com funciona la documentació.</p>
+        <p>
+          Aquesta secció es centra en el <strong>mòdul <code class="inline">random</code></strong> de la biblioteca estàndard de Python. Conté eines per generar <strong>nombres aleatoris</strong> i altres funcionalitats aleatòries.
+        </p>
+        <p>Les seccions d'aquesta part del material contenen molts enllaços a la documentació de la biblioteca estàndard de Python. És recomanable seguir els enllaços per familiaritzar-se amb com funciona la documentació.</p>
       </section>
 
       <section id="generar-nombre-aleatori">
@@ -53,7 +60,7 @@ El resultat del llançament: 4
 El resultat del llançament: 4
 El resultat del llançament: 3</pre
         >
-        <p><strong>Nota:</strong> val la pena recordar que la funció <code class="inline">randint</code> funciona una mica diferent en comparació amb, per exemple, les retallades o la funció <code class="inline">range</code>, que hem trobat anteriorment. La crida a la funció <code class="inline">randint(1, 6)</code> resulta en un nombre entre 1 i 6 inclosos, però la crida a la funció <code class="inline">range(1, 6)</code> resulta en un rang de nombres de l'1 al 5.</p>
+        <p><strong>Nota:</strong> val la pena recordar que la funció <code class="inline">randint</code> funciona una mica diferent en comparació amb, per exemple, els talls d'una cadena o la funció <code class="inline">range</code>, que hem trobat anteriorment. La crida a la funció <code class="inline">randint(1, 6)</code> resulta en un nombre entre 1 i 6 inclosos, però la crida a la funció <code class="inline">range(1, 6)</code> resulta en un rang de nombres de l'1 al 5.</p>
       </section>
 
       <section id="mes-funcions-aleatories">
@@ -110,10 +117,10 @@ print(sorteig_setmanal)</code></pre>
 
       <div class="exercici">
         <h3>Exercici 1: Nombres de loteria</h3>
-        <p>Escriu una <strong>funció</strong> anomenada <code class="inline">lottery_numbers(amount: int, lower: int, upper: int)</code>, que genera tants <strong>nombres aleatoris</strong> com especifica el primer argument. Tots els nombres haurien de caure dins dels límits <code class="inline">lower</code> a <code class="inline">upper</code>. Els nombres s'han d'emmagatzemar en una <strong>llista</strong> i retornar. Els nombres han d'estar en ordre ascendent a la llista retornada.</p>
+        <p>Escriu una <strong>funció</strong> anomenada <code class="inline">nombres_loteria (nombre: int, minim: int, maxim: int)</code>, que genera tants <strong>nombres aleatoris</strong> com especifica el primer argument. Tots els nombres haurien de caure dins dels límits <code class="inline">minim</code> a <code class="inline">maxim</code>. Els nombres s'han d'emmagatzemar en una <strong>llista</strong> i retornar. Els nombres han d'estar en ordre ascendent a la llista retornada.</p>
         <p>Com que es tracta de nombres de loteria, cap nombre ha d'aparèixer dues vegades a la llista.</p>
         <p>Un exemple de com hauria de funcionar la funció:</p>
-        <pre><code class="language-python">for number in lottery_numbers(7, 1, 40):
+        <pre><code class="language-python">for number in nombres_loteria (7, 1, 40):
     print(number)</code></pre>
         <pre class="output">
 4
@@ -124,27 +131,28 @@ print(sorteig_setmanal)</code></pre>
 29
 38</pre
         >
+        <p>Penseu en quins casos pot donar error el nostre programa, si identifiqueu una situació d'aquest tipus <strong>llanceu un error personalitzat</strong>, com hem après a fer en capítols anteriors.</p>
       </div>
 
       <section id="origen-nombres-aleatoris">
         <h2>D'on provenen aquests nombres aleatoris?</h2>
-        <p>Les característiques del mòdul <code class="inline">random</code> es basen en un <strong>algorisme</strong> que produeix nombres aleatoris basats en un valor d'inicialització específic i algunes operacions aritmètiques. El valor d'inicialització sovint s'anomena <strong>valor de llavor</strong>.</p>
-        <p>El valor de llavor pot ser subministrat per l'usuari amb la funció <code class="inline">seed</code>:</p>
+        <p>Les característiques del mòdul <code class="inline">random</code> es basen en un <strong>algorisme</strong> que produeix nombres aleatoris basats en un valor d'inicialització específic i algunes operacions aritmètiques. El valor d'inicialització sovint s'anomena <strong>valor de seed</strong>.</p>
+        <p>El valor de <strong>seed</strong> pot ser subministrat per l'usuari amb la funció <code class="inline">seed</code>:</p>
         <pre><code class="language-python">from random import randint, seed
 
 seed(1337)
 # això sempre produirà el mateix nombre "aleatori"
 print(randint(1, 100))</code></pre>
-        <p>Si tenim funcions que depenen de l'aleatorietat, i establim un valor de llavor, la funció produirà el mateix resultat cada vegada que s'executi. El resultat pot ser diferent amb diferents versions de Python, però en essència es perd l'aleatorietat en establir un valor de llavor. Això pot ser una característica útil quan es prova un programa, per exemple.</p>
+        <p>Si tenim funcions que depenen de l'aleatorietat, i establim un valor de seed, la funció produirà el mateix resultat cada vegada que s'executi. El resultat pot ser diferent amb diferents versions de Python, però en essència es perd l'aleatorietat en establir un valor de seed. Això pot ser una característica útil quan es prova un programa, per exemple.</p>
       </section>
 
       <section id="aleatorietat-veritable">
         <h2>Aleatorietat veritable</h2>
         <p>
-          Per ser específics, els nombres proporcionats pel mòdul <code class="inline">random</code> no són veritablement aleatoris. En canvi, són <strong>pseudoaleatoris</strong>. Els ordinadors són, en essència, màquines deterministes. En una situació ideal, hauria de ser possible predir la manera com funcionen fins a l'últim bit. Per tant, és molt difícil crear nombres veritablement aleatoris amb un ordinador. Per a moltes aplicacions, però, els nombres pseudoaleatoris són prou bons. Quan es requereixen nombres veritablement aleatoris, el valor de llavor sol ser generat per alguna font fora
-          de l'ordinador, per exemple la radiació de fons, els nivells de soroll o les llums de lava.
+          Per ser específics, els nombres proporcionats pel mòdul <code class="inline">random</code> no són veritablement aleatoris. En canvi, són <strong>pseudoaleatoris</strong>. Els ordinadors són, en essència, màquines deterministes. En una situació ideal, hauria de ser possible predir la manera com funcionen fins a l'últim bit. Per tant, és molt difícil crear nombres veritablement aleatoris amb un ordinador. Per a moltes aplicacions, però, els nombres pseudoaleatoris són prou bons. Quan es requereixen nombres veritablement aleatoris, el valor de seed sol ser generat per alguna font fora
+          de l'ordinador, per exemple els nivells de radiació de fons, nivells de soroll o posicions de llums de lava.
         </p>
-        <p>Per a més informació sobre l'aleatorietat, consulteu random.org.</p>
+        <p>Per a més informació sobre l'aleatorietat, consulteu <a href="https://random.org" target="_blank">random.org.</a></p>
       </section>
 
       <div class="exercici">
@@ -172,7 +180,7 @@ rjkoacib</pre
         <p>Escriu una versió millorada del teu generador de contrasenyes. La funció ara pren tres <strong>arguments</strong>:</p>
         <p>Si el segon argument és <code class="inline">True</code>, la contrasenya generada també hauria de contenir un o més nombres.</p>
         <p>Si el tercer argument és <code class="inline">True</code>, la contrasenya generada també hauria de contenir un o més d'aquests caràcters especials: <code class="inline">!?=+-()#</code>.</p>
-        <p>Malgrat aquests dos arguments addicionals, la contrasenya hauria de contenir sempre com a mínim una lletra minúscula. Podeu assumir que la funció només es cridarà amb combinacions d'arguments que són possibles de formular en contrasenyes seguint aquestes regles. És a dir, els arguments no especificaran, per exemple, una contrasenya de longitud 2 que contingui tant un nombre com caràcters especials, perquè llavors no hi hauria espai per la lletra minúscula obligatòria.</p>
+        <p>Malgrat aquests dos arguments addicionals, la contrasenya hauria de contenir sempre com a mínim una lletra minúscula. Si identifiqueu situacions que puguin conduir a un error del codim <strong>llanceu un error personalitzat</strong>.</p>
         <p>Un exemple de com hauria de funcionar la funció:</p>
         <pre><code class="language-python">for i in range(10):
     print(generate_strong_password(8, True, True))</code></pre>
@@ -193,30 +201,30 @@ n?b0a7ey</pre
       <div class="exercici">
         <h3>Exercici 4: Tirada de daus</h3>
         <p>En aquest exercici escriureu algunes funcions que es poden utilitzar en jocs que impliquen daus.</p>
-        <p>En lloc de daus normals, aquest exercici especifica daus no transitius. Podeu llegir sobre això aquí o veure aquest vídeo.</p>
+        <p>En lloc de daus normals, aquest exercici especifica daus no transitius. Podeu llegir sobre això <a href="https://singingbanana.com/dice/article.htm" target="_blank">aquí</a> o veure <a href="https://www.youtube.com/watch?v=LrIp6CKUlH8" target="_blank">aquest vídeo</a>.</p>
         <p>Utilitzareu tres daus:</p>
         <p>El dau A té les cares 3, 3, 3, 3, 3, 6</p>
         <p>El dau B té les cares 2, 2, 2, 5, 5, 5</p>
         <p>El dau C té les cares 1, 4, 4, 4, 4, 4</p>
-        <p>Escriu una funció anomenada <code class="inline">roll(die: str)</code>, que llança el dau especificat per l'argument. Un exemple de com hauria de funcionar això:</p>
+        <p>Escriu una funció anomenada <code class="inline">tirar(dau: str)</code>, que llança el dau especificat per l'argument. Un exemple de com hauria de funcionar això:</p>
         <pre><code class="language-python">for i in range(20):
-    print(roll("A"), " ", end="")
+    print(tirar("A"), " ", end="")
 print()
 for i in range(20):
-    print(roll("B"), " ", end="")
+    print(tirar("B"), " ", end="")
 print()
 for i in range(20):
-    print(roll("C"), " ", end="")</code></pre>
+    print(tirar("C"), " ", end="")</code></pre>
         <pre class="output">
 3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  6  3  6  3
 2  2  5  2  2  5  5  2  2  5  2  5  5  5  2  5  2  2  2  2
 4  4  4  4  4  1  1  4  4  4  1  4  4  4  4  4  4  4  4  4</pre
         >
-        <p>També escriu una funció anomenada <code class="inline">play(die1: str, die2: str, times: int)</code>, que llança els dos daus tantes vegades com especifica el tercer argument. La funció hauria de retornar una <strong>tupla</strong>. El primer element hauria de ser el nombre de vegades que el dau 1 va guanyar, el segon el nombre de vegades que el dau 2 va guanyar, i el tercer element hauria de ser el nombre d'empats.</p>
-        <pre><code class="language-python">result = play("A", "C", 1000)
-print(result)
-result = play("B", "B", 1000)
-print(result)</code></pre>
+        <p>També escriu una funció anomenada <code class="inline">jugar(dau1: str, dau2: str, cops: int)</code>, que llança els dos daus tantes vegades com especifica el tercer argument. La funció hauria de retornar una <strong>tupla</strong>. El primer element hauria de ser el nombre de vegades que el dau 1 ha guanyat, el segon el nombre de vegades que el dau 2 ha guanyat, i el tercer element hauria de ser el nombre d'empats.</p>
+        <pre><code class="language-python">resultat = jugar("A", "C", 1000)
+print(resultat)
+resultat = jugar("B", "B", 1000)
+print(resultat)</code></pre>
         <pre class="output">
 (292, 708, 0)
 (249, 273, 478)</pre
@@ -225,11 +233,11 @@ print(result)</code></pre>
 
       <div class="exercici">
         <h3>Exercici 5: Paraules aleatòries</h3>
-        <p>La plantilla de l'exercici conté el fitxer <code class="inline">words.txt</code>, que conté algunes paraules en anglès, una per línia.</p>
-        <p>Escriu una funció anomenada <code class="inline">words(n: int, beginning: str)</code>, que retorna una llista que conté <code class="inline">n</code> paraules aleatòries del fitxer <code class="inline">words.txt</code>. Totes les paraules haurien de començar amb la <strong>cadena</strong> especificada pel segon argument.</p>
-        <p>La mateixa paraula no hauria d'aparèixer dues vegades a la llista. Si no hi ha prou paraules que comencin amb la cadena especificada, la funció hauria de llançar una <strong>excepció</strong> <code class="inline">ValueError</code>.</p>
+        <p>L'exercici ha de contenir el fitxer <code class="inline">paraules.txt</code>, que conté algunes paraules en anglès, una per línia.</p>
+        <p>Escriu una funció anomenada <code class="inline">paraules(n: int, principi: str)</code>, que retorna una llista que conté <code class="inline">n</code> paraules aleatòries del fitxer <code class="inline">paraules.txt</code>. Totes les paraules haurien de començar amb la <strong>cadena</strong> especificada pel segon argument.</p>
+        <p>La mateixa paraula no hauria d'aparèixer dues vegades a la llista. Si no hi ha prou paraules que comencin amb la cadena especificada, la funció hauria de llançar un <strong>error</strong> <code class="inline">ValueError</code>.</p>
         <p>Un exemple del funcionament de la funció:</p>
-        <pre><code class="language-python">llista_paraules = words(3, "ca")
+        <pre><code class="language-python">llista_paraules = paraules(3, "ca")
 for paraula in llista_paraules:
     print(paraula)</code></pre>
         <pre class="output">
@@ -241,20 +249,44 @@ carbon</pre
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li>
+            <strong>Mòdul <code class="inline">random</code></strong
+            >: conjunt de funcions per generar valors aleatoris en Python.
+          </li>
+          <li>
+            <strong><code class="inline">randint(a, b)</code></strong
+            >: funció que retorna un enter aleatori entre a i b (ambdós inclosos).
+          </li>
+          <li>
+            <strong><code class="inline">shuffle(llista)</code></strong
+            >: funció que barreja els elements d'una llista in situ (modifica la llista original).
+          </li>
+          <li>
+            <strong><code class="inline">choice(seqüència)</code></strong
+            >: funció que retorna un element aleatori d'una seqüència (llista, tupla, etc.).
+          </li>
+          <li>
+            <strong><code class="inline">sample(seqüència, k)</code></strong
+            >: funció que retorna una llista de k elements únics triats aleatòriament de la seqüència.
+          </li>
+          <li>
+            <strong><code class="inline">seed(valor)</code></strong
+            >: funció que inicialitza el generador de nombres aleatoris per obtenir resultats reproducibles.
+          </li>
+          <li><strong>Pseudoaleatorietat</strong>: nombres que semblen aleatoris però es generen mitjançant un algorisme determinista.</li>
         </ul>
       </section>
       <nav class="passar-capitol">
         <ul>
           <li>
-            <a href="">
+            <a href="7_1_Moduls.html">
               <span class="tornar">←</span>
-              <h3>Capítol anterior</h3>
+              <h3>7.1 Mòduls</h3>
             </a>
           </li>
           <li>
-            <a href="">
-              <h3>Següent capítol</h3>
+            <a href="7_3_Time_dates.html">
+              <h3>7.3 Temps i dates</h3>
               <span class="endavant">→</span>
             </a>
           </li>
