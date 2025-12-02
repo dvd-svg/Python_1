@@ -1,0 +1,19 @@
+[
+    {
+        "nom": "Pere Pítons",
+        "edat": 27,
+        "aficions": [
+            "programar",
+            "cuinar"
+        ]
+    },
+    {
+        "nom": "Joan Javanes",
+        "edat": 24,
+        "aficions": [
+            "programar",
+            "escalada",
+            "lectura"
+        ]
+    }
+]

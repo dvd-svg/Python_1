@@ -18,7 +18,11 @@
         <h1>Temps i dates</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+          <li>Treballar amb <strong>dates</strong> i <strong>dates</strong> en el vostre codi</li>
+          <li>
+            Crear objectes <strong><code class="inline">datetime</code></strong>
+          </li>
+          <li>Comparar i calcular <strong>diferències</strong> entre 2 dates o hores</li>
         </ul>
       </section>
       <section id="modul-datetime">
@@ -41,7 +45,7 @@ print(data_personalitzada)</code></pre>
 
         <pre class="output">1952-12-24 00:00:00</pre>
 
-        <p>Per defecte, l'hora s'estableix a mitjanit, ja que no vam donar una hora del dia en l'exemple anterior.</p>
+        <p>Per defecte, l'hora s'estableix a mitjanit, ja que hem donat una hora del dia en l'exemple anterior.</p>
 
         <p>Es poden accedir a diferents <strong>elements</strong> de l'objecte <code class="inline">datetime</code> de la següent manera:</p>
 
@@ -73,7 +77,7 @@ moment2 = datetime(2021, 6, 30, 18, 45) # 30.6.2021 a les 6.45 de la tarda</code
         <pre><code class="language-python">from datetime import datetime
 
 temps_ara = datetime.now()
-revetlla = datetime(2021, 6, 26)
+revetlla = datetime(2026, 6, 23)
 
 if temps_ara < revetlla:
     print("Encara no és la Revetlla")
@@ -89,12 +93,12 @@ elif temps_ara > revetlla:
         <pre><code class="language-python">from datetime import datetime
 
 temps_ara = datetime.now()
-revetlla = datetime(2021, 6, 26)
+revetlla = datetime(2026, 6, 23)
 
 diferencia = revetlla - temps_ara
 print("Falten", diferencia.days, "dies per la Revetlla")</code></pre>
 
-        <pre class="output">Falten -116 dies per la Revetlla</pre>
+        <pre class="output">Falten 116 dies per la Revetlla</pre>
 
         <p>
           <strong>Nota</strong>: el resultat de la resta de <code class="inline">datetime</code> és un <strong>objecte</strong> <code class="inline">timedelta</code>. És menys versàtil que l'objecte <code class="inline">datetime</code>. Per exemple, pots accedir al nombre de dies en un objecte <code class="inline">timedelta</code>, però no al nombre d'anys, ja que la longitud d'un any varia. Un objecte <code class="inline">timedelta</code> conté els <strong>atributs</strong> <code class="inline">days</code>, <code class="inline">seconds</code> i <code class="inline">microseconds</code>. Es
@@ -104,7 +108,7 @@ print("Falten", diferencia.days, "dies per la Revetlla")</code></pre>
         <p>De manera similar, la <strong>suma</strong> està disponible entre objectes <code class="inline">datetime</code> i <code class="inline">timedelta</code>. El resultat serà el <code class="inline">datetime</code> produït quan se suma el nombre especificat de dies (o setmanes, segons, etc.) a un objecte <code class="inline">datetime</code>:</p>
 
         <pre><code class="language-python">from datetime import datetime, timedelta
-revetlla = datetime(2021, 6, 26)
+revetlla = datetime(2026, 6, 23)
 
 una_setmana = timedelta(days=7)
 setmana_posterior = revetlla + una_setmana
@@ -123,54 +127,62 @@ Una setmana després de la Revetlla serà 2021-07-03 00:00:00
         <p>Vegem com funciona una <strong>precisió</strong> més alta:</p>
 
         <pre><code class="language-python">temps_ara = datetime.now()
-mitjanit = datetime(2021, 6, 30)
-diferencia = mitjanit - temps_ara
-print(f"Falten {diferencia.seconds} segons per la mitjanit")</code></pre>
+cap_any = datetime(2027, 12, 31)
+diferencia = cap_any - temps_ara
+print(f"Falten {diferencia.seconds} segons per cap d'any de 2027")</code></pre>
 
-        <pre class="output">Falten 8188 segons per la mitjanit</pre>
+        <pre class="output">Falten 8188 segons per cap d'any de 2027</pre>
 
         <div class="exercici">
-          <h3>Exercici 1: Quants anys tens</h3>
-          <p>Escriu un <strong>programa</strong> que demani a l'usuari la seva data de naixement i després imprimeixi quants anys tenia l'usuari a la vigília del nou mil·lenni. El programa ha de demanar el dia, el mes i l'any per separat i imprimir l'edat en dies. Fes una ullada als exemples següents:</p>
+          <h3>Exercici 1: Vas néixer abans o després de Fortnite?</h3>
+          <p>
+            Escriu un <strong>programa</strong> que demani a l'usuari la seva data de naixement i després indiqui si l'usuari <strong>ja havia nascut</strong> el dia que es va publicar el videojoc <strong>Fortnite</strong>
+            (25 de juliol de 2017). El programa ha de demanar el dia, el mes i l'any per separat i imprimir el resultat. Si l'usuari havia nascut, també haurà de mostrar quants dies tenia en aquella data.
+          </p>
 
           <pre class="output">
 Dia: 10
 Mes: 9
-Any: 1979
-Teníes 7417 dies a la vigília del nou mil·lenni.</pre
+Any: 2000
+Teníes 6166 dies el dia de la publicació de Fortnite.</pre
           >
 
           <pre class="output">
 Dia: 28
 Mes: 3
-Any: 2005
-Encara no havies nascut a la vigília del nou mil·lenni.</pre
+Any: 2018
+Encara no havies nascut el dia de la publicació de Fortnite.</pre
           >
 
           <p>Pots assumir que totes les combinacions dia-mes-any donades com a argument seran dates vàlides. És a dir, no hi haurà una data com el 31 de febrer.</p>
         </div>
 
         <div class="exercici">
-          <h3>Exercici 2: DNI vàlid?</h3>
-          <p>En aquest exercici validaràs Documents Nacionals d'Identitat (DNI).</p>
+          <h3>Exercici 2: Nombre d'identificació vàlid?</h3>
+          <p>En aquest exercici validaràs números de Documents d'Identitat.</p>
 
-          <p>Escriu una <strong>funció</strong> anomenada <code class="inline">es_valid(dni: str)</code>, que retorni <code class="inline">True</code> o <code class="inline">False</code> segons si el DNI donat com a argument és vàlid o no. Els DNIs segueixen el format ddmmyyXyyyz, on ddmmyy conté la data de naixement, X és el marcador de segle, yyy és l'identificador personal i z és un caràcter de control.</p>
+          <p>Escriu una <strong>funció</strong> anomenada <code class="inline">es_valid(identificacio: str)</code>, que retorni <code class="inline">True</code> o <code class="inline">False</code> segons si el nombre d'identificació donat com a argument és vàlid o no. Els nombres d'identificació segueixen el format ddmmyyXyyyz, on ddmmyy conté la data de naixement, X és el marcador de segle, yyy és l'identificador personal i z és un caràcter de control.</p>
 
           <p>El programa ha de comprovar la validesa per aquests tres criteris:</p>
 
-          <p>La primera meitat del codi és una data vàlida i existent en el format ddmmyy.</p>
-          <p>El marcador de segle és + (anys 1800), - (anys 1900) o A (anys 2000).</p>
-          <p>El caràcter de control és vàlid.</p>
-          <p>El caràcter de control es calcula prenent el número de nou dígits creat per la data de naixement i l'identificador personal, dividint aquest per 31 i seleccionant el caràcter a l'índex especificat per la resta de la cadena <code class="inline">0123456789ABCDEFHJKLMNPRSTUVWXY</code>. Per exemple, si la resta era 12, el caràcter de control seria C.</p>
+          <ul>
+            <li><p>La primera meitat del codi és una data vàlida i existent en el format ddmmyy.</p></li>
+            <li><p>El marcador de segle és "+" (anys 1800), "-" (anys 1900) o "A" (anys 2000).</p></li>
+            <li><p>El caràcter de control és vàlid.</p></li>
+          </ul>
+          <p>El caràcter de control es calcula prenent el número de nou dígits creat per la data de naixement i l'identificador personal, dividint aquest per 31 i seleccionant el caràcter a l'índex especificat per la resta de la divisió en la següent cadena <code class="inline">0123456789ABCDEFHJKLMNPRSTUVWXY</code>. Per exemple, si la resta de la divisió és 12, el caràcter de control seria C.</p>
 
-          <p><strong>Nota</strong>! Assegura't de no compartir el teu propi DNI, per exemple en el codi que utilitzes per provar o a través dels canals de suport del curs.</p>
-
-          <p>Aquí tens alguns DNIs vàlids que pots utilitzar per provar:</p>
+          <p>Aquí tens alguns nombres d'identificació vàlids que pots utilitzar per provar:</p>
 
           <pre class="output">
+250111A4867
+120488+246P
+19023AP1959
 230827-906F
-120488+246L
-310823A9877</pre
+301109-1037
+031012-4067
+310823A9877
+461025+3057</pre
           >
         </div>
       </section>
@@ -190,7 +202,7 @@ print(temps_actual.strftime("%d/%m/%Y %H:%M"))</code></pre>
 19/10/2021 09:31</pre
         >
 
-        <p>El <strong>formatatge</strong> de temps utilitza caràcters específics per significar formats específics. La següent és una llista d'alguns d'ells (consulta la documentació de Python per a una llista completa):</p>
+        <p>El <strong>format</strong> de temps utilitza caràcters específics per representar formats específics. La següent és una llista d'alguns d'ells (consulta la documentació de Python per a una llista completa):</p>
 
         <table>
           <tr>
@@ -225,7 +237,7 @@ print(temps_actual.strftime("%d/%m/%Y %H:%M"))</code></pre>
 
         <p>També pots especificar el <strong>delimitador</strong> entre els diferents elements, com es veu als exemples anteriors.</p>
 
-        <p>El formatatge <code class="inline">datetime</code> també funciona en la direcció inversa, en cas que necessitis analitzar un objecte <code class="inline">datetime</code> des d'una cadena donada per l'usuari. El mètode <code class="inline">strptime</code> farà exactament això:</p>
+        <p>El format <code class="inline">datetime</code> també funciona en el sentit invers, en cas que necessitis analitzar un objecte <code class="inline">datetime</code> des d'una cadena donada per l'usuari. El mètode <code class="inline">strptime</code> farà exactament això:</p>
 
         <pre><code class="language-python">from datetime import datetime
 
@@ -244,26 +256,27 @@ Vas néixer en el mil·lenni anterior</pre
 
         <div class="exercici">
           <h3>Exercici 3: Temps de pantalla</h3>
-          <p>Escriu un programa per enregistrar la quantitat de temps que l'usuari ha passat davant d'una pantalla de televisió, ordinador o dispositiu mòbil durant un període de temps específic.</p>
+          <p>Escriu un programa que registri el temps que l’usuari ha passat davant d’una pantalla (televisió, ordinador o dispositiu mòbil) durant un període de dies determinat.</p>
 
-          <p>El programa ha de funcionar de la següent manera:</p>
+          <p>El programa ha de seguir les passes següents:</p>
 
           <pre class="output">
 Nom del fitxer: finals_juny.txt
 Data d'inici: 24.6.2020
 Quants dies: 5
-Si us plau, escriu el temps de pantalla en minuts cada dia (TV ordinador mòbil):
+Si us plau, escriu el temps de pantalla en minuts per a cada dia (TV ordinador mòbil):
 Temps de pantalla 24.06.2020: 60 120 0
 Temps de pantalla 25.06.2020: 0 0 0
 Temps de pantalla 26.06.2020: 180 0 0
 Temps de pantalla 27.06.2020: 25 240 15
 Temps de pantalla 28.06.2020: 45 90 5
-Dades emmagatzemades al fitxer finals_juny.txt</pre
+Dades emmagatzemades al fitxer finals_juny.txt
+  </pre
           >
 
-          <p>L'usuari introduirà cada dia en una línia separada, i les entrades conteniran tres números separats per espais, que representen minuts.</p>
+          <p>L’usuari introduirà una línia per cada dia, amb tres números separats per espais que indiquen els minuts dedicats a TV, ordinador i mòbil.</p>
 
-          <p>Amb l'entrada anterior, el programa ha d'emmagatzemar les dades en un fitxer anomenat <code class="inline">finals_juny.txt</code>. El contingut hauria de tenir aquest aspecte:</p>
+          <p>Amb l’entrada anterior, el programa ha de guardar totes les dades al fitxer amb el nom introduit anteriorment. El contingut del fitxer ha de ser el següent:</p>
 
           <pre class="output">
 Període de temps: 24.06.2020-28.06.2020
@@ -273,14 +286,40 @@ Minuts promig: 156.0
 25.06.2020: 0/0/0
 26.06.2020: 180/0/0
 27.06.2020: 25/240/15
-28.06.2020: 45/90/5</pre
+28.06.2020: 45/90/5
+  </pre
           >
         </div>
       </section>
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li>
+            <strong><code class="inline">datetime</code></strong
+            >: mòdul per treballar amb dates i hores
+          </li>
+          <li>
+            <strong><code class="inline">datetime.now()</code></strong
+            >: data i hora actuals
+          </li>
+          <li>
+            <strong>objecte <code class="inline">datetime</code></strong
+            >: conté data, hora i components individuals
+          </li>
+          <li>
+            <strong><code class="inline">timedelta</code></strong
+            >: diferència entre dates
+          </li>
+          <li>
+            <strong><code class="inline">strftime</code></strong
+            >: formatar dates a text
+          </li>
+          <li>
+            <strong><code class="inline">strptime</code></strong
+            >: convertir text a dates
+          </li>
+          <li><strong>components</strong>: day, month, year, hour, minute, second</li>
+          <li><strong>format</strong>: %d, %m, %Y, %H, %M, %S</li>
         </ul>
       </section>
       <nav class="passar-capitol">

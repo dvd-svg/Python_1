@@ -120,8 +120,8 @@ print(sorteig_setmanal)</code></pre>
         <p>Escriu una <strong>funció</strong> anomenada <code class="inline">nombres_loteria (nombre: int, minim: int, maxim: int)</code>, que genera tants <strong>nombres aleatoris</strong> com especifica el primer argument. Tots els nombres haurien de caure dins dels límits <code class="inline">minim</code> a <code class="inline">maxim</code>. Els nombres s'han d'emmagatzemar en una <strong>llista</strong> i retornar. Els nombres han d'estar en ordre ascendent a la llista retornada.</p>
         <p>Com que es tracta de nombres de loteria, cap nombre ha d'aparèixer dues vegades a la llista.</p>
         <p>Un exemple de com hauria de funcionar la funció:</p>
-        <pre><code class="language-python">for number in nombres_loteria (7, 1, 40):
-    print(number)</code></pre>
+        <pre><code class="language-python">for numero in nombres_loteria (7, 1, 40):
+    print(numero)</code></pre>
         <pre class="output">
 4
 7
@@ -160,7 +160,7 @@ print(randint(1, 100))</code></pre>
         <p>Escriu una funció que creï <strong>contrasenyes</strong> d'una longitud desitjada, formades per caràcters minúsculs de l'a a la z.</p>
         <p>Un exemple de com hauria de funcionar la funció:</p>
         <pre><code class="language-python">for i in range(10):
-    print(generate_password(8))</code></pre>
+    print(generar_contrasenya(8))</code></pre>
         <pre class="output">
 lttehepy
 olsxttjl
@@ -183,7 +183,7 @@ rjkoacib</pre
         <p>Malgrat aquests dos arguments addicionals, la contrasenya hauria de contenir sempre com a mínim una lletra minúscula. Si identifiqueu situacions que puguin conduir a un error del codim <strong>llanceu un error personalitzat</strong>.</p>
         <p>Un exemple de com hauria de funcionar la funció:</p>
         <pre><code class="language-python">for i in range(10):
-    print(generate_strong_password(8, True, True))</code></pre>
+    print(generar_contrasenya_forta(8, True, True))</code></pre>
         <pre class="output">
 2?0n+u31
 u=m4nl94
@@ -233,7 +233,7 @@ print(resultat)</code></pre>
 
       <div class="exercici">
         <h3>Exercici 5: Paraules aleatòries</h3>
-        <p>L'exercici ha de contenir el fitxer <code class="inline">paraules.txt</code>, que conté algunes paraules en anglès, una per línia.</p>
+        <p>L'exercici ha de treballar amb el fitxer <code class="inline">paraules.txt</code>, que conté algunes paraules en anglès, una per línia.</p>
         <p>Escriu una funció anomenada <code class="inline">paraules(n: int, principi: str)</code>, que retorna una llista que conté <code class="inline">n</code> paraules aleatòries del fitxer <code class="inline">paraules.txt</code>. Totes les paraules haurien de començar amb la <strong>cadena</strong> especificada pel segon argument.</p>
         <p>La mateixa paraula no hauria d'aparèixer dues vegades a la llista. Si no hi ha prou paraules que comencin amb la cadena especificada, la funció hauria de llançar un <strong>error</strong> <code class="inline">ValueError</code>.</p>
         <p>Un exemple del funcionament de la funció:</p>
