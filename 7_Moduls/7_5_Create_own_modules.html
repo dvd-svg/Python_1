@@ -18,7 +18,8 @@
         <h1>Creant els nostres mòduls</h1>
         <h2>Objectius d'aprenentatge</h2>
         <ul class="objectius">
-          <li>Objectiu amb <strong>paraules clau</strong></li>
+          <li>Escriure els nostres propis <strong>mòduls</strong></li>
+          <li>Entendre les variables <code class="inline">__name__</code> i <code class="inline">__main__</code></li>
         </ul>
       </section>
       <section id="moduls-propies">
@@ -121,10 +122,7 @@ costa
 
         <p>Com podeu veure a dalt, això no és un bon resultat, perquè el programa que estem intentant escriure es veu alterat pels casos de prova del propi mòdul.</p>
 
-        <p>
-          Per sort, hi ha una solució, i és una que has utilitzat moltes vegades abans en els exercicis d'aquest curs. Només hem de comprovar si el programa s'està executant per si mateix, o si el codi ha estat importat amb una sentència d'importació. Python té una <strong>variable</strong> incorporada <code class="inline">__name__</code>, que conté el nom del programa que s'està executant. Si el programa s'està executant per si mateix, el valor de la variable és <code class="inline">__main__</code>. Si el programa ha estat importat, el valor de la variable és el nom del mòdul importat (en
-          aquest cas, <code class="inline">paraules</code>).
-        </p>
+        <p>Per sort, hi ha una solució. Només hem de comprovar si el programa s'està executant per si mateix, o si el codi ha estat importat amb una sentència d'importació. Python té una <strong>variable</strong> incorporada <code class="inline">__name__</code>, que conté el nom del programa que s'està executant. Si el programa s'està executant per si mateix, el valor de la variable és <code class="inline">__main__</code>. Si el programa ha estat importat, el valor de la variable és el nom del mòdul importat (en aquest cas, <code class="inline">paraules</code>).</p>
 
         <p>Sabent això, podem afegir una sentència <strong>condicional</strong>, que ens permet executar només els casos de prova si el programa s'executa per si mateix. Com podeu veure a sota, l'estructura us resulta familiar:</p>
 
@@ -169,8 +167,6 @@ La
 costa
 6</pre
         >
-
-        <p>En els exercicis d'aquest curs, sempre que se us ha demanat que escriviu funcions, normalment també s'esperava que envoltéssiu els casos de prova en un bloc <code class="inline">if __name__ == "__main__"</code> exactament com el de dalt. Ara ja sabeu per què.</p>
       </section>
 
       <section id="exercici-ajudant-text">
@@ -178,9 +174,9 @@ costa
           <h3>Exercici 1: Ajudant de text</h3>
           <p>Escriu un mòdul anomenat <code class="inline">ajudant_text</code>, que contingui les següents funcions:</p>
 
-          <p>La funció <code class="inline">canviar_cas(text_original: str)</code> crea i retorna una nova versió del paràmetre text. Les lletres minúscules en l'original haurien de ser majúscules, i les lletres majúscules haurien de ser minúscules.</p>
+          <p>La funció <code class="inline">canviar_majuscules(text_original: str)</code> crea i retorna una nova versió del paràmetre text. Les lletres minúscules en l'original haurien de ser majúscules, i les lletres majúscules haurien de ser minúscules.</p>
 
-          <p>La funció <code class="inline">dividir_per_meitat(text_original: str)</code> divideix el paràmetre text per la meitat, i retorna els resultats en una <strong>tupla</strong>. Si l'original té un nombre imparell de caràcters, la primera meitat hauria de ser més curta.</p>
+          <p>La funció <code class="inline">dividir_meitat(text_original: str)</code> divideix el paràmetre text per la meitat, i retorna els resultats en una <strong>tupla</strong>. Si l'original té un nombre senar de caràcters, la primera meitat hauria de ser més curta.</p>
 
           <p>La funció <code class="inline">eliminar_caracters_especials(text_original: str)</code> retorna una nova versió del paràmetre text, amb tots els caràcters especials eliminats. Només es permeten lletres minúscules i majúscules, números i espais en el text retornat.</p>
 
@@ -190,9 +186,9 @@ costa
 
 meu_text = "Hola, com estàs!"
 
-print(ajudant_text.canviar_cas(meu_text))
+print(ajudant_text.canviar_majuscules(meu_text))
 
-p1, p2 = ajudant_text.dividir_per_meitat(meu_text)
+p1, p2 = ajudant_text.dividir_meitat(meu_text)
 
 print(p1)
 print(p2)
@@ -202,8 +198,8 @@ print(m2)</code></pre>
 
           <pre class="output">
 hOLA, COM ESTÀS!
-Hola, com
- estàs!
+Hola, co
+m estàs!
 Això és una prova vejam com va11</pre
           >
         </div>
@@ -211,20 +207,24 @@ Això és una prova vejam com va11</pre
       <section>
         <h2>Conceptes clau</h2>
         <ul>
-          <li><strong>Concepte</strong>: breu explicació amb <strong>paraules clau</strong>.</li>
+          <li><strong>Mòduls propis</strong>: crear fitxers Python reutilitzables per organitzar codi amb <strong>funcions</strong> i <strong>variables</strong>.</li>
+          <li>
+            <strong><code class="inline">__name__</code> i <code class="inline">__main__</code></strong
+            >: variables especials per controlar l'execució del codi i diferenciar entre importació i execució directa amb una <strong>condicional</strong>.
+          </li>
         </ul>
       </section>
       <nav class="passar-capitol">
         <ul>
           <li>
-            <a href="">
+            <a href="7_4_Data_processing.html">
               <span class="tornar">←</span>
-              <h3>Capitol anterior</h3>
+              <h3>7.4 Processament de dades</h3>
             </a>
           </li>
           <li>
-            <a href="">
-              <h3>Següent capítol</h3>
+            <a href="7_6_More_features.html">
+              <h3>7.6 Més opcions</h3>
               <span class="endavant">→</span>
             </a>
           </li>
