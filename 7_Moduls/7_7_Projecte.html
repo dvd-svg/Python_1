@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projecte Final de Python</title>
+    <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+  </head>
+  <body>
+    <div class="fons"></div>
+    <main>
+      <a href="index.html" class="boto-retorn">← Tornar als capítols</a>
+
+      <section id="Projecte">
+        <h1>Projecte Final: Desenvolupem en Python</h1>
+        <h2>Objectiu</h2>
+        <p>Aquest projecte és completament <strong>lliure</strong>: L'objectiu és demostrar tot el que heu après al llarg del curs i, alhora, explorar nous conceptes pel vostre compte.</p>
+        <p>El vostre projecte pot ser una aplicació d'escriptori, un joc de terminal, un gestor de dades, un generador de fitxers, una mini eina, un sistema interactiu... el que vulgueu!</p>
+        <p>Tot i així, hi ha uns requisits mínims que s'han de complir perquè el projecte estigui ben estructurat i utilitzi els conceptes importants treballats.</p>
+      </section>
+      <section>
+        <h2>Requeriments del Projecte</h2>
+
+        <h3>1. Treball amb Fitxers</h3>
+        <p>El vostre projecte ha d'incloure algun tipus de manipulació de fitxers:</p>
+        <ul>
+          <li>Llegir informació d'un fitxer</li>
+          <li>Guardar dades generades pel programa</li>
+          <li>Crear i organitzar fitxers nous</li>
+          <li>Processar dades de text o formats senzills (<code class="inline">csv</code>, <code class="inline">txt</code>, <code class="inline">json</code>)</li>
+        </ul>
+
+        <h3>2. Crear un Mòdul Personalitzat</h3>
+        <p>Heu de crear mínim <strong>un fitxer .py addicional</strong> que contingui funcions del vostre programa. Exemple:</p>
+        <pre><code class="language-python"># utils.py
+
+def sumar(a, b):
+    return a + b</code></pre>
+        <p>El vostre programa principal haurà d'importar aquest mòdul amb:</p>
+        <pre><code class="language-python">from utils import sumar</code></pre>
+
+        <h3>3. Aprendre un Mòdul Nou</h3>
+        <p>Heu de triar un mòdul de Python. Algunes idees:</p>
+        <ul>
+          <li><strong>random</strong> (aleatorietat avançada)</li>
+          <li><strong>datetime</strong> (dates i hores)</li>
+          <li><strong>json</strong> (dades estructurades)</li>
+          <li><strong>os</strong> (gestió de carpetes i sistema)</li>
+          <li><strong>statistics</strong> (càlcul estadístic)</li>
+          <li><strong>turtle</strong> (gràfics simples)</li>
+          <li><strong>altres</strong> investigueu i utilitzeu altres mòduls</li>
+        </ul>
+        <p>També podeu investigar algun mòdul extern senzill (instalable amb pip), però no és obligatori.</p>
+
+      <section>
+        <h2>Propostes d'Idees (Opcional)</h2>
+        <p>Si no sabeu per on començar, aquí teniu algunes inspiracions:</p>
+        <ul>
+          <li>Un <strong>gestor de tasques</strong> que guardi la informació en un fitxer</li>
+          <li>Un <strong>creador de personatges d'un joc de rol</strong> amb dades guardades en JSON</li>
+          <li>Un <strong>joc de preguntes</strong> on les preguntes es llegeixen d'un fitxer</li>
+          <li>Un <strong>simulador</strong> (ecosistema, botiga, economia simple...)</li>
+          <li>Un joc de <strong>3 en ratlla</strong></li>
+          <li>Un <strong>programa d'estadístiques</strong> que analitzi dades d'un fitxer</li>
+          <li>Un generador de <strong>sudoku's</strong> que generi fitxers amb sudokus per resoldre</li>
+
+        </ul>
+      </section>
+
+      <nav class="passar-capitol">
+        <ul>
+          <li>
+            <a href="7_6_More_features.html">
+              <span class="tornar">←</span>
+              <h3>7.6 Més opcions</h3>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <h3>Final de Tema</h3>
+              <span class="endavant"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>
